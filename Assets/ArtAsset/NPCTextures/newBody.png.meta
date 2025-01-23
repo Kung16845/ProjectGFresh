@@ -1,0 +1,1183 @@
+fileFormatVersion: 2
+guid: 773f2aaa69a5ec34fa54714830f24b8f
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 259
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Body1_1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 812
+        width: 104
+        height: 184
+      alignment: 9
+      pivot: {x: 0.51303095, y: 0.05808225}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fe2dde440975c345ac6946292961658
+      internalID: 833608094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Body1_2
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 812
+        width: 104
+        height: 184
+      alignment: 9
+      pivot: {x: 0.4999997, y: 0.0507169}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0779b839ff077c84490243bfb44292a3
+      internalID: -1578173984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Body1_3
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 812
+        width: 105
+        height: 184
+      alignment: 9
+      pivot: {x: 0.53872013, y: 0.0654476}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a577c9667330f94f926996acdb78e81
+      internalID: 233736668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rightArmShoulderBase
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 931
+        width: 93
+        height: 63
+      alignment: 9
+      pivot: {x: 0.21505377, y: 0.6825397}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95f0fef275999864fb47f7d2719b5cb3
+      internalID: -284226810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rightArmHandBase
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 931
+        width: 137
+        height: 47
+      alignment: 9
+      pivot: {x: 0.13138686, y: 0.48936167}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d23bf32dd16e6e24196ae382f2e3bf4c
+      internalID: -1420930562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: leftArmShoulderBase
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 863
+        width: 93
+        height: 62
+      alignment: 9
+      pivot: {x: 0.21505377, y: 0.6935484}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e28fd301c3e52b4d85eae3c48501080
+      internalID: 1180007972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: leftArmHandBase
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 862
+        width: 136
+        height: 47
+      alignment: 9
+      pivot: {x: 0.13235295, y: 0.4893617}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 026feb02d90a3624daf7c5bee0e7f32f
+      internalID: -1168578390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Body2_1
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 610
+        width: 108
+        height: 184
+      alignment: 9
+      pivot: {x: 0.5125482, y: 0.0654476}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5968081f504972469707a50414a6874
+      internalID: 861081932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Body2_2
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 610
+        width: 106
+        height: 184
+      alignment: 9
+      pivot: {x: 0.5255697, y: 0.05071723}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e454c153fdb6cdd4cb816b9e3281081e
+      internalID: -1354423114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Body2_3
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 610
+        width: 106
+        height: 184
+      alignment: 9
+      pivot: {x: 0.5255703, y: 0.05808225}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a7b2ae82cfe48e42aa3ddd541c1ff16
+      internalID: -709278440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rightArmShoulder1_1
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 791
+        width: 93
+        height: 62
+      alignment: 9
+      pivot: {x: 0.21505377, y: 0.6935484}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6098a37446c185f4d879e782718f0efe
+      internalID: -1333054604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rightArmHand1_1
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 790
+        width: 137
+        height: 47
+      alignment: 9
+      pivot: {x: 0.13138686, y: 0.4893617}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23250ca7e6d37454e821294386a5e11b
+      internalID: -859013318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: leftArmShoulder1_1
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 722
+        width: 93
+        height: 62
+      alignment: 9
+      pivot: {x: 0.21505377, y: 0.6935484}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81672b47a0ca6cc4d8750be76411ff6b
+      internalID: 496776349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: leftArmHand1_1
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 721
+        width: 136
+        height: 48
+      alignment: 9
+      pivot: {x: 0.13235295, y: 0.47916666}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 274a053ed1ecfb94e810aa00fd063504
+      internalID: 1175386622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rightArmShoulder1_2
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 643
+        width: 93
+        height: 63
+      alignment: 9
+      pivot: {x: 0.21505377, y: 0.6825397}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 692191c666b7d8e45a252bd02b0ad406
+      internalID: 41703723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rightArmHand1_2
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 643
+        width: 137
+        height: 47
+      alignment: 9
+      pivot: {x: 0.13138686, y: 0.4893617}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce33f92061e138f44b4efbc6cca65950
+      internalID: 1692866450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Body3_1
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 408
+        width: 104
+        height: 184
+      alignment: 9
+      pivot: {x: 0.5260619, y: 0.043351714}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bcc75d5d8dcc1f4eb0c591ef01ad15c
+      internalID: -1413879380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Body3_2
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 408
+        width: 105
+        height: 184
+      alignment: 9
+      pivot: {x: 0.5258135, y: 0.050717063}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64948dff5bc1f0f48a2d4e1c12c7ee79
+      internalID: 103008074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Body3-3
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 408
+        width: 105
+        height: 184
+      alignment: 9
+      pivot: {x: 0.5, y: 0.050717063}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cf7cedb16d50b0438a8c9106422cbe9
+      internalID: 218775617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: leftArmShoulder1_2
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 575
+        width: 93
+        height: 62
+      alignment: 9
+      pivot: {x: 0.21505377, y: 0.6935484}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b03206964b69d6049b2759db1ac89d7e
+      internalID: -1239678673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: leftArmHand1_2
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 574
+        width: 136
+        height: 48
+      alignment: 9
+      pivot: {x: 0.13235295, y: 0.47916666}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 258429a791daba74ca31a0098680e662
+      internalID: 339899287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rightArmShoulder1_3
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 499
+        width: 93
+        height: 63
+      alignment: 9
+      pivot: {x: 0.21505377, y: 0.6825397}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea38314f5eddebd489a36d232e71686a
+      internalID: 1669329953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rightArmHand1_3
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 499
+        width: 137
+        height: 47
+      alignment: 9
+      pivot: {x: 0.13138686, y: 0.4893617}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a93534a3df98dd14b869087bde84b222
+      internalID: -676936795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: leftArmShoulder1_3
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 431
+        width: 93
+        height: 62
+      alignment: 9
+      pivot: {x: 0.21505377, y: 0.6935484}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f3ff320621e3d740855def1283a5396
+      internalID: -966632816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: leftArmHand1_3
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 430
+        width: 136
+        height: 48
+      alignment: 9
+      pivot: {x: 0.13235295, y: 0.47916666}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a796d78febe9aa4b8510e0ca944fefe
+      internalID: -1477485334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Body4_1
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 209
+        width: 103
+        height: 166
+      alignment: 9
+      pivot: {x: 0.5131576, y: 0.050983474}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6722cb6565ef0b242849b85a9b7866c8
+      internalID: 1737253435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Body4_2
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 209
+        width: 103
+        height: 166
+      alignment: 9
+      pivot: {x: 0.5059945, y: 0.053567816}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bedbbddb37a6b5479018622df30a3a4
+      internalID: -861448724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Body4_3
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 209
+        width: 103
+        height: 166
+      alignment: 9
+      pivot: {x: 0.51315695, y: 0.0517079}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9af78084f1843c2438869c573f81f308
+      internalID: 1181846910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rightArmShoulder1_4
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 355
+        width: 93
+        height: 63
+      alignment: 9
+      pivot: {x: 0.21505377, y: 0.6825397}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 216c7adde7d1d8b45aaaf2b33d681f0f
+      internalID: 1701903614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rightArmHand1_4
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 355
+        width: 137
+        height: 47
+      alignment: 9
+      pivot: {x: 0.13138686, y: 0.4893617}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86829fa6aa1e39947853ea1a47ef84f5
+      internalID: -589602515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: leftArmShoulder1_4
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 287
+        width: 93
+        height: 62
+      alignment: 9
+      pivot: {x: 0.21505377, y: 0.6935484}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 763dbfc3d3dc31343a9784d095f1659d
+      internalID: 1911753552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: leftArmHand1_4
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 286
+        width: 136
+        height: 48
+      alignment: 9
+      pivot: {x: 0.13235295, y: 0.47916666}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b9c8bdbe1113784d82b598eb0de3371
+      internalID: -687047287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rightArmShoulder1_5
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 215
+        width: 93
+        height: 63
+      alignment: 9
+      pivot: {x: 0.21505377, y: 0.6825397}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be1a65a175d906543921fa2488b1d231
+      internalID: 1353955271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rightArmHand1_5
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 211
+        width: 137
+        height: 55
+      alignment: 9
+      pivot: {x: 0.13138686, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bb3178609a38ce4cba6ba8aba487aa7
+      internalID: 1514397487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rightArmShoulder1_8
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 115
+        width: 93
+        height: 62
+      alignment: 9
+      pivot: {x: 0.21505377, y: 0.6935484}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 377156fad75670d4694dc4c4007d2479
+      internalID: 358274852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rightArmHand1_8
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 110
+        width: 137
+        height: 55
+      alignment: 9
+      pivot: {x: 0.13138686, y: 0.5090909}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6406fd8c93f58c46bf35f5dd51890fe
+      internalID: 2046654083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rightArmShoulder1_7
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 115
+        width: 93
+        height: 62
+      alignment: 9
+      pivot: {x: 0.21505377, y: 0.6935484}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a15fb848a61c6a4d8bc6641a2aaf8b9
+      internalID: 735999150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rightArmHand1_7
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 110
+        width: 137
+        height: 55
+      alignment: 9
+      pivot: {x: 0.13138686, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d9c1888d7e680040a8c78a604f1b5b3
+      internalID: -1219019967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: leftArmShoulder1_5
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 147
+        width: 93
+        height: 62
+      alignment: 9
+      pivot: {x: 0.21505377, y: 0.6935484}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7e4c966df785ce448f6f465e0b436c9
+      internalID: -996173739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: leftArmHand1_5
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 141
+        width: 136
+        height: 56
+      alignment: 9
+      pivot: {x: 0.13235295, y: 0.49107143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9dec638eff9a5f4da7b4c74596cbb7c
+      internalID: 1920049828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: leftArmShoulder1_8
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 46
+        width: 93
+        height: 62
+      alignment: 9
+      pivot: {x: 0.21505377, y: 0.6935484}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fcb24bb46cd7894db90abe056408cf4
+      internalID: -1643190518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: leftArmHand1_8
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 39
+        width: 136
+        height: 56
+      alignment: 9
+      pivot: {x: 0.13235295, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a8b691f97675bf4dbe0d472c1a5ca74
+      internalID: 2144109137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: leftArmShoulder1_7
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 46
+        width: 93
+        height: 62
+      alignment: 9
+      pivot: {x: 0.21505377, y: 0.6935484}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3550e3689af44b44817a9c7480fd201
+      internalID: 1409812612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: leftArmHand1_7
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 39
+        width: 136
+        height: 56
+      alignment: 9
+      pivot: {x: 0.13235295, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f002a96990d28de4bad5e8d7bb3c00c0
+      internalID: 36152430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rightArmShoulder1_6
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 80
+        width: 93
+        height: 62
+      alignment: 9
+      pivot: {x: 0.21505377, y: 0.6935484}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd6f80e372f5c4d4ba0fbe91536cfa57
+      internalID: 183725366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rightArmHand1_6
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 74
+        width: 137
+        height: 55
+      alignment: 9
+      pivot: {x: 0.13138686, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9d2441c007d13942aaedd2395b30934
+      internalID: 1320907138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: leftArmShoulder1_6
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 10
+        width: 93
+        height: 62
+      alignment: 9
+      pivot: {x: 0.21505377, y: 0.6935484}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcaddd3c87a74544ba413c90e22c8631
+      internalID: -1645625394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: leftArmHand1_6
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 3
+        width: 136
+        height: 56
+      alignment: 9
+      pivot: {x: 0.13235295, y: 0.49107143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 789d981798eb79a43a9129a4031eaa77
+      internalID: -1995837243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Body1_1: 833608094
+      Body1_2: -1578173984
+      Body1_3: 233736668
+      Body2_1: 861081932
+      Body2_2: -1354423114
+      Body2_3: -709278440
+      Body3-3: 218775617
+      Body3_1: -1413879380
+      Body3_2: 103008074
+      Body4_1: 1737253435
+      Body4_2: -861448724
+      Body4_3: 1181846910
+      leftArmHand1_1: 1175386622
+      leftArmHand1_2: 339899287
+      leftArmHand1_3: -1477485334
+      leftArmHand1_4: -687047287
+      leftArmHand1_5: 1920049828
+      leftArmHand1_6: -1995837243
+      leftArmHand1_7: 36152430
+      leftArmHand1_8: 2144109137
+      leftArmHandBase: -1168578390
+      leftArmShoulder1_1: 496776349
+      leftArmShoulder1_2: -1239678673
+      leftArmShoulder1_3: -966632816
+      leftArmShoulder1_4: 1911753552
+      leftArmShoulder1_5: -996173739
+      leftArmShoulder1_6: -1645625394
+      leftArmShoulder1_7: 1409812612
+      leftArmShoulder1_8: -1643190518
+      leftArmShoulderBase: 1180007972
+      rightArmHand1_1: -859013318
+      rightArmHand1_2: 1692866450
+      rightArmHand1_3: -676936795
+      rightArmHand1_4: -589602515
+      rightArmHand1_5: 1514397487
+      rightArmHand1_6: 1320907138
+      rightArmHand1_7: -1219019967
+      rightArmHand1_8: 2046654083
+      rightArmHandBase: -1420930562
+      rightArmShoulder1_1: -1333054604
+      rightArmShoulder1_2: 41703723
+      rightArmShoulder1_3: 1669329953
+      rightArmShoulder1_4: 1701903614
+      rightArmShoulder1_5: 1353955271
+      rightArmShoulder1_6: 183725366
+      rightArmShoulder1_7: 735999150
+      rightArmShoulder1_8: 358274852
+      rightArmShoulderBase: -284226810
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

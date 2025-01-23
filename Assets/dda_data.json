@@ -1,0 +1,28 @@
+{
+    "records": [
+        {
+            "killPerMinute": 65.81961822509766,
+            "accuracy": 90.0,
+            "multiKillCount": 35.0,
+            "barrierDamage": 0.0,
+            "valueFail": 0.0,
+            "recordCount": 1
+        },
+        {
+            "killPerMinute": 49.90225601196289,
+            "accuracy": 87.02127838134766,
+            "multiKillCount": 8.0,
+            "barrierDamage": 5715.0,
+            "valueFail": 1.0,
+            "recordCount": 2
+        }
+    ],
+    "averageData": {
+        "killPerMinute": 57.860939025878909,
+        "accuracy": 88.51063537597656,
+        "multiKillCount": 21.5,
+        "barrierDamage": 2857.5,
+        "valueFail": 1.0,
+        "recordCount": 2
+    }
+}

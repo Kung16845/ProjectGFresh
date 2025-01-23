@@ -1,0 +1,584 @@
+fileFormatVersion: 2
+guid: 82049b1b4ecd56146a7ec08c999c86a1
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: grenade_explode_sprite_0
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 2297
+        width: 359
+        height: 171
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dadb2af9268cfdc4f9673f00a6981d6e
+      internalID: 672393754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade_explode_sprite_2
+      rect:
+        serializedVersion: 2
+        x: 1573
+        y: 2286
+        width: 484
+        height: 331
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67aa47a8b5d9db64582545d82db544f4
+      internalID: 2011242182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade_explode_sprite_3
+      rect:
+        serializedVersion: 2
+        x: 2257
+        y: 2310
+        width: 654
+        height: 475
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abace8c66ffe58b41a67fe507cdff019
+      internalID: 742668886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade_explode_sprite_5
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 2290
+        width: 155
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e1a7a56cb062f94bb2a84ea2a815594
+      internalID: 1953449410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade_explode_sprite_12
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 1733
+        width: 370
+        height: 249
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee5266b6b5905904380be655dfb56a90
+      internalID: -1546681569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade_explode_sprite_13
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 1733
+        width: 418
+        height: 284
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8bb32230a8050a4ca7115fbc01f5584
+      internalID: -87925102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade_explode_sprite_15
+      rect:
+        serializedVersion: 2
+        x: 1508
+        y: 1724
+        width: 606
+        height: 441
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91f1547c2ba97b24db217e1cbb52229a
+      internalID: 751270149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade_explode_sprite_16
+      rect:
+        serializedVersion: 2
+        x: 2252
+        y: 1750
+        width: 665
+        height: 475
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca7d51b94e284914b81539208002ed9a
+      internalID: -122064161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade_explode_sprite_20
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 1161
+        width: 629
+        height: 486
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a310aa47e5b64e448ba34482149b05b9
+      internalID: -1567702411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade_explode_sprite_21
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 1162
+        width: 677
+        height: 499
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb7e7be7e20c04c4881200570667d016
+      internalID: 322515569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade_explode_sprite_22
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 1171
+        width: 631
+        height: 494
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44b3be533f37b21458ef1ea7dc005810
+      internalID: 947310219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade_explode_sprite_24
+      rect:
+        serializedVersion: 2
+        x: 2228
+        y: 1195
+        width: 720
+        height: 457
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc75368c643c2f54d99487698e78d2e1
+      internalID: -530075360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade_explode_sprite_28
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 635
+        width: 693
+        height: 457
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9c857fa284fd64448ba9d0df275da8b
+      internalID: 1124337846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade_explode_sprite_29
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 635
+        width: 623
+        height: 450
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82b318b60704b0a4d8b53b52d393cd4e
+      internalID: -18106836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade_explode_sprite_30
+      rect:
+        serializedVersion: 2
+        x: 1528
+        y: 635
+        width: 625
+        height: 450
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 046ac6a5134717243b6942b83b831f05
+      internalID: 1838355077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade_explode_sprite_31
+      rect:
+        serializedVersion: 2
+        x: 2323
+        y: 633
+        width: 513
+        height: 466
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b6ff2788198fa44b8c08a9f9df7e5af
+      internalID: 1359378454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade_explode_sprite_33
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 73
+        width: 513
+        height: 466
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 163248ba61f4ab54eac960f7b1ac8209
+      internalID: 639693894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade_explode_sprite_34
+      rect:
+        serializedVersion: 2
+        x: 845
+        y: 74
+        width: 518
+        height: 460
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 088d585cebca7534faa9bee1e3eed73e
+      internalID: -1550677429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade_explode_sprite_35
+      rect:
+        serializedVersion: 2
+        x: 1585
+        y: 74
+        width: 519
+        height: 460
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1f1261d36716234dae789517b8a78a7
+      internalID: -2044917337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade_explode_sprite_36
+      rect:
+        serializedVersion: 2
+        x: 2325
+        y: 74
+        width: 519
+        height: 460
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: febfcd21f00c5074cac08cee621d7bff
+      internalID: 616347382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      grenade_explode_sprite_0: 672393754
+      grenade_explode_sprite_1: 489632934
+      grenade_explode_sprite_10: 1021530630
+      grenade_explode_sprite_11: -44096175
+      grenade_explode_sprite_12: -1546681569
+      grenade_explode_sprite_13: -87925102
+      grenade_explode_sprite_14: -1603472193
+      grenade_explode_sprite_15: 751270149
+      grenade_explode_sprite_16: -122064161
+      grenade_explode_sprite_17: -727943638
+      grenade_explode_sprite_18: -686442616
+      grenade_explode_sprite_19: 1678404132
+      grenade_explode_sprite_2: 2011242182
+      grenade_explode_sprite_20: -1567702411
+      grenade_explode_sprite_21: 322515569
+      grenade_explode_sprite_22: 947310219
+      grenade_explode_sprite_23: -413268922
+      grenade_explode_sprite_24: -530075360
+      grenade_explode_sprite_25: 131234848
+      grenade_explode_sprite_26: 505092506
+      grenade_explode_sprite_27: -1705033262
+      grenade_explode_sprite_28: 1124337846
+      grenade_explode_sprite_29: -18106836
+      grenade_explode_sprite_3: 742668886
+      grenade_explode_sprite_30: 1838355077
+      grenade_explode_sprite_31: 1359378454
+      grenade_explode_sprite_32: 410509071
+      grenade_explode_sprite_33: 639693894
+      grenade_explode_sprite_34: -1550677429
+      grenade_explode_sprite_35: -2044917337
+      grenade_explode_sprite_36: 616347382
+      grenade_explode_sprite_4: 2085820664
+      grenade_explode_sprite_5: 1953449410
+      grenade_explode_sprite_6: -1765592657
+      grenade_explode_sprite_7: 1784493653
+      grenade_explode_sprite_8: -200890408
+      grenade_explode_sprite_9: 1134952844
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

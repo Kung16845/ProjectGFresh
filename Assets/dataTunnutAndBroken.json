@@ -1,0 +1,13 @@
+{
+    "sattleliteOnline": false,
+    "reconActiveSattlelite": false,
+    "recondurationSattlelite": 0,
+    "supplyDropActive": false,
+    "supplyDropCountdownSattlelite": 0,
+    "isRepireSattlelite": false,
+    "listsupplyDropItemsSattlelite": [],
+    "finishDayBuildingSattleliteTime": 6,
+    "tuneelIsopen": false,
+    "isclearingTuneel": false,
+    "finishDayBuildingTunnutTime": 5
+}

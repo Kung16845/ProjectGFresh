@@ -1,0 +1,656 @@
+fileFormatVersion: 2
+guid: ba1ce7c6568e40a4f975ad4b1744656d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sprites_pistol_shoot_0
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 1750
+        width: 322
+        height: 525
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edb8b480b7a2619469d5d8b927d38660
+      internalID: -636595151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_pistol_shoot_1
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 1754
+        width: 321
+        height: 523
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70736c1521a575c4b8e1c8643ee3f43f
+      internalID: -1908127035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_pistol_shoot_3
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 1756
+        width: 271
+        height: 524
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f815fe3743aab104986fba90ae5e457b
+      internalID: -1884353680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_pistol_shoot_4
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 1754
+        width: 273
+        height: 524
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da4ade6aea5403946b9b27c275cdab46
+      internalID: 345939198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_pistol_shoot_5
+      rect:
+        serializedVersion: 2
+        x: 1577
+        y: 1756
+        width: 275
+        height: 524
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cda83187fecf8164f8eb5f631a16acaa
+      internalID: 1578110825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_pistol_shoot_6
+      rect:
+        serializedVersion: 2
+        x: 1957
+        y: 1751
+        width: 278
+        height: 526
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2315b3d2ea17a744d90418c3a1b4d311
+      internalID: 1874986031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_pistol_shoot_7
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 1180
+        width: 279
+        height: 525
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c444728d054430c4fa70546ee76b8f2a
+      internalID: -73678615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_pistol_shoot_8
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 1176
+        width: 280
+        height: 526
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3f71e8a615db324b957eabb8536e110
+      internalID: -837680790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_pistol_shoot_9
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 1181
+        width: 279
+        height: 524
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 164ae58ec965f4d4bb670e007063ee75
+      internalID: -32333239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_pistol_shoot_10
+      rect:
+        serializedVersion: 2
+        x: 1202
+        y: 1183
+        width: 278
+        height: 524
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad732ae768b9adb4aae57892f8fcad37
+      internalID: -31285287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_pistol_shoot_11
+      rect:
+        serializedVersion: 2
+        x: 1578
+        y: 1180
+        width: 278
+        height: 524
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 767194116d4911e439debcbfb60a10a4
+      internalID: -153966407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_pistol_shoot_12
+      rect:
+        serializedVersion: 2
+        x: 1966
+        y: 1180
+        width: 278
+        height: 524
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ba2b6ddf6dd585478d096eb43637909
+      internalID: -1119762429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_pistol_shoot_13
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 603
+        width: 277
+        height: 523
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fe250016083b494ca0f26e6ed170e2a
+      internalID: -1700768460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_pistol_shoot_14
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 604
+        width: 277
+        height: 523
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65d39628b9d6ce9499c0c9b440bfd5ed
+      internalID: -1337318852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_pistol_shoot_15
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 605
+        width: 278
+        height: 523
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b1bbd46abad5b34997a86157d903cca
+      internalID: -794807091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_pistol_shoot_16
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 608
+        width: 277
+        height: 523
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d5de1f51de304f498702fe6fec2a99d
+      internalID: 1278393261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_pistol_shoot_17
+      rect:
+        serializedVersion: 2
+        x: 1583
+        y: 609
+        width: 277
+        height: 523
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cf09e8f315ee8e42843b798290766d3
+      internalID: 2081560877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_pistol_shoot_18
+      rect:
+        serializedVersion: 2
+        x: 1965
+        y: 612
+        width: 277
+        height: 523
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ffb7e63c3458bc43a8549ac5232b6d3
+      internalID: 399723251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_pistol_shoot_19
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 34
+        width: 277
+        height: 523
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 095b8fefa7298fe439ba039ac2aeb0e8
+      internalID: -19486639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_pistol_shoot_20
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 34
+        width: 277
+        height: 525
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 474e781c677c04f4faca6f86b141e4cf
+      internalID: -162483302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_pistol_shoot_21
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 38
+        width: 278
+        height: 523
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73fd6ff970493c24a8329a21f6f577b0
+      internalID: 1017143345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_pistol_shoot_22
+      rect:
+        serializedVersion: 2
+        x: 1202
+        y: 34
+        width: 278
+        height: 525
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d0385084cf87eb4fba27818408879a2
+      internalID: 744514600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_pistol_shoot_23
+      rect:
+        serializedVersion: 2
+        x: 1587
+        y: 28
+        width: 278
+        height: 523
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c3da44439b1cc4449bd765ec21fa95f
+      internalID: 576172256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_pistol_shoot_24
+      rect:
+        serializedVersion: 2
+        x: 1969
+        y: 29
+        width: 279
+        height: 523
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 690654aa4762f6b4a897037c34903356
+      internalID: -2024878325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      sprites_pistol_shoot_0: -636595151
+      sprites_pistol_shoot_1: -1908127035
+      sprites_pistol_shoot_10: -31285287
+      sprites_pistol_shoot_11: -153966407
+      sprites_pistol_shoot_12: -1119762429
+      sprites_pistol_shoot_13: -1700768460
+      sprites_pistol_shoot_14: -1337318852
+      sprites_pistol_shoot_15: -794807091
+      sprites_pistol_shoot_16: 1278393261
+      sprites_pistol_shoot_17: 2081560877
+      sprites_pistol_shoot_18: 399723251
+      sprites_pistol_shoot_19: -19486639
+      sprites_pistol_shoot_2: 1032617770
+      sprites_pistol_shoot_20: -162483302
+      sprites_pistol_shoot_21: 1017143345
+      sprites_pistol_shoot_22: 744514600
+      sprites_pistol_shoot_23: 576172256
+      sprites_pistol_shoot_24: -2024878325
+      sprites_pistol_shoot_3: -1884353680
+      sprites_pistol_shoot_4: 345939198
+      sprites_pistol_shoot_5: 1578110825
+      sprites_pistol_shoot_6: 1874986031
+      sprites_pistol_shoot_7: -73678615
+      sprites_pistol_shoot_8: -837680790
+      sprites_pistol_shoot_9: -32333239
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

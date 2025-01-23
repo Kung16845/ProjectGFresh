@@ -1,0 +1,1557 @@
+fileFormatVersion: 2
+guid: 81f45c767951d214ca9fbb1ec1a78bf6
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 1752
+        width: 278
+        height: 510
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3244036475c2ea14b97328d85e460715
+      internalID: -162728534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 1746
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc0909dd378d5a64b9721d8752908758
+      internalID: -1197699954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 1741
+        width: 278
+        height: 511
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3bb67e0b7e885444bfb20b41ebb11e9
+      internalID: -328174835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 1749
+        width: 276
+        height: 509
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfb14efe7031d4846862d0daa7b30c03
+      internalID: 1872240954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 1284
+        y: 1740
+        width: 273
+        height: 515
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e5989cfd78b29e4a923b12a4fa7cc87
+      internalID: -1238496909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 1745
+        width: 273
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91f3e8464d02d9148901e42745228f0d
+      internalID: -269207851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 1939
+        y: 1723
+        width: 273
+        height: 508
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fb38b67c72fbe84dac279327dcd906c
+      internalID: -1487736804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 1742
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1fca3ef8aed1fc479d233c1ba0f1aa5
+      internalID: -1337995574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 1738
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebdd2724ec25001408956e4221791c14
+      internalID: 401947194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 1658
+        y: 1740
+        width: 5
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b193dca00d5d2b45bf17a61d7bb1b90
+      internalID: -1474442155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 1746
+        y: 1747
+        width: 11
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ae355c45ac40144e9dda90309781bd9
+      internalID: 1980261901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 1229
+        width: 272
+        height: 508
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45d9950606e25244b8d3afbd82ae6f5d
+      internalID: 566799995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 1736
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0eafc5b98a9f8648be9e6bd862dc20c
+      internalID: 1565651453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 1216
+        width: 271
+        height: 511
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3228aeee98a521c428e7a8a84cd6942c
+      internalID: 745029792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 1595
+        y: 1210
+        width: 297
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eda3e1e7544a504e8d0d16a7be2e7a1
+      internalID: 147461548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 1965
+        y: 1716
+        width: 5
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49bc96bdb8c6aa5419edf58ac1ac13f0
+      internalID: -1636128586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 2052
+        y: 1717
+        width: 12
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3189baa8ea073347aa6fa1d07b18be4
+      internalID: -454683540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 1223
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ffced7624e11214aa9ccdcc97735054
+      internalID: -855713402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 1205
+        width: 6
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b366e60d4e842e49b881bef5f275def
+      internalID: -791911872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 1197
+        width: 278
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67baf2a747f4bd94983e47cd40bbe193
+      internalID: 1886555531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 1257
+        y: 1197
+        width: 289
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 804f742c9a153074ab16458962e01793
+      internalID: 660007469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 1591
+        y: 1221
+        width: 5
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72b5b60871726b3438fd41c7593daf08
+      internalID: -1650912026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 1908
+        y: 1173
+        width: 297
+        height: 513
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78f44096f4eb6f6448e8ffbce4b46227
+      internalID: -1819819314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 1218
+        width: 15
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a97dba581b08114d9df8751763eb260
+      internalID: 89534275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 1253
+        y: 1208
+        width: 5
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e0185245342b0d4188df25a3c81e91a
+      internalID: 241749977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 1203
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5910cea4d3bfd54a97b92a05015b24d
+      internalID: 815394418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 1207
+        width: 5
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54d8613cc1919a448aa6d21f92351fa5
+      internalID: -928619596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 1190
+        width: 12
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7530fadda15db9f43b4ce0617b78d96b
+      internalID: 1505709313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 1674
+        y: 1194
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e0f5fd2fdd6f5943acf5c62547ccc8d
+      internalID: -1595416801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 1901
+        y: 1187
+        width: 4
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f02f9f58a2a10f14d922cdec173b39a9
+      internalID: 2066802137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 1337
+        y: 1185
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e379a10bae7ee084cb5e63d4ac299ce7
+      internalID: 168560298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 655
+        width: 304
+        height: 514
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 468a8f848078de04f989a84778e6d7bf
+      internalID: -1085874864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 650
+        width: 291
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94666f77a6c80da4a8426ac5f4e3cf74
+      internalID: 260610250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 1982
+        y: 1157
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 972ed792e02cd9844a271420cafada0e
+      internalID: -1986876893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 670
+        width: 5
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85237877ec91767498054854578d4205
+      internalID: 1652299966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 638
+        width: 293
+        height: 514
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 507d6f579d6d0214e95ff8f6060187ec
+      internalID: 1428950286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 662
+        width: 5
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f06667ee8359d644297dd612e17bc189
+      internalID: 183123415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 634
+        width: 290
+        height: 510
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66edb892a56effd45b7404adbd906ac5
+      internalID: -1909230010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 1569
+        y: 642
+        width: 287
+        height: 509
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98141d48d2907f241afcb37b63cb073e
+      internalID: -390815821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 1935
+        y: 622
+        width: 279
+        height: 507
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deabbf5dadccff94396b504a4bf06e8c
+      internalID: 106014048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 652
+        width: 5
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1424b5a3faf196c41936cf7a6592c6e2
+      internalID: -405599815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 1241
+        y: 643
+        width: 4
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c6c38473143ced47b211e39f687da6f
+      internalID: 1616672371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 1562
+        y: 649
+        width: 4
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81b73271e83bbd0408f4916dedcca9fe
+      internalID: 776217720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 640
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c088f45922f69214fa0fdc1a7d70118a
+      internalID: 977841954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 633
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c97b7985ac6e2304f8f850cb61ce0fa3
+      internalID: -125988485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_45
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 623
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 272467c8e1891fb4ca9a17886317b136
+      internalID: 592703870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_46
+      rect:
+        serializedVersion: 2
+        x: 1645
+        y: 625
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d28cd209d7a822438fce0d0cce49541
+      internalID: 790396345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_47
+      rect:
+        serializedVersion: 2
+        x: 1925
+        y: 627
+        width: 4
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ee02204ad2d9bc4782d796b4aca7be2
+      internalID: -1722621867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_48
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 617
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f043e6b1a16506445872d0d30cda5fa7
+      internalID: -794966208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_49
+      rect:
+        serializedVersion: 2
+        x: 2009
+        y: 606
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1afaa50b624e3614ca67cbe13aed5479
+      internalID: 2075190756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_50
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 95
+        width: 4
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1122cabd3c7ecb46b081fb6b1146b4e
+      internalID: 342630068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_51
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 92
+        width: 275
+        height: 506
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 525ebfb24ec72ac49a7805e2de3f6be9
+      internalID: -1409477339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_52
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 99
+        width: 5
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56ec2c34471d3f34d8fa547659c183fb
+      internalID: 826591161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_53
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 89
+        width: 273
+        height: 515
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 715e7c95f060875408f54c754811fe0d
+      internalID: 690369088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_54
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 92
+        width: 272
+        height: 507
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06c808e0e8976414f954e9b41c9bf0f3
+      internalID: 2004280884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_55
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 81
+        width: 7
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d48f6dd3c1dd3ce4aa8d278d1c739c1a
+      internalID: -1965319842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_56
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 62
+        width: 273
+        height: 510
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 212191fe9502cbc43853355f1d36e67c
+      internalID: -1050253867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_57
+      rect:
+        serializedVersion: 2
+        x: 1568
+        y: 71
+        width: 274
+        height: 510
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1950d0eed544a2f43ba0f461e9895d7d
+      internalID: -263372663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_58
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 53
+        width: 276
+        height: 514
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2d962379efc7c24086eeb838b6caefa
+      internalID: 1344480571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_59
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 84
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a93836f2b51f360478e797bbae2ea10f
+      internalID: -1404536928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_60
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 84
+        width: 14
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56718212495cafc4c96798e7cef4a9d6
+      internalID: 1088393637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_61
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 76
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43f7955bd7ab87e47bf9e18445e5bc2b
+      internalID: -374771234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_62
+      rect:
+        serializedVersion: 2
+        x: 1613
+        y: 66
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e76af41d27e9b1a47b3dabd315883b6b
+      internalID: 1045576390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_63
+      rect:
+        serializedVersion: 2
+        x: 1287
+        y: 60
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a2ac545d9a2e9b46be069ed6d2bba4f
+      internalID: -471929342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunfocus_spritesheet_64
+      rect:
+        serializedVersion: 2
+        x: 1981
+        y: 51
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad6a8bcb4c7252342bd287978927e513
+      internalID: 513647844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      gunfocus_spritesheet_0: -162728534
+      gunfocus_spritesheet_1: -1197699954
+      gunfocus_spritesheet_10: 1980261901
+      gunfocus_spritesheet_11: 566799995
+      gunfocus_spritesheet_12: 1565651453
+      gunfocus_spritesheet_13: 745029792
+      gunfocus_spritesheet_14: 147461548
+      gunfocus_spritesheet_15: -1636128586
+      gunfocus_spritesheet_16: -454683540
+      gunfocus_spritesheet_17: -855713402
+      gunfocus_spritesheet_18: -791911872
+      gunfocus_spritesheet_19: 1886555531
+      gunfocus_spritesheet_2: -328174835
+      gunfocus_spritesheet_20: 660007469
+      gunfocus_spritesheet_21: -1650912026
+      gunfocus_spritesheet_22: -1819819314
+      gunfocus_spritesheet_23: 89534275
+      gunfocus_spritesheet_24: 241749977
+      gunfocus_spritesheet_25: 815394418
+      gunfocus_spritesheet_26: -928619596
+      gunfocus_spritesheet_27: 1505709313
+      gunfocus_spritesheet_28: -1595416801
+      gunfocus_spritesheet_29: 2066802137
+      gunfocus_spritesheet_3: 1872240954
+      gunfocus_spritesheet_30: 168560298
+      gunfocus_spritesheet_31: -1085874864
+      gunfocus_spritesheet_32: 260610250
+      gunfocus_spritesheet_33: -1986876893
+      gunfocus_spritesheet_34: 1652299966
+      gunfocus_spritesheet_35: 1428950286
+      gunfocus_spritesheet_36: 183123415
+      gunfocus_spritesheet_37: -1909230010
+      gunfocus_spritesheet_38: -390815821
+      gunfocus_spritesheet_39: 106014048
+      gunfocus_spritesheet_4: -1238496909
+      gunfocus_spritesheet_40: -405599815
+      gunfocus_spritesheet_41: 1616672371
+      gunfocus_spritesheet_42: 776217720
+      gunfocus_spritesheet_43: 977841954
+      gunfocus_spritesheet_44: -125988485
+      gunfocus_spritesheet_45: 592703870
+      gunfocus_spritesheet_46: 790396345
+      gunfocus_spritesheet_47: -1722621867
+      gunfocus_spritesheet_48: -794966208
+      gunfocus_spritesheet_49: 2075190756
+      gunfocus_spritesheet_5: -269207851
+      gunfocus_spritesheet_50: 342630068
+      gunfocus_spritesheet_51: -1409477339
+      gunfocus_spritesheet_52: 826591161
+      gunfocus_spritesheet_53: 690369088
+      gunfocus_spritesheet_54: 2004280884
+      gunfocus_spritesheet_55: -1965319842
+      gunfocus_spritesheet_56: -1050253867
+      gunfocus_spritesheet_57: -263372663
+      gunfocus_spritesheet_58: 1344480571
+      gunfocus_spritesheet_59: -1404536928
+      gunfocus_spritesheet_6: -1487736804
+      gunfocus_spritesheet_60: 1088393637
+      gunfocus_spritesheet_61: -374771234
+      gunfocus_spritesheet_62: 1045576390
+      gunfocus_spritesheet_63: -471929342
+      gunfocus_spritesheet_64: 513647844
+      gunfocus_spritesheet_7: -1337995574
+      gunfocus_spritesheet_8: 401947194
+      gunfocus_spritesheet_9: -1474442155
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

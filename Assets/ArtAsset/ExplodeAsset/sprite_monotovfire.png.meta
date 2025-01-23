@@ -1,0 +1,682 @@
+fileFormatVersion: 2
+guid: dccb4183d5d634f489a64adf108120fe
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sprite_monotovfire_0
+      rect:
+        serializedVersion: 2
+        x: 1457
+        y: 2355
+        width: 558
+        height: 261
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9392195eb3b80fa46b44c08b232b0ac9
+      internalID: 1552113282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_monotovfire_1
+      rect:
+        serializedVersion: 2
+        x: 2096
+        y: 2361
+        width: 572
+        height: 259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 322d67ee50929094d851c6035f8b7dd3
+      internalID: -211633250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_monotovfire_3
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 2350
+        width: 547
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7c8251badab5ab4c8958d7d79b6f33e
+      internalID: -1762331267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_monotovfire_4
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 2371
+        width: 561
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96ede048797dd9441beb57c9df7df931
+      internalID: -673206126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_monotovfire_5
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 1964
+        width: 595
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffbfefd3e1cf8de4690e4b5b190849f8
+      internalID: 381341954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_monotovfire_6
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 1969
+        width: 585
+        height: 277
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8bf6a67c2fc0674f9c9e508ee22bc0f
+      internalID: 298949211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_monotovfire_10
+      rect:
+        serializedVersion: 2
+        x: 1481
+        y: 1998
+        width: 562
+        height: 265
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99471df9f4b84ce4f920907e6770973f
+      internalID: -571149169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_monotovfire_16
+      rect:
+        serializedVersion: 2
+        x: 2106
+        y: 2013
+        width: 547
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 902dad9f99399f54792ec9232179033a
+      internalID: 1466443389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_monotovfire_17
+      rect:
+        serializedVersion: 2
+        x: 1434
+        y: 1587
+        width: 557
+        height: 261
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29c0bdb6ac02d7e4fbcab5729eea4216
+      internalID: -1867100550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_monotovfire_18
+      rect:
+        serializedVersion: 2
+        x: 2072
+        y: 1592
+        width: 572
+        height: 273
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5e53ce183bf7eb4d8ad05676b66611a
+      internalID: -1108412075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_monotovfire_20
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 1581
+        width: 547
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a20b9ca012e251540a0245d39133cbb7
+      internalID: -774871358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_monotovfire_21
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 1601
+        width: 560
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceb05fdeb75e8de4ca00e85ec42179f5
+      internalID: -849506489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_monotovfire_22
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 1195
+        width: 596
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 118995dcc0e949d498a29b6adc63bd35
+      internalID: 1494368457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_monotovfire_23
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 1199
+        width: 585
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea393322680a13d40825764a1cdc2587
+      internalID: -1659325295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_monotovfire_27
+      rect:
+        serializedVersion: 2
+        x: 1457
+        y: 1228
+        width: 561
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6d04cb0fcf2119458fd31abf4b69e3c
+      internalID: -1085020736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_monotovfire_33
+      rect:
+        serializedVersion: 2
+        x: 2082
+        y: 1244
+        width: 547
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8916a8a03d9cde2468ce6b2bdd607adf
+      internalID: 715472392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_monotovfire_34
+      rect:
+        serializedVersion: 2
+        x: 1434
+        y: 740
+        width: 557
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ea9e8646f9d48e44a13066432e2cfff
+      internalID: -350660122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_monotovfire_35
+      rect:
+        serializedVersion: 2
+        x: 2072
+        y: 744
+        width: 572
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1388532c5b5305442819639ea2983e69
+      internalID: -203361272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_monotovfire_37
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 735
+        width: 547
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cbbef76f17d22e418b9a61e3449c957
+      internalID: -1942133652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_monotovfire_38
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 755
+        width: 560
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c28d50df608c50947a9a640c56d07e52
+      internalID: -244348236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_monotovfire_39
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 347
+        width: 596
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1577e6267e2445c48a219dc6dae3ba94
+      internalID: 110348671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_monotovfire_40
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 353
+        width: 585
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94935cf595398024c86d7d0944904e13
+      internalID: 1609814900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_monotovfire_44
+      rect:
+        serializedVersion: 2
+        x: 1457
+        y: 382
+        width: 561
+        height: 273
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b28563474a0c554db5f903b7bce7fb0
+      internalID: 2143153644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_monotovfire_50
+      rect:
+        serializedVersion: 2
+        x: 2082
+        y: 396
+        width: 547
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 997ed60096c21804ba2978b6bb880075
+      internalID: 568280208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      sprite_monotovfire_0: 1552113282
+      sprite_monotovfire_1: -211633250
+      sprite_monotovfire_10: -571149169
+      sprite_monotovfire_11: -386548162
+      sprite_monotovfire_12: 980737546
+      sprite_monotovfire_13: 2077896528
+      sprite_monotovfire_14: 12596184
+      sprite_monotovfire_15: -1406819998
+      sprite_monotovfire_16: 1466443389
+      sprite_monotovfire_17: -1867100550
+      sprite_monotovfire_18: -1108412075
+      sprite_monotovfire_19: -928232990
+      sprite_monotovfire_2: -145864206
+      sprite_monotovfire_20: -774871358
+      sprite_monotovfire_21: -849506489
+      sprite_monotovfire_22: 1494368457
+      sprite_monotovfire_23: -1659325295
+      sprite_monotovfire_24: -1460523971
+      sprite_monotovfire_25: -166238098
+      sprite_monotovfire_26: 1928909938
+      sprite_monotovfire_27: -1085020736
+      sprite_monotovfire_28: 1981633994
+      sprite_monotovfire_29: -314840974
+      sprite_monotovfire_3: -1762331267
+      sprite_monotovfire_30: -776386960
+      sprite_monotovfire_31: -530390140
+      sprite_monotovfire_32: 1217205239
+      sprite_monotovfire_33: 715472392
+      sprite_monotovfire_34: -350660122
+      sprite_monotovfire_35: -203361272
+      sprite_monotovfire_36: 1212241590
+      sprite_monotovfire_37: -1942133652
+      sprite_monotovfire_38: -244348236
+      sprite_monotovfire_39: 110348671
+      sprite_monotovfire_4: -673206126
+      sprite_monotovfire_40: 1609814900
+      sprite_monotovfire_41: -1562636502
+      sprite_monotovfire_42: -346191097
+      sprite_monotovfire_43: -490637360
+      sprite_monotovfire_44: 2143153644
+      sprite_monotovfire_45: -1019713377
+      sprite_monotovfire_46: -1582491842
+      sprite_monotovfire_47: 1731915803
+      sprite_monotovfire_48: -592778706
+      sprite_monotovfire_49: 578223609
+      sprite_monotovfire_5: 381341954
+      sprite_monotovfire_50: 568280208
+      sprite_monotovfire_6: 298949211
+      sprite_monotovfire_7: -1297082516
+      sprite_monotovfire_8: -804373688
+      sprite_monotovfire_9: 1333496797
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

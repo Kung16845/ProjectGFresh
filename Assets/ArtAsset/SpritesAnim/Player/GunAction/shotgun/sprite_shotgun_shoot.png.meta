@@ -1,0 +1,655 @@
+fileFormatVersion: 2
+guid: 2a917299c0dac4b44ad3d426d41c8662
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sprite_shotgun_shoot_0
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 1936
+        width: 432
+        height: 525
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a9983ae9d7953b4b88e39d6d0796be7
+      internalID: 368054512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_shotgun_shoot_1
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 1939
+        width: 397
+        height: 524
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01d96ea385b4ae14f9eaf575d32c648f
+      internalID: -2044741450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_shotgun_shoot_2
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 1939
+        width: 389
+        height: 524
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09cb49f3b2f27a44497d0617687e3b11
+      internalID: -33586135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_shotgun_shoot_3
+      rect:
+        serializedVersion: 2
+        x: 1393
+        y: 1936
+        width: 373
+        height: 525
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 344a8d240dc487145bdf29e825a19454
+      internalID: -1455875916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_shotgun_shoot_4
+      rect:
+        serializedVersion: 2
+        x: 1813
+        y: 1944
+        width: 367
+        height: 526
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aaef8dcf4375e64f97aa2aac3839848
+      internalID: -1348769360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_shotgun_shoot_5
+      rect:
+        serializedVersion: 2
+        x: 2248
+        y: 1936
+        width: 366
+        height: 526
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01df3e0403883c94083667d1231421da
+      internalID: 1474569042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_shotgun_shoot_6
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 1385
+        width: 369
+        height: 526
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2668945bdbce9b4ca7ef08b4bd017ea
+      internalID: -883446881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_shotgun_shoot_7
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 1394
+        width: 373
+        height: 526
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e357a65f885dde44eafa0393c70bf60b
+      internalID: 1770610788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_shotgun_shoot_8
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 1385
+        width: 376
+        height: 526
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8fe21170a6350a459c7b1bc47b15987
+      internalID: 245903252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_shotgun_shoot_9
+      rect:
+        serializedVersion: 2
+        x: 1406
+        y: 1373
+        width: 376
+        height: 526
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9261cd32f8825304989cb2feacdbf0c6
+      internalID: -1411391915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_shotgun_shoot_10
+      rect:
+        serializedVersion: 2
+        x: 1827
+        y: 1384
+        width: 375
+        height: 526
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc5a853d2e7a2d74fb057d17c2a76d51
+      internalID: -958416430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_shotgun_shoot_11
+      rect:
+        serializedVersion: 2
+        x: 2266
+        y: 1372
+        width: 374
+        height: 524
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de862cf69b9833f4d83c7ed2db24bb99
+      internalID: -1091543580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_shotgun_shoot_12
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 808
+        width: 373
+        height: 524
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5ecb464d602518489fc0566c704339d
+      internalID: -755291465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_shotgun_shoot_13
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 818
+        width: 375
+        height: 526
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e06119cc6927275418056bb43837d34b
+      internalID: 1177582254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_shotgun_shoot_14
+      rect:
+        serializedVersion: 2
+        x: 958
+        y: 823
+        width: 374
+        height: 525
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20686af656c1e364e8df9f53ae2c2d97
+      internalID: 1765413683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_shotgun_shoot_15
+      rect:
+        serializedVersion: 2
+        x: 1409
+        y: 811
+        width: 375
+        height: 525
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 152c7ffd271c48040bedac98abce7813
+      internalID: 1061978061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_shotgun_shoot_16
+      rect:
+        serializedVersion: 2
+        x: 1837
+        y: 817
+        width: 377
+        height: 526
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 045ce737a36e8af4cbd6824cc55598d5
+      internalID: 1051597674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_shotgun_shoot_17
+      rect:
+        serializedVersion: 2
+        x: 2276
+        y: 801
+        width: 378
+        height: 525
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf1ca43d348828743bd992699f02f6a5
+      internalID: 1962978954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_shotgun_shoot_18
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 218
+        width: 379
+        height: 524
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 465f878ef34f8854fae652a5601bdd35
+      internalID: -1221978874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_shotgun_shoot_19
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 233
+        width: 378
+        height: 524
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 472d33ee60fa0464a814fa9c05b25568
+      internalID: -1293557152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_shotgun_shoot_20
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 233
+        width: 383
+        height: 524
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d3af6d3385aa2740914254243e40672
+      internalID: 1564058794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_shotgun_shoot_21
+      rect:
+        serializedVersion: 2
+        x: 1405
+        y: 234
+        width: 386
+        height: 525
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fa76c7b29f02134c8b94c0391f8cc48
+      internalID: -1214930435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_shotgun_shoot_22
+      rect:
+        serializedVersion: 2
+        x: 1829
+        y: 243
+        width: 393
+        height: 525
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 623da2c931fb4f54d8584cd4f5164589
+      internalID: 13461147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_shotgun_shoot_23
+      rect:
+        serializedVersion: 2
+        x: 2255
+        y: 245
+        width: 398
+        height: 523
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9a6e7d098d631745965fd8686a47aa2
+      internalID: -123232564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      sprite_shotgun_shoot_0: 368054512
+      sprite_shotgun_shoot_1: -2044741450
+      sprite_shotgun_shoot_10: -958416430
+      sprite_shotgun_shoot_11: -1091543580
+      sprite_shotgun_shoot_12: -755291465
+      sprite_shotgun_shoot_13: 1177582254
+      sprite_shotgun_shoot_14: 1765413683
+      sprite_shotgun_shoot_15: 1061978061
+      sprite_shotgun_shoot_16: 1051597674
+      sprite_shotgun_shoot_17: 1962978954
+      sprite_shotgun_shoot_18: -1221978874
+      sprite_shotgun_shoot_19: -1293557152
+      sprite_shotgun_shoot_2: -33586135
+      sprite_shotgun_shoot_20: 1564058794
+      sprite_shotgun_shoot_21: -1214930435
+      sprite_shotgun_shoot_22: 13461147
+      sprite_shotgun_shoot_23: -123232564
+      sprite_shotgun_shoot_3: -1455875916
+      sprite_shotgun_shoot_4: -1348769360
+      sprite_shotgun_shoot_5: 1474569042
+      sprite_shotgun_shoot_6: -883446881
+      sprite_shotgun_shoot_7: 1770610788
+      sprite_shotgun_shoot_8: 245903252
+      sprite_shotgun_shoot_9: -1411391915
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

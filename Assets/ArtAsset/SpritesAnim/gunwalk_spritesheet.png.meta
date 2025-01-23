@@ -1,0 +1,985 @@
+fileFormatVersion: 2
+guid: 4d4e2b63b38817f4e94406faa5c0dc0c
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 1750
+        width: 314
+        height: 510
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b8e287c4a34d3e4ba4756c0123ee675
+      internalID: 261993358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 1749
+        width: 314
+        height: 511
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a187ef6ff437f845b195e32c2acd0ea
+      internalID: -2059763190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 1740
+        width: 309
+        height: 517
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 029371f316e7db24aa337e2c1555ec7d
+      internalID: 2119070570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 1255
+        y: 1745
+        width: 302
+        height: 508
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 788c0a863005b4442ac4d25602373041
+      internalID: -1041490894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 1593
+        y: 1733
+        width: 296
+        height: 524
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c2089057fe06df4bb60adc36408bf46
+      internalID: -330930105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 1930
+        y: 1727
+        width: 291
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09282a166c8a1284f89f684513ed4022
+      internalID: 1747073132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 1736
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d1705436814ac348be91d2e15c33e53
+      internalID: 1046179371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 1203
+        width: 285
+        height: 517
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c961adba9744d6849ba95f0181b79c8f
+      internalID: 394967952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 1207
+        width: 276
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04af8ffbebd69854889cd42f26d61843
+      internalID: -584081420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 1195
+        width: 275
+        height: 523
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c08b7e7a89af567428ff57376e92ecc5
+      internalID: -251787560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 1578
+        y: 1203
+        width: 307
+        height: 514
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c13a0cbc11c6b042b234271afb24a61
+      internalID: -1334279708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 1999
+        y: 1715
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4830d3f7ab5da94e935e1e369f3c3aa
+      internalID: -1193670562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 1256
+        y: 1197
+        width: 291
+        height: 514
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edea6ac0cfdb0c146971cccc7b32b3b8
+      internalID: 2058371619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 1571
+        y: 1217
+        width: 5
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05d1baadd723c3f4db9ad3f08516a48d
+      internalID: 1229668732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 1885
+        y: 1211
+        width: 5
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a982b286b4cfa9e46879eb814222e238
+      internalID: -573774781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 1895
+        y: 1191
+        width: 313
+        height: 514
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5ec63d363cfbb441a7fb9e1f5e56e36
+      internalID: -722464773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1192
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c4b86b628c550848a142fc92e9d066b
+      internalID: 714822123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 1199
+        width: 5
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95f2ce02f518f9f4ab0af6942dd28c78
+      internalID: -1072196390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 1200
+        width: 5
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e09bf8ac61ebbf748b22f12e39dbe4a7
+      internalID: -267494357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 1202
+        width: 4
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8343f0211905aa44a90417484ffc5ad9
+      internalID: -330823273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 1197
+        width: 15
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 361d23f94b8bc6a4ca898b61d980c0b1
+      internalID: 1873842786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 1194
+        width: 12
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 113414b5cfca972478726f930af8963a
+      internalID: -356094590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 670
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f88e202444e66d4daba944c77cc5907
+      internalID: 627676254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 647
+        width: 315
+        height: 514
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d8dd1671d0eb0b4393fd7b041e2c962
+      internalID: -152837798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 676
+        width: 5
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcb65b219ee95874f94907a54ad11830
+      internalID: -132081539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 653
+        width: 317
+        height: 515
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc620b9e9e1b4f145bbf54dcce95dc2e
+      internalID: 72907736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 667
+        width: 4
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d5f62a826ac25e49a77da616b1bd660
+      internalID: -1886587127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 644
+        width: 302
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 819839f97fbd08e46a4f10b47915cf8e
+      internalID: 1783947382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 618
+        width: 278
+        height: 519
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03d17c2fcd98c594eabb78450972b3cb
+      internalID: 1189020026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 1590
+        y: 631
+        width: 274
+        height: 519
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27874ac10aed4f341b0371e64f86ad58
+      internalID: -721028669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 1930
+        y: 619
+        width: 273
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0d8b92e85b20ed45a1ecf070279a71a
+      internalID: -739867178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 641
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b60df4c76f7033e44a1f5c6ebb9d91c2
+      internalID: 482196182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 1257
+        y: 642
+        width: 5
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc72133c0ab529f47a3806e5d547c6a1
+      internalID: -1929226953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 83
+        width: 273
+        height: 522
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dad9275aa4db9a049b75b518ec0a6a67
+      internalID: 2043616584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 83
+        width: 292
+        height: 522
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a62391f4625e5804583a129e67a32228
+      internalID: -1179914549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 79
+        width: 304
+        height: 519
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a3909b7e90725c4c86de620d2bc0541
+      internalID: 2013523617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 58
+        width: 312
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d69ade7e48ce38243884303c42d56bb1
+      internalID: 1144995846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 1570
+        y: 47
+        width: 279
+        height: 525
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c525509a52eb8fe4487edc97cc9598fa
+      internalID: -165892239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunwalk_spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 1890
+        y: 56
+        width: 313
+        height: 511
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b91d1a71f87c4cc4183b6ca19295ff55
+      internalID: -1568392076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      gunwalk_spritesheet_0: 261993358
+      gunwalk_spritesheet_1: -2059763190
+      gunwalk_spritesheet_10: -1334279708
+      gunwalk_spritesheet_11: -1193670562
+      gunwalk_spritesheet_12: 2058371619
+      gunwalk_spritesheet_13: 1229668732
+      gunwalk_spritesheet_14: -573774781
+      gunwalk_spritesheet_15: -722464773
+      gunwalk_spritesheet_16: 714822123
+      gunwalk_spritesheet_17: -1072196390
+      gunwalk_spritesheet_18: -267494357
+      gunwalk_spritesheet_19: -330823273
+      gunwalk_spritesheet_2: 2119070570
+      gunwalk_spritesheet_20: 1873842786
+      gunwalk_spritesheet_21: -356094590
+      gunwalk_spritesheet_22: 627676254
+      gunwalk_spritesheet_23: -152837798
+      gunwalk_spritesheet_24: -132081539
+      gunwalk_spritesheet_25: 72907736
+      gunwalk_spritesheet_26: -1886587127
+      gunwalk_spritesheet_27: 1783947382
+      gunwalk_spritesheet_28: 1189020026
+      gunwalk_spritesheet_29: -721028669
+      gunwalk_spritesheet_3: -1041490894
+      gunwalk_spritesheet_30: -739867178
+      gunwalk_spritesheet_31: 482196182
+      gunwalk_spritesheet_32: -1929226953
+      gunwalk_spritesheet_33: 2043616584
+      gunwalk_spritesheet_34: -1179914549
+      gunwalk_spritesheet_35: 2013523617
+      gunwalk_spritesheet_36: 1144995846
+      gunwalk_spritesheet_37: -165892239
+      gunwalk_spritesheet_38: -1568392076
+      gunwalk_spritesheet_4: -330930105
+      gunwalk_spritesheet_5: 1747073132
+      gunwalk_spritesheet_6: 1046179371
+      gunwalk_spritesheet_7: 394967952
+      gunwalk_spritesheet_8: -584081420
+      gunwalk_spritesheet_9: -251787560
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

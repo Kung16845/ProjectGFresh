@@ -1,0 +1,1566 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &165580668273915266
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9148464826644538732}
+  - component: {fileID: 4939771929222222978}
+  - component: {fileID: 1511517036842616463}
+  m_Layer: 0
+  m_Name: ZombieSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9148464826644538732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165580668273915266}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 24, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4939771929222222978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165580668273915266}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc32149bebf944c42bd60ad54c8d44a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 2
+  treatValue: 50
+  prefabMonster:
+  - {fileID: 7550034601582792165, guid: f9bbcd7819596a2449588808e50db343, type: 3}
+  transformBarrier: {fileID: 0}
+--- !u!114 &1511517036842616463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165580668273915266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73b40161e813e894386821e8ac1f678f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lanes:
+  - laneID: 1
+    spawnPoint: {fileID: 0}
+    engagingArea: {fileID: 0}
+    attackPoint: {fileID: 0}
+  - laneID: 2
+    spawnPoint: {fileID: 0}
+    engagingArea: {fileID: 0}
+    attackPoint: {fileID: 0}
+  - laneID: 3
+    spawnPoint: {fileID: 0}
+    engagingArea: {fileID: 0}
+    attackPoint: {fileID: 0}
+  ActiveSpawnDecks: []
+  StorageDecks:
+  - deckName: SwarmDeck
+    deckDuration: 300
+    deckTier: 5
+    deckID: 601020501
+    spawnWaves:
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 75
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 75
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 75
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+      timeUntilNextWave: 100
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 75
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 75
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 75
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+      timeUntilNextWave: 100
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 75
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 75
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 75
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+      timeUntilNextWave: 100
+  - deckName: BasicAttackDeck01
+    deckDuration: 150
+    deckTier: 1
+    deckID: 601010101
+    spawnWaves:
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 8
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 3
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 8
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 8
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 3
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 8
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 2
+          spawnInterval: 30
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3796076681768479923, guid: 400473ea6fd9f6245b4cf643f064d093, type: 3}
+          quantity: 1
+          spawnInterval: 30
+          zombieTier: 1
+          mutationType: 0
+      timeUntilNextWave: 40
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 2
+          spawnInterval: 1
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 16
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 16
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      timeUntilNextWave: 40
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 5
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3583349133157957265, guid: bd6188368fd109d4d87743b5c70a7402, type: 3}
+          quantity: 1
+          spawnInterval: 1
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 5
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      timeUntilNextWave: 40
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 5
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3583349133157957265, guid: bd6188368fd109d4d87743b5c70a7402, type: 3}
+          quantity: 1
+          spawnInterval: 1
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 5
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      timeUntilNextWave: 30
+  - deckName: BasicAttackDeck02
+    deckDuration: 150
+    deckTier: 1
+    deckID: 601010102
+    spawnWaves:
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 7
+          spawnInterval: 1.75
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 1
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3583349133157957265, guid: bd6188368fd109d4d87743b5c70a7402, type: 3}
+          quantity: 1
+          spawnInterval: 1
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 5
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 15
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 1
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 8
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 15
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 2822589981121301368, guid: d6f2e177f50cac44dab49594c8fd156e, type: 3}
+          quantity: 2
+          spawnInterval: 5
+          zombieTier: 1
+          mutationType: 0
+      timeUntilNextWave: 50
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 3
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 7
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 3
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3583349133157957265, guid: bd6188368fd109d4d87743b5c70a7402, type: 3}
+          quantity: 1
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 7
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      timeUntilNextWave: 50
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 5
+          spawnInterval: 1.75
+          zombieTier: 2
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3583349133157957265, guid: bd6188368fd109d4d87743b5c70a7402, type: 3}
+          quantity: 2
+          spawnInterval: 1
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 5
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 9
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      timeUntilNextWave: 50
+  - deckName: Riot And FirefighterTeam
+    deckDuration: 150
+    deckTier: 2
+    deckID: 601010103
+    spawnWaves:
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3440586278236064323, guid: e0adf57d03594614e85bf9a753e9b3d8, type: 3}
+          quantity: 4
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 5
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 2822589981121301368, guid: d6f2e177f50cac44dab49594c8fd156e, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3583349133157957265, guid: bd6188368fd109d4d87743b5c70a7402, type: 3}
+          quantity: 1
+          spawnInterval: 1
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 6
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 2822589981121301368, guid: d6f2e177f50cac44dab49594c8fd156e, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3440586278236064323, guid: e0adf57d03594614e85bf9a753e9b3d8, type: 3}
+          quantity: 4
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 5
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 2822589981121301368, guid: d6f2e177f50cac44dab49594c8fd156e, type: 3}
+          quantity: 2
+          spawnInterval: 1
+          zombieTier: 1
+          mutationType: 0
+      timeUntilNextWave: 75
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 2822589981121301368, guid: d6f2e177f50cac44dab49594c8fd156e, type: 3}
+          quantity: 2
+          spawnInterval: 5
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3796076681768479923, guid: 400473ea6fd9f6245b4cf643f064d093, type: 3}
+          quantity: 1
+          spawnInterval: 1
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 15
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 2822589981121301368, guid: d6f2e177f50cac44dab49594c8fd156e, type: 3}
+          quantity: 5
+          spawnInterval: 1.25
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3796076681768479923, guid: 400473ea6fd9f6245b4cf643f064d093, type: 3}
+          quantity: 2
+          spawnInterval: 1
+          zombieTier: 2
+          mutationType: 0
+      timeUntilNextWave: 75
+  - deckName: ChargerTeam
+    deckDuration: 150
+    deckTier: 2
+    deckID: 601010201
+    spawnWaves:
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 3
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 5
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3796076681768479923, guid: 400473ea6fd9f6245b4cf643f064d093, type: 3}
+          quantity: 1
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 5
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 1
+          spawnInterval: 1
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 3
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 2822589981121301368, guid: d6f2e177f50cac44dab49594c8fd156e, type: 3}
+          quantity: 2
+          spawnInterval: 15
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 2822589981121301368, guid: d6f2e177f50cac44dab49594c8fd156e, type: 3}
+          quantity: 1
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 5
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3796076681768479923, guid: 400473ea6fd9f6245b4cf643f064d093, type: 3}
+          quantity: 1
+          spawnInterval: 1
+          zombieTier: 1
+          mutationType: 0
+      timeUntilNextWave: 75
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 8
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3796076681768479923, guid: 400473ea6fd9f6245b4cf643f064d093, type: 3}
+          quantity: 1
+          spawnInterval: 1
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 8
+          spawnInterval: 1.75
+          zombieTier: 0
+          mutationType: 0
+      timeUntilNextWave: 75
+  - deckName: ChemerLeader
+    deckDuration: 150
+    deckTier: 2
+    deckID: 601010202
+    spawnWaves:
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 1182796759674554525, guid: 971bc0e8238e5b84b995ddb5e7de643e, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 12
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 1182796759674554525, guid: 971bc0e8238e5b84b995ddb5e7de643e, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 2822589981121301368, guid: d6f2e177f50cac44dab49594c8fd156e, type: 3}
+          quantity: 3
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 1182796759674554525, guid: 971bc0e8238e5b84b995ddb5e7de643e, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3583349133157957265, guid: bd6188368fd109d4d87743b5c70a7402, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3779784590760527690, guid: e7fe30525e6990a4287ded6a43e078ff, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 11
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 1182796759674554525, guid: 971bc0e8238e5b84b995ddb5e7de643e, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 12
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 1182796759674554525, guid: 971bc0e8238e5b84b995ddb5e7de643e, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 2822589981121301368, guid: d6f2e177f50cac44dab49594c8fd156e, type: 3}
+          quantity: 3
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      timeUntilNextWave: 75
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 1182796759674554525, guid: 971bc0e8238e5b84b995ddb5e7de643e, type: 3}
+          quantity: 1
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 7
+          spawnInterval: 1.75
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 1182796759674554525, guid: 971bc0e8238e5b84b995ddb5e7de643e, type: 3}
+          quantity: 1
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 7
+          spawnInterval: 1.75
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 1182796759674554525, guid: 971bc0e8238e5b84b995ddb5e7de643e, type: 3}
+          quantity: 1
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 2822589981121301368, guid: d6f2e177f50cac44dab49594c8fd156e, type: 3}
+          quantity: 4
+          spawnInterval: 1.75
+          zombieTier: 2
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 1182796759674554525, guid: 971bc0e8238e5b84b995ddb5e7de643e, type: 3}
+          quantity: 2
+          spawnInterval: 45
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3779784590760527690, guid: e7fe30525e6990a4287ded6a43e078ff, type: 3}
+          quantity: 3
+          spawnInterval: 1.75
+          zombieTier: 2
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 1182796759674554525, guid: 971bc0e8238e5b84b995ddb5e7de643e, type: 3}
+          quantity: 1
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 7
+          spawnInterval: 1.75
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 1182796759674554525, guid: 971bc0e8238e5b84b995ddb5e7de643e, type: 3}
+          quantity: 1
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 7
+          spawnInterval: 1.75
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 1182796759674554525, guid: 971bc0e8238e5b84b995ddb5e7de643e, type: 3}
+          quantity: 1
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 2822589981121301368, guid: d6f2e177f50cac44dab49594c8fd156e, type: 3}
+          quantity: 4
+          spawnInterval: 1.75
+          zombieTier: 2
+          mutationType: 0
+      timeUntilNextWave: 75
+  - deckName: Bulldozer
+    deckDuration: 150
+    deckTier: 3
+    deckID: 601010301
+    spawnWaves:
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 15
+          spawnInterval: 1.75
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 1
+          spawnInterval: 3
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 8826066288395687024, guid: d2edecf77f25da047bc61094d6c344a4, type: 3}
+          quantity: 4
+          spawnInterval: 1.25
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 5
+          spawnInterval: 1
+          zombieTier: 3
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 20
+          spawnInterval: 2
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 15
+          spawnInterval: 1.75
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 1
+          spawnInterval: 3
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 8826066288395687024, guid: d2edecf77f25da047bc61094d6c344a4, type: 3}
+          quantity: 4
+          spawnInterval: 1.25
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 5
+          spawnInterval: 1
+          zombieTier: 3
+          mutationType: 0
+      timeUntilNextWave: 50
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 10
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3796076681768479923, guid: 400473ea6fd9f6245b4cf643f064d093, type: 3}
+          quantity: 5
+          spawnInterval: 1.5
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 10
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3583349133157957265, guid: bd6188368fd109d4d87743b5c70a7402, type: 3}
+          quantity: 3
+          spawnInterval: 3
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3796076681768479923, guid: 400473ea6fd9f6245b4cf643f064d093, type: 3}
+          quantity: 5
+          spawnInterval: 3
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 2822589981121301368, guid: d6f2e177f50cac44dab49594c8fd156e, type: 3}
+          quantity: 7
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 10
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3796076681768479923, guid: 400473ea6fd9f6245b4cf643f064d093, type: 3}
+          quantity: 3
+          spawnInterval: 1.5
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 10
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+      timeUntilNextWave: 50
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 1182796759674554525, guid: 971bc0e8238e5b84b995ddb5e7de643e, type: 3}
+          quantity: 2
+          spawnInterval: 1.5
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 3440586278236064323, guid: e0adf57d03594614e85bf9a753e9b3d8, type: 3}
+          quantity: 10
+          spawnInterval: 1.75
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 2822589981121301368, guid: d6f2e177f50cac44dab49594c8fd156e, type: 3}
+          quantity: 8
+          spawnInterval: 1.5
+          zombieTier: 2
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 8826066288395687024, guid: d2edecf77f25da047bc61094d6c344a4, type: 3}
+          quantity: 5
+          spawnInterval: 5
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 2822589981121301368, guid: d6f2e177f50cac44dab49594c8fd156e, type: 3}
+          quantity: 8
+          spawnInterval: 1.5
+          zombieTier: 2
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 1182796759674554525, guid: 971bc0e8238e5b84b995ddb5e7de643e, type: 3}
+          quantity: 2
+          spawnInterval: 1.5
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 3440586278236064323, guid: e0adf57d03594614e85bf9a753e9b3d8, type: 3}
+          quantity: 10
+          spawnInterval: 1.75
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 2822589981121301368, guid: d6f2e177f50cac44dab49594c8fd156e, type: 3}
+          quantity: 8
+          spawnInterval: 1.5
+          zombieTier: 2
+          mutationType: 0
+      timeUntilNextWave: 50
+  - deckName: Reeker Horde
+    deckDuration: 150
+    deckTier: 3
+    deckID: 601010302
+    spawnWaves:
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3779784590760527690, guid: e7fe30525e6990a4287ded6a43e078ff, type: 3}
+          quantity: 2
+          spawnInterval: 3
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 8
+          spawnInterval: 1.25
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 8826066288395687024, guid: d2edecf77f25da047bc61094d6c344a4, type: 3}
+          quantity: 1
+          spawnInterval: 1
+          zombieTier: 2
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3779784590760527690, guid: e7fe30525e6990a4287ded6a43e078ff, type: 3}
+          quantity: 2
+          spawnInterval: 5
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 8
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 8826066288395687024, guid: d2edecf77f25da047bc61094d6c344a4, type: 3}
+          quantity: 1
+          spawnInterval: 1
+          zombieTier: 2
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3779784590760527690, guid: e7fe30525e6990a4287ded6a43e078ff, type: 3}
+          quantity: 2
+          spawnInterval: 5
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 8
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 8826066288395687024, guid: d2edecf77f25da047bc61094d6c344a4, type: 3}
+          quantity: 1
+          spawnInterval: 1
+          zombieTier: 2
+          mutationType: 0
+      timeUntilNextWave: 60
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 6
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 1182796759674554525, guid: 971bc0e8238e5b84b995ddb5e7de643e, type: 3}
+          quantity: 2
+          spawnInterval: 1
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3779784590760527690, guid: e7fe30525e6990a4287ded6a43e078ff, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 15
+          spawnInterval: 1.75
+          zombieTier: 2
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3779784590760527690, guid: e7fe30525e6990a4287ded6a43e078ff, type: 3}
+          quantity: 9
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 8826066288395687024, guid: d2edecf77f25da047bc61094d6c344a4, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 6
+          spawnInterval: 1.75
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 1182796759674554525, guid: 971bc0e8238e5b84b995ddb5e7de643e, type: 3}
+          quantity: 2
+          spawnInterval: 1
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 3779784590760527690, guid: e7fe30525e6990a4287ded6a43e078ff, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 15
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+      timeUntilNextWave: 90
+  - deckName: DarkHour
+    deckDuration: 330
+    deckTier: 4
+    deckID: 601010401
+    spawnWaves:
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3796076681768479923, guid: 400473ea6fd9f6245b4cf643f064d093, type: 3}
+          quantity: 1
+          spawnInterval: 1
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3440586278236064323, guid: e0adf57d03594614e85bf9a753e9b3d8, type: 3}
+          quantity: 5
+          spawnInterval: 1.75
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 8826066288395687024, guid: d2edecf77f25da047bc61094d6c344a4, type: 3}
+          quantity: 3
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 15
+          spawnInterval: 1
+          zombieTier: 2
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3440586278236064323, guid: e0adf57d03594614e85bf9a753e9b3d8, type: 3}
+          quantity: 3
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 2822589981121301368, guid: d6f2e177f50cac44dab49594c8fd156e, type: 3}
+          quantity: 7
+          spawnInterval: 1.9
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 8826066288395687024, guid: d2edecf77f25da047bc61094d6c344a4, type: 3}
+          quantity: 3
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 10
+          spawnInterval: 1
+          zombieTier: 2
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3583349133157957265, guid: bd6188368fd109d4d87743b5c70a7402, type: 3}
+          quantity: 3
+          spawnInterval: 1.75
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 6
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 15
+          spawnInterval: 1
+          zombieTier: 2
+          mutationType: 0
+      timeUntilNextWave: 90
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 6
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3796076681768479923, guid: 400473ea6fd9f6245b4cf643f064d093, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 1182796759674554525, guid: 971bc0e8238e5b84b995ddb5e7de643e, type: 3}
+          quantity: 2
+          spawnInterval: 1
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 2822589981121301368, guid: d6f2e177f50cac44dab49594c8fd156e, type: 3}
+          quantity: 6
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3440586278236064323, guid: e0adf57d03594614e85bf9a753e9b3d8, type: 3}
+          quantity: 5
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3779784590760527690, guid: e7fe30525e6990a4287ded6a43e078ff, type: 3}
+          quantity: 3
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 6
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3796076681768479923, guid: 400473ea6fd9f6245b4cf643f064d093, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 1182796759674554525, guid: 971bc0e8238e5b84b995ddb5e7de643e, type: 3}
+          quantity: 2
+          spawnInterval: 1
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 2822589981121301368, guid: d6f2e177f50cac44dab49594c8fd156e, type: 3}
+          quantity: 6
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+      timeUntilNextWave: 90
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 8826066288395687024, guid: d2edecf77f25da047bc61094d6c344a4, type: 3}
+          quantity: 2
+          spawnInterval: 30
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3796076681768479923, guid: 400473ea6fd9f6245b4cf643f064d093, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 1182796759674554525, guid: 971bc0e8238e5b84b995ddb5e7de643e, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 30
+          spawnInterval: 1
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 8826066288395687024, guid: d2edecf77f25da047bc61094d6c344a4, type: 3}
+          quantity: 2
+          spawnInterval: 30
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3796076681768479923, guid: 400473ea6fd9f6245b4cf643f064d093, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 1182796759674554525, guid: 971bc0e8238e5b84b995ddb5e7de643e, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 30
+          spawnInterval: 1
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 8826066288395687024, guid: d2edecf77f25da047bc61094d6c344a4, type: 3}
+          quantity: 2
+          spawnInterval: 30
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3796076681768479923, guid: 400473ea6fd9f6245b4cf643f064d093, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 1182796759674554525, guid: 971bc0e8238e5b84b995ddb5e7de643e, type: 3}
+          quantity: 2
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 30
+          spawnInterval: 1
+          zombieTier: 1
+          mutationType: 0
+      timeUntilNextWave: 150
+  - deckName: Runner Horde
+    deckDuration: 330
+    deckTier: 4
+    deckID: 601010402
+    spawnWaves:
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 7
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3583349133157957265, guid: bd6188368fd109d4d87743b5c70a7402, type: 3}
+          quantity: 1
+          spawnInterval: 1
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 7
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 7
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3583349133157957265, guid: bd6188368fd109d4d87743b5c70a7402, type: 3}
+          quantity: 1
+          spawnInterval: 1
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 7
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 7
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3583349133157957265, guid: bd6188368fd109d4d87743b5c70a7402, type: 3}
+          quantity: 1
+          spawnInterval: 1
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 7
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+      timeUntilNextWave: 100
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 6
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3796076681768479923, guid: 400473ea6fd9f6245b4cf643f064d093, type: 3}
+          quantity: 1
+          spawnInterval: 1
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 15
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 2822589981121301368, guid: d6f2e177f50cac44dab49594c8fd156e, type: 3}
+          quantity: 3
+          spawnInterval: 1.95
+          zombieTier: 3
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3440586278236064323, guid: e0adf57d03594614e85bf9a753e9b3d8, type: 3}
+          quantity: 3
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 8826066288395687024, guid: d2edecf77f25da047bc61094d6c344a4, type: 3}
+          quantity: 1
+          spawnInterval: 1
+          zombieTier: 3
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 6
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3796076681768479923, guid: 400473ea6fd9f6245b4cf643f064d093, type: 3}
+          quantity: 1
+          spawnInterval: 1
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 15
+          spawnInterval: 1.75
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 2822589981121301368, guid: d6f2e177f50cac44dab49594c8fd156e, type: 3}
+          quantity: 3
+          spawnInterval: 1.95
+          zombieTier: 3
+          mutationType: 0
+      timeUntilNextWave: 90
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 8826066288395687024, guid: d2edecf77f25da047bc61094d6c344a4, type: 3}
+          quantity: 5
+          spawnInterval: 1.5
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 25
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3796076681768479923, guid: 400473ea6fd9f6245b4cf643f064d093, type: 3}
+          quantity: 1
+          spawnInterval: 1
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 8826066288395687024, guid: d2edecf77f25da047bc61094d6c344a4, type: 3}
+          quantity: 5
+          spawnInterval: 1.5
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 25
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3796076681768479923, guid: 400473ea6fd9f6245b4cf643f064d093, type: 3}
+          quantity: 1
+          spawnInterval: 1
+          zombieTier: 1
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3796076681768479923, guid: 400473ea6fd9f6245b4cf643f064d093, type: 3}
+          quantity: 15
+          spawnInterval: 1.5
+          zombieTier: 3
+          mutationType: 0
+      timeUntilNextWave: 90
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 1182796759674554525, guid: 971bc0e8238e5b84b995ddb5e7de643e, type: 3}
+          quantity: 2
+          spawnInterval: 1.5
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 20
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 1182796759674554525, guid: 971bc0e8238e5b84b995ddb5e7de643e, type: 3}
+          quantity: 2
+          spawnInterval: 1.5
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 20
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 1182796759674554525, guid: 971bc0e8238e5b84b995ddb5e7de643e, type: 3}
+          quantity: 2
+          spawnInterval: 1.5
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 20
+          spawnInterval: 1.75
+          zombieTier: 3
+          mutationType: 0
+      timeUntilNextWave: 50
+  - deckName: Unknown
+    deckDuration: 330
+    deckTier: 5
+    deckID: 601010203
+    spawnWaves:
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 15
+          spawnInterval: 1.75
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 3796076681768479923, guid: 400473ea6fd9f6245b4cf643f064d093, type: 3}
+          quantity: 3
+          spawnInterval: 2
+          zombieTier: 3
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 30
+          spawnInterval: 1
+          zombieTier: 2
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 5
+          spawnInterval: 3
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 8826066288395687024, guid: d2edecf77f25da047bc61094d6c344a4, type: 3}
+          quantity: 10
+          spawnInterval: 2
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 2822589981121301368, guid: d6f2e177f50cac44dab49594c8fd156e, type: 3}
+          quantity: 5
+          spawnInterval: 1.75
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 3440586278236064323, guid: e0adf57d03594614e85bf9a753e9b3d8, type: 3}
+          quantity: 5
+          spawnInterval: 2.5
+          zombieTier: 2
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 20
+          spawnInterval: 1.557913
+          zombieTier: 1
+          mutationType: 0
+        - zombiePrefab: {fileID: 3583349133157957265, guid: bd6188368fd109d4d87743b5c70a7402, type: 3}
+          quantity: 10
+          spawnInterval: 1
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 15
+          spawnInterval: 1
+          zombieTier: 1
+          mutationType: 0
+      timeUntilNextWave: 120
+    - laneSpawnConfigs:
+      - laneID: 1
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3268839227ded5a4e88aeec54b32c564, type: 3}
+          quantity: 100
+          spawnInterval: 2
+          zombieTier: 2
+          mutationType: 0
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 69598908740a29b4a912e9fc382d1c2d, type: 3}
+          quantity: 20
+          spawnInterval: 5
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 1182796759674554525, guid: 971bc0e8238e5b84b995ddb5e7de643e, type: 3}
+          quantity: 20
+          spawnInterval: 5
+          zombieTier: 2
+          mutationType: 0
+      - laneID: 3
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3796076681768479923, guid: 400473ea6fd9f6245b4cf643f064d093, type: 3}
+          quantity: 5
+          spawnInterval: 10
+          zombieTier: 2
+          mutationType: 0
+        - zombiePrefab: {fileID: 3583349133157957265, guid: bd6188368fd109d4d87743b5c70a7402, type: 3}
+          quantity: 30
+          spawnInterval: 3
+          zombieTier: 2
+          mutationType: 0
+      timeUntilNextWave: 210
+  - deckName: TutorialDeck
+    deckDuration: 180
+    deckTier: 0
+    deckID: 601010001
+    spawnWaves:
+    - laneSpawnConfigs:
+      - laneID: 2
+        zombieSpawnQueue:
+        - zombiePrefab: {fileID: 3967098827264922691, guid: 3441dad9d3d1df24f8ff19ce4fce72a8, type: 3}
+          quantity: 50
+          spawnInterval: 2.5
+          zombieTier: 1
+          mutationType: 0
+      timeUntilNextWave: 180
+  persistentMutations: 
+  mutationSelectionRules:
+  - minSkillPoint: 320
+    mutationsToSelect: 3
+    availableMutations: 01000000020000000300000004000000
+  - minSkillPoint: 225
+    mutationsToSelect: 2
+    availableMutations: 03000000010000000200000004000000
+  - minSkillPoint: 150
+    mutationsToSelect: 1
+    availableMutations: 01000000020000000400000003000000
+  - minSkillPoint: 50
+    mutationsToSelect: 1
+    availableMutations: 0300000001000000
+  globalMutationType: 0
+  mutationApplyRate: 0.568
+  useDDA: 1
+  tutorialManager: {fileID: 0}
+  startDelayText: {fileID: 0}
+  Waveannoucer: {fileID: 0}
+  startDelay: 35
+  desiredDeckTier: 1
+  currentDeckDurationLeft: 0
+  totalDurationLeft: 0
+  totalZombiesLeft: 0
+  currentDeckZombiesLeft: 0
+  remainingDecks: []
+  checkUsingDDA: {fileID: 0}
+  isCompleteSpawned: 0

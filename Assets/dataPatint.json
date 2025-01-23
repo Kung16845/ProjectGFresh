@@ -1,0 +1,20 @@
+{
+    "listactiveHealingClinicPatient": [
+        {
+            "NpcID": 7001,
+            "Npchp": 8.0,
+            "Healingrate": 0.0,
+            "isfullyhealed": false,
+            "source": 0
+        }
+    ],
+    "listactiveHealingHospitalPatient": [
+        {
+            "NpcID": 7003,
+            "Npchp": 10.0,
+            "Healingrate": 2.0,
+            "isfullyhealed": false,
+            "source": 1
+        }
+    ]
+}

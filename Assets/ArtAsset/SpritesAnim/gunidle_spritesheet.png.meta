@@ -1,0 +1,1073 @@
+fileFormatVersion: 2
+guid: b4067ffd77e66274ab86bac8f284b03c
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gunidle_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 1753
+        width: 279
+        height: 510
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dde72cedc3c07a488f1b74bc73254a1
+      internalID: 1197354706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 1747
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20072b4bed5621d4b9870afaabc6836b
+      internalID: 601125273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 1740
+        width: 280
+        height: 509
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdb9fdf8f8477af49a670bdbf2e08685
+      internalID: -5315911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 1740
+        width: 280
+        height: 517
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf705f60b9162924d9fc6aba4e31d62f
+      internalID: -369313711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1743
+        width: 278
+        height: 510
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 878cb5ec67f603d4bb5740a0e7b7eb41
+      internalID: -1494398793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 1616
+        y: 1740
+        width: 278
+        height: 519
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdece236b728f80478caf0ce944ca211
+      internalID: -1317647042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 1939
+        y: 1722
+        width: 277
+        height: 521
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ffaf242f17ca8e4781f536704f0cf58
+      internalID: -1996161196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 1734
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb9be4c45b22f624fafcc090b4208741
+      internalID: -1115428855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 1349
+        y: 1737
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c053213b7476ab845997a28929d06893
+      internalID: 1222432784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 1209
+        width: 277
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cd40e7190aea32498bbef10f6d10ce8
+      internalID: 2144635647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 1203
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04ee58533d7cd5c40bc6268c6ac2c00f
+      internalID: -1863867459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1206
+        width: 277
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fe079e874ae9764f83673b742d96ce3
+      internalID: 523728908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 1195
+        width: 278
+        height: 519
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72c4ed88b3af6b340aa8953ac92d521f
+      internalID: -766995204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 1274
+        y: 1193
+        width: 276
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d1ea1294fd0219459aa83977e02981a
+      internalID: -1413769873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 1612
+        y: 1195
+        width: 276
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba70505476354c649a54f549d732f7d3
+      internalID: 1109186544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 1931
+        y: 1187
+        width: 276
+        height: 522
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5522cce0d5cfdf04ba1513efd7e57692
+      internalID: -526780234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 1199
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca469835a87b03341ab79676c7b08f1c
+      internalID: 1515695215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 1189
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38f3cd2f001f87b46bbef79f33bac12e
+      internalID: -722933030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 1681
+        y: 1189
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9340ea3075d0eb409253d70be365ef8
+      internalID: 1153094986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 1343
+        y: 1187
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87e005b1d29947645ba414206181aeef
+      internalID: -118469214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1182
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bde6604220be004da56c966224f1292
+      internalID: 849408196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 649
+        width: 276
+        height: 519
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 226e1a21155893f43b652c4018f69452
+      internalID: 534183341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 642
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7bc7e6f1a9825b4cb9cc807cd4e867e
+      internalID: 1639892034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 637
+        width: 277
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72a52e800abd93a4cadaa6cad6f9e9b9
+      internalID: -1961747590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 649
+        width: 278
+        height: 513
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad24fcb26fd22874890457b36e5f768d
+      internalID: 297573754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 642
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57b5698d48165b84dbe8d996b8369625
+      internalID: 1920846935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 617
+        width: 276
+        height: 519
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f125b937e8518243af2baac0f5940d8
+      internalID: -183669783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 1585
+        y: 620
+        width: 278
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b5989ffc304cea44a8ef433a398110c
+      internalID: -1050426206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 1936
+        y: 618
+        width: 277
+        height: 522
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00d1680dae8188c4b89ac18e6ee3ebf0
+      internalID: -1869564365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 632
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5222256baded6624f92d67fbe88b4f06
+      internalID: 1919669358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 611
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a01bf7f12bd8fd0429519a7bac5a2b61
+      internalID: -686645840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 1654
+        y: 614
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b7717a26a7b5074a90e7e4598862cfc
+      internalID: -1581108099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 88
+        width: 278
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c49e532c6a713947bf40ea9da97033b
+      internalID: 1977955032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 83
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34d57206eb93b03428b906c28da729d6
+      internalID: -792825981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 83
+        width: 279
+        height: 513
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaee9701b80de164895379ac54d3ab3f
+      internalID: -247779220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 81
+        width: 278
+        height: 513
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eee15fe95cab9db44bb5a1e818bbde77
+      internalID: -1071283802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 1251
+        y: 59
+        width: 279
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cec5f54a58cc4d4198fe355ed6fae5f
+      internalID: 2062905281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 1565
+        y: 61
+        width: 280
+        height: 511
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fb712e031cd4e04a889bf9cff5a484f
+      internalID: 1673932862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 51
+        width: 279
+        height: 510
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62a3ab8f4d5ebd340b815119bbb7c7bc
+      internalID: 215810017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 75
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 865274474ee176b43912748e9f4f7dd5
+      internalID: 1972619034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 977
+        y: 75
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 244ec766eb451b3469dce522a01625f5
+      internalID: 599184400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 1634
+        y: 56
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c281cf45966cf1e4cb1555da4ba9a662
+      internalID: 267347901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunidle_spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 1989
+        y: 45
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6934d4c66228eeb42878eb82f12b5f38
+      internalID: -756650739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      gunidle_spritesheet_: -5315911
+      gunidle_spritesheet_0: 1197354706
+      gunidle_spritesheet_1: 601125273
+      gunidle_spritesheet_10: -1863867459
+      gunidle_spritesheet_11: 523728908
+      gunidle_spritesheet_12: -766995204
+      gunidle_spritesheet_13: -1413769873
+      gunidle_spritesheet_14: 1109186544
+      gunidle_spritesheet_15: -526780234
+      gunidle_spritesheet_16: 1515695215
+      gunidle_spritesheet_17: -722933030
+      gunidle_spritesheet_18: 1153094986
+      gunidle_spritesheet_19: -118469214
+      gunidle_spritesheet_20: 849408196
+      gunidle_spritesheet_21: 534183341
+      gunidle_spritesheet_22: 1639892034
+      gunidle_spritesheet_23: -1961747590
+      gunidle_spritesheet_24: 297573754
+      gunidle_spritesheet_25: 1920846935
+      gunidle_spritesheet_26: -183669783
+      gunidle_spritesheet_27: -1050426206
+      gunidle_spritesheet_28: -1869564365
+      gunidle_spritesheet_29: 1919669358
+      gunidle_spritesheet_3: -369313711
+      gunidle_spritesheet_30: -686645840
+      gunidle_spritesheet_31: -1581108099
+      gunidle_spritesheet_32: 1977955032
+      gunidle_spritesheet_33: -792825981
+      gunidle_spritesheet_34: -247779220
+      gunidle_spritesheet_35: -1071283802
+      gunidle_spritesheet_36: 2062905281
+      gunidle_spritesheet_37: 1673932862
+      gunidle_spritesheet_38: 215810017
+      gunidle_spritesheet_39: 1972619034
+      gunidle_spritesheet_4: -1494398793
+      gunidle_spritesheet_40: 599184400
+      gunidle_spritesheet_41: 267347901
+      gunidle_spritesheet_42: -756650739
+      gunidle_spritesheet_5: -1317647042
+      gunidle_spritesheet_6: -1996161196
+      gunidle_spritesheet_7: -1115428855
+      gunidle_spritesheet_8: 1222432784
+      gunidle_spritesheet_9: 2144635647
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

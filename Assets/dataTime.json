@@ -1,0 +1,14 @@
+{
+    "dateTime": {
+        "day": 4,
+        "hour": 7,
+        "minutes": 1,
+        "isDayNight": true,
+        "sceneSystem": {
+            "instanceID": 110960
+        },
+        "saveDataDDA": {
+            "instanceID": 109310
+        }
+    }
+}

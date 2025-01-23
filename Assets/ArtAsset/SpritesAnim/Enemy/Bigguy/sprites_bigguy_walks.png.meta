@@ -1,0 +1,655 @@
+fileFormatVersion: 2
+guid: 69c634c6278672044a8adbec2c37f5f7
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sprites_bigguy_walks_0
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 1732
+        width: 292
+        height: 463
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06a56910a0240724cb1ac7100b68aa2c
+      internalID: -1087446410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_walks_1
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 1730
+        width: 293
+        height: 463
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3829bd5a1fc9134e984b4d4bb825420
+      internalID: -89732549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_walks_2
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 1736
+        width: 294
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14806e0a26372214cb25beb27a16ad3c
+      internalID: 1581664372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_walks_3
+      rect:
+        serializedVersion: 2
+        x: 1156
+        y: 1728
+        width: 299
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c74313674500f0f44baef1f9b9c9ea2f
+      internalID: 1820167303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_walks_4
+      rect:
+        serializedVersion: 2
+        x: 1514
+        y: 1729
+        width: 304
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1b99bb18cef43b4b93f9dc87d0e2259
+      internalID: -870792711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_walks_5
+      rect:
+        serializedVersion: 2
+        x: 1888
+        y: 1711
+        width: 310
+        height: 456
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29357ebd3c24d6f47939597c3d8a1546
+      internalID: 1169764169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_walks_6
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 1143
+        width: 315
+        height: 455
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6283d1a7c380c5249a06a6e475347af7
+      internalID: 1850035440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_walks_7
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 1147
+        width: 322
+        height: 455
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51206e0b21fb1c44183ca5b6d997290a
+      internalID: 1798405619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_walks_8
+      rect:
+        serializedVersion: 2
+        x: 769
+        y: 1139
+        width: 325
+        height: 456
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6bdb5977799b4843b33d5d243121a60
+      internalID: 1588895845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_walks_9
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 1148
+        width: 333
+        height: 455
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c23d262bf9b72474782b5c40dd5de690
+      internalID: -1927443299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_walks_10
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1153
+        width: 336
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 750cfde5351235841864ccba10bb5fac
+      internalID: -1331827324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_walks_11
+      rect:
+        serializedVersion: 2
+        x: 1872
+        y: 1147
+        width: 338
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d12f89783364f744fb7855e89f871862
+      internalID: -1786796384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_walks_12
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 616
+        width: 338
+        height: 464
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfca0fd3a61b87d418b37fe2ecb9e1b3
+      internalID: -981189552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_walks_13
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 631
+        width: 338
+        height: 463
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d25e4f2002310b4e95b8047bc3fbecf
+      internalID: 205585597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_walks_14
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 628
+        width: 335
+        height: 464
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 711fbdd50c6abf3448bf531347f4721b
+      internalID: -223313253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_walks_15
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 625
+        width: 330
+        height: 465
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9897d8762d5106e4187ad1a66e3f506d
+      internalID: -1053773356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_walks_16
+      rect:
+        serializedVersion: 2
+        x: 1491
+        y: 614
+        width: 326
+        height: 465
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef5b85fe5c3c6044d9ff20b67890f5ab
+      internalID: -1049841771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_walks_17
+      rect:
+        serializedVersion: 2
+        x: 1857
+        y: 611
+        width: 320
+        height: 465
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1106b56f749e9b4f9573b7faf2f1e83
+      internalID: -31223132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_walks_18
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 71
+        width: 316
+        height: 465
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73f756f8ef54d0e4f909aa08e419d1f7
+      internalID: 604501272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_walks_19
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 65
+        width: 309
+        height: 466
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c8f04dd7cda26749850d614b1a0919f
+      internalID: 2126329623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_walks_20
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 70
+        width: 304
+        height: 466
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 897e4cbedf44099478a721c13890e327
+      internalID: -1549800627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_walks_21
+      rect:
+        serializedVersion: 2
+        x: 1164
+        y: 60
+        width: 299
+        height: 464
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31522161d650352479b5523a281565ee
+      internalID: -131732477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_walks_22
+      rect:
+        serializedVersion: 2
+        x: 1499
+        y: 70
+        width: 295
+        height: 465
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f402892abb10cc34dad0b8ed33ceae23
+      internalID: -1650171582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_walks_23
+      rect:
+        serializedVersion: 2
+        x: 1842
+        y: 72
+        width: 292
+        height: 464
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50a34fc3536517846a7fd5dee5a1bbdb
+      internalID: -1350282108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      sprites_bigguy_walks_0: -1087446410
+      sprites_bigguy_walks_1: -89732549
+      sprites_bigguy_walks_10: -1331827324
+      sprites_bigguy_walks_11: -1786796384
+      sprites_bigguy_walks_12: -981189552
+      sprites_bigguy_walks_13: 205585597
+      sprites_bigguy_walks_14: -223313253
+      sprites_bigguy_walks_15: -1053773356
+      sprites_bigguy_walks_16: -1049841771
+      sprites_bigguy_walks_17: -31223132
+      sprites_bigguy_walks_18: 604501272
+      sprites_bigguy_walks_19: 2126329623
+      sprites_bigguy_walks_2: 1581664372
+      sprites_bigguy_walks_20: -1549800627
+      sprites_bigguy_walks_21: -131732477
+      sprites_bigguy_walks_22: -1650171582
+      sprites_bigguy_walks_23: -1350282108
+      sprites_bigguy_walks_3: 1820167303
+      sprites_bigguy_walks_4: -870792711
+      sprites_bigguy_walks_5: 1169764169
+      sprites_bigguy_walks_6: 1850035440
+      sprites_bigguy_walks_7: 1798405619
+      sprites_bigguy_walks_8: 1588895845
+      sprites_bigguy_walks_9: -1927443299
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

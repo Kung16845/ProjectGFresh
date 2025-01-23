@@ -1,0 +1,11 @@
+{
+    "listDoorStatusInSceneExes": [
+        {
+            "idSceneEx": 0,
+            "listUnLockDoorInSceneEx": [
+                true,
+                true
+            ]
+        }
+    ]
+}

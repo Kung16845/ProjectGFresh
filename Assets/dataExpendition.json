@@ -1,0 +1,80 @@
+{
+    "listdataUIExpemdition": [
+        {
+            "idNPCExpendition": 7001,
+            "listItemDataInventoryEqicment": [
+                {
+                    "nameItem": "MP7",
+                    "idItem": 1020206,
+                    "count": 1,
+                    "maxCount": 1,
+                    "itemtype": 0,
+                    "parantslotType": 0
+                }
+            ],
+            "listItemDataInventorySlot": [
+                {
+                    "nameItem": "Low caliber ammo",
+                    "idItem": 1020124,
+                    "count": 1,
+                    "maxCount": 150,
+                    "itemtype": 5,
+                    "parantslotType": 0
+                }
+            ],
+            "listItemDataInventoryCar": [],
+            "timeScale": 3000.0,
+            "riskEventValue": 90.0,
+            "indexButtonExpendition": 1,
+            "indexSceneExpendition": 3,
+            "isUseCar": true,
+            "isUseTunnel": false,
+            "isWalk": false,
+            "istraveling": true,
+            "isArriveEx": false,
+            "isArriveHome": false,
+            "isExpenditon": false,
+            "finishDayCraftingTime": 1,
+            "finishHourCraftingTime": 9,
+            "finishMinutesCraftingTime": 37
+        },
+        {
+            "idNPCExpendition": 7001,
+            "listItemDataInventoryEqicment": [
+                {
+                    "nameItem": "MP7",
+                    "idItem": 1020206,
+                    "count": 1,
+                    "maxCount": 1,
+                    "itemtype": 0,
+                    "parantslotType": 0
+                }
+            ],
+            "listItemDataInventorySlot": [
+                {
+                    "nameItem": "Low caliber ammo",
+                    "idItem": 1020124,
+                    "count": 1,
+                    "maxCount": 150,
+                    "itemtype": 5,
+                    "parantslotType": 0
+                }
+            ],
+            "listItemDataInventoryCar": [],
+            "timeScale": 3000.0,
+            "riskEventValue": 90.0,
+            "indexButtonExpendition": 1,
+            "indexSceneExpendition": 3,
+            "isUseCar": true,
+            "isUseTunnel": false,
+            "isWalk": false,
+            "istraveling": true,
+            "isArriveEx": false,
+            "isArriveHome": false,
+            "isExpenditon": false,
+            "finishDayCraftingTime": 1,
+            "finishHourCraftingTime": 9,
+            "finishMinutesCraftingTime": 37
+        }
+    ]
+}

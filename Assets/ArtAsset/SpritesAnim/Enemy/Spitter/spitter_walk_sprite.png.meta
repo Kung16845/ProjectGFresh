@@ -1,0 +1,678 @@
+fileFormatVersion: 2
+guid: 8ebfa41d13873934da0a00773620f0dc
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spitter_walk_sprite_0
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 1773
+        width: 235
+        height: 486
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7fd760436d30eb4d843dc52712db3d4
+      internalID: -2114969983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_walk_sprite_1
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 1772
+        width: 229
+        height: 486
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a547261f2d6a90f489d7a5bcbb1385c0
+      internalID: 271244867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_walk_sprite_2
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 1774
+        width: 225
+        height: 488
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d418e3d05a953f646b830ee59f85867f
+      internalID: -1035531493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_walk_sprite_3
+      rect:
+        serializedVersion: 2
+        x: 1245
+        y: 1773
+        width: 218
+        height: 489
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec11b08c525598f44b36cc951f205050
+      internalID: -1936105386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_walk_sprite_4
+      rect:
+        serializedVersion: 2
+        x: 1616
+        y: 1772
+        width: 211
+        height: 488
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26c9e6d2aa3556a4391d4351b911090d
+      internalID: 2021627324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_walk_sprite_5
+      rect:
+        serializedVersion: 2
+        x: 1996
+        y: 1775
+        width: 202
+        height: 491
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c719e161e6f2b4c42be3a48702687629
+      internalID: 1479903816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_walk_sprite_11
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 1195
+        width: 204
+        height: 492
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eb2197114aef6f4eb2dd9f1a5111cae
+      internalID: -1462561387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_walk_sprite_12
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 1197
+        width: 207
+        height: 492
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 087bc7d6873fa87468ee95eeb21f4332
+      internalID: 43205549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_walk_sprite_13
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1199
+        width: 212
+        height: 492
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 333ef14b68d65764e869ba987f202d72
+      internalID: -803784896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_walk_sprite_14
+      rect:
+        serializedVersion: 2
+        x: 1274
+        y: 1197
+        width: 218
+        height: 490
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e24cacc77ff8d24f8dadd8c56313e6e
+      internalID: -137630489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_walk_sprite_15
+      rect:
+        serializedVersion: 2
+        x: 1630
+        y: 1198
+        width: 231
+        height: 489
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d538a30292ff46e498cc618f83587b5c
+      internalID: -1086676163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_walk_sprite_17
+      rect:
+        serializedVersion: 2
+        x: 1989
+        y: 1203
+        width: 240
+        height: 488
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc175a87358473340b7145ebabcc3970
+      internalID: -378073702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_walk_sprite_23
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 624
+        width: 243
+        height: 487
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c339440f7e7a1a47bf263cb22658c79
+      internalID: 863836517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_walk_sprite_25
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 624
+        width: 240
+        height: 487
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa5c512920406784d82dd198580a6e48
+      internalID: 1222583269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_walk_sprite_27
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 624
+        width: 230
+        height: 489
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e388cbdfbbd4dc4495e5e5190ea47d3
+      internalID: 1075025084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_walk_sprite_29
+      rect:
+        serializedVersion: 2
+        x: 1254
+        y: 623
+        width: 218
+        height: 491
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 462e8ce32e27a14428e09f1190ee8ddf
+      internalID: 361016005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_walk_sprite_31
+      rect:
+        serializedVersion: 2
+        x: 1623
+        y: 622
+        width: 211
+        height: 491
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eebfd6d63edae9649b434e42fcd343cb
+      internalID: 867340903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_walk_sprite_32
+      rect:
+        serializedVersion: 2
+        x: 2004
+        y: 617
+        width: 208
+        height: 492
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d7c64e48fe62d04799d628e1ad3dbce
+      internalID: -26531241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_walk_sprite_35
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 63
+        width: 204
+        height: 492
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f3760a70248f794089739bcdc409bcf
+      internalID: -213857024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_walk_sprite_37
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 61
+        width: 200
+        height: 491
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 150ffa9674031f946804d6b62d50cffb
+      internalID: 1969713494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_walk_sprite_38
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 60
+        width: 211
+        height: 490
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3962e7665042a234c8e2f4884ddeb5e1
+      internalID: 1225731290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_walk_sprite_39
+      rect:
+        serializedVersion: 2
+        x: 1219
+        y: 61
+        width: 220
+        height: 490
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e96f6e8a3ec5afa4fa4f7edc4e792993
+      internalID: 1921348050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_walk_sprite_40
+      rect:
+        serializedVersion: 2
+        x: 1583
+        y: 60
+        width: 225
+        height: 489
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f169b3f02caa3e4ab976bd7e9fbfd54
+      internalID: 780321273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_walk_sprite_41
+      rect:
+        serializedVersion: 2
+        x: 1948
+        y: 47
+        width: 230
+        height: 487
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c108cec8df67e44097f6e4afa34917b
+      internalID: -1143621715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      spitter_walk_sprite_0: -2114969983
+      spitter_walk_sprite_1: 271244867
+      spitter_walk_sprite_10: -204010441
+      spitter_walk_sprite_11: -1462561387
+      spitter_walk_sprite_12: 43205549
+      spitter_walk_sprite_13: -803784896
+      spitter_walk_sprite_14: -137630489
+      spitter_walk_sprite_15: -1086676163
+      spitter_walk_sprite_16: 836374001
+      spitter_walk_sprite_17: -378073702
+      spitter_walk_sprite_18: -375648094
+      spitter_walk_sprite_19: 1474807926
+      spitter_walk_sprite_2: -1035531493
+      spitter_walk_sprite_20: 1240516298
+      spitter_walk_sprite_21: -802673852
+      spitter_walk_sprite_22: -259303049
+      spitter_walk_sprite_23: 863836517
+      spitter_walk_sprite_24: 279110372
+      spitter_walk_sprite_25: 1222583269
+      spitter_walk_sprite_26: 877913381
+      spitter_walk_sprite_27: 1075025084
+      spitter_walk_sprite_28: -1111626481
+      spitter_walk_sprite_29: 361016005
+      spitter_walk_sprite_3: -1936105386
+      spitter_walk_sprite_30: 675359429
+      spitter_walk_sprite_31: 867340903
+      spitter_walk_sprite_32: -26531241
+      spitter_walk_sprite_33: -466659312
+      spitter_walk_sprite_34: -914448098
+      spitter_walk_sprite_35: -213857024
+      spitter_walk_sprite_36: 2050637436
+      spitter_walk_sprite_37: 1969713494
+      spitter_walk_sprite_38: 1225731290
+      spitter_walk_sprite_39: 1921348050
+      spitter_walk_sprite_4: 2021627324
+      spitter_walk_sprite_40: 780321273
+      spitter_walk_sprite_41: -1143621715
+      spitter_walk_sprite_42: 910409014
+      spitter_walk_sprite_43: -1518673521
+      spitter_walk_sprite_44: 1889422759
+      spitter_walk_sprite_45: 1629729126
+      spitter_walk_sprite_46: -1839950084
+      spitter_walk_sprite_5: 1479903816
+      spitter_walk_sprite_6: -811853056
+      spitter_walk_sprite_7: 1589658680
+      spitter_walk_sprite_8: -453635289
+      spitter_walk_sprite_9: 1507437350
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

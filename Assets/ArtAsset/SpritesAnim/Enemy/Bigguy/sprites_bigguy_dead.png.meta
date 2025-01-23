@@ -1,0 +1,655 @@
+fileFormatVersion: 2
+guid: 9d0e31baaf3a2e1418a371bd37d0168e
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sprites_bigguy_dead_0
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 1758
+        width: 320
+        height: 464
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f3e899e950225641945636f0e4bb07e
+      internalID: -227132379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_dead_1
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 1763
+        width: 330
+        height: 461
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bc51a83c45d59c45add06fea0c35440
+      internalID: -2027068730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_dead_2
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 1752
+        width: 370
+        height: 456
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9b44f1ff3af79c40b8193216c9ada76
+      internalID: -1905569385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_dead_3
+      rect:
+        serializedVersion: 2
+        x: 1275
+        y: 1749
+        width: 343
+        height: 431
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a68ec7228ab65e40ae39389e9e1c02f
+      internalID: 1635971122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_dead_4
+      rect:
+        serializedVersion: 2
+        x: 1656
+        y: 1781
+        width: 365
+        height: 395
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9eba3c0fca759543a1d885615c05461
+      internalID: -1675415768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_dead_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 1327
+        width: 383
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78fdbe0925c53a44588dd763561ce023
+      internalID: -245676075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_dead_6
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 1336
+        width: 402
+        height: 385
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3659f49773bf71488150ad0e3653324
+      internalID: 986760306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_dead_7
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 1365
+        width: 430
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f24bbb8e7d91a034c829de0d25b43007
+      internalID: 551534170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_dead_8
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 1386
+        width: 453
+        height: 327
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95e03fc95dd02114ba7f148186fef32b
+      internalID: -569448425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_dead_9
+      rect:
+        serializedVersion: 2
+        x: 1814
+        y: 1394
+        width: 458
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e80c4e6f3fb4c74f911dc3defdb8024
+      internalID: -1917785692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_dead_10
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 1017
+        width: 454
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01c0233d70fb72e48a9259c62fca9c36
+      internalID: 1453536149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_dead_11
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 1018
+        width: 459
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb3836e77e5883c4f82732e64a9c88a4
+      internalID: -314478780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_dead_12
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 1019
+        width: 460
+        height: 303
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2540deded43d07c469587fd931a452fd
+      internalID: -1965834790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_dead_13
+      rect:
+        serializedVersion: 2
+        x: 1648
+        y: 1045
+        width: 441
+        height: 282
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5b79d33d52628847a6c1f3eba9442ff
+      internalID: -1879505348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_dead_14
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 731
+        width: 421
+        height: 269
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7378e3ab6faa62942ba43a44acf18d26
+      internalID: -61293083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_dead_15
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 742
+        width: 426
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaf05dd400586714b9a07cb23942b0c0
+      internalID: -232444526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_dead_16
+      rect:
+        serializedVersion: 2
+        x: 1144
+        y: 744
+        width: 440
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 390f25f5b57ad7d4b923680a6bddab1e
+      internalID: 1100314061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_dead_17
+      rect:
+        serializedVersion: 2
+        x: 1651
+        y: 749
+        width: 453
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffcba35d9833bd24b89d76fd85fdfa13
+      internalID: 277434685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_dead_18
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 490
+        width: 460
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 974cec58b5df3314cac5b4ae7df872b4
+      internalID: -140338667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_dead_19
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 501
+        width: 460
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03de711118f804b4bb964a7a52ee3483
+      internalID: 1182687083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_dead_20
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 514
+        width: 453
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98a0d2cd7f415f94c8319dab162b0471
+      internalID: 1010573439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_dead_21
+      rect:
+        serializedVersion: 2
+        x: 1656
+        y: 510
+        width: 455
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69e12a4ae6b47854fb80dd8e060bd7ed
+      internalID: 1702700707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_dead_22
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 177
+        width: 455
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62c3554869216dd4fa61d7ee809c688b
+      internalID: -1247466813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_bigguy_dead_23
+      rect:
+        serializedVersion: 2
+        x: 1150
+        y: 186
+        width: 455
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a81ad310b4de25840bee6ddad1c005f3
+      internalID: -846188708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      sprites_bigguy_dead_0: -227132379
+      sprites_bigguy_dead_1: -2027068730
+      sprites_bigguy_dead_10: 1453536149
+      sprites_bigguy_dead_11: -314478780
+      sprites_bigguy_dead_12: -1965834790
+      sprites_bigguy_dead_13: -1879505348
+      sprites_bigguy_dead_14: -61293083
+      sprites_bigguy_dead_15: -232444526
+      sprites_bigguy_dead_16: 1100314061
+      sprites_bigguy_dead_17: 277434685
+      sprites_bigguy_dead_18: -140338667
+      sprites_bigguy_dead_19: 1182687083
+      sprites_bigguy_dead_2: -1905569385
+      sprites_bigguy_dead_20: 1010573439
+      sprites_bigguy_dead_21: 1702700707
+      sprites_bigguy_dead_22: -1247466813
+      sprites_bigguy_dead_23: -846188708
+      sprites_bigguy_dead_3: 1635971122
+      sprites_bigguy_dead_4: -1675415768
+      sprites_bigguy_dead_5: -245676075
+      sprites_bigguy_dead_6: 986760306
+      sprites_bigguy_dead_7: 551534170
+      sprites_bigguy_dead_8: -569448425
+      sprites_bigguy_dead_9: -1917785692
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

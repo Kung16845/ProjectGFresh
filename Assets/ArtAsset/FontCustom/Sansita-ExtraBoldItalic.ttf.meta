@@ -1,0 +1,26 @@
+fileFormatVersion: 2
+guid: 3bd20f9f8d28a5445a8fef4c5c1c09f7
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Sansita
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a1c52dcf398881544bdd33205cd3d197, type: 3}
+  - {fileID: 12800000, guid: 33b1288ea2432314d89c0c1f021af134, type: 3}
+  - {fileID: 12800000, guid: c3d4492bc578cb1488e324415da4e698, type: 3}
+  - {fileID: 12800000, guid: a64c16bf59d935d4da859b8889b6aa7d, type: 3}
+  - {fileID: 12800000, guid: e19d405623f351a4a89a467fe36dea48, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,17 @@
+{
+    "listInfoBuilding": [],
+    "listinfoBuildSmallGardens": [
+        {
+            "transformX": 1.559999942779541,
+            "transformY": -3.819999933242798,
+            "nameBuild": "Garden",
+            "levelBuild": 2,
+            "dayBuildingFinist": 2,
+            "dayBuildingUpgradFinist": 4,
+            "isBuildingUpgrad": false,
+            "isBuildFinishedUpgrad": true,
+            "yielduration": 2
+        }
+    ],
+    "listinfoBuildMediumGardens": []
+}

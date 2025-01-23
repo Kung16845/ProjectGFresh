@@ -1,0 +1,12 @@
+{
+    "listDataOutPostReward": [
+        {
+            "location": 0,
+            "amountGive": 1,
+            "itemName": "454",
+            "locationIcon": {
+                "instanceID": 0
+            }
+        }
+    ]
+}

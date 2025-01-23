@@ -1,0 +1,666 @@
+fileFormatVersion: 2
+guid: 7f5542ecac5fc0745862452e943bfb95
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spitter_dead_sprite_0
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 1774
+        width: 171
+        height: 492
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2809dc423f647141972040ba133fb21
+      internalID: 82344454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_dead_sprite_1
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 1773
+        width: 204
+        height: 493
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9865186a74da6ba429f1cf2b82764338
+      internalID: 764346128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_dead_sprite_2
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 1781
+        width: 286
+        height: 486
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 695526a33f23d264cbbb74cf68d7c6d7
+      internalID: 513294903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_dead_sprite_3
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 1795
+        width: 326
+        height: 453
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 537fd59688eea484a9603f27180948c6
+      internalID: 495569778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_dead_sprite_5
+      rect:
+        serializedVersion: 2
+        x: 1295
+        y: 1813
+        width: 382
+        height: 386
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c92c57d3cc247a4ca8a2c4e6f1b3481
+      internalID: 781369489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_dead_sprite_6
+      rect:
+        serializedVersion: 2
+        x: 1737
+        y: 1848
+        width: 419
+        height: 363
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7beadff928b245b408f0bc874aca63de
+      internalID: 237148181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_dead_sprite_9
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 1368
+        width: 440
+        height: 346
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b008643fe4cea1844a0b6cb56307d658
+      internalID: 1059863523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_dead_sprite_10
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 1389
+        width: 457
+        height: 315
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9720d38b6dc057b4bbd42040302ec4a5
+      internalID: -1067549185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_dead_sprite_13
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 1436
+        width: 479
+        height: 263
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 387b7b0d5fe57dc4eaded235b13dbbd4
+      internalID: 594761007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_dead_sprite_15
+      rect:
+        serializedVersion: 2
+        x: 1730
+        y: 1412
+        width: 490
+        height: 229
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d98881a15221cca459e9482e9b77a7bd
+      internalID: 439903964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_dead_sprite_20
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 1130
+        width: 486
+        height: 223
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a9c29748c320ae48978d53fea26f2cd
+      internalID: -644198197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_dead_sprite_21
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 1138
+        width: 485
+        height: 221
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6e7a9a3e752237489bd995a281663ae
+      internalID: 761542680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_dead_sprite_22
+      rect:
+        serializedVersion: 2
+        x: 1745
+        y: 1142
+        width: 478
+        height: 219
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 809741b560d49c449be4101594cb4fd4
+      internalID: -2113954646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_dead_sprite_23
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 1108
+        width: 485
+        height: 223
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3728f4cd8fc2fb47b25338f4db7dc6f
+      internalID: -1948236436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_dead_sprite_25
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 847
+        width: 471
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a5d605c4188ab6448e32f10771efaa9
+      internalID: -1667075360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_dead_sprite_26
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 864
+        width: 479
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69491e17412d9da4f90b9a771d3e80ab
+      internalID: -701125464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_dead_sprite_27
+      rect:
+        serializedVersion: 2
+        x: 1740
+        y: 870
+        width: 483
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f14aacb48a3f2c340b81035ff765f8af
+      internalID: 1158793468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_dead_sprite_28
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 837
+        width: 468
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fa8eb29a6387f24a86b3de0b84a6291
+      internalID: 427864190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_dead_sprite_29
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 596
+        width: 485
+        height: 173
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c15dd6347fa55ae449c1e86bebb03a36
+      internalID: 1742348145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_dead_sprite_30
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 604
+        width: 486
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c43929e2ade8994fb6488b2f4212118
+      internalID: -1129301289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_dead_sprite_31
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 608
+        width: 485
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5352c44f8037aff49bce7cfd01fd300c
+      internalID: -268540356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_dead_sprite_32
+      rect:
+        serializedVersion: 2
+        x: 1756
+        y: 610
+        width: 485
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92d8f86aa4d40034ba6ecf13a5e2bb6a
+      internalID: -1181169598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_dead_sprite_33
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 246
+        width: 485
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e267bef587cf05428a23d90cca9efff
+      internalID: -720720629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_dead_sprite_34
+      rect:
+        serializedVersion: 2
+        x: 1219
+        y: 241
+        width: 485
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a404056b3575924d9eff42171245f6c
+      internalID: -1898650578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      spitter_dead_sprite_0: 82344454
+      spitter_dead_sprite_1: 764346128
+      spitter_dead_sprite_10: -1067549185
+      spitter_dead_sprite_11: -1556906093
+      spitter_dead_sprite_12: 2079305566
+      spitter_dead_sprite_13: 594761007
+      spitter_dead_sprite_14: -508759811
+      spitter_dead_sprite_15: 439903964
+      spitter_dead_sprite_16: -1231804929
+      spitter_dead_sprite_17: -887667499
+      spitter_dead_sprite_18: -1960054142
+      spitter_dead_sprite_19: 567412760
+      spitter_dead_sprite_2: 513294903
+      spitter_dead_sprite_20: -644198197
+      spitter_dead_sprite_21: 761542680
+      spitter_dead_sprite_22: -2113954646
+      spitter_dead_sprite_23: -1948236436
+      spitter_dead_sprite_24: -254839882
+      spitter_dead_sprite_25: -1667075360
+      spitter_dead_sprite_26: -701125464
+      spitter_dead_sprite_27: 1158793468
+      spitter_dead_sprite_28: 427864190
+      spitter_dead_sprite_29: 1742348145
+      spitter_dead_sprite_3: 495569778
+      spitter_dead_sprite_30: -1129301289
+      spitter_dead_sprite_31: -268540356
+      spitter_dead_sprite_32: -1181169598
+      spitter_dead_sprite_33: -720720629
+      spitter_dead_sprite_34: -1898650578
+      spitter_dead_sprite_4: -774058224
+      spitter_dead_sprite_5: 781369489
+      spitter_dead_sprite_6: 237148181
+      spitter_dead_sprite_7: 1654432186
+      spitter_dead_sprite_8: 2108017837
+      spitter_dead_sprite_9: 1059863523
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

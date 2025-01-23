@@ -1,0 +1,679 @@
+fileFormatVersion: 2
+guid: 56f95115772bbd946a9f34b10a09e7fa
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spitter_attack_sprite_0
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 1770
+        width: 218
+        height: 490
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dc7b5691fd00b848bd83e97aad85c8b
+      internalID: -518281789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_attack_sprite_2
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 1768
+        width: 212
+        height: 491
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 426f2319a6f7258478a5487cda70e917
+      internalID: -712066432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_attack_sprite_3
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1772
+        width: 206
+        height: 490
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5f2ecdbd7ba88f4494cae3d83514d4c
+      internalID: -1671091880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_attack_sprite_4
+      rect:
+        serializedVersion: 2
+        x: 1247
+        y: 1772
+        width: 211
+        height: 489
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cc55820f66c7bf40b2e547306dbc5a4
+      internalID: 520568003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_attack_sprite_5
+      rect:
+        serializedVersion: 2
+        x: 1595
+        y: 1764
+        width: 211
+        height: 488
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4b26ccdb3b423a45af70702ffa60551
+      internalID: -1227429597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_attack_sprite_6
+      rect:
+        serializedVersion: 2
+        x: 1966
+        y: 1773
+        width: 208
+        height: 488
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf6e7c3cb9d7383418d7ec55e0f7a8fc
+      internalID: -62993044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_attack_sprite_12
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 1195
+        width: 199
+        height: 489
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae3385bd048d33f4aa0604691d95286f
+      internalID: 51766913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_attack_sprite_14
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 1197
+        width: 213
+        height: 489
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05e8184df7346934eaa1ad43f8660d0b
+      internalID: -543533274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_attack_sprite_16
+      rect:
+        serializedVersion: 2
+        x: 843
+        y: 1204
+        width: 240
+        height: 488
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13c621b5c12cbeb408358da682fee523
+      internalID: 165572641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_attack_sprite_18
+      rect:
+        serializedVersion: 2
+        x: 1208
+        y: 1200
+        width: 262
+        height: 486
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16e3f2fa3b71c074a820fba5853ed954
+      internalID: 2076483076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_attack_sprite_19
+      rect:
+        serializedVersion: 2
+        x: 1562
+        y: 1202
+        width: 280
+        height: 484
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d2e66260aea1b34f96bfb778160be28
+      internalID: -1535362847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_attack_sprite_20
+      rect:
+        serializedVersion: 2
+        x: 1914
+        y: 1204
+        width: 293
+        height: 482
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84c4c54c42660ec41aef1a73d42bdf6c
+      internalID: 1700881236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_attack_sprite_24
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 632
+        width: 296
+        height: 480
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49a5891baa800524aabde8693c3a1687
+      internalID: -1625763825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_attack_sprite_25
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 627
+        width: 295
+        height: 481
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76368182ce6b706499198b23d47d4667
+      internalID: 1295129735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_attack_sprite_26
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 631
+        width: 290
+        height: 480
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e626a18f0a90584eaa07ff5b1113b3a
+      internalID: -684862953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_attack_sprite_27
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 632
+        width: 281
+        height: 480
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aff1c677a555c84d985e2583c32042f
+      internalID: 2069963802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_attack_sprite_29
+      rect:
+        serializedVersion: 2
+        x: 1562
+        y: 631
+        width: 269
+        height: 480
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbd2d612583a5034caef86bd1860716c
+      internalID: 356495809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_attack_sprite_31
+      rect:
+        serializedVersion: 2
+        x: 1951
+        y: 617
+        width: 256
+        height: 481
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d78ecb15eef8a842bb2bac00ea0099c
+      internalID: -267115692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_attack_sprite_36
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 67
+        width: 239
+        height: 480
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87d2d3732664fa14fa0e721de26ada8b
+      internalID: -1787322537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_attack_sprite_37
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 65
+        width: 220
+        height: 480
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2a06c9d64318d04f87a4c64fd91dba1
+      internalID: 869409734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_attack_sprite_38
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 66
+        width: 219
+        height: 484
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe8fbe8b8f4033b40918d79f418daaa2
+      internalID: 276590551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_attack_sprite_39
+      rect:
+        serializedVersion: 2
+        x: 1240
+        y: 65
+        width: 218
+        height: 486
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bd9c55a7eba84d47b8e17ba71234796
+      internalID: 1851390134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_attack_sprite_40
+      rect:
+        serializedVersion: 2
+        x: 1613
+        y: 68
+        width: 218
+        height: 488
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66e46b9d72d162a4ea3fcbb797632186
+      internalID: 566951014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spitter_attack_sprite_42
+      rect:
+        serializedVersion: 2
+        x: 1968
+        y: 47
+        width: 217
+        height: 489
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9e7755e0d6aea848b90f0756b6b7838
+      internalID: 1360582117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      spitter_attack_sprite_0: -518281789
+      spitter_attack_sprite_1: -1299180399
+      spitter_attack_sprite_10: -353375445
+      spitter_attack_sprite_11: -436999771
+      spitter_attack_sprite_12: 51766913
+      spitter_attack_sprite_13: 1080178464
+      spitter_attack_sprite_14: -543533274
+      spitter_attack_sprite_15: -43650663
+      spitter_attack_sprite_16: 165572641
+      spitter_attack_sprite_17: 175108298
+      spitter_attack_sprite_18: 2076483076
+      spitter_attack_sprite_19: -1535362847
+      spitter_attack_sprite_2: -712066432
+      spitter_attack_sprite_20: 1700881236
+      spitter_attack_sprite_21: -1928206982
+      spitter_attack_sprite_22: 1984632626
+      spitter_attack_sprite_23: -2083650952
+      spitter_attack_sprite_24: -1625763825
+      spitter_attack_sprite_25: 1295129735
+      spitter_attack_sprite_26: -684862953
+      spitter_attack_sprite_27: 2069963802
+      spitter_attack_sprite_28: -1390277270
+      spitter_attack_sprite_29: 356495809
+      spitter_attack_sprite_3: -1671091880
+      spitter_attack_sprite_30: 671388400
+      spitter_attack_sprite_31: -267115692
+      spitter_attack_sprite_32: 834257736
+      spitter_attack_sprite_33: -1525218162
+      spitter_attack_sprite_34: 550422832
+      spitter_attack_sprite_35: 1275925390
+      spitter_attack_sprite_36: -1787322537
+      spitter_attack_sprite_37: 869409734
+      spitter_attack_sprite_38: 276590551
+      spitter_attack_sprite_39: 1851390134
+      spitter_attack_sprite_4: 520568003
+      spitter_attack_sprite_40: 566951014
+      spitter_attack_sprite_41: -656845585
+      spitter_attack_sprite_42: 1360582117
+      spitter_attack_sprite_43: -347326693
+      spitter_attack_sprite_44: -1426974428
+      spitter_attack_sprite_45: 184492975
+      spitter_attack_sprite_46: 1731916821
+      spitter_attack_sprite_47: -2044847371
+      spitter_attack_sprite_5: -1227429597
+      spitter_attack_sprite_6: -62993044
+      spitter_attack_sprite_7: 656512784
+      spitter_attack_sprite_8: -1173853377
+      spitter_attack_sprite_9: 1839184060
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

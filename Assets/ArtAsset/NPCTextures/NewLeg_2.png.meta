@@ -1,0 +1,1227 @@
+fileFormatVersion: 2
+guid: f3bcec638db6e9f4cac6070fa092cdce
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 250
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RightLegTop1_1
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 865
+        width: 84
+        height: 117
+      alignment: 9
+      pivot: {x: 0.5369497, y: 0.7652802}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8e0837ba5fca0447a49415f3aea3201
+      internalID: -653878980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLegTop1_1
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 865
+        width: 84
+        height: 117
+      alignment: 9
+      pivot: {x: 0.5123164, y: 0.78296524}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ebd12e8aedf6744397c0323178c2571
+      internalID: 1214042752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightLegTop1_2
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 865
+        width: 84
+        height: 117
+      alignment: 9
+      pivot: {x: 0.5072472, y: 0.75643736}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44c69f3f91f59b34eb754f522d93888a
+      internalID: -819147239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLegTop1_2
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 865
+        width: 84
+        height: 117
+      alignment: 9
+      pivot: {x: 0.51231605, y: 0.7247059}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6c70f76cccfa0145b3149bf953b5859
+      internalID: -1716774824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightLegTop1_3
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 865
+        width: 84
+        height: 117
+      alignment: 9
+      pivot: {x: 0.57184273, y: 0.75789803}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e08d2e8ef5181774ebc6e57caf3a9713
+      internalID: 1017078421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLegTop1_3
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 865
+        width: 84
+        height: 117
+      alignment: 9
+      pivot: {x: 0.5359214, y: 0.7450029}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2fd7b95d0ef3ab42aacf873506ec1c4
+      internalID: -1191055939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightLegTop1_4
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 865
+        width: 83
+        height: 117
+      alignment: 9
+      pivot: {x: 0.5363549, y: 0.73210835}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66fb34e3973ba5e4ebd279701e3baac3
+      internalID: 1415085872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLegTop1_4
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 865
+        width: 83
+        height: 117
+      alignment: 9
+      pivot: {x: 0.5363549, y: 0.7450029}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5370ebd2306c61240bfb0fcbc7f85a33
+      internalID: -1802137714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightLegBot1_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 728
+        width: 58
+        height: 132
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8256059}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47342d66c6786ac47b4847e1694c6d08
+      internalID: 1980420805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLegBot1_1
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 728
+        width: 58
+        height: 132
+      alignment: 9
+      pivot: {x: 0.52744555, y: 0.84972495}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84d1cdf6db9027341b306bc72099ac80
+      internalID: 393871010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightLegBot1_2
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 728
+        width: 69
+        height: 132
+      alignment: 9
+      pivot: {x: 0.47693047, y: 0.81354636}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7de40db68464bac4c9a683efd145b72a
+      internalID: 627808386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLegBot1_2
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 728
+        width: 68
+        height: 132
+      alignment: 9
+      pivot: {x: 0.45318154, y: 0.84972495}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c323ff1357ccd274288d178dca63f0ea
+      internalID: 1713533143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightLegBot1_3
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 730
+        width: 61
+        height: 132
+      alignment: 9
+      pivot: {x: 0.52609605, y: 0.84972495}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ab2a218047b2a349835f2ad054229ce
+      internalID: -1490630267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLegBot1_3
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 728
+        width: 63
+        height: 132
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8014873}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a93c8bd481dd104791ca2a32c1ab351
+      internalID: -1108293632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightLegBot1_4
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 728
+        width: 58
+        height: 132
+      alignment: 9
+      pivot: {x: 0.5000011, y: 0.8256059}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 531a337f984c27446a7e24f39e210a2a
+      internalID: 23353871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLegBot1_4
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 728
+        width: 58
+        height: 132
+      alignment: 9
+      pivot: {x: 0.5000011, y: 0.83766544}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c1a378aa89775547acac08f18e666c7
+      internalID: 89410057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FeetLeft
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 686
+        width: 79
+        height: 35
+      alignment: 9
+      pivot: {x: 0.31797317, y: 0.80898786}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23cb1372368cfcb49a8c088061e9f720
+      internalID: 1061331674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FeetRight
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 686
+        width: 79
+        height: 35
+      alignment: 9
+      pivot: {x: 0.30527022, y: 0.78616244}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7581bf97b25535a4486a138ca54215a6
+      internalID: -796611794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightLegTop2_1
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 548
+        width: 84
+        height: 114
+      alignment: 9
+      pivot: {x: 0.5347717, y: 0.7562127}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acadb7b8313c9534b8ce26a409bb1f9b
+      internalID: 988097678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLegTop2_1
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 548
+        width: 84
+        height: 114
+      alignment: 9
+      pivot: {x: 0.49999982, y: 0.75621325}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9144345b07fa354789eab14f663c441
+      internalID: 1510932409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightLegTop2_2
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 547
+        width: 84
+        height: 116
+      alignment: 9
+      pivot: {x: 0.5173856, y: 0.76438534}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8596109fe3141d442b6f5a422052219f
+      internalID: 477271566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLegTop2_2
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 546
+        width: 84
+        height: 117
+      alignment: 9
+      pivot: {x: 0.5173856, y: 0.76212513}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e183bc9759cf80b41a8c20be62664afb
+      internalID: -2146483976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightLegTop2_3
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 547
+        width: 84
+        height: 118
+      alignment: 9
+      pivot: {x: 0.5173863, y: 0.75990427}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 464fb29ca67d00c40873d24def5c39d2
+      internalID: 1929246032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLegTop2_3
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 547
+        width: 84
+        height: 118
+      alignment: 9
+      pivot: {x: 0.5173856, y: 0.7722804}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1515d5a409eb11544a98b6c9dba4db89
+      internalID: -1853518572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightLegTop2_4
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 547
+        width: 83
+        height: 118
+      alignment: 9
+      pivot: {x: 0.51759505, y: 0.7227752}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 822febdcc159a3d448429d02daf74a4e
+      internalID: 859745581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLegTop2_4
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 547
+        width: 83
+        height: 118
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7227752}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8635a323327934541a569101ff757597
+      internalID: -1265551863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightLegBot2_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 410
+        width: 58
+        height: 132
+      alignment: 9
+      pivot: {x: 0.5, y: 0.831912}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79f3ba98d9b14f54bb978684f4554e37
+      internalID: 407043598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLegBot2_1
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 412
+        width: 58
+        height: 132
+      alignment: 9
+      pivot: {x: 0.50000024, y: 0.8097844}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 739656fda8e3f814888d65bd79260bd7
+      internalID: 1641373206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightLegBot2_2
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 409
+        width: 69
+        height: 132
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8208484}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7386e34733474834ba693206aad26a53
+      internalID: -1340180675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLegBot2_2
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 409
+        width: 68
+        height: 132
+      alignment: 9
+      pivot: {x: 0.49999955, y: 0.842976}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 949c93b54c997a347bb23c23e3688b2d
+      internalID: -981749572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightLegBot2_3
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 411
+        width: 61
+        height: 132
+      alignment: 9
+      pivot: {x: 0.5, y: 0.831912}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba9d22b75ce81724797aa14bac1c5e4d
+      internalID: -1741267013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLegBot2_33
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 411
+        width: 63
+        height: 132
+      alignment: 9
+      pivot: {x: 0.5, y: 0.842976}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24597c4a978f2b542bcb1029835e094b
+      internalID: 332962249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightLegBot2_4
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 411
+        width: 58
+        height: 132
+      alignment: 9
+      pivot: {x: 0.5067349, y: 0.82480735}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e658a794b2909a34ab16472d5bbe568f
+      internalID: -1695610510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLegBot2_4
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 412
+        width: 58
+        height: 132
+      alignment: 9
+      pivot: {x: 0.51636267, y: 0.83076984}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e7c4cb39a083cb4296a30dea91e3940
+      internalID: 536703407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightLegTop3_1
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 278
+        width: 84
+        height: 117
+      alignment: 9
+      pivot: {x: 0.5173858, y: 0.77460736}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abf442ffed5c9884488bf8e7478367d2
+      internalID: -2064191828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLegTop3_1
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 279
+        width: 84
+        height: 116
+      alignment: 9
+      pivot: {x: 0.5173858, y: 0.7392055}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2867ab1524063c46831e95404815001
+      internalID: -1407662092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightLegTop3_2
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 276
+        width: 84
+        height: 117
+      alignment: 9
+      pivot: {x: 0.51738596, y: 0.7496429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfefc79468d5cd34eb0d5bd25ddb09cc
+      internalID: -642888039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLegTop3_2
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 277
+        width: 84
+        height: 116
+      alignment: 9
+      pivot: {x: 0.5173856, y: 0.7392055}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20214f1ad24f89e4fac1261b1ef97071
+      internalID: 353185909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightLegTop3_3
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 275
+        width: 84
+        height: 118
+      alignment: 9
+      pivot: {x: 0.5173863, y: 0.74752754}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 824d1df454a979c4fbe43830980f1216
+      internalID: -1214756777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLegTop3_3
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 275
+        width: 84
+        height: 118
+      alignment: 9
+      pivot: {x: 0.5173856, y: 0.7351514}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c74545f9e76bd941a76813ea7729627
+      internalID: 600742993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightLegTop3_4
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 275
+        width: 83
+        height: 118
+      alignment: 9
+      pivot: {x: 0.51759505, y: 0.7351514}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d6dfbf223d082049b281a2bbc596104
+      internalID: -1810981040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLegTop3_4
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 275
+        width: 83
+        height: 118
+      alignment: 9
+      pivot: {x: 0.51759577, y: 0.74752754}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bc01a3b666501e45b13609bc2328c59
+      internalID: 1934441028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightLegBot3_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 141
+        width: 58
+        height: 132
+      alignment: 9
+      pivot: {x: 0.5, y: 0.84515196}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06099633473a3c14bb13d797f5d1bb07
+      internalID: 1998341100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLegBot3_1
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 141
+        width: 58
+        height: 132
+      alignment: 9
+      pivot: {x: 0.5, y: 0.84515196}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b68183d28fdc4d346b5627d9f4b9d68e
+      internalID: -1328131658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightLegBot3_2
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 139
+        width: 69
+        height: 132
+      alignment: 9
+      pivot: {x: 0.5, y: 0.84515184}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ce836500cbfa4f4f90e5900708483e4
+      internalID: -1458121134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLegBot3_2
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 139
+        width: 68
+        height: 132
+      alignment: 9
+      pivot: {x: 0.52791643, y: 0.86672384}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fb93466b48f0924db89b5b909293eb4
+      internalID: 68388950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightLegBot3_3
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 139
+        width: 61
+        height: 132
+      alignment: 9
+      pivot: {x: 0.53111994, y: 0.85234255}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87164a82897337446a783ff13aefefc9
+      internalID: 1512728909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLegBot3_3
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 139
+        width: 63
+        height: 132
+      alignment: 9
+      pivot: {x: 0.49999902, y: 0.85953325}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d22ad7a78c7fd26498c9957558ad5762
+      internalID: -1946243663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightLegBot3_4
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 141
+        width: 58
+        height: 132
+      alignment: 9
+      pivot: {x: 0.51636374, y: 0.83077055}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa45a0f1ae195f44b8b6918ac057c30b
+      internalID: 435580235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftLegBot3_4
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 139
+        width: 58
+        height: 132
+      alignment: 9
+      pivot: {x: 0.51636374, y: 0.80919856}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e25217ee5a36ce34a8a8d4a00b925269
+      internalID: 453005449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      FeetLeft: 1061331674
+      FeetRight: -796611794
+      LeftLegBot1_1: 393871010
+      LeftLegBot1_2: 1713533143
+      LeftLegBot1_3: -1108293632
+      LeftLegBot1_4: 89410057
+      LeftLegBot2_1: 1641373206
+      LeftLegBot2_2: -981749572
+      LeftLegBot2_33: 332962249
+      LeftLegBot2_4: 536703407
+      LeftLegBot3_1: -1328131658
+      LeftLegBot3_2: 68388950
+      LeftLegBot3_3: -1946243663
+      LeftLegBot3_4: 453005449
+      LeftLegTop1_1: 1214042752
+      LeftLegTop1_2: -1716774824
+      LeftLegTop1_3: -1191055939
+      LeftLegTop1_4: -1802137714
+      LeftLegTop2_1: -1407662092
+      LeftLegTop2_2: -2146483976
+      LeftLegTop2_3: -1853518572
+      LeftLegTop2_4: -1265551863
+      LeftLegTop3_1: 407043598
+      LeftLegTop3_2: 353185909
+      LeftLegTop3_3: 600742993
+      LeftLegTop3_4: 1934441028
+      RightLegBot1_1: -653878980
+      RightLegBot1_2: 627808386
+      RightLegBot1_3: -1490630267
+      RightLegBot1_4: 23353871
+      RightLegBot2_1: 1998341100
+      RightLegBot2_2: -1340180675
+      RightLegBot2_3: -1741267013
+      RightLegBot2_4: -1695610510
+      RightLegBot3_1: 1641373206
+      RightLegBot3_2: -1458121134
+      RightLegBot3_3: 1512728909
+      RightLegBot3_4: 435580235
+      RightLegTop1_1: 988097678
+      RightLegTop1_2: -819147239
+      RightLegTop1_3: 1017078421
+      RightLegTop1_4: 1415085872
+      RightLegTop2_1: -2064191828
+      RightLegTop2_2: 477271566
+      RightLegTop2_3: 1929246032
+      RightLegTop2_4: 859745581
+      RightLegTop3_1: 1510932409
+      RightLegTop3_2: -642888039
+      RightLegTop3_3: -1214756777
+      RightLegTop3_4: -1810981040
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

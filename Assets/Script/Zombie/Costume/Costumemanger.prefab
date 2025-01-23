@@ -1,0 +1,278 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8916713709368649537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5293696357326393820}
+  - component: {fileID: 2482836352307382377}
+  m_Layer: 0
+  m_Name: Costumemanger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5293696357326393820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8916713709368649537}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.9779545, y: -0.77492034, z: 0.072512895}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2482836352307382377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8916713709368649537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a19d6384ef7e11b45b16640f0c2bcc12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listCoustumeZombie:
+  - idZombieCoustume: 3010101
+    spriteHead: {fileID: -2076113332333583008, guid: 7f6b0ce62286d154f97fa2799cf5db3b, type: 3}
+    spriteBody: {fileID: 5234324763066960299, guid: 7f6b0ce62286d154f97fa2799cf5db3b, type: 3}
+    spriteTopArm: {fileID: 2197673020924503030, guid: 7f6b0ce62286d154f97fa2799cf5db3b, type: 3}
+    spriteBackArm: {fileID: 2351854094814540549, guid: 7f6b0ce62286d154f97fa2799cf5db3b, type: 3}
+    spriteTopLeg: {fileID: 2346032213183875990, guid: 7f6b0ce62286d154f97fa2799cf5db3b, type: 3}
+    spriteBackLeg: {fileID: 6577470457215350339, guid: 7f6b0ce62286d154f97fa2799cf5db3b, type: 3}
+  - idZombieCoustume: 3010102
+    spriteHead: {fileID: -7919090193833983223, guid: 61083383b27993b468c5fa530326770b, type: 3}
+    spriteBody: {fileID: 4747386513910375438, guid: 61083383b27993b468c5fa530326770b, type: 3}
+    spriteTopArm: {fileID: -5027823451869196760, guid: 61083383b27993b468c5fa530326770b, type: 3}
+    spriteBackArm: {fileID: -6122325121698593370, guid: 61083383b27993b468c5fa530326770b, type: 3}
+    spriteTopLeg: {fileID: 471585137968324743, guid: 61083383b27993b468c5fa530326770b, type: 3}
+    spriteBackLeg: {fileID: -2757225849581136797, guid: 61083383b27993b468c5fa530326770b, type: 3}
+  - idZombieCoustume: 3010103
+    spriteHead: {fileID: -4194995010245415205, guid: 50cb3db055cf95d48af0e11bdab11e11, type: 3}
+    spriteBody: {fileID: 8950915939367095403, guid: 50cb3db055cf95d48af0e11bdab11e11, type: 3}
+    spriteTopArm: {fileID: 2197673020924503030, guid: 7f6b0ce62286d154f97fa2799cf5db3b, type: 3}
+    spriteBackArm: {fileID: -2596607041608708035, guid: 50cb3db055cf95d48af0e11bdab11e11, type: 3}
+    spriteTopLeg: {fileID: 4026873884148509874, guid: 50cb3db055cf95d48af0e11bdab11e11, type: 3}
+    spriteBackLeg: {fileID: -2674730729635126256, guid: 50cb3db055cf95d48af0e11bdab11e11, type: 3}
+  - idZombieCoustume: 3010104
+    spriteHead: {fileID: -8920878798425505932, guid: fb48ab390b578934aa18b1d7beb2e07e, type: 3}
+    spriteBody: {fileID: -3776827405562286327, guid: fb48ab390b578934aa18b1d7beb2e07e, type: 3}
+    spriteTopArm: {fileID: -6372417445953261762, guid: fb48ab390b578934aa18b1d7beb2e07e, type: 3}
+    spriteBackArm: {fileID: 3329488183697759637, guid: fb48ab390b578934aa18b1d7beb2e07e, type: 3}
+    spriteTopLeg: {fileID: -5341739614441174997, guid: fb48ab390b578934aa18b1d7beb2e07e, type: 3}
+    spriteBackLeg: {fileID: -7450398664157686881, guid: fb48ab390b578934aa18b1d7beb2e07e, type: 3}
+  - idZombieCoustume: 3010105
+    spriteHead: {fileID: -190376444818587371, guid: 624f098a72edbc143ac2b66496c4311b, type: 3}
+    spriteBody: {fileID: 2283956755420018188, guid: 624f098a72edbc143ac2b66496c4311b, type: 3}
+    spriteTopArm: {fileID: 2037026373424333104, guid: 624f098a72edbc143ac2b66496c4311b, type: 3}
+    spriteBackArm: {fileID: 4246077208198336322, guid: 624f098a72edbc143ac2b66496c4311b, type: 3}
+    spriteTopLeg: {fileID: 3759797732348126551, guid: 624f098a72edbc143ac2b66496c4311b, type: 3}
+    spriteBackLeg: {fileID: 8018338137885578967, guid: 624f098a72edbc143ac2b66496c4311b, type: 3}
+  - idZombieCoustume: 3010201
+    spriteHead: {fileID: 7025989446971206130, guid: f4a58bd7cc348ef419a8de92c1e8080b, type: 3}
+    spriteBody: {fileID: -4233096988829572385, guid: f4a58bd7cc348ef419a8de92c1e8080b, type: 3}
+    spriteTopArm: {fileID: -5239218712369271684, guid: f4a58bd7cc348ef419a8de92c1e8080b, type: 3}
+    spriteBackArm: {fileID: 7352317413885599553, guid: f4a58bd7cc348ef419a8de92c1e8080b, type: 3}
+    spriteTopLeg: {fileID: 2827712040465809555, guid: f4a58bd7cc348ef419a8de92c1e8080b, type: 3}
+    spriteBackLeg: {fileID: 2659057610888984144, guid: f4a58bd7cc348ef419a8de92c1e8080b, type: 3}
+  - idZombieCoustume: 3010203
+    spriteHead: {fileID: 3363628431199368215, guid: 465a8e8a4b94ce24994f052318c86dfe, type: 3}
+    spriteBody: {fileID: -1412324514725803148, guid: 465a8e8a4b94ce24994f052318c86dfe, type: 3}
+    spriteTopArm: {fileID: -8364858499815878668, guid: 465a8e8a4b94ce24994f052318c86dfe, type: 3}
+    spriteBackArm: {fileID: -726307955829404386, guid: 465a8e8a4b94ce24994f052318c86dfe, type: 3}
+    spriteTopLeg: {fileID: -5559240368136016328, guid: 465a8e8a4b94ce24994f052318c86dfe, type: 3}
+    spriteBackLeg: {fileID: 2876488732998779174, guid: 465a8e8a4b94ce24994f052318c86dfe, type: 3}
+  - idZombieCoustume: 3010204
+    spriteHead: {fileID: 888913867241849755, guid: dd22e7cf54ea44e41965f520f756e668, type: 3}
+    spriteBody: {fileID: 8162380166967958191, guid: dd22e7cf54ea44e41965f520f756e668, type: 3}
+    spriteTopArm: {fileID: -7292538659284576435, guid: dd22e7cf54ea44e41965f520f756e668, type: 3}
+    spriteBackArm: {fileID: 7904723558457100044, guid: dd22e7cf54ea44e41965f520f756e668, type: 3}
+    spriteTopLeg: {fileID: 8318855311074519121, guid: dd22e7cf54ea44e41965f520f756e668, type: 3}
+    spriteBackLeg: {fileID: -8789659707834452036, guid: dd22e7cf54ea44e41965f520f756e668, type: 3}
+  - idZombieCoustume: 3010205
+    spriteHead: {fileID: -7029086977400874241, guid: cae604020bbeb344f8fc3d09f44eaa27, type: 3}
+    spriteBody: {fileID: -5736126962830765587, guid: cae604020bbeb344f8fc3d09f44eaa27, type: 3}
+    spriteTopArm: {fileID: -773827888618160366, guid: cae604020bbeb344f8fc3d09f44eaa27, type: 3}
+    spriteBackArm: {fileID: -7456531584644499180, guid: cae604020bbeb344f8fc3d09f44eaa27, type: 3}
+    spriteTopLeg: {fileID: 392646092190680977, guid: cae604020bbeb344f8fc3d09f44eaa27, type: 3}
+    spriteBackLeg: {fileID: 6232182493012171523, guid: cae604020bbeb344f8fc3d09f44eaa27, type: 3}
+  - idZombieCoustume: 3010301
+    spriteHead: {fileID: 4320710020051805094, guid: f0da720ddf7bafa4dbdfcaef96d64e76, type: 3}
+    spriteBody: {fileID: 7173389378176522351, guid: f0da720ddf7bafa4dbdfcaef96d64e76, type: 3}
+    spriteTopArm: {fileID: 7955352112381282509, guid: f0da720ddf7bafa4dbdfcaef96d64e76, type: 3}
+    spriteBackArm: {fileID: 4090541534918289806, guid: f0da720ddf7bafa4dbdfcaef96d64e76, type: 3}
+    spriteTopLeg: {fileID: 390277718608715531, guid: f0da720ddf7bafa4dbdfcaef96d64e76, type: 3}
+    spriteBackLeg: {fileID: 4353975856453625040, guid: f0da720ddf7bafa4dbdfcaef96d64e76, type: 3}
+  - idZombieCoustume: 3010302
+    spriteHead: {fileID: -8498478451598572103, guid: d46d90b6537ee29419591dafbdb83cda, type: 3}
+    spriteBody: {fileID: 2184435728559947228, guid: d46d90b6537ee29419591dafbdb83cda, type: 3}
+    spriteTopArm: {fileID: 84870255532936035, guid: d46d90b6537ee29419591dafbdb83cda, type: 3}
+    spriteBackArm: {fileID: -2704879240310441089, guid: d46d90b6537ee29419591dafbdb83cda, type: 3}
+    spriteTopLeg: {fileID: -7814636626729653033, guid: d46d90b6537ee29419591dafbdb83cda, type: 3}
+    spriteBackLeg: {fileID: 1858796057972995532, guid: d46d90b6537ee29419591dafbdb83cda, type: 3}
+  - idZombieCoustume: 3010401
+    spriteHead: {fileID: -2222075492890460265, guid: f0e7e5da668e6774a99ad745326758b7, type: 3}
+    spriteBody: {fileID: 2648341726318306534, guid: f0e7e5da668e6774a99ad745326758b7, type: 3}
+    spriteTopArm: {fileID: -390570168388866723, guid: f0e7e5da668e6774a99ad745326758b7, type: 3}
+    spriteBackArm: {fileID: 7294409040146041549, guid: f0e7e5da668e6774a99ad745326758b7, type: 3}
+    spriteTopLeg: {fileID: -6970036634643913540, guid: f0e7e5da668e6774a99ad745326758b7, type: 3}
+    spriteBackLeg: {fileID: 3899627594528205566, guid: f0e7e5da668e6774a99ad745326758b7, type: 3}
+  - idZombieCoustume: 3010402
+    spriteHead: {fileID: 8148299674894211989, guid: 53fc996eeb11a6645b65b6d2a96eeed6, type: 3}
+    spriteBody: {fileID: -5763302271532168974, guid: 53fc996eeb11a6645b65b6d2a96eeed6, type: 3}
+    spriteTopArm: {fileID: -321200197866984745, guid: 53fc996eeb11a6645b65b6d2a96eeed6, type: 3}
+    spriteBackArm: {fileID: 6783370095929451400, guid: 53fc996eeb11a6645b65b6d2a96eeed6, type: 3}
+    spriteTopLeg: {fileID: 1385697507351889934, guid: 53fc996eeb11a6645b65b6d2a96eeed6, type: 3}
+    spriteBackLeg: {fileID: 4768857711741667847, guid: 53fc996eeb11a6645b65b6d2a96eeed6, type: 3}
+  - idZombieCoustume: 3010501
+    spriteHead: {fileID: 1259970528351475721, guid: 84c287ecd2de94143818d984c1b71481, type: 3}
+    spriteBody: {fileID: -3617917516989467116, guid: 84c287ecd2de94143818d984c1b71481, type: 3}
+    spriteTopArm: {fileID: -2443652728137636855, guid: 84c287ecd2de94143818d984c1b71481, type: 3}
+    spriteBackArm: {fileID: 2795400822497433794, guid: 84c287ecd2de94143818d984c1b71481, type: 3}
+    spriteTopLeg: {fileID: 5308642731181602709, guid: 84c287ecd2de94143818d984c1b71481, type: 3}
+    spriteBackLeg: {fileID: 6087981501927623678, guid: 84c287ecd2de94143818d984c1b71481, type: 3}
+  - idZombieCoustume: 3010503
+    spriteHead: {fileID: 7687088441566372955, guid: 9626066b646c65e40bef8978645152fb, type: 3}
+    spriteBody: {fileID: 3349794041975372471, guid: 9626066b646c65e40bef8978645152fb, type: 3}
+    spriteTopArm: {fileID: -5731356463921367683, guid: 9626066b646c65e40bef8978645152fb, type: 3}
+    spriteBackArm: {fileID: -8192375848316006792, guid: 9626066b646c65e40bef8978645152fb, type: 3}
+    spriteTopLeg: {fileID: 7114016638836590756, guid: 9626066b646c65e40bef8978645152fb, type: 3}
+    spriteBackLeg: {fileID: 698276956298536942, guid: 9626066b646c65e40bef8978645152fb, type: 3}
+  - idZombieCoustume: 3010504
+    spriteHead: {fileID: -4057460580104216903, guid: 418b6c16ca269764097562f2dcf5b6eb, type: 3}
+    spriteBody: {fileID: -4515040867183253226, guid: 418b6c16ca269764097562f2dcf5b6eb, type: 3}
+    spriteTopArm: {fileID: 6530572697918646836, guid: 418b6c16ca269764097562f2dcf5b6eb, type: 3}
+    spriteBackArm: {fileID: 2723432159164506780, guid: 418b6c16ca269764097562f2dcf5b6eb, type: 3}
+    spriteTopLeg: {fileID: 4549158818805798414, guid: 418b6c16ca269764097562f2dcf5b6eb, type: 3}
+    spriteBackLeg: {fileID: 62642560538031349, guid: 418b6c16ca269764097562f2dcf5b6eb, type: 3}
+  - idZombieCoustume: 3010505
+    spriteHead: {fileID: 8797263406169276273, guid: af841b5cfabce3041a4e02139cd1f0ad, type: 3}
+    spriteBody: {fileID: 6424241643251348259, guid: af841b5cfabce3041a4e02139cd1f0ad, type: 3}
+    spriteTopArm: {fileID: 7904301674370567837, guid: af841b5cfabce3041a4e02139cd1f0ad, type: 3}
+    spriteBackArm: {fileID: -4880816556632340021, guid: af841b5cfabce3041a4e02139cd1f0ad, type: 3}
+    spriteTopLeg: {fileID: 8205362074407953440, guid: af841b5cfabce3041a4e02139cd1f0ad, type: 3}
+    spriteBackLeg: {fileID: 2321185154625478403, guid: af841b5cfabce3041a4e02139cd1f0ad, type: 3}
+  - idZombieCoustume: 3010505
+    spriteHead: {fileID: 8797263406169276273, guid: af841b5cfabce3041a4e02139cd1f0ad, type: 3}
+    spriteBody: {fileID: 6424241643251348259, guid: af841b5cfabce3041a4e02139cd1f0ad, type: 3}
+    spriteTopArm: {fileID: 7904301674370567837, guid: af841b5cfabce3041a4e02139cd1f0ad, type: 3}
+    spriteBackArm: {fileID: -4880816556632340021, guid: af841b5cfabce3041a4e02139cd1f0ad, type: 3}
+    spriteTopLeg: {fileID: 8205362074407953440, guid: af841b5cfabce3041a4e02139cd1f0ad, type: 3}
+    spriteBackLeg: {fileID: 2321185154625478403, guid: af841b5cfabce3041a4e02139cd1f0ad, type: 3}
+  - idZombieCoustume: 3010601
+    spriteHead: {fileID: -4234155682111493702, guid: cf4cde8c5c6d7a9488c07bb4cad6d35d, type: 3}
+    spriteBody: {fileID: 7268559777902495037, guid: cf4cde8c5c6d7a9488c07bb4cad6d35d, type: 3}
+    spriteTopArm: {fileID: -7389586341678841877, guid: cf4cde8c5c6d7a9488c07bb4cad6d35d, type: 3}
+    spriteBackArm: {fileID: -3607270571120640423, guid: cf4cde8c5c6d7a9488c07bb4cad6d35d, type: 3}
+    spriteTopLeg: {fileID: -8158449512007923594, guid: cf4cde8c5c6d7a9488c07bb4cad6d35d, type: 3}
+    spriteBackLeg: {fileID: 7808206919611737664, guid: cf4cde8c5c6d7a9488c07bb4cad6d35d, type: 3}
+  - idZombieCoustume: 3010603
+    spriteHead: {fileID: -5585053943612322297, guid: b89e162e0c2b2ef46b10b4e541444eb4, type: 3}
+    spriteBody: {fileID: 3971722553362644924, guid: b89e162e0c2b2ef46b10b4e541444eb4, type: 3}
+    spriteTopArm: {fileID: 7399148017531564511, guid: b89e162e0c2b2ef46b10b4e541444eb4, type: 3}
+    spriteBackArm: {fileID: 6910747983603874427, guid: b89e162e0c2b2ef46b10b4e541444eb4, type: 3}
+    spriteTopLeg: {fileID: 8061527771043759319, guid: b89e162e0c2b2ef46b10b4e541444eb4, type: 3}
+    spriteBackLeg: {fileID: -7451976902400388593, guid: b89e162e0c2b2ef46b10b4e541444eb4, type: 3}
+  - idZombieCoustume: 3010605
+    spriteHead: {fileID: -8628079498479130988, guid: bbd379ae0fa8d374e87fb6d574feb648, type: 3}
+    spriteBody: {fileID: 4807599676948228982, guid: bbd379ae0fa8d374e87fb6d574feb648, type: 3}
+    spriteTopArm: {fileID: -4991693380808781675, guid: bbd379ae0fa8d374e87fb6d574feb648, type: 3}
+    spriteBackArm: {fileID: -7083200155918713345, guid: bbd379ae0fa8d374e87fb6d574feb648, type: 3}
+    spriteTopLeg: {fileID: 6725037074430588003, guid: bbd379ae0fa8d374e87fb6d574feb648, type: 3}
+    spriteBackLeg: {fileID: 1251732272393499524, guid: bbd379ae0fa8d374e87fb6d574feb648, type: 3}
+  - idZombieCoustume: 3010701
+    spriteHead: {fileID: 3197214155613986135, guid: 2d0f61c8939c49f48913b28172932f1e, type: 3}
+    spriteBody: {fileID: -6446533762161321929, guid: 2d0f61c8939c49f48913b28172932f1e, type: 3}
+    spriteTopArm: {fileID: 7245350081845909603, guid: 2d0f61c8939c49f48913b28172932f1e, type: 3}
+    spriteBackArm: {fileID: 2950648213200698759, guid: 2d0f61c8939c49f48913b28172932f1e, type: 3}
+    spriteTopLeg: {fileID: -5403354077243559482, guid: 2d0f61c8939c49f48913b28172932f1e, type: 3}
+    spriteBackLeg: {fileID: -3328411124586444345, guid: 2d0f61c8939c49f48913b28172932f1e, type: 3}
+  - idZombieCoustume: 3010703
+    spriteHead: {fileID: 4445042720747262489, guid: d329f4fd0e854404cb1f8ba002506f25, type: 3}
+    spriteBody: {fileID: 5141317152950060471, guid: d329f4fd0e854404cb1f8ba002506f25, type: 3}
+    spriteTopArm: {fileID: -9068253898469280708, guid: d329f4fd0e854404cb1f8ba002506f25, type: 3}
+    spriteBackArm: {fileID: 3285868718282176043, guid: d329f4fd0e854404cb1f8ba002506f25, type: 3}
+    spriteTopLeg: {fileID: 6179479934067820117, guid: d329f4fd0e854404cb1f8ba002506f25, type: 3}
+    spriteBackLeg: {fileID: 4736697236528703370, guid: d329f4fd0e854404cb1f8ba002506f25, type: 3}
+  - idZombieCoustume: 3010704
+    spriteHead: {fileID: 1105052424472263833, guid: 221e2271b1c6ce045a5e4e427bc99108, type: 3}
+    spriteBody: {fileID: -6273897376131747182, guid: 221e2271b1c6ce045a5e4e427bc99108, type: 3}
+    spriteTopArm: {fileID: 2693716243794339569, guid: 221e2271b1c6ce045a5e4e427bc99108, type: 3}
+    spriteBackArm: {fileID: 7095388176168737588, guid: 221e2271b1c6ce045a5e4e427bc99108, type: 3}
+    spriteTopLeg: {fileID: -249166312301485359, guid: 221e2271b1c6ce045a5e4e427bc99108, type: 3}
+    spriteBackLeg: {fileID: 7569008152670794529, guid: 221e2271b1c6ce045a5e4e427bc99108, type: 3}
+  - idZombieCoustume: 3010801
+    spriteHead: {fileID: 4514668023838521719, guid: 3391d5def09a844468b4ecff0c8e67e3, type: 3}
+    spriteBody: {fileID: 68737024522813726, guid: 3391d5def09a844468b4ecff0c8e67e3, type: 3}
+    spriteTopArm: {fileID: 6899465971332624946, guid: 3391d5def09a844468b4ecff0c8e67e3, type: 3}
+    spriteBackArm: {fileID: -5171508872958967534, guid: 3391d5def09a844468b4ecff0c8e67e3, type: 3}
+    spriteTopLeg: {fileID: -6972701248013644120, guid: 3391d5def09a844468b4ecff0c8e67e3, type: 3}
+    spriteBackLeg: {fileID: 5893924804793439193, guid: 3391d5def09a844468b4ecff0c8e67e3, type: 3}
+  - idZombieCoustume: 3010802
+    spriteHead: {fileID: 5681931204742476265, guid: c0caa8af4319f2b40b8bad48138a75d2, type: 3}
+    spriteBody: {fileID: 5422345114158961637, guid: c0caa8af4319f2b40b8bad48138a75d2, type: 3}
+    spriteTopArm: {fileID: -7813874742051100769, guid: c0caa8af4319f2b40b8bad48138a75d2, type: 3}
+    spriteBackArm: {fileID: -7949760789165092130, guid: c0caa8af4319f2b40b8bad48138a75d2, type: 3}
+    spriteTopLeg: {fileID: -5346025185199485870, guid: c0caa8af4319f2b40b8bad48138a75d2, type: 3}
+    spriteBackLeg: {fileID: 5892842585832895648, guid: c0caa8af4319f2b40b8bad48138a75d2, type: 3}
+  - idZombieCoustume: 3010803
+    spriteHead: {fileID: 2888479257964888654, guid: 8e65a08222fe0e6489488f0a90094c3b, type: 3}
+    spriteBody: {fileID: 884414028804134530, guid: 8e65a08222fe0e6489488f0a90094c3b, type: 3}
+    spriteTopArm: {fileID: 8814335337208717336, guid: 8e65a08222fe0e6489488f0a90094c3b, type: 3}
+    spriteBackArm: {fileID: -385387228086998835, guid: 8e65a08222fe0e6489488f0a90094c3b, type: 3}
+    spriteTopLeg: {fileID: 2535901103376051896, guid: 8e65a08222fe0e6489488f0a90094c3b, type: 3}
+    spriteBackLeg: {fileID: 7449789712023961488, guid: 8e65a08222fe0e6489488f0a90094c3b, type: 3}
+  - idZombieCoustume: 3010804
+    spriteHead: {fileID: -6345266388407637783, guid: 5e469aaee36f326428e56f2539b6b3de, type: 3}
+    spriteBody: {fileID: 3876340879218796980, guid: 5e469aaee36f326428e56f2539b6b3de, type: 3}
+    spriteTopArm: {fileID: -9172391398860445471, guid: 5e469aaee36f326428e56f2539b6b3de, type: 3}
+    spriteBackArm: {fileID: -6369110203290176856, guid: 5e469aaee36f326428e56f2539b6b3de, type: 3}
+    spriteTopLeg: {fileID: -6162942407602089142, guid: 5e469aaee36f326428e56f2539b6b3de, type: 3}
+    spriteBackLeg: {fileID: -3316272982189168415, guid: 5e469aaee36f326428e56f2539b6b3de, type: 3}
+  - idZombieCoustume: 3010805
+    spriteHead: {fileID: 1207304009775773271, guid: 952b6f99d364bd94eaa64d8926df97e2, type: 3}
+    spriteBody: {fileID: -5961774832913428324, guid: 952b6f99d364bd94eaa64d8926df97e2, type: 3}
+    spriteTopArm: {fileID: -5359174292366919169, guid: 952b6f99d364bd94eaa64d8926df97e2, type: 3}
+    spriteBackArm: {fileID: -3659397058597096212, guid: 952b6f99d364bd94eaa64d8926df97e2, type: 3}
+    spriteTopLeg: {fileID: -7753651163491571493, guid: 952b6f99d364bd94eaa64d8926df97e2, type: 3}
+    spriteBackLeg: {fileID: -7245896515140761611, guid: 952b6f99d364bd94eaa64d8926df97e2, type: 3}
+  - idZombieCoustume: 3010901
+    spriteHead: {fileID: -4094736182244842931, guid: bf40633bc88f36f40821c16986b97c4d, type: 3}
+    spriteBody: {fileID: -2049207764835213923, guid: bf40633bc88f36f40821c16986b97c4d, type: 3}
+    spriteTopArm: {fileID: 7742373734150074487, guid: bf40633bc88f36f40821c16986b97c4d, type: 3}
+    spriteBackArm: {fileID: 7952120839915692940, guid: bf40633bc88f36f40821c16986b97c4d, type: 3}
+    spriteTopLeg: {fileID: -8821347919510319408, guid: bf40633bc88f36f40821c16986b97c4d, type: 3}
+    spriteBackLeg: {fileID: -6920997177590816972, guid: bf40633bc88f36f40821c16986b97c4d, type: 3}
+  - idZombieCoustume: 3010902
+    spriteHead: {fileID: 3950613500515397442, guid: 757a08a170c3755488715664e8f66004, type: 3}
+    spriteBody: {fileID: -1175306008637572770, guid: 757a08a170c3755488715664e8f66004, type: 3}
+    spriteTopArm: {fileID: -63209606336226098, guid: 757a08a170c3755488715664e8f66004, type: 3}
+    spriteBackArm: {fileID: -5725353260496627236, guid: 757a08a170c3755488715664e8f66004, type: 3}
+    spriteTopLeg: {fileID: -7748912519907329939, guid: 757a08a170c3755488715664e8f66004, type: 3}
+    spriteBackLeg: {fileID: 5343053586222910876, guid: 757a08a170c3755488715664e8f66004, type: 3}
+  - idZombieCoustume: 3010903
+    spriteHead: {fileID: 1860735327493186823, guid: 45fa57d9a8c285748b0c23c957a402c1, type: 3}
+    spriteBody: {fileID: -2081425920135984303, guid: 45fa57d9a8c285748b0c23c957a402c1, type: 3}
+    spriteTopArm: {fileID: 1228661725626684640, guid: 45fa57d9a8c285748b0c23c957a402c1, type: 3}
+    spriteBackArm: {fileID: 1329927812122835508, guid: 45fa57d9a8c285748b0c23c957a402c1, type: 3}
+    spriteTopLeg: {fileID: 4718713964271825223, guid: 45fa57d9a8c285748b0c23c957a402c1, type: 3}
+    spriteBackLeg: {fileID: -2452793326140186673, guid: 45fa57d9a8c285748b0c23c957a402c1, type: 3}
+  - idZombieCoustume: 3010904
+    spriteHead: {fileID: -5485374502417651390, guid: 4f9464951ec8ddf4ca4c5cfaf5586809, type: 3}
+    spriteBody: {fileID: 2325217181649142098, guid: 4f9464951ec8ddf4ca4c5cfaf5586809, type: 3}
+    spriteTopArm: {fileID: 8141317336304528318, guid: 4f9464951ec8ddf4ca4c5cfaf5586809, type: 3}
+    spriteBackArm: {fileID: 1584282422137134446, guid: 4f9464951ec8ddf4ca4c5cfaf5586809, type: 3}
+    spriteTopLeg: {fileID: 73172548670522600, guid: 4f9464951ec8ddf4ca4c5cfaf5586809, type: 3}
+    spriteBackLeg: {fileID: 6809159309357625455, guid: 4f9464951ec8ddf4ca4c5cfaf5586809, type: 3}
