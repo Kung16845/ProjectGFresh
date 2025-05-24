@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "GreenNight.sln"
+    "dotnet.defaultSolution": "ProjectGFresh.sln"
 }

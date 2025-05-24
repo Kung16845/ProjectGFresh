@@ -20,8 +20,8 @@ public class TimeManager : MonoBehaviour
     public static UnityAction<DateTime> OnDateTimeChanged;
     private void Awake()
     {   
-        
-        dateTime = new DateTime(0, 0, 0, true, sceneSystem1,saveDataDDA,FindObjectOfType<GameManager>());
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        dateTime = new DateTime(0, 0, 0, true, sceneSystem1,saveDataDDA,gameManager);
         dateTime.SetTimeStartDay();
         currentTickSeconedIncrease = tickSeconedIncrease;
     }
@@ -99,7 +99,7 @@ public class DateTime
         this.day++;
         this.hour = 6;
         this.minutes = 0;
-        gameManager.SaveGame();
+        // gameManager.SaveGame();
     }
     public void SetTimeNightDay()
     {
