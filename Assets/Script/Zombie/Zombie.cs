@@ -145,7 +145,7 @@ public class Zombie : MonoBehaviour
             {
                 currentState = ZombieState.Moving;
                 Vector2 direction = (currentLane.attackPoint.position - transform.position).normalized;
-                rb2D.velocity = direction * currentSpeed;
+                rb2D.linearVelocity = direction * currentSpeed;
 
                 previousDirectionX = direction.x;
                 // Flip the sprite based on movement direction along the x-axis
@@ -173,7 +173,7 @@ public class Zombie : MonoBehaviour
                 {
                 animationControllerGrunt.Isreach = true;
                 }
-                rb2D.velocity = Vector2.zero;
+                rb2D.linearVelocity = Vector2.zero;
                 currentState = ZombieState.Attacking;
 
                 // Keep the sprite direction based on the previous movement
@@ -379,7 +379,7 @@ public class Zombie : MonoBehaviour
             
             currentState = ZombieState.Dead;
             canmove = false;
-            rb2D.velocity = Vector2.zero; // Immediately stop movement
+            rb2D.linearVelocity = Vector2.zero; // Immediately stop movement
 
             countTimer = Mathf.Infinity; 
             DisableCollider(); // Prevent interactions
@@ -758,7 +758,7 @@ public class Zombie : MonoBehaviour
     public void StopZombie()
     {
         currentState = ZombieState.Stopped;
-        rb2D.velocity = Vector2.zero;
+        rb2D.linearVelocity = Vector2.zero;
         // Additional logic for stopping
     }
     public void ResumeZombie()

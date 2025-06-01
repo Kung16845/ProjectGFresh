@@ -70,12 +70,13 @@ ScriptedImporter:
     compressionQualitySet: 0
     textureFormatSet: 0
     applyGammaDecoding: 0
-  spriteImportData:
+  singleSpriteImportData:
   - name: 
     originalName: 
     pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 0
@@ -92,13 +93,14 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
     spritePosition: {x: 0, y: 0}
-  mosaicSpriteImportData: []
-  rigSpriteImportData:
+  multiSpriteImportData: []
+  layeredSpriteImportData:
   - name: GabageBag
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -120,6 +122,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 254
@@ -141,6 +144,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 706
@@ -162,6 +166,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 504
@@ -183,6 +188,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 706
@@ -204,6 +210,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 254
@@ -225,6 +232,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -246,6 +254,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 504
@@ -267,6 +276,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -288,6 +298,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 504
@@ -304,15 +315,260 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 504, y: 4}
     spritePosition: {x: 18, y: 686}
-  characterData:
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  rigSpriteImportData:
+  - name: GabageBag
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 851
+      width: 95
+      height: 125
+    spriteID: 4ec8907def572e245bb289475f9edff0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 851}
+    spritePosition: {x: 776, y: 228}
+  - name: GabageBox
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 254
+      y: 622
+      width: 233
+      height: 391
+    spriteID: 491dc045891085747b14a8dd4128dacc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 254, y: 622}
+    spritePosition: {x: 575, y: 75}
+  - name: BackDoor
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 706
+      y: 652
+      width: 78
+      height: 352
+    spriteID: f6f79e7e408ed6646b82f7b28a3526a6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 706, y: 652}
+    spritePosition: {x: 474, y: 193}
+  - name: FrontDoors
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 504
+      y: 633
+      width: 78
+      height: 352
+    spriteID: 6c6ef29f6c022d94daf77f9da122dab1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 504, y: 633}
+    spritePosition: {x: 522, y: 193}
+  - name: FuelDispenser
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 706
+      y: 235
+      width: 126
+      height: 409
+    spriteID: 4cb7b501fc51cf64b9ecb1dbede5080a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 706, y: 235}
+    spritePosition: {x: 297, y: 63}
+  - name: Pillar2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 254
+      y: 4
+      width: 242
+      height: 610
+    spriteID: 19eea925251eca347966c7b37a291dd7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 254, y: 4}
+    spritePosition: {x: 217, y: 0}
+  - name: Pillar1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 242
+      height: 627
+    spriteID: 83bc6322a53b8e045876103148024241
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 10, y: 0}
+  - name: TrafficBarrier1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 504
+      y: 235
+      width: 194
+      height: 390
+    spriteID: 54a0cbff299da484394173dfefed20a3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 504, y: 235}
+    spritePosition: {x: 613, y: 548}
+  - name: TrafficCone
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 639
+      width: 197
+      height: 204
+    spriteID: 15c0f0866a06a5649b01b4e6603843e9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 639}
+    spritePosition: {x: 457, y: 677}
+  - name: Counter
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 504
+      y: 4
+      width: 477
+      height: 223
+    spriteID: b6ebeb89137411748bdb98de93f58fac
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 504, y: 4}
+    spritePosition: {x: 18, y: 686}
+  sharedRigSpriteImportData: []
+  mosaicSpriteImportData: []
+  sharedRigCharacterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
     characterGroups: []
     pivot: {x: 0, y: 0}
     boneReadOnly: 0
-  sharedRigSpriteImportData: []
-  sharedRigCharacterData:
+  characterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
@@ -329,13 +585,117 @@ ScriptedImporter:
   generatePhysicsShape: 0
   paperDollMode: 0
   keepDupilcateSpriteName: 1
-  skeletonAssetReferenceID: 
   padding: 4
   spriteSizeExpand: 0
+  skeletonAssetReferenceID: 
+  pipeline: {instanceID: 0}
+  pipelineVersion: 
   spriteCategoryList:
     categories: []
   spritePackingTag: 
   resliceFromLayer: 0
+  pSDLayerImportSetting: []
+  psdLayers:
+  - name: GabageBag
+    spriteName: GabageBag
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 4ec8907def572e245bb289475f9edff0
+    layerID: 0
+    mosaicPosition: {x: 4, y: 851}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: GabageBox
+    spriteName: GabageBox
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 491dc045891085747b14a8dd4128dacc
+    layerID: 636451912
+    mosaicPosition: {x: 254, y: 622}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: BackDoor
+    spriteName: BackDoor
+    isGroup: 0
+    parentIndex: -1
+    spriteID: f6f79e7e408ed6646b82f7b28a3526a6
+    layerID: -1152958423
+    mosaicPosition: {x: 706, y: 652}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: FrontDoors
+    spriteName: FrontDoors
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 6c6ef29f6c022d94daf77f9da122dab1
+    layerID: 1630995018
+    mosaicPosition: {x: 504, y: 633}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: FuelDispenser
+    spriteName: FuelDispenser
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 4cb7b501fc51cf64b9ecb1dbede5080a
+    layerID: -1328963909
+    mosaicPosition: {x: 706, y: 235}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Pillar2
+    spriteName: Pillar2
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 19eea925251eca347966c7b37a291dd7
+    layerID: -245626716
+    mosaicPosition: {x: 254, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Pillar1
+    spriteName: Pillar1
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 83bc6322a53b8e045876103148024241
+    layerID: -245626717
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: TrafficBarrier1
+    spriteName: TrafficBarrier1
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 54a0cbff299da484394173dfefed20a3
+    layerID: -737155279
+    mosaicPosition: {x: 504, y: 235}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: TrafficCone
+    spriteName: TrafficCone
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 15c0f0866a06a5649b01b4e6603843e9
+    layerID: -1765415000
+    mosaicPosition: {x: 4, y: 639}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Counter
+    spriteName: Counter
+    isGroup: 0
+    parentIndex: -1
+    spriteID: b6ebeb89137411748bdb98de93f58fac
+    layerID: -655385798
+    mosaicPosition: {x: 504, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   mosaicPSDLayers: []
   rigPSDLayers:
   - name: GabageBag
@@ -439,7 +799,6 @@ ScriptedImporter:
     isImported: 1
     isVisible: 1
   sharedRigPSDLayers: []
-  pSDLayerImportSetting: []
   importFileNodeState: 1
   platformSettingsDirtyTick: 0
   spriteSizeExpandChanged: 0

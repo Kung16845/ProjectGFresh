@@ -70,12 +70,13 @@ ScriptedImporter:
     compressionQualitySet: 0
     textureFormatSet: 0
     applyGammaDecoding: 0
-  spriteImportData:
+  singleSpriteImportData:
   - name: 
     originalName: 
     pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 0
@@ -92,13 +93,14 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
     spritePosition: {x: 0, y: 0}
-  mosaicSpriteImportData: []
-  rigSpriteImportData:
+  multiSpriteImportData: []
+  layeredSpriteImportData:
   - name: Reeker_ArmTop
     originalName: 
     pivot: {x: 0.5, y: 0.85889715}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 181
@@ -120,6 +122,7 @@ ScriptedImporter:
     pivot: {x: 0.757416, y: 0.039194126}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 108
@@ -141,6 +144,7 @@ ScriptedImporter:
     pivot: {x: 0.35252222, y: 0.009684279}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -162,6 +166,7 @@ ScriptedImporter:
     pivot: {x: 0.5000004, y: 0.85889715}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 181
@@ -183,6 +188,7 @@ ScriptedImporter:
     pivot: {x: 0.57800573, y: 0.8595652}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 108
@@ -204,6 +210,7 @@ ScriptedImporter:
     pivot: {x: 0.83368707, y: 0.7881522}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -220,15 +227,172 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 131}
     spritePosition: {x: 52, y: 99}
-  characterData:
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  rigSpriteImportData:
+  - name: Reeker_ArmTop
+    originalName: 
+    pivot: {x: 0.5, y: 0.85889715}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 181
+      y: 4
+      width: 40
+      height: 104
+    spriteID: 391d153068acc4b4fbe839ee8786de70
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 181, y: 4}
+    spritePosition: {x: 133, y: 57}
+  - name: Reeker_Head
+    originalName: 
+    pivot: {x: 0.757416, y: 0.039194126}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 108
+      y: 4
+      width: 65
+      height: 81
+    spriteID: 84444fa7d1d2bdf49abc6580e3163350
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 108, y: 4}
+    spritePosition: {x: 88, y: 150}
+  - name: Reeker_Body
+    originalName: 
+    pivot: {x: 0.35252222, y: 0.009684279}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 96
+      height: 119
+    spriteID: cce05e13764bec742b6232295e6cd655
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 102, y: 84}
+  - name: Reeker_LegTop
+    originalName: 
+    pivot: {x: 0.5000004, y: 0.85889715}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 181
+      y: 116
+      width: 39
+      height: 104
+    spriteID: a7e782b08be5b4f4bb2c281ba5e51a4f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 181, y: 116}
+    spritePosition: {x: 128, y: 6}
+  - name: Reeker_LegBack
+    originalName: 
+    pivot: {x: 0.57800573, y: 0.8595652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 108
+      y: 93
+      width: 44
+      height: 105
+    spriteID: e344ac3c1eaeb0944a49a82e1f3d3789
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 108, y: 93}
+    spritePosition: {x: 100, y: 7}
+  - name: Reeker_ArmBack
+    originalName: 
+    pivot: {x: 0.83368707, y: 0.7881522}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 131
+      width: 90
+      height: 67
+    spriteID: 15af0014e7084f4498835819da26b6c0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 131}
+    spritePosition: {x: 52, y: 99}
+  sharedRigSpriteImportData: []
+  mosaicSpriteImportData: []
+  sharedRigCharacterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
     characterGroups: []
     pivot: {x: 0, y: 0}
     boneReadOnly: 0
-  sharedRigSpriteImportData: []
-  sharedRigCharacterData:
+  characterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
@@ -281,13 +445,77 @@ ScriptedImporter:
   generatePhysicsShape: 0
   paperDollMode: 0
   keepDupilcateSpriteName: 1
-  skeletonAssetReferenceID: 
   padding: 4
   spriteSizeExpand: 0
+  skeletonAssetReferenceID: 
+  pipeline: {instanceID: 0}
+  pipelineVersion: 
   spriteCategoryList:
     categories: []
   spritePackingTag: 
   resliceFromLayer: 0
+  pSDLayerImportSetting: []
+  psdLayers:
+  - name: Reeker_ArmTop
+    spriteName: Reeker_ArmTop
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 391d153068acc4b4fbe839ee8786de70
+    layerID: 0
+    mosaicPosition: {x: 181, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Reeker_Head
+    spriteName: Reeker_Head
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 84444fa7d1d2bdf49abc6580e3163350
+    layerID: -908734375
+    mosaicPosition: {x: 108, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Reeker_Body
+    spriteName: Reeker_Body
+    isGroup: 0
+    parentIndex: -1
+    spriteID: cce05e13764bec742b6232295e6cd655
+    layerID: -1661342759
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Reeker_LegTop
+    spriteName: Reeker_LegTop
+    isGroup: 0
+    parentIndex: -1
+    spriteID: a7e782b08be5b4f4bb2c281ba5e51a4f
+    layerID: -1575197510
+    mosaicPosition: {x: 181, y: 116}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Reeker_LegBack
+    spriteName: Reeker_LegBack
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e344ac3c1eaeb0944a49a82e1f3d3789
+    layerID: -2053376828
+    mosaicPosition: {x: 108, y: 93}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Reeker_ArmBack
+    spriteName: Reeker_ArmBack
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 15af0014e7084f4498835819da26b6c0
+    layerID: 424609718
+    mosaicPosition: {x: 4, y: 131}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   mosaicPSDLayers: []
   rigPSDLayers:
   - name: Reeker_ArmTop
@@ -351,7 +579,6 @@ ScriptedImporter:
     isImported: 1
     isVisible: 1
   sharedRigPSDLayers: []
-  pSDLayerImportSetting: []
   importFileNodeState: 1
   platformSettingsDirtyTick: 0
   spriteSizeExpandChanged: 0

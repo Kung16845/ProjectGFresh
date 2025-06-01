@@ -70,12 +70,13 @@ ScriptedImporter:
     compressionQualitySet: 0
     textureFormatSet: 0
     applyGammaDecoding: 0
-  spriteImportData:
+  singleSpriteImportData:
   - name: 
     originalName: 
     pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 0
@@ -92,13 +93,14 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
     spritePosition: {x: 0, y: 0}
-  mosaicSpriteImportData: []
-  rigSpriteImportData:
+  multiSpriteImportData: []
+  layeredSpriteImportData:
   - name: ChemerSpike_ArmTop
     originalName: 
     pivot: {x: 0.4132185, y: 0.8967147}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 147
@@ -120,6 +122,7 @@ ScriptedImporter:
     pivot: {x: 0.6684679, y: 0.06878826}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 103
@@ -141,6 +144,7 @@ ScriptedImporter:
     pivot: {x: 0.33433893, y: 0.021608638}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -162,6 +166,7 @@ ScriptedImporter:
     pivot: {x: 0.39498767, y: 0.8849309}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 184
@@ -183,6 +188,7 @@ ScriptedImporter:
     pivot: {x: 0.6644914, y: 0.87745667}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 98
@@ -204,6 +210,7 @@ ScriptedImporter:
     pivot: {x: 0.8921018, y: 0.8101585}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -220,15 +227,172 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 114}
     spritePosition: {x: 52, y: 99}
-  characterData:
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  rigSpriteImportData:
+  - name: ChemerSpike_ArmTop
+    originalName: 
+    pivot: {x: 0.4132185, y: 0.8967147}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 147
+      y: 114
+      width: 32
+      height: 98
+    spriteID: 10363fb2576539949ba9b3c6ef2a8ded
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 147, y: 114}
+    spritePosition: {x: 136, y: 57}
+  - name: ChemerSpike_Head
+    originalName: 
+    pivot: {x: 0.6684679, y: 0.06878826}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 103
+      y: 4
+      width: 73
+      height: 92
+    spriteID: 0f9d5bf36b48bef4e8bbf686663d8d51
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 103, y: 4}
+    spritePosition: {x: 88, y: 149}
+  - name: ChemerSpike_Body
+    originalName: 
+    pivot: {x: 0.33433893, y: 0.021608638}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 91
+      height: 102
+    spriteID: 5067fa92bca7ca647b53ba9c5a0190fe
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 100, y: 84}
+  - name: ChemerSpike_LegTop
+    originalName: 
+    pivot: {x: 0.39498767, y: 0.8849309}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 184
+      y: 4
+      width: 34
+      height: 101
+    spriteID: 78a55a7ea1236904096110034bbc1591
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 184, y: 4}
+    spritePosition: {x: 131, y: 7}
+  - name: ChemerSpike_LegBack
+    originalName: 
+    pivot: {x: 0.6644914, y: 0.87745667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 98
+      y: 114
+      width: 41
+      height: 103
+    spriteID: 2a4253f0db7a89c4c8bb79103c13163a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 98, y: 114}
+    spritePosition: {x: 100, y: 7}
+  - name: ChemerSpike_ArmBack
+    originalName: 
+    pivot: {x: 0.8921018, y: 0.8101585}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 114
+      width: 86
+      height: 55
+    spriteID: 11bb9527811f35e4c9f8e98764d8ccdf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 114}
+    spritePosition: {x: 52, y: 99}
+  sharedRigSpriteImportData: []
+  mosaicSpriteImportData: []
+  sharedRigCharacterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
     characterGroups: []
     pivot: {x: 0, y: 0}
     boneReadOnly: 0
-  sharedRigSpriteImportData: []
-  sharedRigCharacterData:
+  characterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
@@ -281,13 +445,77 @@ ScriptedImporter:
   generatePhysicsShape: 0
   paperDollMode: 0
   keepDupilcateSpriteName: 1
-  skeletonAssetReferenceID: 
   padding: 4
   spriteSizeExpand: 0
+  skeletonAssetReferenceID: 
+  pipeline: {instanceID: 0}
+  pipelineVersion: 
   spriteCategoryList:
     categories: []
   spritePackingTag: 
   resliceFromLayer: 0
+  pSDLayerImportSetting: []
+  psdLayers:
+  - name: ChemerSpike_ArmTop
+    spriteName: ChemerSpike_ArmTop
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 10363fb2576539949ba9b3c6ef2a8ded
+    layerID: 0
+    mosaicPosition: {x: 147, y: 114}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ChemerSpike_Head
+    spriteName: ChemerSpike_Head
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 0f9d5bf36b48bef4e8bbf686663d8d51
+    layerID: -533299389
+    mosaicPosition: {x: 103, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ChemerSpike_Body
+    spriteName: ChemerSpike_Body
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 5067fa92bca7ca647b53ba9c5a0190fe
+    layerID: 737163583
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ChemerSpike_LegTop
+    spriteName: ChemerSpike_LegTop
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 78a55a7ea1236904096110034bbc1591
+    layerID: 662464464
+    mosaicPosition: {x: 184, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ChemerSpike_LegBack
+    spriteName: ChemerSpike_LegBack
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 2a4253f0db7a89c4c8bb79103c13163a
+    layerID: -504797614
+    mosaicPosition: {x: 98, y: 114}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ChemerSpike_ArmBack
+    spriteName: ChemerSpike_ArmBack
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 11bb9527811f35e4c9f8e98764d8ccdf
+    layerID: 1471586392
+    mosaicPosition: {x: 4, y: 114}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   mosaicPSDLayers: []
   rigPSDLayers:
   - name: ChemerSpike_ArmTop
@@ -351,7 +579,6 @@ ScriptedImporter:
     isImported: 1
     isVisible: 1
   sharedRigPSDLayers: []
-  pSDLayerImportSetting: []
   importFileNodeState: 1
   platformSettingsDirtyTick: 0
   spriteSizeExpandChanged: 0

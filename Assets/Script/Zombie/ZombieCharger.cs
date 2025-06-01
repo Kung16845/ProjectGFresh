@@ -68,7 +68,7 @@ public class ZombieCharger : Zombie
             case ChargingZombieState.Normal:
                  if (HasReachedAttackPoint())
                 {
-                    rb2D.velocity = Vector2.zero;
+                    rb2D.linearVelocity = Vector2.zero;
                     animationControllerCharger.Ischarged = false;
                     animationControllerCharger.Isstunt = false;
                     animationControllerCharger.Isreach = true;
@@ -93,7 +93,7 @@ public class ZombieCharger : Zombie
             
             currentState = ZombieState.Dead;
             canmove = false;
-            rb2D.velocity = Vector2.zero; // Immediately stop movement
+            rb2D.linearVelocity = Vector2.zero; // Immediately stop movement
 
             countTimer = Mathf.Infinity; 
             DisableCollider(); // Prevent interactions
@@ -136,7 +136,7 @@ public class ZombieCharger : Zombie
             {
                 animationControllerCharger.Isstunt = true;
             }
-            rb2D.velocity = Vector2.zero;
+            rb2D.linearVelocity = Vector2.zero;
         }
     }
     private void HandleChargingState()
@@ -165,7 +165,7 @@ public class ZombieCharger : Zombie
         if (HasReachedAttackPoint())
         {
             ChargercurrentState = ChargingZombieState.Normal;
-            rb2D.velocity = Vector2.zero;
+            rb2D.linearVelocity = Vector2.zero;
             animationControllerCharger.Ischarged = false;
             animationControllerCharger.Isstunt = false;
             animationControllerCharger.Isreach = true;
@@ -220,7 +220,7 @@ public class ZombieCharger : Zombie
         ChargercurrentState = ChargingZombieState.Stopped;
         stopTimer = stopDuration;
         currentSpeed = 0f;
-        rb2D.velocity = Vector2.zero;
+        rb2D.linearVelocity = Vector2.zero;
         attackDamage = normalDamage;
         accumulatedDamage = 0f;
 

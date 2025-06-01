@@ -70,12 +70,13 @@ ScriptedImporter:
     compressionQualitySet: 0
     textureFormatSet: 0
     applyGammaDecoding: 0
-  spriteImportData:
+  singleSpriteImportData:
   - name: 
     originalName: 
     pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 0
@@ -92,13 +93,14 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
     spritePosition: {x: 0, y: 0}
-  mosaicSpriteImportData: []
-  rigSpriteImportData:
+  multiSpriteImportData: []
+  layeredSpriteImportData:
   - name: GruntExplode_ArmFront
     originalName: 
     pivot: {x: 0.4435493, y: 0.8498858}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 98
@@ -120,6 +122,7 @@ ScriptedImporter:
     pivot: {x: 0.7433285, y: 0.14169246}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 103
@@ -141,6 +144,7 @@ ScriptedImporter:
     pivot: {x: 0.4575689, y: 0.06376322}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -162,6 +166,7 @@ ScriptedImporter:
     pivot: {x: 0.43690804, y: 0.8907965}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 144
@@ -183,6 +188,7 @@ ScriptedImporter:
     pivot: {x: 0.688353, y: 0.86654687}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 178
@@ -204,6 +210,7 @@ ScriptedImporter:
     pivot: {x: 0.8741508, y: 0.8042189}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -220,15 +227,172 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 131}
     spritePosition: {x: 52, y: 99}
-  characterData:
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  rigSpriteImportData:
+  - name: GruntExplode_ArmFront
+    originalName: 
+    pivot: {x: 0.4435493, y: 0.8498858}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 98
+      y: 131
+      width: 38
+      height: 103
+    spriteID: 47b660543d6201d4a95a46eb81eeb08d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 98, y: 131}
+    spritePosition: {x: 132, y: 57}
+  - name: GruntExplode_Head
+    originalName: 
+    pivot: {x: 0.7433285, y: 0.14169246}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 103
+      y: 4
+      width: 67
+      height: 91
+    spriteID: 9123b1626e66a3746ab97971013aa4c3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 103, y: 4}
+    spritePosition: {x: 87, y: 142}
+  - name: GruntExplode_Body
+    originalName: 
+    pivot: {x: 0.4575689, y: 0.06376322}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 91
+      height: 119
+    spriteID: 7dad57beb08090548abb3f78da0f6cbe
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 94, y: 78}
+  - name: GruntExplode_LegFront
+    originalName: 
+    pivot: {x: 0.43690804, y: 0.8907965}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 144
+      y: 131
+      width: 34
+      height: 101
+    spriteID: ab32b10c4ebadf84b8b2ffb36c7cf374
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 144, y: 131}
+    spritePosition: {x: 131, y: 7}
+  - name: GruntExplode_LegBack
+    originalName: 
+    pivot: {x: 0.688353, y: 0.86654687}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 178
+      y: 4
+      width: 41
+      height: 103
+    spriteID: f0da813fd2a9896489645b12dd85dbd9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 178, y: 4}
+    spritePosition: {x: 100, y: 7}
+  - name: GruntExplode_ArmBack
+    originalName: 
+    pivot: {x: 0.8741508, y: 0.8042189}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 131
+      width: 86
+      height: 55
+    spriteID: 457b6fbb03cc1eb4c8dd9a7969b79b9e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 131}
+    spritePosition: {x: 52, y: 99}
+  sharedRigSpriteImportData: []
+  mosaicSpriteImportData: []
+  sharedRigCharacterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
     characterGroups: []
     pivot: {x: 0, y: 0}
     boneReadOnly: 0
-  sharedRigSpriteImportData: []
-  sharedRigCharacterData:
+  characterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
@@ -281,13 +445,77 @@ ScriptedImporter:
   generatePhysicsShape: 0
   paperDollMode: 0
   keepDupilcateSpriteName: 1
-  skeletonAssetReferenceID: 
   padding: 4
   spriteSizeExpand: 0
+  skeletonAssetReferenceID: 
+  pipeline: {instanceID: 0}
+  pipelineVersion: 
   spriteCategoryList:
     categories: []
   spritePackingTag: 
   resliceFromLayer: 0
+  pSDLayerImportSetting: []
+  psdLayers:
+  - name: GruntExplode_ArmFront
+    spriteName: GruntExplode_ArmFront
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 47b660543d6201d4a95a46eb81eeb08d
+    layerID: 0
+    mosaicPosition: {x: 98, y: 131}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: GruntExplode_Head
+    spriteName: GruntExplode_Head
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 9123b1626e66a3746ab97971013aa4c3
+    layerID: -325999240
+    mosaicPosition: {x: 103, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: GruntExplode_Body
+    spriteName: GruntExplode_Body
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7dad57beb08090548abb3f78da0f6cbe
+    layerID: 426608794
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: GruntExplode_LegFront
+    spriteName: GruntExplode_LegFront
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ab32b10c4ebadf84b8b2ffb36c7cf374
+    layerID: -1418873975
+    mosaicPosition: {x: 144, y: 131}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: GruntExplode_LegBack
+    spriteName: GruntExplode_LegBack
+    isGroup: 0
+    parentIndex: -1
+    spriteID: f0da813fd2a9896489645b12dd85dbd9
+    layerID: 1876515019
+    mosaicPosition: {x: 178, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: GruntExplode_ArmBack
+    spriteName: GruntExplode_ArmBack
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 457b6fbb03cc1eb4c8dd9a7969b79b9e
+    layerID: -2086965121
+    mosaicPosition: {x: 4, y: 131}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   mosaicPSDLayers: []
   rigPSDLayers:
   - name: GruntExplode_ArmFront
@@ -351,7 +579,6 @@ ScriptedImporter:
     isImported: 1
     isVisible: 1
   sharedRigPSDLayers: []
-  pSDLayerImportSetting: []
   importFileNodeState: 1
   platformSettingsDirtyTick: 0
   spriteSizeExpandChanged: 0

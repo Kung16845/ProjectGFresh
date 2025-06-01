@@ -289,7 +289,7 @@ public class Weapon : MonoBehaviour
         bulletDirection += new Vector2(Random.Range(-accuracySpread, accuracySpread), Random.Range(-accuracySpread, accuracySpread));
 
         // Set bullet velocity in the direction of the mouse
-        rb.velocity = bulletDirection * 70f;
+        rb.linearVelocity = bulletDirection * 70f;
 
         if(DDAdataCollector.Instance != null)
             DDAdataCollector.Instance.OnBulletFired(bulletScript.bulletID);
@@ -325,7 +325,7 @@ public class Weapon : MonoBehaviour
         directionWithSpread += new Vector2(Random.Range(-accuracySpread, accuracySpread), Random.Range(-accuracySpread, accuracySpread));
 
         // Set bullet velocity in the calculated direction
-        rb.velocity = directionWithSpread * 70f;
+        rb.linearVelocity = directionWithSpread * 70f;
         if(DDAdataCollector.Instance != null)
         {
             DDAdataCollector.Instance.OnBulletFired(bulletScript.bulletID);

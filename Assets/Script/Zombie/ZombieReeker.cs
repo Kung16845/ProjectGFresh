@@ -122,7 +122,7 @@ public class ZombieReeker : Zombie
             ReekercurrentState = ReekerState.Spitting;
             spittingTimer = spittingDuration;
             spittingCooldown = 0f;
-            rb2D.velocity = Vector2.zero; // Stop moving while spitting
+            rb2D.linearVelocity = Vector2.zero; // Stop moving while spitting
         }
         else
         {
@@ -174,7 +174,7 @@ public class ZombieReeker : Zombie
     private void MoveTowards(Vector2 targetPosition)
     {
         Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
-        rb2D.velocity = direction * currentSpeed;
+        rb2D.linearVelocity = direction * currentSpeed;
         if (direction.x < 0)
             {
                 transform.localScale = new Vector3(0.7f, 0.7f, 1); // Flip left

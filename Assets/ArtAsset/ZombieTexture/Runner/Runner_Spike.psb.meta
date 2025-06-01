@@ -70,12 +70,13 @@ ScriptedImporter:
     compressionQualitySet: 0
     textureFormatSet: 0
     applyGammaDecoding: 0
-  spriteImportData:
+  singleSpriteImportData:
   - name: 
     originalName: 
     pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 0
@@ -92,13 +93,14 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
     spritePosition: {x: 0, y: 0}
-  mosaicSpriteImportData: []
-  rigSpriteImportData:
+  multiSpriteImportData: []
+  layeredSpriteImportData:
   - name: RunnerSpike_ArmFront
     originalName: 
     pivot: {x: 0.3908443, y: 0.90879524}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 223
@@ -120,6 +122,7 @@ ScriptedImporter:
     pivot: {x: 0.68490684, y: 0.10225339}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 100
@@ -141,6 +144,7 @@ ScriptedImporter:
     pivot: {x: 0.4182658, y: 0.04456651}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -162,6 +166,7 @@ ScriptedImporter:
     pivot: {x: 0.44790268, y: 0.8926053}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 179
@@ -183,6 +188,7 @@ ScriptedImporter:
     pivot: {x: 0.699118, y: 0.902618}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 97
@@ -204,6 +210,7 @@ ScriptedImporter:
     pivot: {x: 0.89854854, y: 0.85461944}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -220,15 +227,172 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 114}
     spritePosition: {x: 52, y: 98}
-  characterData:
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  rigSpriteImportData:
+  - name: RunnerSpike_ArmFront
+    originalName: 
+    pivot: {x: 0.3908443, y: 0.90879524}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 223
+      y: 4
+      width: 27
+      height: 97
+    spriteID: 3c1dd318ad7363547b60b891b2de6da7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 223, y: 4}
+    spritePosition: {x: 142, y: 58}
+  - name: RunnerSpike_Head
+    originalName: 
+    pivot: {x: 0.68490684, y: 0.10225339}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 100
+      y: 4
+      width: 71
+      height: 97
+    spriteID: 5b2fc58024e439747be4d18dd3d8e38d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 100, y: 4}
+    spritePosition: {x: 90, y: 144}
+  - name: RunnerSpike_Body
+    originalName: 
+    pivot: {x: 0.4182658, y: 0.04456651}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 88
+      height: 102
+    spriteID: e534f05fac9d96445bf9601ad4c3890f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 100, y: 84}
+  - name: RunnerSpike_LegFront
+    originalName: 
+    pivot: {x: 0.44790268, y: 0.8926053}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 179
+      y: 4
+      width: 36
+      height: 101
+    spriteID: e9d59fbfb1680654da5c8bc282899195
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 179, y: 4}
+    spritePosition: {x: 129, y: 7}
+  - name: RunnerSpike_LegBack
+    originalName: 
+    pivot: {x: 0.699118, y: 0.902618}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 97
+      y: 114
+      width: 44
+      height: 103
+    spriteID: 4fed37f4bd37ca64d8ef4515687ec589
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 97, y: 114}
+    spritePosition: {x: 98, y: 7}
+  - name: RunnerSpike_ArmBack
+    originalName: 
+    pivot: {x: 0.89854854, y: 0.85461944}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 114
+      width: 85
+      height: 56
+    spriteID: bd4818417c1c2a5448587149a3996319
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 114}
+    spritePosition: {x: 52, y: 98}
+  sharedRigSpriteImportData: []
+  mosaicSpriteImportData: []
+  sharedRigCharacterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
     characterGroups: []
     pivot: {x: 0, y: 0}
     boneReadOnly: 0
-  sharedRigSpriteImportData: []
-  sharedRigCharacterData:
+  characterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
@@ -281,13 +445,77 @@ ScriptedImporter:
   generatePhysicsShape: 0
   paperDollMode: 0
   keepDupilcateSpriteName: 1
-  skeletonAssetReferenceID: 
   padding: 4
   spriteSizeExpand: 0
+  skeletonAssetReferenceID: 
+  pipeline: {instanceID: 0}
+  pipelineVersion: 
   spriteCategoryList:
     categories: []
   spritePackingTag: 
   resliceFromLayer: 0
+  pSDLayerImportSetting: []
+  psdLayers:
+  - name: ReekerSpike_ArmFront
+    spriteName: ReekerSpike_ArmFront
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 3c1dd318ad7363547b60b891b2de6da7
+    layerID: 0
+    mosaicPosition: {x: 223, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ReekerSpike_Head
+    spriteName: ReekerSpike_Head
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 5b2fc58024e439747be4d18dd3d8e38d
+    layerID: 1645239469
+    mosaicPosition: {x: 100, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ReekerSpike_Body
+    spriteName: ReekerSpike_Body
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e534f05fac9d96445bf9601ad4c3890f
+    layerID: -653507707
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ReekerSpike_LegFront
+    spriteName: ReekerSpike_LegFront
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e9d59fbfb1680654da5c8bc282899195
+    layerID: -1109802184
+    mosaicPosition: {x: 179, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ReekerSpike_LegBack
+    spriteName: ReekerSpike_LegBack
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 4fed37f4bd37ca64d8ef4515687ec589
+    layerID: 1418817318
+    mosaicPosition: {x: 97, y: 114}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ReekerSpike_ArmBack
+    spriteName: ReekerSpike_ArmBack
+    isGroup: 0
+    parentIndex: -1
+    spriteID: bd4818417c1c2a5448587149a3996319
+    layerID: -688834636
+    mosaicPosition: {x: 4, y: 114}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   mosaicPSDLayers: []
   rigPSDLayers:
   - name: ReekerSpike_ArmFront
@@ -351,7 +579,6 @@ ScriptedImporter:
     isImported: 1
     isVisible: 1
   sharedRigPSDLayers: []
-  pSDLayerImportSetting: []
   importFileNodeState: 1
   platformSettingsDirtyTick: 0
   spriteSizeExpandChanged: 0
