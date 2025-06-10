@@ -43,5 +43,5 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"Kung16845_ProjectGFresh" /o:"kung16845" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet build YOUR_SOLUTION_FILE_PATH_HERE # <--- YOU MUST UPDATE THIS LINE
+          dotnet build ProjectGFresh.sln # <--- YOU MUST UPDATE THIS LINE
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
