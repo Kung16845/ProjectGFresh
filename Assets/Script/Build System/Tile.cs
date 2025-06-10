@@ -5,9 +5,7 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     public bool isOccupied;
-    public bool isTileLarge;
-    public bool isTileMedium;
-    public bool isTileSmall;
+    public BuildingType buildingType;
     public Color greenColor;
     public Color redColor;
     public SpriteRenderer rend;
@@ -24,7 +22,6 @@ public class Tile : MonoBehaviour
         }
         else
         {
-            // Debug.Log("Grean Color");
             rend.color = greenColor;
         }
     }

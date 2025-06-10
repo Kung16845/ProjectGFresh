@@ -70,12 +70,13 @@ ScriptedImporter:
     compressionQualitySet: 0
     textureFormatSet: 0
     applyGammaDecoding: 0
-  spriteImportData:
+  singleSpriteImportData:
   - name: 
     originalName: 
     pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 0
@@ -92,13 +93,14 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
     spritePosition: {x: 0, y: 0}
-  mosaicSpriteImportData: []
-  rigSpriteImportData:
+  multiSpriteImportData: []
+  layeredSpriteImportData:
   - name: Stockshelfside
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -120,6 +122,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -141,6 +144,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 362
@@ -162,6 +166,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 1124
@@ -183,6 +188,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 1488
@@ -204,6 +210,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -225,6 +232,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 1488
@@ -246,6 +254,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -267,6 +276,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 1339
@@ -288,6 +298,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -309,6 +320,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -330,6 +342,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 844
@@ -351,6 +364,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 844
@@ -372,6 +386,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 1130
@@ -393,6 +408,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 688
@@ -414,6 +430,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 555
@@ -430,15 +447,392 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 555, y: 4}
     spritePosition: {x: 54, y: 657}
-  characterData:
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  rigSpriteImportData:
+  - name: Stockshelfside
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 681
+      width: 137
+      height: 388
+    spriteID: 153f660fc7ce6754f90d698135c0c96c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 681}
+    spritePosition: {x: 432, y: 590}
+  - name: Stockshelf
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 291
+      width: 350
+      height: 382
+    spriteID: dc792895776df704591903a74975b19f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 291}
+    spritePosition: {x: 97, y: 591}
+  - name: Cashier
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 362
+      y: 291
+      width: 318
+      height: 305
+    spriteID: 265bf28bffecc6343a1c44e4925cafb7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 362, y: 291}
+    spritePosition: {x: 562, y: 83}
+  - name: ParkingLot
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1124
+      y: 4
+      width: 356
+      height: 243
+    spriteID: 472fec68202fa17459eefc8a3641752c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1124, y: 4}
+    spritePosition: {x: 239, y: 648}
+  - name: ShelfBack
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1488
+      y: 4
+      width: 477
+      height: 111
+    spriteID: 5b97ba055e5d8a041922e4a9be295aae
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1488, y: 4}
+    spritePosition: {x: 314, y: 347}
+  - name: emptyshelf1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 543
+      height: 279
+    spriteID: 08aa654d4729fdc4a8bda41a12c37943
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 31, y: 67}
+  - name: trolley3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1488
+      y: 123
+      width: 131
+      height: 110
+    spriteID: e7c897c4fd56ab347b0e6bac668edb8f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1488, y: 123}
+    spritePosition: {x: 834, y: 654}
+  - name: trolley2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1813
+      width: 116
+      height: 133
+    spriteID: c3f64242e32e86a45a422740d74e4c02
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1813}
+    spritePosition: {x: 736, y: 793}
+  - name: trolley1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1339
+      y: 291
+      width: 89
+      height: 162
+    spriteID: 396ca570156615d4485a3ad374db6d2a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1339, y: 291}
+    spritePosition: {x: 729, y: 627}
+  - name: planks2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1077
+      width: 126
+      height: 359
+    spriteID: 67d80ff94142c3b469039077bb0dde96
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1077}
+    spritePosition: {x: 273, y: 329}
+  - name: planks1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1444
+      width: 114
+      height: 361
+    spriteID: 769718ff89eacf34b95100c9bf6904c1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1444}
+    spritePosition: {x: 143, y: 331}
+  - name: trash2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 844
+      y: 484
+      width: 225
+      height: 140
+    spriteID: 010fe8544a5657f41a4372a68dc7d17a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 844, y: 484}
+    spritePosition: {x: 255, y: 418}
+  - name: trash3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 844
+      y: 291
+      width: 278
+      height: 185
+    spriteID: e9011ea430e613f4091b53f06b95610a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 844, y: 291}
+    spritePosition: {x: 521, y: 415}
+  - name: trash1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1130
+      y: 291
+      width: 201
+      height: 194
+    spriteID: 94e89f847e3ad3743971a4f2725a7b5d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1130, y: 291}
+    spritePosition: {x: 42, y: 394}
+  - name: shelfside
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 688
+      y: 291
+      width: 148
+      height: 364
+    spriteID: 8d5cda007f4b82b4e818d0a932502e8c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 688, y: 291}
+    spritePosition: {x: 604, y: 627}
+  - name: shelf
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 555
+      y: 4
+      width: 561
+      height: 216
+    spriteID: bef12d52d22e879489cae8e14e9ebf31
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 555, y: 4}
+    spritePosition: {x: 54, y: 657}
+  sharedRigSpriteImportData: []
+  mosaicSpriteImportData: []
+  sharedRigCharacterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
     characterGroups: []
     pivot: {x: 0, y: 0}
     boneReadOnly: 0
-  sharedRigSpriteImportData: []
-  sharedRigCharacterData:
+  characterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
@@ -455,13 +849,177 @@ ScriptedImporter:
   generatePhysicsShape: 0
   paperDollMode: 0
   keepDupilcateSpriteName: 1
-  skeletonAssetReferenceID: 
   padding: 4
   spriteSizeExpand: 0
+  skeletonAssetReferenceID: 
+  pipeline: {instanceID: 0}
+  pipelineVersion: 
   spriteCategoryList:
     categories: []
   spritePackingTag: 
   resliceFromLayer: 0
+  pSDLayerImportSetting: []
+  psdLayers:
+  - name: Stockshelfside
+    spriteName: Stockshelfside
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 153f660fc7ce6754f90d698135c0c96c
+    layerID: 0
+    mosaicPosition: {x: 4, y: 681}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Stockshelf
+    spriteName: Stockshelf
+    isGroup: 0
+    parentIndex: -1
+    spriteID: dc792895776df704591903a74975b19f
+    layerID: -442017120
+    mosaicPosition: {x: 4, y: 291}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cashier
+    spriteName: Cashier
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 265bf28bffecc6343a1c44e4925cafb7
+    layerID: 1141834299
+    mosaicPosition: {x: 362, y: 291}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ParkingLot
+    spriteName: ParkingLot
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 472fec68202fa17459eefc8a3641752c
+    layerID: -1446656221
+    mosaicPosition: {x: 1124, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ShelfBack
+    spriteName: ShelfBack
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 5b97ba055e5d8a041922e4a9be295aae
+    layerID: 1087738527
+    mosaicPosition: {x: 1488, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: emptyshelf1
+    spriteName: emptyshelf1
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 08aa654d4729fdc4a8bda41a12c37943
+    layerID: -33807240
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: trolley3
+    spriteName: trolley3
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e7c897c4fd56ab347b0e6bac668edb8f
+    layerID: 13812172
+    mosaicPosition: {x: 1488, y: 123}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: trolley2
+    spriteName: trolley2
+    isGroup: 0
+    parentIndex: -1
+    spriteID: c3f64242e32e86a45a422740d74e4c02
+    layerID: -1552271769
+    mosaicPosition: {x: 4, y: 1813}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: trolley1
+    spriteName: trolley1
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 396ca570156615d4485a3ad374db6d2a
+    layerID: -1148987242
+    mosaicPosition: {x: 1339, y: 291}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: planks2
+    spriteName: planks2
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 67d80ff94142c3b469039077bb0dde96
+    layerID: 1794216401
+    mosaicPosition: {x: 4, y: 1077}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: planks1
+    spriteName: planks1
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 769718ff89eacf34b95100c9bf6904c1
+    layerID: 1794216402
+    mosaicPosition: {x: 4, y: 1444}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: trash2
+    spriteName: trash2
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 010fe8544a5657f41a4372a68dc7d17a
+    layerID: 1312010118
+    mosaicPosition: {x: 844, y: 484}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: trash3
+    spriteName: trash3
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e9011ea430e613f4091b53f06b95610a
+    layerID: -1416873237
+    mosaicPosition: {x: 844, y: 291}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: trash1
+    spriteName: trash1
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 94e89f847e3ad3743971a4f2725a7b5d
+    layerID: -254073823
+    mosaicPosition: {x: 1130, y: 291}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: shelfside
+    spriteName: shelfside
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 8d5cda007f4b82b4e818d0a932502e8c
+    layerID: -379806361
+    mosaicPosition: {x: 688, y: 291}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: shelf
+    spriteName: shelf
+    isGroup: 0
+    parentIndex: -1
+    spriteID: bef12d52d22e879489cae8e14e9ebf31
+    layerID: 1131275674
+    mosaicPosition: {x: 555, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   mosaicPSDLayers: []
   rigPSDLayers:
   - name: Stockshelfside
@@ -625,7 +1183,6 @@ ScriptedImporter:
     isImported: 1
     isVisible: 1
   sharedRigPSDLayers: []
-  pSDLayerImportSetting: []
   importFileNodeState: 1
   platformSettingsDirtyTick: 0
   spriteSizeExpandChanged: 0

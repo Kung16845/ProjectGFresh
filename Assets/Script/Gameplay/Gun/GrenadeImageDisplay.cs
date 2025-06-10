@@ -45,7 +45,7 @@ public class GrenadeImageDisplay : MonoBehaviour
     private void UpdateGrenadeImage()
     {
         // Get the equipped grenade item from the inventory
-        var grenadeItemData = uiInventory.listItemDataInventoryEqicment
+        var grenadeItemData = uiInventory.listItemDataInventoryEquipment
             .FirstOrDefault(item => item.itemtype == Itemtype.Grenade);
 
         if (grenadeItemData != null)

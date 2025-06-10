@@ -21,7 +21,7 @@ public class ZombieGrunt : Zombie
         }
         if (HasReachedAttackPoint())
         {
-            rb2D.velocity = Vector2.zero;
+            rb2D.linearVelocity = Vector2.zero;
             ZombieAttack();
         }
         else

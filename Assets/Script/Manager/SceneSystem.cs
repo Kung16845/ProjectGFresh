@@ -5,7 +5,19 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneSystem : MonoBehaviour
-{
+{   
+    public static SceneSystem Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     private int mainSceneIndex = 0;
     public int currentSceneIndex;
     public Animator transitionAnim;
@@ -18,10 +30,7 @@ public class SceneSystem : MonoBehaviour
     public TutorialManager tutorialManager;
     private void Start()
     {
-        
         timeManager = FindObjectOfType<TimeManager>();
-        timeManager.sceneSystem1 = this;
-        timeManager.dateTime.sceneSystem = this;
         saveObjectActiveMainScene = FindObjectOfType<SaveObjectActiveMainScene>();
         saveDataDDA = FindObjectOfType<SaveDataDDA>();
         tutorialManager = FindObjectOfType<TutorialManager>();
@@ -41,7 +50,6 @@ public class SceneSystem : MonoBehaviour
     }
     public void SwitchScene(int sceneIndex)
     {
-
         StartCoroutine(LoadScene(sceneIndex));
     }
     IEnumerator LoadScene(int sceneIndex)
@@ -136,11 +144,5 @@ public class SceneSystem : MonoBehaviour
             Debug.Log("SaveData");
         }
         timeManager.TimeStop();
-    }
-    private void OnEnable()
-    {
-        timeManager = FindObjectOfType<TimeManager>();
-        timeManager.sceneSystem1 = this;
-        timeManager.dateTime.sceneSystem = this;
     }
 }

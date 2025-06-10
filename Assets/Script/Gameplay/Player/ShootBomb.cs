@@ -81,7 +81,7 @@ public class ShootBomb : MonoBehaviour
     private void UpdateGrenadeType()
     {
         // Find the equipped grenade in the inventory
-        currentGrenadeItem = uiInventory.listItemDataInventoryEqicment
+        currentGrenadeItem = uiInventory.listItemDataInventoryEquipment
             .FirstOrDefault(itemData => itemData.itemtype == Itemtype.Grenade);
 
         if (currentGrenadeItem != null)
@@ -133,7 +133,7 @@ public class ShootBomb : MonoBehaviour
         if (currentGrenadeItem.count <= 0)
         {
             // Remove the item from the inventory if count reaches 0
-            uiInventory.listItemDataInventoryEqicment.Remove(currentGrenadeItem);
+            uiInventory.listItemDataInventoryEquipment.Remove(currentGrenadeItem);
             Debug.Log("Grenade item removed from inventory.");
         }
 

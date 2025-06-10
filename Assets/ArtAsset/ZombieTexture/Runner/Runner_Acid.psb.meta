@@ -70,12 +70,13 @@ ScriptedImporter:
     compressionQualitySet: 0
     textureFormatSet: 0
     applyGammaDecoding: 0
-  spriteImportData:
+  singleSpriteImportData:
   - name: 
     originalName: 
     pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 0
@@ -92,13 +93,14 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
     spritePosition: {x: 0, y: 0}
-  mosaicSpriteImportData: []
-  rigSpriteImportData:
+  multiSpriteImportData: []
+  layeredSpriteImportData:
   - name: RunnerAcid_ArmFront
     originalName: 
     pivot: {x: 0.3930065, y: 0.89460725}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 176
@@ -120,6 +122,7 @@ ScriptedImporter:
     pivot: {x: 0.8, y: 0.1}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 108
@@ -141,6 +144,7 @@ ScriptedImporter:
     pivot: {x: 0.5037615, y: 0.044828255}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -162,6 +166,7 @@ ScriptedImporter:
     pivot: {x: 0.44984734, y: 0.91830724}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 176
@@ -183,6 +188,7 @@ ScriptedImporter:
     pivot: {x: 0.68875813, y: 0.88564384}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 108
@@ -204,6 +210,7 @@ ScriptedImporter:
     pivot: {x: 0.9078339, y: 0.8804477}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 3
@@ -220,15 +227,172 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 131}
     spritePosition: {x: 52, y: 98}
-  characterData:
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  rigSpriteImportData:
+  - name: RunnerAcid_ArmFront
+    originalName: 
+    pivot: {x: 0.3930065, y: 0.89460725}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 113
+      width: 27
+      height: 97
+    spriteID: 5df2fa9cb78410c4c95857154f34ecdf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 113}
+    spritePosition: {x: 142, y: 58}
+  - name: RunnerAcid_Head
+    originalName: 
+    pivot: {x: 0.8, y: 0.1}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 108
+      y: 4
+      width: 60
+      height: 79
+    spriteID: 7e1ddfdaaebbc4748a6db6bef3e1ee57
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 108, y: 4}
+    spritePosition: {x: 90, y: 144}
+  - name: RunnerAcid_Body
+    originalName: 
+    pivot: {x: 0.5037615, y: 0.044828255}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 96
+      height: 119
+    spriteID: 99ab435f1c87ee14cbde354e562d8b10
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 102, y: 84}
+  - name: RunnerAcid_LegFront
+    originalName: 
+    pivot: {x: 0.44984734, y: 0.91830724}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 4
+      width: 36
+      height: 101
+    spriteID: 54a8625ece1776049b85b0ce400f9b6c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 4}
+    spritePosition: {x: 129, y: 7}
+  - name: RunnerAcid_LegBack
+    originalName: 
+    pivot: {x: 0.68875813, y: 0.88564384}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 108
+      y: 91
+      width: 44
+      height: 103
+    spriteID: b226a6f4e2704a1498dc3ea3fb25639f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 108, y: 91}
+    spritePosition: {x: 98, y: 7}
+  - name: RunnerAcid_ArmBack
+    originalName: 
+    pivot: {x: 0.9078339, y: 0.8804477}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 3
+      y: 130
+      width: 85
+      height: 56
+    spriteID: 1127238243f63f341b35d04bb0a3a82c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 131}
+    spritePosition: {x: 52, y: 98}
+  sharedRigSpriteImportData: []
+  mosaicSpriteImportData: []
+  sharedRigCharacterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
     characterGroups: []
     pivot: {x: 0, y: 0}
     boneReadOnly: 0
-  sharedRigSpriteImportData: []
-  sharedRigCharacterData:
+  characterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
@@ -281,13 +445,77 @@ ScriptedImporter:
   generatePhysicsShape: 0
   paperDollMode: 0
   keepDupilcateSpriteName: 1
-  skeletonAssetReferenceID: 
   padding: 4
   spriteSizeExpand: 0
+  skeletonAssetReferenceID: 
+  pipeline: {instanceID: 0}
+  pipelineVersion: 
   spriteCategoryList:
     categories: []
   spritePackingTag: 
   resliceFromLayer: 0
+  pSDLayerImportSetting: []
+  psdLayers:
+  - name: ReekerAcid_ArmFront
+    spriteName: ReekerAcid_ArmFront
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 5df2fa9cb78410c4c95857154f34ecdf
+    layerID: 0
+    mosaicPosition: {x: 176, y: 113}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ReekerAcid_Head
+    spriteName: ReekerAcid_Head
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7e1ddfdaaebbc4748a6db6bef3e1ee57
+    layerID: -2016207756
+    mosaicPosition: {x: 108, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ReekerAcid_Body
+    spriteName: ReekerAcid_Body
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 99ab435f1c87ee14cbde354e562d8b10
+    layerID: 995001070
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ReekerAcid_LegFront
+    spriteName: ReekerAcid_LegFront
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 54a8625ece1776049b85b0ce400f9b6c
+    layerID: -1966112955
+    mosaicPosition: {x: 176, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ReekerAcid_LegBack
+    spriteName: ReekerAcid_LegBack
+    isGroup: 0
+    parentIndex: -1
+    spriteID: b226a6f4e2704a1498dc3ea3fb25639f
+    layerID: -1188816865
+    mosaicPosition: {x: 108, y: 91}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ReekerAcid_ArmBack
+    spriteName: ReekerAcid_ArmBack
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 1127238243f63f341b35d04bb0a3a82c
+    layerID: 2002967755
+    mosaicPosition: {x: 4, y: 131}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   mosaicPSDLayers: []
   rigPSDLayers:
   - name: ReekerAcid_ArmFront
@@ -351,7 +579,6 @@ ScriptedImporter:
     isImported: 1
     isVisible: 1
   sharedRigPSDLayers: []
-  pSDLayerImportSetting: []
   importFileNodeState: 1
   platformSettingsDirtyTick: 0
   spriteSizeExpandChanged: 0

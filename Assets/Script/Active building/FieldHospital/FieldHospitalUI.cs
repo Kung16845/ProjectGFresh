@@ -59,17 +59,11 @@ public class FieldHospitalUI : MonoBehaviour
             GameObject patientObj = Instantiate(PatienPrefab, SelectParent);
 
             // Retrieve NPC data from npcManager (looking in working list first, then normal list)
-            NpcClass npcData = npcManager.listNpcWorking.FirstOrDefault(npc => npc.idnpc == patient.NpcID);
-            if (npcData == null)
-            {
-                npcData = npcManager.listNpc.FirstOrDefault(npc => npc.idnpc == patient.NpcID);
-            }
-
+            NpcClass npcData = npcManager.GetNpcById(patient.NpcID);
             if (npcData != null)
             {
                 // Get face image
                 Sprite faceSprite = GetNpcFaceSprite(npcData);
-
                 // Set data on the patient UI
                 PatientUIItem uiItem = patientObj.GetComponent<PatientUIItem>();
                 if (uiItem != null)
@@ -153,7 +147,8 @@ public class FieldHospitalUI : MonoBehaviour
         {
             float healingRate = 2f; // example healing rate
             patienManger.AddPatient(npcToAdd.idnpc, npcToAdd.hp, healingRate, PatienSourceSource.FieldHaspital);
-            npcManager.MoveNpcToWorking(npcToAdd.idnpc);
+            NpcClass npc = npcManager.GetNpcById(npcToAdd.idnpc);
+            npc.isWorking = true;
 
             Debug.Log($"Added NPC {npcToAdd.nameNpc}(ID: {npcToAdd.idnpc}) as a patient to the fieldHospital.");
 
@@ -259,7 +254,7 @@ public class FieldHospitalUI : MonoBehaviour
 
             if (uiItem != null)
             {
-                NpcClass npcData = npcManager.listNpcWorking.FirstOrDefault(npc => npc.idnpc == patient.NpcID);
+                NpcClass npcData = npcManager.GetNpcById(patient.NpcID);
                 Sprite faceSprite = npcData != null ? GetNpcFaceSprite(npcData) : null;
 
                 uiItem.SetData(npcData?.nameNpc ?? $"NPC {patient.NpcID}", faceSprite, patient.Npchp);

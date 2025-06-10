@@ -30,7 +30,7 @@ public class NpcManager : MonoBehaviour
     public TextMeshProUGUI specialistNpcText;
     private void Awake()
     {
-        // StartGameCreateGropNpx();
+        StartGameCreateGropNpx();
     }
     private void Start()
     {

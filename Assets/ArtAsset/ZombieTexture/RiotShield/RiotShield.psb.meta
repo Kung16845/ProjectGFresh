@@ -70,12 +70,13 @@ ScriptedImporter:
     compressionQualitySet: 0
     textureFormatSet: 0
     applyGammaDecoding: 0
-  spriteImportData:
+  singleSpriteImportData:
   - name: 
     originalName: 
     pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 0
@@ -92,13 +93,14 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
     spritePosition: {x: 0, y: 0}
-  mosaicSpriteImportData: []
-  rigSpriteImportData:
+  multiSpriteImportData: []
+  layeredSpriteImportData:
   - name: RiotShield_ArmTop
     originalName: 
     pivot: {x: 0.42599148, y: 0.90225905}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 55
@@ -120,6 +122,7 @@ ScriptedImporter:
     pivot: {x: 0.74145347, y: 0.057017867}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -141,6 +144,7 @@ ScriptedImporter:
     pivot: {x: 0.519031, y: 0.12756921}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -162,6 +166,7 @@ ScriptedImporter:
     pivot: {x: 0.42163804, y: 0.8798625}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 114
@@ -183,6 +188,7 @@ ScriptedImporter:
     pivot: {x: 0.69827455, y: 0.88283354}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -204,6 +210,7 @@ ScriptedImporter:
     pivot: {x: 0.8970349, y: 0.69551086}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -220,15 +227,172 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
     spritePosition: {x: 36, y: 46}
-  characterData:
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  rigSpriteImportData:
+  - name: RiotShield_ArmTop
+    originalName: 
+    pivot: {x: 0.42599148, y: 0.90225905}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 55
+      y: 343
+      width: 36
+      height: 102
+    spriteID: 830867bf9026cea45b4e1b9fd6aea962
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 55, y: 343}
+    spritePosition: {x: 134, y: 57}
+  - name: RiotShield_Head
+    originalName: 
+    pivot: {x: 0.74145347, y: 0.057017867}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 151
+      width: 64
+      height: 83
+    spriteID: 4beef18545adece4c98a01567f2d7fee
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 151}
+    spritePosition: {x: 89, y: 149}
+  - name: RiotShield_Body
+    originalName: 
+    pivot: {x: 0.519031, y: 0.12756921}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 242
+      width: 56
+      height: 93
+    spriteID: 711b9eee5a956be40abfdcec636ebed3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 242}
+    spritePosition: {x: 107, y: 75}
+  - name: RiotShield_LegTop
+    originalName: 
+    pivot: {x: 0.42163804, y: 0.8798625}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 114
+      y: 4
+      width: 34
+      height: 101
+    spriteID: 4bc70cbce7446f04e8009d481c7232f7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 114, y: 4}
+    spritePosition: {x: 131, y: 7}
+  - name: RiotShield_LegBack
+    originalName: 
+    pivot: {x: 0.69827455, y: 0.88283354}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 343
+      width: 43
+      height: 103
+    spriteID: 4b49d75377bdb304c908523a82b12f57
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 343}
+    spritePosition: {x: 98, y: 7}
+  - name: RiotShield_ArmBack
+    originalName: 
+    pivot: {x: 0.8970349, y: 0.69551086}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 102
+      height: 139
+    spriteID: bd76701a0b3a6844cb8a049e6ea1898e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 36, y: 46}
+  sharedRigSpriteImportData: []
+  mosaicSpriteImportData: []
+  sharedRigCharacterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
     characterGroups: []
     pivot: {x: 0, y: 0}
     boneReadOnly: 0
-  sharedRigSpriteImportData: []
-  sharedRigCharacterData:
+  characterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
@@ -281,13 +445,77 @@ ScriptedImporter:
   generatePhysicsShape: 0
   paperDollMode: 0
   keepDupilcateSpriteName: 1
-  skeletonAssetReferenceID: 
   padding: 4
   spriteSizeExpand: 0
+  skeletonAssetReferenceID: 
+  pipeline: {instanceID: 0}
+  pipelineVersion: 
   spriteCategoryList:
     categories: []
   spritePackingTag: 
   resliceFromLayer: 0
+  pSDLayerImportSetting: []
+  psdLayers:
+  - name: RiotShield_ArmTop
+    spriteName: RiotShield_ArmTop
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 830867bf9026cea45b4e1b9fd6aea962
+    layerID: 0
+    mosaicPosition: {x: 55, y: 343}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: RiotShield_Head
+    spriteName: RiotShield_Head
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 4beef18545adece4c98a01567f2d7fee
+    layerID: 116605800
+    mosaicPosition: {x: 4, y: 151}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: RiotShield_Body
+    spriteName: RiotShield_Body
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 711b9eee5a956be40abfdcec636ebed3
+    layerID: -85165190
+    mosaicPosition: {x: 4, y: 242}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: RiotShield_LegTop
+    spriteName: RiotShield_LegTop
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 4bc70cbce7446f04e8009d481c7232f7
+    layerID: 1503996441
+    mosaicPosition: {x: 114, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: RiotShield_LegBack
+    spriteName: RiotShield_LegBack
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 4b49d75377bdb304c908523a82b12f57
+    layerID: 1311991717
+    mosaicPosition: {x: 4, y: 343}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: RiotShield_ArmBack
+    spriteName: RiotShield_ArmBack
+    isGroup: 0
+    parentIndex: -1
+    spriteID: bd76701a0b3a6844cb8a049e6ea1898e
+    layerID: -1879789067
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   mosaicPSDLayers: []
   rigPSDLayers:
   - name: RiotShield_ArmTop
@@ -351,7 +579,6 @@ ScriptedImporter:
     isImported: 1
     isVisible: 1
   sharedRigPSDLayers: []
-  pSDLayerImportSetting: []
   importFileNodeState: 1
   platformSettingsDirtyTick: 0
   spriteSizeExpandChanged: 0

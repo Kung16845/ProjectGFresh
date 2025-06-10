@@ -70,12 +70,13 @@ ScriptedImporter:
     compressionQualitySet: 0
     textureFormatSet: 0
     applyGammaDecoding: 0
-  spriteImportData:
+  singleSpriteImportData:
   - name: 
     originalName: 
     pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 0
@@ -92,13 +93,14 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
     spritePosition: {x: 0, y: 0}
-  mosaicSpriteImportData: []
-  rigSpriteImportData:
+  multiSpriteImportData: []
+  layeredSpriteImportData:
   - name: GruntArmored_ArmFront
     originalName: 
     pivot: {x: 0.4, y: 0.85}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 195
@@ -120,6 +122,7 @@ ScriptedImporter:
     pivot: {x: 0.7252388, y: 0.09563051}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -141,6 +144,7 @@ ScriptedImporter:
     pivot: {x: 0.42769238, y: 0.01734542}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -162,6 +166,7 @@ ScriptedImporter:
     pivot: {x: 0.4495266, y: 0.8907963}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 150
@@ -183,6 +188,7 @@ ScriptedImporter:
     pivot: {x: 0.67788917, y: 0.9082}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 101
@@ -204,6 +210,7 @@ ScriptedImporter:
     pivot: {x: 0.8841285, y: 0.8198196}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 101
@@ -220,15 +227,172 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 101, y: 4}
     spritePosition: {x: 52, y: 99}
-  characterData:
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  rigSpriteImportData:
+  - name: GruntArmored_ArmFront
+    originalName: 
+    pivot: {x: 0.4, y: 0.85}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 195
+      y: 4
+      width: 32
+      height: 98
+    spriteID: 6f4a029a41507454eb408ed89e0f5c61
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 195, y: 4}
+    spritePosition: {x: 136, y: 57}
+  - name: GruntArmored_Head
+    originalName: 
+    pivot: {x: 0.7252388, y: 0.09563051}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 124
+      width: 80
+      height: 87
+    spriteID: c8aa68fcf22b71448aaedc6275170dc2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 124}
+    spritePosition: {x: 81, y: 149}
+  - name: GruntArmored_Body
+    originalName: 
+    pivot: {x: 0.42769238, y: 0.01734542}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 89
+      height: 112
+    spriteID: 38361a2343b494947b7a3dbc4322e621
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 96, y: 84}
+  - name: GruntArmored_LegFront
+    originalName: 
+    pivot: {x: 0.4495266, y: 0.8907963}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 150
+      y: 67
+      width: 34
+      height: 101
+    spriteID: 51f19ecb14250bf49aadab943d67de94
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 150, y: 67}
+    spritePosition: {x: 131, y: 7}
+  - name: GruntArmored_LegBack
+    originalName: 
+    pivot: {x: 0.67788917, y: 0.9082}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 101
+      y: 67
+      width: 41
+      height: 103
+    spriteID: a07dce8735c159544954dba993317cff
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 101, y: 67}
+    spritePosition: {x: 100, y: 7}
+  - name: GruntArmored_ArmBack
+    originalName: 
+    pivot: {x: 0.8841285, y: 0.8198196}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 101
+      y: 4
+      width: 86
+      height: 55
+    spriteID: 0b1ac9e0e17cfba4ead0df22c65d642e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 101, y: 4}
+    spritePosition: {x: 52, y: 99}
+  sharedRigSpriteImportData: []
+  mosaicSpriteImportData: []
+  sharedRigCharacterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
     characterGroups: []
     pivot: {x: 0, y: 0}
     boneReadOnly: 0
-  sharedRigSpriteImportData: []
-  sharedRigCharacterData:
+  characterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
@@ -281,13 +445,77 @@ ScriptedImporter:
   generatePhysicsShape: 0
   paperDollMode: 0
   keepDupilcateSpriteName: 1
-  skeletonAssetReferenceID: 
   padding: 4
   spriteSizeExpand: 0
+  skeletonAssetReferenceID: 
+  pipeline: {instanceID: 0}
+  pipelineVersion: 
   spriteCategoryList:
     categories: []
   spritePackingTag: 
   resliceFromLayer: 0
+  pSDLayerImportSetting: []
+  psdLayers:
+  - name: GruntArmored_ArmFront
+    spriteName: GruntArmored_ArmFront
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 6f4a029a41507454eb408ed89e0f5c61
+    layerID: 0
+    mosaicPosition: {x: 195, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: GruntArmored_Head
+    spriteName: GruntArmored_Head
+    isGroup: 0
+    parentIndex: -1
+    spriteID: c8aa68fcf22b71448aaedc6275170dc2
+    layerID: 313523703
+    mosaicPosition: {x: 4, y: 124}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: GruntArmored_Body
+    spriteName: GruntArmored_Body
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 38361a2343b494947b7a3dbc4322e621
+    layerID: -452897269
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: GruntArmored_LegFront
+    spriteName: GruntArmored_LegFront
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 51f19ecb14250bf49aadab943d67de94
+    layerID: -1134368000
+    mosaicPosition: {x: 150, y: 67}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: GruntArmored_LegBack
+    spriteName: GruntArmored_LegBack
+    isGroup: 0
+    parentIndex: -1
+    spriteID: a07dce8735c159544954dba993317cff
+    layerID: 1707134602
+    mosaicPosition: {x: 101, y: 67}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: GruntArmored_ArmBack
+    spriteName: GruntArmored_ArmBack
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 0b1ac9e0e17cfba4ead0df22c65d642e
+    layerID: 1785302128
+    mosaicPosition: {x: 101, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   mosaicPSDLayers: []
   rigPSDLayers:
   - name: GruntArmored_ArmFront
@@ -351,7 +579,6 @@ ScriptedImporter:
     isImported: 1
     isVisible: 1
   sharedRigPSDLayers: []
-  pSDLayerImportSetting: []
   importFileNodeState: 1
   platformSettingsDirtyTick: 0
   spriteSizeExpandChanged: 0

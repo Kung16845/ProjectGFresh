@@ -70,12 +70,13 @@ ScriptedImporter:
     compressionQualitySet: 0
     textureFormatSet: 0
     applyGammaDecoding: 0
-  spriteImportData:
+  singleSpriteImportData:
   - name: 
     originalName: 
     pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 0
@@ -92,13 +93,14 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
     spritePosition: {x: 0, y: 0}
-  mosaicSpriteImportData: []
-  rigSpriteImportData:
+  multiSpriteImportData: []
+  layeredSpriteImportData:
   - name: SlimeExplode_ArmTop
     originalName: 
     pivot: {x: 0.41955757, y: 0.8808704}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 145
@@ -120,6 +122,7 @@ ScriptedImporter:
     pivot: {x: 0.7247283, y: 0.08686372}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 103
@@ -141,6 +144,7 @@ ScriptedImporter:
     pivot: {x: 0.46479362, y: 0.06635771}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -162,6 +166,7 @@ ScriptedImporter:
     pivot: {x: 0.44952706, y: 0.87805325}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 103
@@ -183,6 +188,7 @@ ScriptedImporter:
     pivot: {x: 0.6674254, y: 0.8623816}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 174
@@ -204,6 +210,7 @@ ScriptedImporter:
     pivot: {x: 0.83002037, y: 0.7730169}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -220,15 +227,172 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 117}
     spritePosition: {x: 52, y: 99}
-  characterData:
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  rigSpriteImportData:
+  - name: SlimeExplode_ArmTop
+    originalName: 
+    pivot: {x: 0.41955757, y: 0.8808704}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 145
+      y: 117
+      width: 32
+      height: 98
+    spriteID: 46a68970950fc154a8d8b59685348cb3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 145, y: 117}
+    spritePosition: {x: 136, y: 57}
+  - name: SlimeExplode_Head
+    originalName: 
+    pivot: {x: 0.7247283, y: 0.08686372}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 103
+      y: 4
+      width: 63
+      height: 81
+    spriteID: 2bfa42659c8280f4995b311e58b2c209
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 103, y: 4}
+    spritePosition: {x: 90, y: 148}
+  - name: SlimeExplode_Body
+    originalName: 
+    pivot: {x: 0.46479362, y: 0.06635771}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 91
+      height: 105
+    spriteID: 78df968ab533718488e1d287550b14d0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 94, y: 78}
+  - name: SlimeExplode_LegTop
+    originalName: 
+    pivot: {x: 0.44952706, y: 0.87805325}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 103
+      y: 117
+      width: 34
+      height: 101
+    spriteID: 598aaa8e0118000499467582b9d7d1d7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 103, y: 117}
+    spritePosition: {x: 131, y: 7}
+  - name: SlimeExplode_LegBack
+    originalName: 
+    pivot: {x: 0.6674254, y: 0.8623816}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 174
+      y: 4
+      width: 41
+      height: 103
+    spriteID: 15fac19ff84747c4383fee8d8805bbd5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 174, y: 4}
+    spritePosition: {x: 100, y: 7}
+  - name: SlimeExplode_ArmBack
+    originalName: 
+    pivot: {x: 0.83002037, y: 0.7730169}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 117
+      width: 91
+      height: 55
+    spriteID: 16571ec3e2cf8b54eb838178de9144ef
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 117}
+    spritePosition: {x: 52, y: 99}
+  sharedRigSpriteImportData: []
+  mosaicSpriteImportData: []
+  sharedRigCharacterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
     characterGroups: []
     pivot: {x: 0, y: 0}
     boneReadOnly: 0
-  sharedRigSpriteImportData: []
-  sharedRigCharacterData:
+  characterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
@@ -281,13 +445,77 @@ ScriptedImporter:
   generatePhysicsShape: 0
   paperDollMode: 0
   keepDupilcateSpriteName: 1
-  skeletonAssetReferenceID: 
   padding: 4
   spriteSizeExpand: 0
+  skeletonAssetReferenceID: 
+  pipeline: {instanceID: 0}
+  pipelineVersion: 
   spriteCategoryList:
     categories: []
   spritePackingTag: 
   resliceFromLayer: 0
+  pSDLayerImportSetting: []
+  psdLayers:
+  - name: SlimeExplode_ArmTop
+    spriteName: SlimeExplode_ArmTop
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 46a68970950fc154a8d8b59685348cb3
+    layerID: 0
+    mosaicPosition: {x: 145, y: 117}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: SlimeExplode_Head
+    spriteName: SlimeExplode_Head
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 2bfa42659c8280f4995b311e58b2c209
+    layerID: 440875694
+    mosaicPosition: {x: 103, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: SlimeExplode_Body
+    spriteName: SlimeExplode_Body
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 78df968ab533718488e1d287550b14d0
+    layerID: -876382220
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: SlimeExplode_LegTop
+    spriteName: SlimeExplode_LegTop
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 598aaa8e0118000499467582b9d7d1d7
+    layerID: 12260847
+    mosaicPosition: {x: 103, y: 117}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: SlimeExplode_LegBack
+    spriteName: SlimeExplode_LegBack
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 15fac19ff84747c4383fee8d8805bbd5
+    layerID: 2030646963
+    mosaicPosition: {x: 174, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: SlimeExplode_ArmBack
+    spriteName: SlimeExplode_ArmBack
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 16571ec3e2cf8b54eb838178de9144ef
+    layerID: 2023449591
+    mosaicPosition: {x: 4, y: 117}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   mosaicPSDLayers: []
   rigPSDLayers:
   - name: SlimeExplode_ArmTop
@@ -351,7 +579,6 @@ ScriptedImporter:
     isImported: 1
     isVisible: 1
   sharedRigPSDLayers: []
-  pSDLayerImportSetting: []
   importFileNodeState: 1
   platformSettingsDirtyTick: 0
   spriteSizeExpandChanged: 0
