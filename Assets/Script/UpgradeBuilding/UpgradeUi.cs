@@ -127,14 +127,12 @@ public class UpgradeUi : MonoBehaviour
     private void AssignSpecialistToUpgrade(SpecialistRoleNpc requiredSpecialist)
     {
         // Find the NPC with the required specialist role
-        NpcClass specialistNpc = npcManager.listNpc.Find(npc => npc.roleNpc == requiredSpecialist);
+        NpcClass specialistNpc = npcManager.GetNpcByClass(requiredSpecialist);
 
         if (specialistNpc != null)
         {
-            // Remove the NPC from the available list and add to working list
-            npcManager.listNpc.Remove(specialistNpc);
-            npcManager.listNpcWorking.Add(specialistNpc);
-
+ 
+            specialistNpc.isWorking = true;
             // Store a reference to the NPC in the building
             currentBuildingScript.assignedSpecialistNpc = specialistNpc;
         }
@@ -142,7 +140,7 @@ public class UpgradeUi : MonoBehaviour
     private bool HasRequiredSpecialist(SpecialistRoleNpc requiredSpecialist)
     {
         // Check if there is at least one NPC with the required specialist role
-        return npcManager.listNpc.Exists(npc => npc.roleNpc == requiredSpecialist);
+        return npcManager.GetNpcByClass(requiredSpecialist) != null;
     }
     private bool AreResourcesSufficient()
     {

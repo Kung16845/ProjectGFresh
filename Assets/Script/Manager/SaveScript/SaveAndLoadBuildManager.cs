@@ -38,7 +38,7 @@ public class SaveAndLoadBuildManager : MonoBehaviour
         {
             InfoBuilding infoBuilding = new InfoBuilding();
 
-            GameObject buildGameObject = build.buildingGameObject;
+            GameObject buildGameObject = build.building.gameObject;
             Building building = buildGameObject.GetComponent<Building>();
             UpgradeBuilding upgradeLevel = building.GetComponent<UpgradeBuilding>();
 
@@ -159,12 +159,11 @@ public class SaveAndLoadBuildManager : MonoBehaviour
     }
     public void CreateBuilding(InfoBuilding infoBuilding)
     {
-        GameObject newBuildingObject = Instantiate(buildManager.listALLBuilding.FirstOrDefault(build
-        => build.GetComponent<Building>().nameBuild == infoBuilding.nameBuild));
-        Building buildingScript = newBuildingObject.GetComponent<Building>();
+        Building newBuildingObject = Instantiate(buildManager.listALLBuilding.FirstOrDefault(build
+        => build.nameBuild == infoBuilding.nameBuild));
 
-        buildingScript.nameBuild = infoBuilding.nameBuild;
-        buildingScript.finishDayBuildingTime = infoBuilding.dayBuildingFinist;
+        newBuildingObject.nameBuild = infoBuilding.nameBuild;
+        newBuildingObject.finishDayBuildingTime = infoBuilding.dayBuildingFinist;
 
         Vector2 newVector = new Vector2(infoBuilding.transformX, infoBuilding.transformY);
         newBuildingObject.transform.position = newVector;
@@ -178,17 +177,16 @@ public class SaveAndLoadBuildManager : MonoBehaviour
         Tile tile = buildManager.tiles.FirstOrDefault(tile => tile.transform.position.x == newVector.x && tile.transform.position.y == newVector.y);
         tile.isOccupied = true;
 
-        BuiltBuildingInfo newBuiltBuildingInfo = new BuiltBuildingInfo(newBuildingObject, infoBuilding.levelBuild, null);
+        BuiltBuildingInfo newBuiltBuildingInfo = new BuiltBuildingInfo(newBuildingObject, infoBuilding.levelBuild, null, newBuildingObject.buildingType);
         buildManager.builtBuildings.Add(newBuiltBuildingInfo);
     }
     public void CreateBuildingSmallGarden(InfoBuildSmallGarden infoBuildSmallGarden)
     {
-        GameObject newbuildSmallGarden = Instantiate(buildManager.listALLBuilding.FirstOrDefault(build =>
-        build.GetComponent<Building>().nameBuild == infoBuildSmallGarden.nameBuild));
-        Building buildingScript = newbuildSmallGarden.GetComponent<Building>();
+        Building newbuildSmallGarden = Instantiate(buildManager.listALLBuilding.FirstOrDefault(build =>
+        build.nameBuild == infoBuildSmallGarden.nameBuild));
 
-        buildingScript.nameBuild = infoBuildSmallGarden.nameBuild;
-        buildingScript.finishDayBuildingTime = infoBuildSmallGarden.dayBuildingFinist;
+        newbuildSmallGarden.nameBuild = infoBuildSmallGarden.nameBuild;
+        newbuildSmallGarden.finishDayBuildingTime = infoBuildSmallGarden.dayBuildingFinist;
 
         Vector2 newVector = new Vector2(infoBuildSmallGarden.transformX, infoBuildSmallGarden.transformY);
         newbuildSmallGarden.transform.position = newVector;
@@ -205,18 +203,17 @@ public class SaveAndLoadBuildManager : MonoBehaviour
         Tile tile = buildManager.tiles.FirstOrDefault(tile => tile.transform.position.x == newVector.x && tile.transform.position.y == newVector.y);
         tile.isOccupied = true;
 
-        BuiltBuildingInfo newBuiltBuildingInfo = new BuiltBuildingInfo(newbuildSmallGarden, infoBuildSmallGarden.levelBuild, null);
+        BuiltBuildingInfo newBuiltBuildingInfo = new BuiltBuildingInfo(newbuildSmallGarden, infoBuildSmallGarden.levelBuild, null,newbuildSmallGarden.buildingType);
         buildManager.builtBuildings.Add(newBuiltBuildingInfo);
 
     }
     public void CreateBuildingMediumGarden(InfoBuildMediumGarden infoBuildMediumlGarden)
     {
-        GameObject newbuildMediumGarden = Instantiate(buildManager.listALLBuilding.FirstOrDefault(build
-        => build.GetComponent<Building>().nameBuild == infoBuildMediumlGarden.nameBuild));
-        Building buildingScript = newbuildMediumGarden.GetComponent<Building>();
+        Building newbuildMediumGarden = Instantiate(buildManager.listALLBuilding.FirstOrDefault(build
+        => build.nameBuild == infoBuildMediumlGarden.nameBuild));
 
-        buildingScript.nameBuild = infoBuildMediumlGarden.nameBuild;
-        buildingScript.finishDayBuildingTime = infoBuildMediumlGarden.dayBuildingFinist;
+        newbuildMediumGarden.nameBuild = infoBuildMediumlGarden.nameBuild;
+        newbuildMediumGarden.finishDayBuildingTime = infoBuildMediumlGarden.dayBuildingFinist;
 
         Vector2 newVector = new Vector2(infoBuildMediumlGarden.transformX, infoBuildMediumlGarden.transformY);
         newbuildMediumGarden.transform.position = newVector;
@@ -234,7 +231,7 @@ public class SaveAndLoadBuildManager : MonoBehaviour
         Tile tile = buildManager.tiles.FirstOrDefault(tile => tile.transform.position.x == newVector.x && tile.transform.position.y == newVector.y);
         tile.isOccupied = true;
 
-        BuiltBuildingInfo newBuiltBuildingInfo = new BuiltBuildingInfo(newbuildMediumGarden, infoBuildMediumlGarden.levelBuild, null);
+        BuiltBuildingInfo newBuiltBuildingInfo = new BuiltBuildingInfo(newbuildMediumGarden, infoBuildMediumlGarden.levelBuild, null,newbuildMediumGarden.buildingType);
         buildManager.builtBuildings.Add(newBuiltBuildingInfo);
     }
     public void ResetDataBuilding()

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class InvenrotySlots : MonoBehaviour, IDropHandler
+public class InventorySlots : MonoBehaviour, IDropHandler
 {
     public SlotType slotTypeInventory;
     public GameObject uIMoveItemsBoxesToInventory;
@@ -16,8 +16,8 @@ public class InvenrotySlots : MonoBehaviour, IDropHandler
     void Start()
     {
         // Find canvas and inventory item presenter in the active scene
-        canvas = FindObjectOfType<Canvas>();
-        inventoryItemPresent = FindObjectOfType<InventoryItemPresent>();
+        canvas = FindFirstObjectByType<Canvas>();
+        inventoryItemPresent = GameManager.Instance.inventoryItemPresent;
 
         // Get all objects of type ScriptMoveItems
         if (uIMoveItemsBoxesToInventory == null)
@@ -31,7 +31,7 @@ public class InvenrotySlots : MonoBehaviour, IDropHandler
             {
                 GameObject obj = item.gameObject;
 
-                // Ensure the object is in the active scene and is not inactive
+                // Ensure the object is in the active scene and is not inactive 
                 if (obj.scene == activeScene && !obj.activeInHierarchy)
                 {
                     uIMoveItemsBoxesToInventory = obj;
@@ -45,6 +45,7 @@ public class InvenrotySlots : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
+        if (slotTypeInventory == SlotType.SlotLock) return;
         GameObject uIitem = eventData.pointerDrag;
         if (uIitem == null) return;
 
@@ -53,7 +54,7 @@ public class InvenrotySlots : MonoBehaviour, IDropHandler
         ItemClass itemClassMove = uIitem.GetComponent<ItemClass>();
         if (draggableItem == null || uIItemDataDrag == null || itemClassMove == null) return;
 
-        InvenrotySlots originSlot = draggableItem.parentBeforeDray.GetComponentInParent<InvenrotySlots>();
+        InventorySlots originSlot = draggableItem.parentBeforeDray.GetComponentInParent<InventorySlots>();
         if (originSlot == null) return;
 
         ScriptMoveItems scriptMoveItems = uIMoveItemsBoxesToInventory.GetComponent<ScriptMoveItems>();
@@ -66,13 +67,13 @@ public class InvenrotySlots : MonoBehaviour, IDropHandler
 
         // Check if there's an existing item in the destination slot
         ItemClass itemClassInChild = GetComponentInChildren<ItemClass>();
-        if (destinationSlotType == SlotType.SlotLock || 
-            (destinationSlotType != SlotType.SlotBag && 
-             destinationSlotType != SlotType.SlotCar &&
-             destinationSlotType != SlotType.SlotBoxes && 
-             destinationSlotType != SlotType.SlotNpcTrade &&
-             destinationSlotType != SlotType.SlotPlayerTrade &&
-             destinationSlotType != SlotType.SlotNpcItem &&
+        if (slotTypeInventory == SlotType.SlotLock || 
+            (slotTypeInventory != SlotType.SlotBag && 
+             slotTypeInventory != SlotType.SlotCar &&
+             slotTypeInventory != SlotType.SlotBoxes && 
+             slotTypeInventory != SlotType.SlotNpcTrade &&
+             slotTypeInventory != SlotType.SlotPlayerTrade &&
+             slotTypeInventory != SlotType.SlotNpcItem &&
              itemClassInChild != null &&
              destinationSlotType != uIItemDataDrag.slotType))
         {
@@ -88,7 +89,7 @@ public class InvenrotySlots : MonoBehaviour, IDropHandler
 
         List<ItemData> targetDataList = null;
 
-        switch (destinationSlotType)
+        switch (slotTypeInventory)
         {
             case SlotType.SlotNpcItem:
                 targetDataList = tradesystemScript?.listInvenrotyNpcItem;
@@ -110,14 +111,12 @@ public class InvenrotySlots : MonoBehaviour, IDropHandler
             case SlotType.SlotTool:
             case SlotType.SlotBackpack:
             case SlotType.SlotGrenade:
-                targetDataList = uIInventory.listItemDataInventoryEqicment;
+                targetDataList = uIInventory.listItemDataInventoryEquipment;
                 break;
             case SlotType.SlotBoxes:
-                // Boxes use inventoryItemPresent.listItemsDataBox
                 targetDataList = uIInventory.inventoryItemPresent.listItemsDataBox;
                 break; 
             case SlotType.SlotLoot:
-                // Handle SlotLoot separately if needed
                 break;
             case SlotType.SlotLock:
                 return;
@@ -220,7 +219,7 @@ public class InvenrotySlots : MonoBehaviour, IDropHandler
         }
     }
 
-    private void TransferItems(ItemClass itemClassMove, int quantityToMove, InvenrotySlots originSlot, SlotType destinationSlotType, ItemClass itemClassInChild, List<ItemData> targetDataList)
+    private void TransferItems(ItemClass itemClassMove, int quantityToMove, InventorySlots originSlot, SlotType destinationSlotType, ItemClass itemClassInChild, List<ItemData> targetDataList)
     {
         // Convert ItemClass to ItemData
         ItemData sourceItemData = inventoryItemPresent.ConventItemClassToItemData(itemClassMove);
@@ -318,7 +317,7 @@ public class InvenrotySlots : MonoBehaviour, IDropHandler
         else if (originSlotType == SlotType.SlotWeapon || originSlotType == SlotType.SlotVest ||
                 originSlotType == SlotType.SlotTool || originSlotType == SlotType.SlotBackpack || 
                 originSlotType == SlotType.SlotGrenade)
-            originList = uIInventory.listItemDataInventoryEqicment;
+            originList = uIInventory.listItemDataInventoryEquipment;
         else if (originSlotType == SlotType.SlotNpcItem)
             originList = tradesystemScript?.listInvenrotyNpcItem;
         else if (originSlotType == SlotType.SlotPlayerTrade)

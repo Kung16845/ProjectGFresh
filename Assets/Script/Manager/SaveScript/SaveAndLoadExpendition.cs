@@ -41,9 +41,9 @@ public class SaveAndLoadExpendition : MonoBehaviour
         {
             DataSaveExpendition dataExpenditionSave = new DataSaveExpendition();
 
-            dataExpenditionSave.idNPCExpendition = uIEx.npcSelecying.idnpc;
+            dataExpenditionSave.idNPCExpendition = uIEx.npcSelecting.idnpc;
 
-            dataExpenditionSave.listItemDataInventoryEqicment = uIEx.listItemDataInventoryEqicment;
+            dataExpenditionSave.listItemDataInventoryEqicment = uIEx.listItemDataInventoryEquipment;
             dataExpenditionSave.listItemDataInventorySlot = uIEx.listItemDataInventorySlot;
             dataExpenditionSave.listItemDataInventoryCar = uIEx.listItemDataCarInventorySlot;
 
@@ -102,11 +102,11 @@ public class SaveAndLoadExpendition : MonoBehaviour
         newUIInventoryEX.uINpcSending.SetActive(true);
         newUIInventoryEX.gameObject.SetActive(false);
 
-        NpcClass npcSentEx = npcManager.listNpcWorking.FirstOrDefault(npc => npc.idnpc == dataSaveExpendition.idNPCExpendition);
+        NpcClass npcSentEx = npcManager.GetNpcById(dataSaveExpendition.idNPCExpendition);
 
-        newUIInventoryEX.npcSelecying = npcSentEx;
+        newUIInventoryEX.npcSelecting = npcSentEx;
 
-        newUIInventoryEX.listItemDataInventoryEqicment = dataSaveExpendition.listItemDataInventoryEqicment;
+        newUIInventoryEX.listItemDataInventoryEquipment = dataSaveExpendition.listItemDataInventoryEqicment;
         newUIInventoryEX.listItemDataInventorySlot = dataSaveExpendition.listItemDataInventorySlot;
         newUIInventoryEX.listItemDataCarInventorySlot = dataSaveExpendition.listItemDataInventoryCar;
 

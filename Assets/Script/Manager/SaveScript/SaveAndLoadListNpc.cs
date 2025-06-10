@@ -7,7 +7,6 @@ using System.Linq;
 public class SaveAndLoadListNpc : MonoBehaviour
 {
     public DataCollentListNpc dataCollentListNpc;
-    public GameManager gameManager;
     public NpcManager npcManager;
     [SerializeField] private string savePathDataListNpc;
     // Start is called before the first frame update
@@ -15,8 +14,7 @@ public class SaveAndLoadListNpc : MonoBehaviour
     {
 
         savePathDataListNpc = Path.Combine(Application.dataPath, "datalistNpc.json");
-        gameManager = FindObjectOfType<GameManager>();
-        npcManager = gameManager.npcManager;
+        npcManager = GameManager.Instance.npcManager;
     }
     public void SaveListNpc()
     {
@@ -26,9 +24,7 @@ public class SaveAndLoadListNpc : MonoBehaviour
     }
     public void AddDataCollectListNpc()
     {
-
         dataCollentListNpc.listDataNPC = npcManager.listNpc;
-        dataCollentListNpc.listDataNPCWorking = npcManager.listNpcWorking;
     }
     public void LoadDataListNpc()
     {
@@ -48,7 +44,6 @@ public class SaveAndLoadListNpc : MonoBehaviour
     public void SetListDataNpc()
     {
         npcManager.listNpc = dataCollentListNpc.listDataNPC;
-        npcManager.listNpcWorking = dataCollentListNpc.listDataNPCWorking;
 
     }
     public void CreateAllListNpc()
@@ -60,14 +55,6 @@ public class SaveAndLoadListNpc : MonoBehaviour
                 CreatePrefabNpcFromJson(npcClass);
             }
         }
-        if (npcManager.listNpcWorking.Count != 0)
-        {
-            foreach (NpcClass npcClass in npcManager.listNpcWorking)
-            {
-                CreatePrefabNpcFromJson(npcClass);
-            }
-        }
-
     }
     public void CreatePrefabNpcFromJson(NpcClass npcJson)
     {
@@ -122,6 +109,5 @@ public class SaveAndLoadListNpc : MonoBehaviour
 public class DataCollentListNpc
 {
     public List<NpcClass> listDataNPC;
-    public List<NpcClass> listDataNPCWorking;
 }
 

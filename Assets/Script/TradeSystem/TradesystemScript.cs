@@ -8,9 +8,9 @@ public class TradesystemScript : MonoBehaviour
 {
     [SerializeField] private Transform itemsContainer;
     public List<ItemData> listInvenrotyNpcItem;
-    public List<InvenrotySlots> listNpcItemWaitforTradeUI = new List<InvenrotySlots>();
+    public List<InventorySlots> listNpcItemWaitforTradeUI = new List<InventorySlots>();
     public List<ItemData> listNpcItemWaitforTrade = new List<ItemData>();
-    public List<InvenrotySlots> listPlayerItemWaitforTradeUI = new List<InvenrotySlots>();
+    public List<InventorySlots> listPlayerItemWaitforTradeUI = new List<InventorySlots>();
     public List<ItemData> listPlayerItemWaitforTrade = new List<ItemData>();
 
     private InventoryItemPresent inventoryItemPresent;
@@ -295,7 +295,7 @@ public class TradesystemScript : MonoBehaviour
         ConfirmButton.onClick.AddListener(Confirmtrade);
     }
 
-    public GameObject CreateUIItem(ItemData itemData, InvenrotySlots invenrotySlots)
+    public GameObject CreateUIItem(ItemData itemData, InventorySlots invenrotySlots)
     {
         // Get the UI prefab matching the item's ID
         GameObject itemUIPrefab = inventoryItemPresent.listUIItemPrefab

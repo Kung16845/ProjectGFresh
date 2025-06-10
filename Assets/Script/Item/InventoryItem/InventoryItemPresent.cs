@@ -23,9 +23,9 @@ public class InventoryItemPresent : MonoBehaviour
     }
     public List<ItemData> listItemsDataBox = new List<ItemData>();
     public List<UIItemData> listUIItemPrefab;
-    public List<InvenrotySlots> listInvenrotySlots = new List<InvenrotySlots>();
-    public InvenrotySlots invenrotySlotSpecialMilitaryLock;
-    public InvenrotySlots invenrotySlotSpecialScavengerLock;
+    public List<InventorySlots> listInvenrotySlots = new List<InventorySlots>();
+    public InventorySlots invenrotySlotSpecialMilitaryLock;
+    public InventorySlots invenrotySlotSpecialScavengerLock;
     public Transform transformsBoxes;
 
     public Canvas canvas;
@@ -104,7 +104,7 @@ public class InventoryItemPresent : MonoBehaviour
         itemClass.quantityItem = itemData.count;
         itemClass.maxCountItem = itemData.maxCount;
 
-        uIItemData.slotTypeParent = transformsBoxes.GetComponent<InvenrotySlots>().slotTypeInventory;
+        uIItemData.slotTypeParent = transformsBoxes.GetComponent<InventorySlots>().slotTypeInventory;
         uIItemData.UpdateDataUI(itemClass);
     }
     public void ClearUIBoxes()
@@ -117,7 +117,7 @@ public class InventoryItemPresent : MonoBehaviour
     public void UnlockSlotInventory(int numUnlock, SpecialistRoleNpc specialistRoleNpc, List<ItemData> listItemDataInventoryEqicment)
     {
         // Lock all slots initially
-        foreach (InvenrotySlots slot in listInvenrotySlots)
+        foreach (InventorySlots slot in listInvenrotySlots)
         {
             slot.slotTypeInventory = SlotType.SlotLock;
         }
@@ -125,7 +125,7 @@ public class InventoryItemPresent : MonoBehaviour
         // Unlock general inventory slots based on numUnlock
         for (int i = 1; i <= numUnlock; i++)
         {
-            InvenrotySlots slot = listInvenrotySlots.ElementAt(i - 1);
+            InventorySlots slot = listInvenrotySlots.ElementAt(i - 1);
             slot.slotTypeInventory = SlotType.SlotBag;
         }
 
@@ -179,7 +179,7 @@ public class InventoryItemPresent : MonoBehaviour
     }
 
     // Clear all child elements from a slot
-    private void ClearSlot(InvenrotySlots slot)
+    private void ClearSlot(InventorySlots slot)
     {
         foreach (Transform child in slot.transform)
         {
@@ -188,7 +188,7 @@ public class InventoryItemPresent : MonoBehaviour
     }
 
     // Create a UI item in a specified slot
-    private void CreateUIItemInSlot(ItemData itemData, InvenrotySlots slot)
+    private void CreateUIItemInSlot(ItemData itemData, InventorySlots slot)
     {
         var uiItemPrefab = listUIItemPrefab.FirstOrDefault(p => p.idItem == itemData.idItem)?.gameObject;
         if (uiItemPrefab != null)

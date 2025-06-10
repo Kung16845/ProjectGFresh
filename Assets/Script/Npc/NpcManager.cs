@@ -16,9 +16,8 @@ public class NpcManager : MonoBehaviour
     public List<FeedCoutume> listFeedCoutume = new List<FeedCoutume>();
     [Header("Npc")]
     public List<NpcClass> listNpc = new List<NpcClass>();
-    public List<NpcClass> listNpcWorking = new List<NpcClass>();
+    // public List<NpcClass> listNpcWorking = new List<NpcClass>();
     // public List<NpcClass> listNpcWorkingMoreOneDay = new List<NpcClass>();
-    public TMP_Dropdown dropdown;
     public UIInventory uIInventory;
     public InventoryItemPresent inventoryItemPresent;
     public List<Transform> listPointSpawnerNpc;
@@ -30,11 +29,11 @@ public class NpcManager : MonoBehaviour
     public TextMeshProUGUI specialistNpcText;
     private void Awake()
     {
-        StartGameCreateGropNpx();
+        // StartGameCreateGropNpx();
     }
     private void Start()
     {
-        inventoryItemPresent = FindObjectOfType<InventoryItemPresent>();
+        inventoryItemPresent = GameManager.Instance.inventoryItemPresent;
 
         // dropdown = FindObjectOfType<TMP_Dropdown>();
         // dropdown.onValueChanged.AddListener(OnDropdownValueChanged);
@@ -43,30 +42,30 @@ public class NpcManager : MonoBehaviour
         // SetOptionDropDown();
         // OnDropdownValueChanged(0);
     }
-    public void SetOptionDropDown()
+    public List<TMP_Dropdown.OptionData> SetNpcOptionDropDown()
     {
-        dropdown.ClearOptions();
 
         List<TMP_Dropdown.OptionData> newOptions = new List<TMP_Dropdown.OptionData>();
 
         foreach (NpcClass npcData in listNpc)
-        {   
+        {
+            if (npcData.isWorking) continue;
+
             TMP_Dropdown.OptionData option = new TMP_Dropdown.OptionData();
-            option.text = npcData.nameNpc.ToString(); 
-            
+            option.text = npcData.nameNpc.ToString();
+
             Sprite newSpriteHeadNpc = listHeadCoutume.FirstOrDefault(coutumeHead => coutumeHead.idHead == npcData.idHead).spriteHead;
             option.image = newSpriteHeadNpc;
 
             newOptions.Add(option);
         }
 
-        dropdown.AddOptions(newOptions);
+        return newOptions;
     }
-    public void StartGameCreateGropNpx()
+    public void StartGameCreateGropNpc()
     {
-
         for (int i = 0; i < 5; i++)
-        {   
+        {
             startIDNPC++;
             CreateNpc(startIDNPC);
         }
@@ -91,11 +90,11 @@ public class NpcManager : MonoBehaviour
         newNpc.speed = Random.Range(2, 9);
         newNpc.countInventorySlot = 6;
         newNpc.bed = 1;
-        newNpc.foodPerDay= 2;
+        newNpc.foodPerDay = 2;
         newNpc.hp = 100f;
         newNpc.morale = 50f;
-        
-        
+
+
         newNpc.idnpc = idNpc;
         newNpc.idHead = Random.Range(0, listHeadCoutume.Count);
         newNpc.idBody = Random.Range(0, listBodyCoutume.Count);
@@ -105,7 +104,7 @@ public class NpcManager : MonoBehaviour
         BodyCoutume bodyCoutume = listBodyCoutume.FirstOrDefault(coutume => coutume.idBody == newNpc.idBody);
         FeedCoutume feedCoutume = listFeedCoutume.FirstOrDefault(coutume => coutume.idFeed == newNpc.idFeed);
 
-        Transform transformSpawnNpc = listPointSpawnerNpc.ElementAt(Random.Range(0,listPointSpawnerNpc.Count));
+        Transform transformSpawnNpc = listPointSpawnerNpc.ElementAt(Random.Range(0, listPointSpawnerNpc.Count));
 
         GameObject npcOBJ = Instantiate(prefabNpc, transformSpawnNpc);
         npcOBJ.transform.position = transformSpawnNpc.position;
@@ -115,37 +114,21 @@ public class NpcManager : MonoBehaviour
 
         listNpc.Add(newNpc);
     }
-    public void NpcWorking(int idNpc, bool isWithinDay)
-    {
-        NpcClass npcWorking = listNpc.FirstOrDefault(npc => npc.idnpc == idNpc);
-
-        // if (isWithinDay)
-        //     listNpcWorking.Add(npcWorking);
-        // else
-        //     listNpcWorkingMoreOneDay.Add(npcWorking);
-
-        listNpc.Remove(npcWorking);
-
-        listNpcWorking.Add(npcWorking);
-    }
-    
     public void OnDropdownValueChanged(int selectedValue)
     {
         // Debug.Log("Dropdown index changed to: " + selectedValue);
         // Debug.Log("Dropdown Option changed to: " + dropdown.options[selectedValue].text);
-     
-        // NpcClass npcClassSelest = listNpc.FirstOrDefault(npc => npc.idnpc == selectedValue);
-        NpcClass npcClassSelest = listNpc.ElementAt(selectedValue);
-        uIInventory.npcSelecying = npcClassSelest;
 
-        Sprite newSpriteHeadNpc = listHeadCoutume.FirstOrDefault(coutumeHead => coutumeHead.idHead == npcClassSelest.idHead).spriteHead;      
+        // NpcClass npcClassSelest = listNpc.FirstOrDefault(npc => npc.idnpc == selectedValue);
+        NpcClass npcClassSelect = listNpc.ElementAt(selectedValue);
+        uIInventory.npcSelecting = npcClassSelect;
+
+        Sprite newSpriteHeadNpc = listHeadCoutume.FirstOrDefault(coutumeHead => coutumeHead.idHead == npcClassSelect.idHead).spriteHead;
         uIInventory.spriteHeadNpc.sprite = newSpriteHeadNpc;
 
-        inventoryItemPresent.UnlockSlotInventory(npcClassSelest.countInventorySlot, npcClassSelest.roleNpc,uIInventory.listItemDataInventoryEqicment);
+        inventoryItemPresent.UnlockSlotInventory(npcClassSelect.countInventorySlot, npcClassSelect.roleNpc, uIInventory.listItemDataInventoryEquipment);
 
-        SetText(npcClassSelest);
-
-        HandleSpecialistNpcChange(selectedValue);
+        SetText(npcClassSelect);
     }
     public void SetText(NpcClass npcClass)
     {
@@ -154,105 +137,28 @@ public class NpcManager : MonoBehaviour
         levelSpeedText.text = npcClass.speed.ToString();
         specialistNpcText.text = npcClass.roleNpc.ToString();
     }
-    public void HandleSpecialistNpcChange(int numSpecialistNpc)
+    public NpcClass GetNpcByClass(SpecialistRoleNpc role)
     {
-        SpecialistRoleNpc specialistNpc = (SpecialistRoleNpc)numSpecialistNpc;
-
-        switch (specialistNpc)
-        {
-            case SpecialistRoleNpc.Handicraft:
-                SetSpecialistNpc(specialistNpc);
-                break;
-            case SpecialistRoleNpc.Maintainance:
-                SetSpecialistNpc(specialistNpc);
-                break;
-            case SpecialistRoleNpc.Network:
-                SetSpecialistNpc(specialistNpc);
-                break;
-            case SpecialistRoleNpc.Scavenger:
-                SetSpecialistNpc(specialistNpc);
-                break;
-            case SpecialistRoleNpc.Military_training:
-                SetSpecialistNpc(specialistNpc);
-                break;
-            case SpecialistRoleNpc.Chemical:
-                SetSpecialistNpc(specialistNpc);
-                break;
-            case SpecialistRoleNpc.Doctor:
-                SetSpecialistNpc(specialistNpc);
-                break;
-            case SpecialistRoleNpc.Entertainer:
-                SetSpecialistNpc(specialistNpc);
-                break;
-            default:
-                Debug.LogWarning("Invalid SpecialistNpc selected");
-                break;
-        }
+        return listNpc.FirstOrDefault(n => n.roleNpc == role);
     }
-    public void SetSpecialistNpc(SpecialistRoleNpc specialistNpc)
+    public NpcClass GetNpcById(int idNpc)
+    {
+        return listNpc.FirstOrDefault(n => n.idnpc == idNpc);
+    }
+    public HeadCoutume GetSpriteHeadCoutumeById(int idHead)
     {
 
-        Debug.Log("Specialist Player : " + specialistNpc);
+        return listHeadCoutume.FirstOrDefault(c => c.idHead == idHead); ;
 
     }
-    public void RemoveWorkerBySpecialist(SpecialistRoleNpc specialistToRemove)
+    public BodyCoutume GetSpriteBodyCoutumeById(int idBody)
     {
-        // Find the first worker in the working list with the specified specialist role
-        NpcClass npcToRemove = listNpcWorking.FirstOrDefault(npc => npc.roleNpc == specialistToRemove);
-
-        if (npcToRemove != null)
-        {
-            // Remove the worker from the working list
-            listNpcWorking.Remove(npcToRemove);
-
-            // Optionally, move the worker back to the main NPC list
-            listNpc.Add(npcToRemove);
-
-            Debug.Log($"Removed worker with specialist role: {specialistToRemove} and returned them to available NPC list.");
-        }
-        else
-        {
-            Debug.LogWarning($"No worker found with specialist role: {specialistToRemove} in the working list.");
-        }
+        return listBodyCoutume.FirstOrDefault(c => c.idBody == idBody);
+        
     }
-    public void MoveNpcToWorking(int npcId)
+    public FeedCoutume GetSpriteFeedCoutumeById(int idFeed)
     {
-        // Find the NPC in the normal list
-        NpcClass npcToMove = listNpc.FirstOrDefault(npc => npc.idnpc == npcId);
-        if (npcToMove != null)
-        {
-            // Remove from normal list
-            listNpc.Remove(npcToMove);
-            // Add to working list
-            listNpcWorking.Add(npcToMove);
-            // Set isActive to false
-            npcToMove.isActive = false;
-            Debug.Log($"NPC {npcToMove.nameNpc} (ID: {npcId}) moved to working list and set as inactive.");
-        }
-        else
-        {
-            Debug.LogWarning($"No NPC with ID {npcId} found in the normal NPC list.");
-        }
+        return listFeedCoutume.FirstOrDefault(c => c.idFeed == idFeed);
+        
     }
-
-    public void MoveNpcBackToNormalList(int npcId)
-    {
-        // Find the NPC in the working list
-        NpcClass npcToMoveBack = listNpcWorking.FirstOrDefault(npc => npc.idnpc == npcId);
-        if (npcToMoveBack != null)
-        {
-            // Remove from working list
-            listNpcWorking.Remove(npcToMoveBack);
-            // Add back to normal list
-            listNpc.Add(npcToMoveBack);
-            // Set isActive to true
-            npcToMoveBack.isActive = true;
-            Debug.Log($"NPC {npcToMoveBack.nameNpc} (ID: {npcId}) moved back to normal list and set as active.");
-        }
-        else
-        {
-            Debug.LogWarning($"No NPC with ID {npcId} found in the working list.");
-        }
-    }
-
 }

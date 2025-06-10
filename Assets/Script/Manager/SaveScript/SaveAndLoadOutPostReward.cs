@@ -1,21 +1,18 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
 using System.IO;
 public class SaveAndLoadOutPostReward : MonoBehaviour
 {
     public DataColletsOutPostReWard dataColletsOutPostReWard;
     public OutpostSystem outpostSystem;
-    public GameManager gameManager;
     [SerializeField] private string savePathOutPostReward;
     // Start is called before the first frame update
     void Start()
     {
         savePathOutPostReward = Path.Combine(Application.dataPath, "dda_OutPostReward.json");
-        gameManager = FindObjectOfType<GameManager>();
-        outpostSystem = gameManager.outpostSystem;
+        
+        outpostSystem = GameManager.Instance.outpostSystem;
     }
     public void SaveDataOutPostReward()
     {

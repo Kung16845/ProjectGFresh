@@ -31,8 +31,8 @@ public class UpgradeBuilding : MonoBehaviour
     void Awake()
     {
         uImanger = FindObjectOfType<UImanger>();
-        timeManager = FindObjectOfType<TimeManager>();
-        buildManager = FindObjectOfType<BuildManager>();
+        timeManager = GameManager.Instance.timeManager;
+        buildManager = GameManager.Instance.buildManager;
         dateTime = timeManager.dateTime;
         building = GetComponent<Building>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -45,7 +45,7 @@ public class UpgradeBuilding : MonoBehaviour
     {
         foreach (var builtBuilding in buildManager.builtBuildings)
         {
-            if (builtBuilding.buildingGameObject == this.gameObject)
+            if (builtBuilding.building == this.gameObject)
             {
                 builtBuildingInfo = builtBuilding;
                 break;
@@ -96,9 +96,9 @@ public class UpgradeBuilding : MonoBehaviour
             // Return the assigned specialist NPC to the available list
             if (assignedSpecialistNpc != null)
             {
-                NpcManager npcManager = FindObjectOfType<NpcManager>();
-                npcManager.listNpcWorking.Remove(assignedSpecialistNpc);
-                npcManager.listNpc.Add(assignedSpecialistNpc);
+                NpcManager npcManager = GameManager.Instance.npcManager;
+                NpcClass npc = npcManager.GetNpcById(assignedSpecialistNpc.idnpc);
+                npc.isWorking = false; 
                 assignedSpecialistNpc = null;
             }
 
