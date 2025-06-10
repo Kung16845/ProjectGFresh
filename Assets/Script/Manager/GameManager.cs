@@ -46,18 +46,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        // timeManager = FindFirstObjectByType<TimeManager>();
-        // buildManager = FindFirstObjectByType<BuildManager>();
-        // inventoryItemPresent = FindFirstObjectByType<InventoryItemPresent>();
-        // dailyGive = FindFirstObjectByType<DailyGive>();
-        // expenditionManager = FindFirstObjectByType<ExpenditionManager>();
-        // globalstat = FindFirstObjectByType<Globalstat>();
-        // npcManager = FindFirstObjectByType<NpcManager>();
-        // managerSceneEX = FindFirstObjectByType<ManagerSceneEX>();
-        // outpostSystem = FindFirstObjectByType<OutpostSystem>();
-        // buildManager = FindFirstObjectByType<BuildManager>();
-        // craftManager = FindFirstObjectByType<CraftManager>();
-        // patienManger = FindFirstObjectByType<PatienManger>();
     }
     public void NewGame()
     {
@@ -71,7 +59,7 @@ public class GameManager : MonoBehaviour
         saveAndLoadBuildManager.ResetDataBuilding();
         saveAndLoadResoure.ResetDataResoure();
         saveAndLoadCraftItms.ResetDataCraftItems();
-        npcManager.StartGameCreateGropNpx();
+        npcManager.StartGameCreateGropNpc();
         saveAndLoadTunnutAndBroken.ResetDataTunnutAndBroken();
         saveAndLoadPatint.ResetDataPatint();
 

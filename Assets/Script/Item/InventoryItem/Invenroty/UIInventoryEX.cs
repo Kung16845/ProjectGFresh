@@ -9,7 +9,7 @@ using TMPro;
 
 public class UIInventoryEX : UIInventory
 {
-    public List<InvenrotySlots> listInvenrotyCarSlotsUI = new List<InvenrotySlots>();
+    public List<InventorySlots> listInvenrotyCarSlotsUI = new List<InventorySlots>();
     public List<ItemData> listItemDataCarInventorySlot;
     public float timeScale;
     public float riskValue;
@@ -40,14 +40,14 @@ public class UIInventoryEX : UIInventory
     private void Awake()
     {
         SetValuableUIInventory();
-        expenditionManager = FindObjectOfType<ExpenditionManager>();
+        expenditionManager = GameManager.Instance.expenditionManager;
     }
     public void Start()
     {
         if(isuseCar && UICarInventory != null)
             UICarInventory.SetActive(true);
-        globalstat = FindObjectOfType<Globalstat>();
-        sceneSystem = FindObjectOfType<SceneSystem>();
+        globalstat = GameManager.Instance.globalstat;
+        sceneSystem = FindFirstObjectByType<SceneSystem>();
         SetPlayerExpendition();
         if (indexButtonExpendition == 1)
         {
@@ -76,28 +76,26 @@ public class UIInventoryEX : UIInventory
         if (isExpenditon)
         {
             Debug.Log("Enter Scene Expendition");
-            expenditionManager = FindObjectOfType<ExpenditionManager>();
-
-            inventoryItemPresent = FindObjectOfType<InventoryItemPresent>();
-            expenditionManager.playerObject = FindObjectOfType<PlayerMovement>().gameObject;
-            statAmplifier = FindObjectOfType<StatAmplifier>();
+            expenditionManager = GameManager.Instance.expenditionManager;
+            inventoryItemPresent = GameManager.Instance.inventoryItemPresent;
+            expenditionManager.playerObject = FindFirstObjectByType<PlayerMovement>().gameObject;
+            statAmplifier = FindFirstObjectByType<StatAmplifier>();
             listItemDataCarInventorySlot = expenditionManager.listItemDataCarInventory;
             GameObject npcPlayer = expenditionManager.playerObject;
 
-            npcSelecying = expenditionManager.npcSelecying;
-            npcManager = FindObjectOfType<NpcManager>();
+            npcSelecting = expenditionManager.npcSelecying;
+            npcManager = GameManager.Instance.npcManager;
 
-            npcManager.dropdown = this.dropdown;
             npcManager.uIInventory = this;
             npcManager.levelCombatText = levelCombatText;
             npcManager.levelEnduranceText = levelEnduranceText;
             npcManager.levelSpeedText = levelSpeedText;
             npcManager.specialistNpcText = specialistNpcText;
 
-            levelCombatText.text = npcSelecying.combat.ToString();
-            levelEnduranceText.text = npcSelecying.endurance.ToString();
-            levelSpeedText.text = npcSelecying.speed.ToString();
-            specialistNpcText.text = npcSelecying.roleNpc.ToString();
+            levelCombatText.text = npcSelecting.combat.ToString();
+            levelEnduranceText.text = npcSelecting.endurance.ToString();
+            levelSpeedText.text = npcSelecting.speed.ToString();
+            specialistNpcText.text = npcSelecting.roleNpc.ToString();
 
             iswalk = expenditionManager.iswalk;
             isuseCar = expenditionManager.isuseCar;
@@ -105,20 +103,21 @@ public class UIInventoryEX : UIInventory
 
             dropdown.ClearOptions();
             TMP_Dropdown.OptionData option = new TMP_Dropdown.OptionData();
-            option.text = npcSelecying.nameNpc;
+            option.text = npcSelecting.nameNpc;
 
             dropdown.AddOptions(new List<TMP_Dropdown.OptionData> { option });
-            spriteHeadNpc.sprite = npcManager.listHeadCoutume.FirstOrDefault(npcCoustume => npcCoustume.idHead == npcSelecying.idHead).spriteHead;
+            spriteHeadNpc.sprite = npcManager.listHeadCoutume.FirstOrDefault(npcCoustume => npcCoustume.idHead == npcSelecting.idHead).spriteHead;
 
             SetInventoryItemDataEx(expenditionManager.listItemDataInventoryslot, expenditionManager.listItemDataInventoryEqicment);
-            SetCostumeNpcExpentdition(npcSelecying, npcPlayer);
+            SetCostumeNpcExpentdition(npcSelecting, npcPlayer);
 
             if (statAmplifier != null)
             {
-                statAmplifier.endurance = npcSelecying.endurance;
-                statAmplifier.combat = npcSelecying.combat;
-                statAmplifier.speed = npcSelecying.speed;
-                statAmplifier.specialistRole = npcSelecying.roleNpc;
+                statAmplifier.SetStatAmplifer(npcSelecting);
+                statAmplifier.endurance = npcSelecting.endurance;
+                statAmplifier.combat = npcSelecting.combat;
+                statAmplifier.speed = npcSelecting.speed;
+                statAmplifier.specialistRole = npcSelecting.roleNpc;
                 statAmplifier.InitializeAmplifiers();
             }
             if(isuseCar)
@@ -257,17 +256,17 @@ public class UIInventoryEX : UIInventory
         expenditionManager.iswalk = iswalk;
         expenditionManager.isuseCar = isuseCar;
         expenditionManager.isuseTunnel = isuseTunnel;
-        expenditionManager.npcSelecying = this.npcSelecying;
-        expenditionManager.listItemDataInventoryEqicment = this.listItemDataInventoryEqicment;
+        expenditionManager.npcSelecying = this.npcSelecting;
+        expenditionManager.listItemDataInventoryEqicment = this.listItemDataInventoryEquipment;
         expenditionManager.listItemDataInventoryslot = this.listItemDataInventorySlot;
         expenditionManager.listItemDataCarInventory = this.listItemDataCarInventorySlot;
     }
     public void SetInventoryItemDataEx(List<ItemData> listDataInventoryslot, List<ItemData> listDataInventoryEqicment)
     {
         listItemDataInventorySlot.Clear();
-        listItemDataInventoryEqicment.Clear();
+        listItemDataInventoryEquipment.Clear();
         listItemDataInventorySlot = listDataInventoryslot;
-        listItemDataInventoryEqicment = listDataInventoryEqicment;
+        listItemDataInventoryEquipment = listDataInventoryEqicment;
         RefreshUIInventory();
     }
     public void SendNpcExpendition()
@@ -277,9 +276,7 @@ public class UIInventoryEX : UIInventory
         countdownTimeDay.timeScale = timeScale;
         countdownTimeDay.uIInventoryEX = this;
         countdownTimeDay.SetStartExpendition();
-
-        npcManager.listNpc.Remove(npcSelecying);
-
+        npcSelecting.isWorking = true;
         DateTime dateTime = countdownTimeDay.timeManager.dateTime;
 
         // if (dateTime.day <= countdownTimeDay.finishDayCraftingTime)
@@ -290,7 +287,6 @@ public class UIInventoryEX : UIInventory
         // {
         //     npcManager.listNpcWorkingMoreOneDay.Add(npcSelecying);
         // }
-        npcManager.listNpcWorking.Add(npcSelecying);
         SetUIExButton(countdownTimeDay);
 
         uINpcSending.SetActive(true);
@@ -314,14 +310,14 @@ public class UIInventoryEX : UIInventory
 
         string textdayFinish = "Day : " + finishDayCraftingTime.ToString() + "\n"
         + finishHourCraftingTime.ToString() + ":" + finishMinutesCraftingTime.ToString();
-        Sprite spriteHeadNpc = npcManager.listHeadCoutume.FirstOrDefault(head => head.idHead == npcSelecying.idHead).spriteHead;
+        Sprite spriteHeadNpc = npcManager.listHeadCoutume.FirstOrDefault(head => head.idHead == npcSelecting.idHead).spriteHead;
 
         expenditionManager.SetUIExButton(indexButtonExpendition, spriteHeadNpc, textdayFinish);
     }
     public void GoExpendition()
     {   
-        expenditionManager.npcSelecying = npcSelecying;
-        expenditionManager.listItemDataInventoryEqicment = listItemDataInventoryEqicment;
+        expenditionManager.npcSelecying = npcSelecting;
+        expenditionManager.listItemDataInventoryEqicment = listItemDataInventoryEquipment;
         expenditionManager.listItemDataInventoryslot = listItemDataInventorySlot;
 
         sceneSystem.SwitchScene(indexSceneExpendition);
@@ -350,7 +346,7 @@ public class UIInventoryEX : UIInventory
 
         uIIconComplete.gameObject.SetActive(false);
 
-        Sprite spriteHeadNpc = npcManager.listHeadCoutume.FirstOrDefault(head => head.idHead == npcSelecying.idHead).spriteHead;
+        Sprite spriteHeadNpc = npcManager.listHeadCoutume.FirstOrDefault(head => head.idHead == npcSelecting.idHead).spriteHead;
         string textdayFinish = "Day : " + countdownTimeDay.finishDayCraftingTime.ToString() + "\n"
         + countdownTimeDay.finishHourCraftingTime.ToString() + ":" + countdownTimeDay.finishMinutesCraftingTime.ToString();
 
@@ -489,9 +485,7 @@ public class UIInventoryEX : UIInventory
         ClearItemDataInAllInventoryCarSlotToListDataBoxes();
         if(isuseCar)
             globalstat.UnaviableCar += 1;
-        npcManager.listNpc.Add(npcSelecying);
-        // npcManager.listNpcWorking.Remove(npcSelecying);
-        npcManager.listNpcWorking.Remove(npcSelecying);
+        npcSelecting.isWorking = false;
         expenditionManager.listItemDataInventoryEqicment.Clear();
         expenditionManager.listItemDataInventoryslot.Clear();
     }
@@ -504,7 +498,7 @@ public class UIInventoryEX : UIInventory
         // SetDataMoveSceneForEventExpendition();
         expenditionManager.listItemDataInventoryEqicment.Clear();
         expenditionManager.listItemDataInventoryslot.Clear();
-        listItemDataInventoryEqicment.Clear();
+        listItemDataInventoryEquipment.Clear();
         listItemDataInventorySlot.Clear();
         // this.gameObject.SetActive(false);
         // sceneSystem.SwitchScene(0);
@@ -527,7 +521,7 @@ public class UIInventoryEX : UIInventory
     {
         Debug.Log("ClearItemDataInAllInventoryCarSlotToListDataBoxes");
 
-        foreach (InvenrotySlots slotsItem in listInvenrotyCarSlotsUI)
+        foreach (InventorySlots slotsItem in listInvenrotyCarSlotsUI)
         {
             ItemClass itemClass = slotsItem.GetComponentInChildren<ItemClass>();
             if (itemClass != null)

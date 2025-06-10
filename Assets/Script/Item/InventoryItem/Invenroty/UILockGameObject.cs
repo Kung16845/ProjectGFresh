@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UILockGameObject : MonoBehaviour
 {
-    public List<InvenrotySlots> listinvenrotySlots;
+    public List<InventorySlots> listinvenrotySlots;
     public List<GameObject> listgameObjectsLockIcon;
     void Update()
     {

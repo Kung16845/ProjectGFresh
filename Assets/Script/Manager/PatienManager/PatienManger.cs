@@ -37,7 +37,7 @@ public class PatienManger : MonoBehaviour
     {
         if (npcManager == null)
         {
-            npcManager = FindObjectOfType<NpcManager>();
+            npcManager = GameManager.Instance.npcManager;
         }
     }
 
@@ -77,8 +77,9 @@ public class PatienManger : MonoBehaviour
         globalStat.Usedcurebed -=1;
         globalStat.Activecurebed = globalStat.Totalcurebed - globalStat.Usedcurebed;
         if (npcManager != null)
-        {
-            npcManager.MoveNpcBackToNormalList(job.NpcID);
+        {   
+            NpcClass npc = npcManager.GetNpcById(job.NpcID);
+            npc.isWorking = false; // Mark the NPC as not working
             Debug.Log("NPC " + job.NpcID + " has been fully healed and returned to normal list.");
         }
         else

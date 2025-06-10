@@ -36,7 +36,7 @@ public class ScriptMoveItems : MonoBehaviour
     public void IncreateCountItem(int count)
     {
         countItemMove += count;
-        SlotType slotTypeItemMove = itemClassMove.gameObject.GetComponentInParent<InvenrotySlots>().slotTypeInventory;
+        SlotType slotTypeItemMove = itemClassMove.gameObject.GetComponentInParent<InventorySlots>().slotTypeInventory;
 
         if (slotTypeItemMove == SlotType.SlotLoot)
         {
@@ -96,7 +96,7 @@ public class ScriptMoveItems : MonoBehaviour
             countItemMove = 1;
         }
 
-        SlotType slotTypeItemMove = itemClassMove.gameObject.GetComponentInParent<InvenrotySlots>().slotTypeInventory;
+        SlotType slotTypeItemMove = itemClassMove.gameObject.GetComponentInParent<InventorySlots>().slotTypeInventory;
 
         if (slotTypeItemMove == SlotType.SlotLoot)
         {
@@ -176,7 +176,7 @@ public class ScriptMoveItems : MonoBehaviour
                 targetSlotType == SlotType.SlotTool || targetSlotType == SlotType.SlotBackpack ||
                 targetSlotType == SlotType.SlotGrenade)
         {
-            targetList = uIInventory.listItemDataInventoryEqicment;
+            targetList = uIInventory.listItemDataInventoryEquipment;
         }
         else if (targetSlotType == SlotType.SlotNpcTrade || targetSlotType == SlotType.SlotPlayerTrade)
         {
@@ -207,7 +207,7 @@ public class ScriptMoveItems : MonoBehaviour
             if (sourceSlotType != SlotType.SlotBoxes && targetSlotType != SlotType.SlotBoxes)
             {
                 // Remove backpack effect from source slot
-                uIInventory.npcSelecying.countInventorySlot -= uIInventory.SlotHasincreased;
+                uIInventory.npcSelecting.countInventorySlot -= uIInventory.SlotHasincreased;
                 uIInventory.SlotHasincreased = 0;
             }
 
@@ -215,7 +215,7 @@ public class ScriptMoveItems : MonoBehaviour
             {
                 // Add backpack effect to target slot
                 ItemBackpack backpack = itemClassMove.GetComponent<ItemBackpack>();
-                uIInventory.npcSelecying.countInventorySlot += backpack.slotIncreasing;
+                uIInventory.npcSelecting.countInventorySlot += backpack.slotIncreasing;
                 uIInventory.SlotHasincreased = backpack.slotIncreasing;
             }
         }
@@ -329,7 +329,7 @@ public class ScriptMoveItems : MonoBehaviour
         else if (originSlotType == SlotType.SlotWeapon || originSlotType == SlotType.SlotVest ||
                 originSlotType == SlotType.SlotTool || originSlotType == SlotType.SlotBackpack || 
                 originSlotType == SlotType.SlotGrenade)
-            originList = uIInventory.listItemDataInventoryEqicment;
+            originList = uIInventory.listItemDataInventoryEquipment;
         else if (originSlotType == SlotType.SlotNpcItem)
             originList = tradesystemScript?.listInvenrotyNpcItem;
         else if (originSlotType == SlotType.SlotPlayerTrade)
@@ -359,7 +359,7 @@ public class ScriptMoveItems : MonoBehaviour
     {
         GameObject uIItemObject = itemClassMove.gameObject;
         UIItemData uIItemData = uIItemObject.GetComponent<UIItemData>();
-        uIItemData.slotTypeParent = uIItemData.GetComponentInParent<InvenrotySlots>().slotTypeInventory;
+        uIItemData.slotTypeParent = uIItemData.GetComponentInParent<InventorySlots>().slotTypeInventory;
         uIItemData.UpdateDataUI(itemClassMove);
     }
     public void CancleMove()

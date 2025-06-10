@@ -13,7 +13,6 @@ public class NpcClass
     
     [Header("Stat Npc")]
     public string nameNpc;
-    
     [Range(1,100)]
     public float hp; 
     [Range(1, 100)]
@@ -31,6 +30,7 @@ public class NpcClass
     public int countInventorySlot;
     public int idnpc;
     public SpecialistRoleNpc roleNpc;
+    public bool isWorking;
     public string leaderSkill;
     [Header("ID Coutume")]
     public int idHead;

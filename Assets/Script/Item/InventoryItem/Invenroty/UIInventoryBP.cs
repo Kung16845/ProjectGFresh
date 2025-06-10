@@ -25,13 +25,8 @@ public class UIInventoryBP : UIInventory
     {
         int gameobjectsceneIndex = gameObject.scene.buildIndex;
         Debug.Log("Scene index Game object : " + gameobjectsceneIndex);
-      
         ClearItemDataInAllInventorySlotToListDataBoxes();
-
-        npcManager.listNpc.Add(npcSelecying);
-        // npcManager.listNpcWorkingMoreOneDay.Remove(npcSelecying);
-        npcManager.listNpcWorking.Remove(npcSelecying);
-        
-        
+        NpcClass npc = npcManager.GetNpcById(npcSelecting.idnpc);
+        npc.isWorking = false;
     }
 }
