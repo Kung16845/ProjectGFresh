@@ -46,7 +46,7 @@ public class BackpackEquip : MonoBehaviour
         if (uiInventory != null)
         {
             uiInventory.OnBackpackChanged -= OnBackpackChanged;
-            uiInventory.npcSelecying.countInventorySlot = defaultInventorySlotCount;
+            uiInventory.npcSelecting.countInventorySlot = defaultInventorySlotCount;
         }
     }
 }

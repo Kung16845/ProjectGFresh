@@ -45,7 +45,7 @@ public class VestImageDisplay : MonoBehaviour
     private void UpdateVestImage()
     {
         // Get the equipped grenade item from the inventory
-        var VestItemdata = uiInventory.listItemDataInventoryEqicment
+        var VestItemdata = uiInventory.listItemDataInventoryEquipment
             .FirstOrDefault(item => item.itemtype == Itemtype.Vest);
 
         if (VestItemdata != null)

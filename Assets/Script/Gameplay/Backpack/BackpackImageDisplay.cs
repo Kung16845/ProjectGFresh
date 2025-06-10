@@ -46,7 +46,7 @@ public class BackpackImageDisplay : MonoBehaviour
     private void UpdateBackpackDisplay()
     {
         // Get the equipped grenade item from the inventory
-        var BackpackItemdata = uiInventory.listItemDataInventoryEqicment
+        var BackpackItemdata = uiInventory.listItemDataInventoryEquipment
             .FirstOrDefault(item => item.itemtype == Itemtype.Backpack);
 
         if (BackpackItemdata != null)

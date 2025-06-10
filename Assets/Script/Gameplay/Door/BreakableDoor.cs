@@ -137,14 +137,14 @@ public class BreakableDoor : MonoBehaviour
 
     private bool PlayerHasRequiredItem()
     {
-        if (inventory == null || inventory.listItemDataInventoryEqicment == null)
+        if (inventory == null || inventory.listItemDataInventoryEquipment == null)
             return false;
 
         // Filter active item requirements (where the boolean flag is true).
         var activeRequirements = requiredItems.Where(kvp => kvp.Value).Select(kvp => kvp.Key);
 
         // Check if any of the active required items exist in the player's equipment inventory.
-        bool hasRequiredItem = inventory.listItemDataInventoryEqicment
+        bool hasRequiredItem = inventory.listItemDataInventoryEquipment
             .Any(item => activeRequirements.Contains(item.idItem));
 
         // Check the "use nothing" condition

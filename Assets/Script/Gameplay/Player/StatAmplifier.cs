@@ -30,7 +30,13 @@ public class StatAmplifier : MonoBehaviour
         statManager = GetComponent<StatManager>();
         statManager.OnStatAmplifierChanged();
     }
-    
+    public void SetStatAmplifer(NpcClass npcClass)
+    {
+        this.endurance = npcClass.endurance;
+        this.combat = npcClass.combat;
+        this.speed = npcClass.speed;
+        this.specialistRole = npcClass.roleNpc;
+    }
     public void InitializeAmplifiers()
     {
         // Calculate base multipliers

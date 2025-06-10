@@ -144,7 +144,8 @@ public class Sattlelite : MonoBehaviour
             {
                 spriteRenderer.sprite = repairedSpriteRenderer;
             }
-            npcManager.RemoveWorkerBySpecialist(SpecialistRoleNpc.Network);
+            NpcClass npc = npcManager.GetNpcByClass(SpecialistRoleNpc.Network);
+            npc.isWorking = false; // Mark the specialist as not working
             return;
         }
     }
@@ -260,7 +261,6 @@ public class Sattlelite : MonoBehaviour
         if (specialistNpc != null)
         {
             npcManager.listNpc.Remove(specialistNpc);
-            npcManager.listNpcWorking.Add(specialistNpc);
         }
     }
 

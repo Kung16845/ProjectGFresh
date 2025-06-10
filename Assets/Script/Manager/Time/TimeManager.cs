@@ -4,24 +4,23 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 public class TimeManager : MonoBehaviour
 {
     public static TimeManager Instance { get; private set; }
-
-    public SceneSystem sceneSystem1;
     public SaveDataDDA saveDataDDA;
     public DateTime dateTime;
     [Header("Tick Setting")]
     [SerializeField] private int tickSeconedIncrease;
     [SerializeField] private int speedGame;
+    public int dayCountAttack;
     public int currentTickSeconedIncrease;
     public float timeBetweenTicks = 1;
     public float currentTimeBetweenTricks = 0;
     public static UnityAction<DateTime> OnDateTimeChanged;
     private void Awake()
     {   
-        GameManager gameManager = FindObjectOfType<GameManager>();
-        dateTime = new DateTime(0, 0, 0, true, sceneSystem1,saveDataDDA,gameManager);
+        dateTime = new DateTime(0, 0, 0, true);
         dateTime.SetTimeStartDay();
         currentTickSeconedIncrease = tickSeconedIncrease;
     }
@@ -35,16 +34,16 @@ public class TimeManager : MonoBehaviour
         speedGame = speed;
         currentTickSeconedIncrease = tickSeconedIncrease * speed;
     }
-    public void SetDayNIght()
+    public void SetDayNightAttack()
     {
+        dayCountAttack = Random.Range(1, 3);
         dateTime.isDayNight = true;
     }
     private void Start()
     {
         Debug.Log("Start Scene");
         OnDateTimeChanged?.Invoke(dateTime);
-        // sceneSystem1 = FindObjectOfType<SceneSystem>();
-        // dateTime.sceneSystem = sceneSystem1;
+        SetDayNightAttack();
     }
     private void Update()
     {
@@ -53,7 +52,10 @@ public class TimeManager : MonoBehaviour
         {
             currentTimeBetweenTricks = 0;
             Tick();
-            
+        }
+        if (!dateTime.isDayNight && dayCountAttack <= 0)
+        {
+            SetDayNightAttack();
         }
     }
     public void Tick()
@@ -80,26 +82,18 @@ public class DateTime
     public int hour;
     public int minutes;
     public bool isDayNight;
-    public SceneSystem sceneSystem;
-    public SaveDataDDA saveDataDDA;
-    public GameManager gameManager;
-    public DateTime(int day, int hour, int minutes, bool isHaveDayNight, SceneSystem sceneSystem, SaveDataDDA saveDataDDA,GameManager gameManager)
+    public DateTime(int day, int hour, int minutes, bool isHaveDayNight)
     {
         this.day = day;
         this.hour = hour;
         this.minutes = minutes;
         this.isDayNight = isHaveDayNight;
-        this.sceneSystem = sceneSystem;
-        this.saveDataDDA = saveDataDDA;
-        this.gameManager = gameManager;
     }
     public void SetTimeStartDay()
     {   
-        
         this.day++;
         this.hour = 6;
         this.minutes = 0;
-        // gameManager.SaveGame();
     }
     public void SetTimeNightDay()
     {
@@ -146,14 +140,14 @@ public class DateTime
                 // SetTimeStartDay();
                 // sceneSystem.SwitchScene(0);
                 // saveDataDDA.AddData();
-                sceneSystem.ReturnToMainScene();
+                SceneSystem.Instance.ReturnToMainScene();
 
             }
             else if (SceneManager.GetActiveScene().buildIndex == 0 && this.hour == 18 && this.minutes >= 0)
             {
                 Debug.Log("Sceneswitch");
                 SetTimeNightDay();
-                sceneSystem.SwitchScene(1);
+                SceneSystem.Instance.SwitchScene(1);
             }
         }
     }

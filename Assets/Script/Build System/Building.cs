@@ -1,22 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+public enum BuildingType
+{
+    Large,
+    Medium,
+    Small
+}
 public class Building : MonoBehaviour
 {
     public string nameBuild;
     public string detailBuild;
     public int steelCost;
     public int plankCost;
-    public int foodCost;
-    public int fuelCost;
-    public int ammoCost;
     public int npcCost;
     public int dayCost;
     public int finishDayBuildingTime;
-    public bool isBuildingLarge;
-    public bool isBuildingMedium;
-    public bool isBuildingSmall;
+    public BuildingType buildingType;
     public bool isBuilding;
     public TimeManager timeManager;
     public DateTime dateTime;
@@ -27,17 +27,15 @@ public class Building : MonoBehaviour
     public bool isfinsih;
     private void Start()
     {
-        timeManager = FindObjectOfType<TimeManager>();
-        buildManager = FindObjectOfType<BuildManager>();
+        timeManager = GameManager.Instance.timeManager;
+        buildManager = GameManager.Instance.buildManager;
         dateTime = timeManager.dateTime;
-        // finishDayBuildingTime += dateTime.day + dayCost;
         spriteRenderer = GetComponent<SpriteRenderer>();
         isBuilding = true;
         isfinsih = false;
-
     }
     private void Update()
-    {
+    {   
         WaitBuilding();
     }
     public void WaitBuilding()

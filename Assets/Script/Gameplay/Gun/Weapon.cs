@@ -143,7 +143,7 @@ public class Weapon : MonoBehaviour
     private void InitializeWeaponStats()
     {
         // Use the existing OnWeaponChanged logic
-        ItemData weaponItemData = uiInventory.listItemDataInventoryEqicment
+        ItemData weaponItemData = uiInventory.listItemDataInventoryEquipment
             .FirstOrDefault(item => item.itemtype == Itemtype.Weapon);
 
         if (weaponItemData != null)

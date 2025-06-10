@@ -2,23 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor.ShortcutManagement;
 using UnityEngine;
 
 public class BuildManager : MonoBehaviour
-{   
+{
     public static BuildManager Instance { get; private set; }
     [Header("Resources")]
     public int steel;
-    public TextMeshProUGUI steelDisplay;
     public int plank;
-    public TextMeshProUGUI plankDisplay;
     public int food;
-    public TextMeshProUGUI foodDisplay;
     public int fuel;
-    public TextMeshProUGUI fuelDisplay;
     public int ammo;
-    public TextMeshProUGUI ammoDisplay;
     public int npc;
+    public TextMeshProUGUI steelDisplay;
+    public TextMeshProUGUI plankDisplay;
+    public TextMeshProUGUI foodDisplay;
+    public TextMeshProUGUI fuelDisplay;
+    public TextMeshProUGUI ammoDisplay;
     public TextMeshProUGUI npcDisplay;
     [Header("Scipt")]
     public bool iswateractive;
@@ -28,9 +29,9 @@ public class BuildManager : MonoBehaviour
     public CustomCursor customCursor;
     public GameObject grid;
     public GameObject uIBuilding;
-    public GameObject buttonBuild;
+    public GameObject uIBuildingButton;
     [Header("Building Tracking")]
-    public List<GameObject> listALLBuilding = new List<GameObject>();
+    public List<Building> listALLBuilding = new List<Building>();
     public List<BuiltBuildingInfo> builtBuildings = new List<BuiltBuildingInfo>();
     public List<Collider2D> collidersToManage = new List<Collider2D>();
     private Dictionary<int, System.Action<int>> resourceHandlers;
@@ -60,41 +61,17 @@ public class BuildManager : MonoBehaviour
             { 1020132, amount => { ammo += amount; Debug.Log($"Added {amount} Ammo. Total: {ammo}"); } }
         };
     }
-    public void AddResource(int itemId, int quantity)
-    {
-        if (resourceHandlers.TryGetValue(itemId, out var updateResource))
-        {
-            updateResource(quantity);
-            UpdateResoureDisplay();
-        }
-    }
-    public void UpdateResoureDisplay()
-    {
-        steelDisplay.text = steel.ToString();
-        plankDisplay.text = plank.ToString();
-        foodDisplay.text = food.ToString();
-        fuelDisplay.text = fuel.ToString();
-        ammoDisplay.text = ammo.ToString();
-        npcDisplay.text = npc.ToString();
-    }
+
+
     // Update is called once per frame
     void Update()
     {
         UpdateResoureDisplay();
         if (buildingToPlace != null)
         {
-            // Debug.Log("Check area plce");
             foreach (Tile tile in tiles)
             {
-                if (tile.isTileLarge == true && buildingToPlace.isBuildingLarge == true)
-                {
-                    tile.gameObject.SetActive(true);
-                }
-                else if (tile.isTileMedium == true && buildingToPlace.isBuildingMedium == true)
-                {
-                    tile.gameObject.SetActive(true);
-                }
-                else if (tile.isTileSmall == true && buildingToPlace.isBuildingSmall == true)
+                if (tile.buildingType == buildingToPlace.buildingType)
                 {
                     tile.gameObject.SetActive(true);
                 }
@@ -107,49 +84,7 @@ public class BuildManager : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0) && buildingToPlace != null)
         {
-
-            Tile nearstTile = null;
-            float nearstDistance = float.MaxValue;
-            foreach (Tile tile in tiles)
-            {
-                if (!tile.gameObject.activeSelf)
-                {
-                    continue; // Skip the rest of the loop if the tile is not active
-                }
-                float dist = Vector2.Distance(tile.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
-                if (dist < nearstDistance)
-                {
-                    nearstDistance = dist;
-                    nearstTile = tile;
-                }
-                // Debug.Log("Check area buy");
-
-            }
-            
-            if (nearstTile.isOccupied == false && nearstTile.gameObject.activeSelf == true && buildingToPlace != null)
-            {
-                // Instantiate the building and get a reference to it
-                GameObject newBuilding = Instantiate(buildingToPlace.gameObject, nearstTile.transform.position, Quaternion.identity);
-
-                DateTime dateTime = FindObjectOfType<TimeManager>().dateTime;
-                Building buildingScript = newBuilding.GetComponent<Building>();
-                buildingScript .finishDayBuildingTime = dateTime.day + buildingScript.dayCost; 
-                // Update tile status
-                nearstTile.isOccupied = true;
-                nearstTile.buildingOnTile = newBuilding.GetComponent<Building>();
-
-                // Add the building to the builtBuildings list
-                int initialLevel = 1; // Buildings start at level 1
-                BuiltBuildingInfo builtBuildingInfo = new BuiltBuildingInfo(newBuilding, initialLevel, nearstTile);
-                builtBuildings.Add(builtBuildingInfo);
-                CollectColliders();
-
-                // UI updates
-                buildingToPlace = null;
-                uIBuilding.SetActive(false);
-                buttonBuild.SetActive(true);
-                UIUpdateAfterBuildOrCancelBuild();
-            }
+            BuildPlace();
         }
         else if (Input.GetMouseButtonDown(1) && buildingToPlace != null)
         {
@@ -158,54 +93,78 @@ public class BuildManager : MonoBehaviour
             {
                 steel += buildingToPlace.steelCost;
                 plank += buildingToPlace.plankCost;
-                food += buildingToPlace.foodCost;
-                fuel += buildingToPlace.fuelCost;
-                ammo += buildingToPlace.ammoCost;
                 npc += buildingToPlace.npcCost;
                 buildingToPlace = null;
             }
             uIBuilding.SetActive(true);
             UIUpdateAfterBuildOrCancelBuild();
-             
+
         }
     }
-    
-    public void UIUpdateAfterBuildOrCancelBuild()
+    #region  Building 
+    private void BuildPlace()
     {
-        customCursor.gameObject.SetActive(false);
-        Cursor.visible = true;
-        grid.SetActive(false);
-        
-       
+        Tile nearestTile = null;
+        float nearestDistance = float.MaxValue;
+        foreach (Tile tile in tiles)
+        {
+            if (!tile.gameObject.activeSelf)
+            {
+                continue; // Skip the rest of the loop if the tile is not active
+            }
+            float dist = Vector2.Distance(tile.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            if (dist < nearestDistance)
+            {
+                nearestDistance = dist;
+                nearestTile = tile;
+            }
+            // Debug.Log("Check area buy");
+
+        }
+
+        if (nearestTile.isOccupied == false && nearestTile.gameObject.activeSelf == true && buildingToPlace != null)
+        {
+            // Instantiate the building and get a reference to it
+            Building newBuilding = Instantiate(buildingToPlace, nearestTile.transform.position, Quaternion.identity);
+
+            DateTime dateTime = GameManager.Instance.timeManager.dateTime;
+            newBuilding.finishDayBuildingTime = dateTime.day + newBuilding.dayCost;
+            // Update tile status
+            nearestTile.isOccupied = true;
+            nearestTile.buildingOnTile = newBuilding.GetComponent<Building>();
+
+            // Add the building to the builtBuildings list
+            int initialLevel = 1; // Buildings start at level 1
+            BuiltBuildingInfo builtBuildingInfo = new BuiltBuildingInfo(newBuilding, initialLevel, nearestTile, buildingToPlace.buildingType);
+            builtBuildings.Add(builtBuildingInfo);
+            CollectColliders();
+
+            // UI updates
+            buildingToPlace = null;
+            uIBuilding.SetActive(false);
+            uIBuildingButton.SetActive(true);
+            UIUpdateAfterBuildOrCancelBuild();
+        }
     }
     public void BuyBuilding()
-    {   
-        
-        if (steel >= building.steelCost && plank >= building.plankCost && food >= building.foodCost
-        && fuel >= building.fuelCost && ammo >= building.ammoCost && npc >= building.npcCost)
-        {   
-         
+    {
+        if (steel >= building.steelCost && plank >= building.plankCost && npc >= building.npcCost)
+        {
             steel -= building.steelCost;
             plank -= building.plankCost;
-            food -= building.foodCost;
-            fuel -= building.fuelCost;
-            ammo -= building.ammoCost;
             npc -= building.npcCost;
-            // มีภาพลากตามเมาส์ 
             Cursor.visible = false;
             customCursor.gameObject.SetActive(true);
-            customCursor.GetComponent<SpriteRenderer>().sprite = building.GetComponent<SpriteRenderer>().sprite;
-            //
+            customCursor.GetComponent<SpriteRenderer>().sprite = building.OriginalSprite;
             buildingToPlace = building;
             uIBuilding.SetActive(false);
             grid.SetActive(true);
-
         }
     }
     public void DestroyBuilding(GameObject building)
     {
         // Find the built building info
-        BuiltBuildingInfo buildingInfo = builtBuildings.Find(b => b.buildingGameObject == building);
+        BuiltBuildingInfo buildingInfo = builtBuildings.Find(b => b.building == building);
 
         if (buildingInfo != null)
         {
@@ -221,6 +180,67 @@ public class BuildManager : MonoBehaviour
             Destroy(building);
         }
     }
+    #endregion
+    #region Supply
+    public void AddSupply(SupplyType supplyType, int amount)
+    {
+        switch (supplyType)
+        {
+            case SupplyType.Steel:
+                steel += amount;
+                Debug.Log($"Added {amount} Steel. Total: {steel}");
+                break;
+            case SupplyType.Plank:
+                plank += amount;
+                Debug.Log($"Added {amount} Plank. Total: {plank}");
+                break;
+            case SupplyType.Food:
+                food += amount;
+                Debug.Log($"Added {amount} Food. Total: {food}");
+                break;
+            case SupplyType.Fuel:
+                fuel += amount;
+                Debug.Log($"Added {amount} Fuel. Total: {fuel}");
+                break;
+            case SupplyType.Ammo:
+                ammo += amount;
+                Debug.Log($"Added {amount} Ammo. Total: {ammo}");
+                break;
+            case SupplyType.NPC:
+                npc += amount;
+                Debug.Log($"Added {amount} NPCs. Total: {npc}");
+                break;
+            default:
+                Debug.LogWarning($"Supply type '{supplyType}' is not recognized.");
+                break;
+        }
+    }
+    public void AddResource(int itemId, int quantity)
+    {
+        if (resourceHandlers.TryGetValue(itemId, out var updateResource))
+        {
+            updateResource(quantity);
+        }
+    }
+    #endregion
+    #region UI
+    public void UIUpdateAfterBuildOrCancelBuild()
+    {
+        customCursor.gameObject.SetActive(false);
+        Cursor.visible = true;
+        grid.SetActive(false);
+    }
+    public void UpdateResoureDisplay()
+    {
+        steelDisplay.text = steel.ToString();
+        plankDisplay.text = plank.ToString();
+        foodDisplay.text = food.ToString();
+        fuelDisplay.text = fuel.ToString();
+        ammoDisplay.text = ammo.ToString();
+        npcDisplay.text = npc.ToString();
+    }
+    #endregion
+    #region Colliders
     public void CollectColliders()
     {
         collidersToManage.Clear();
@@ -238,48 +258,12 @@ public class BuildManager : MonoBehaviour
         // Collect colliders from built buildings
         foreach (BuiltBuildingInfo builtBuilding in builtBuildings)
         {
-            Collider2D buildingCollider = builtBuilding.buildingGameObject.GetComponent<Collider2D>();
+            Collider2D buildingCollider = builtBuilding.building.GetComponent<Collider2D>();
             if (buildingCollider != null)
             {
                 collidersToManage.Add(buildingCollider);
             }
         }
-    }
-    public void AddSupply(string supplyType, int amount)
-    {
-        switch (supplyType.ToLower())
-        {
-            case "steel":
-                steel += amount;
-                Debug.Log($"Added {amount} Steel. Total: {steel}");
-                break;
-            case "plank":
-                plank += amount;
-                Debug.Log($"Added {amount} Plank. Total: {plank}");
-                break;
-            case "food":
-                food += amount;
-                Debug.Log($"Added {amount} Food. Total: {food}");
-                break;
-            case "fuel":
-                fuel += amount;
-                Debug.Log($"Added {amount} Fuel. Total: {fuel}");
-                break;
-            case "ammo":
-                ammo += amount;
-                Debug.Log($"Added {amount} Ammo. Total: {ammo}");
-                break;
-            case "npc":
-                npc += amount;
-                Debug.Log($"Added {amount} NPCs. Total: {npc}");
-                break;
-            default:
-                Debug.LogWarning($"Supply type '{supplyType}' is not recognized.");
-                break;
-        }
-
-        // Update the resource display after adding supply
-        UpdateResoureDisplay();
     }
 
     public void DisableColliders()
@@ -304,18 +288,33 @@ public class BuildManager : MonoBehaviour
         }
         Debug.Log("All colliders have been enabled.");
     }
+    #endregion
+
+
+
 }
 [System.Serializable]
 public class BuiltBuildingInfo
 {
-    public GameObject buildingGameObject;
+    public Building building;
     public int level;
     public Tile tile;
-
-    public BuiltBuildingInfo(GameObject buildingGameObject, int level, Tile tile)
+    public BuildingType buildingType;
+    public BuiltBuildingInfo(Building building, int level, Tile tile, BuildingType buildingType)
     {
-        this.buildingGameObject = buildingGameObject;
+        this.building = building;
         this.level = level;
         this.tile = tile;
+        this.buildingType = buildingType;
     }
+}
+public enum SupplyType
+{   
+    None,
+    Steel,
+    Plank,
+    Food,
+    Fuel,
+    Ammo,
+    NPC
 }

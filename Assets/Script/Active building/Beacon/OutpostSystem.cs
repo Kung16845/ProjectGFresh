@@ -73,8 +73,8 @@ public class OutpostSystem : MonoBehaviour
     {
         foreach (var reward in outpostRewards)
         {
-            string supplyType = GetSupplyTypeFromLocation(reward.location);
-            if (!string.IsNullOrEmpty(supplyType))
+            SupplyType supplyType = GetSupplyTypeFromLocation(reward.location);
+            if (supplyType != SupplyType.None) // Assuming SupplyType.None is a valid type for no supply
             {
                 buildManager.AddSupply(supplyType, reward.amountGive);
                 Debug.Log($"Given {reward.amountGive} {supplyType} from {reward.location}");
@@ -82,23 +82,23 @@ public class OutpostSystem : MonoBehaviour
         }
     }
 
-    string GetSupplyTypeFromLocation(Location location)
+    SupplyType GetSupplyTypeFromLocation(Location location)
     {
         switch (location)
         {
             case Location.Mall:
-                return "food";
+                return SupplyType.Food;
             case Location.Military:
-                return "ammo";
+                return SupplyType.Ammo;
             case Location.GasStation:
-                return "fuel";
+                return SupplyType.Fuel;
             case Location.WoodFactory:
-                return "plank";
+                return SupplyType.Plank;
             case Location.SteelFactory:
-                return "steel";
+                return SupplyType.Steel;
             default:
                 Debug.LogWarning($"Unknown location: {location}");
-                return null;
+                return SupplyType.None;
         }
     }
 }

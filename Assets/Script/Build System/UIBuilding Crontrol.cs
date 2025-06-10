@@ -1,17 +1,33 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class UIBuildingControl : MonoBehaviour
 {
     public BuildManager buildManager;
+    public List<UIBuilding> uIBuildings;
 
     // Centralized counter for active UIBuildingControl instances
     private static int activeInstances = 0;
-
-    void OnEnable()
+    public void ShowUIBuildingSize(int indexSize)
     {
+        foreach (UIBuilding uIBuilding in uIBuildings)
+        {
+            if (uIBuilding.building.buildingType == (BuildingType)indexSize)
+            {
+                uIBuilding.gameObject.SetActive(true);
+            }
+            else
+            {
+                uIBuilding.gameObject.SetActive(false);
+            }
+        }
+    }
+    void OnEnable()
+    {   
+        ShowUIBuildingSize(0);
         if (buildManager == null)
         {
-            buildManager = FindObjectOfType<BuildManager>();
+            buildManager = GameManager.Instance.buildManager;
         }
 
         // Increment the active instance counter

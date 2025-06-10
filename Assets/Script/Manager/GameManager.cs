@@ -8,6 +8,8 @@ using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
+
+    public static GameManager Instance { get; private set; }
     [Header("Manager Game")]
     public TimeManager timeManager;
     public BuildManager buildManager;
@@ -36,18 +38,26 @@ public class GameManager : MonoBehaviour
     public SaveAndLoadPatint saveAndLoadPatint;
     private void Awake()
     {
-        timeManager = FindObjectOfType<TimeManager>();
-        buildManager = FindObjectOfType<BuildManager>();
-        inventoryItemPresent = FindObjectOfType<InventoryItemPresent>();
-        dailyGive = FindObjectOfType<DailyGive>();
-        expenditionManager = FindObjectOfType<ExpenditionManager>();
-        globalstat = FindObjectOfType<Globalstat>();
-        npcManager = FindObjectOfType<NpcManager>();
-        managerSceneEX = FindObjectOfType<ManagerSceneEX>();
-        outpostSystem = FindObjectOfType<OutpostSystem>();
-        buildManager = FindObjectOfType<BuildManager>();
-        craftManager = FindObjectOfType<CraftManager>();
-        patienManger = FindObjectOfType<PatienManger>();
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        // timeManager = FindFirstObjectByType<TimeManager>();
+        // buildManager = FindFirstObjectByType<BuildManager>();
+        // inventoryItemPresent = FindFirstObjectByType<InventoryItemPresent>();
+        // dailyGive = FindFirstObjectByType<DailyGive>();
+        // expenditionManager = FindFirstObjectByType<ExpenditionManager>();
+        // globalstat = FindFirstObjectByType<Globalstat>();
+        // npcManager = FindFirstObjectByType<NpcManager>();
+        // managerSceneEX = FindFirstObjectByType<ManagerSceneEX>();
+        // outpostSystem = FindFirstObjectByType<OutpostSystem>();
+        // buildManager = FindFirstObjectByType<BuildManager>();
+        // craftManager = FindFirstObjectByType<CraftManager>();
+        // patienManger = FindFirstObjectByType<PatienManger>();
     }
     public void NewGame()
     {
@@ -64,7 +74,7 @@ public class GameManager : MonoBehaviour
         npcManager.StartGameCreateGropNpx();
         saveAndLoadTunnutAndBroken.ResetDataTunnutAndBroken();
         saveAndLoadPatint.ResetDataPatint();
-        
+
     }
     public void SaveGame()
     {
@@ -98,8 +108,8 @@ public class GameManager : MonoBehaviour
     }
     public void QuitGame()
     {
-        
+
         Application.Quit();
-        
+
     }
 }

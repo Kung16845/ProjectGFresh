@@ -60,11 +60,8 @@ public class ClinicUI : MonoBehaviour
             GameObject patientObj = Instantiate(PatienPrefab, SelectParent);
 
             // Retrieve NPC data from npcManager (looking in working list first, then normal list)
-            NpcClass npcData = npcManager.listNpcWorking.FirstOrDefault(npc => npc.idnpc == patient.NpcID);
-            if (npcData == null)
-            {
-                npcData = npcManager.listNpc.FirstOrDefault(npc => npc.idnpc == patient.NpcID);
-            }
+            NpcClass npcData = npcManager.GetNpcById(patient.NpcID);
+
 
             if (npcData != null)
             {
@@ -153,8 +150,7 @@ public class ClinicUI : MonoBehaviour
         {
             float healingRate = 2f; // example healing rate
             patienManger.AddPatient(npcToAdd.idnpc, npcToAdd.hp, healingRate, PatienSourceSource.Clinic);
-            npcManager.MoveNpcToWorking(npcToAdd.idnpc);
-
+            npcToAdd.isWorking = true; // Mark the NPC as working in the clinic
             Debug.Log($"Added NPC {npcToAdd.nameNpc}(ID: {npcToAdd.idnpc}) as a patient to the clinic.");
 
             // Refresh UI
@@ -193,7 +189,7 @@ public class ClinicUI : MonoBehaviour
     private Sprite GetNpcFaceSprite(NpcClass npcData)
     {
         // Retrieve the head sprite based on npcData.idHead
-        HeadCoutume headCoutume = npcManager.listHeadCoutume.FirstOrDefault(c => c.idHead == npcData.idHead);
+        HeadCoutume headCoutume = npcManager.GetSpriteHeadCoutumeById(npcData.idHead);
         if (headCoutume != null)
         {
             return headCoutume.spriteHead;
@@ -259,7 +255,7 @@ public class ClinicUI : MonoBehaviour
 
             if (uiItem != null)
             {
-                NpcClass npcData = npcManager.listNpcWorking.FirstOrDefault(npc => npc.idnpc == patient.NpcID);
+                NpcClass npcData = npcManager.GetNpcById(patient.NpcID);
                 Sprite faceSprite = npcData != null ? GetNpcFaceSprite(npcData) : null;
 
                 uiItem.SetData(npcData?.nameNpc ?? $"NPC {patient.NpcID}", faceSprite, patient.Npchp);
