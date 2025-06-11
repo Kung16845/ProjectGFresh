@@ -31,7 +31,7 @@ public class BuildManager : MonoBehaviour
     public List<Building> listALLBuilding = new List<Building>();
     public List<BuiltBuildingInfo> builtBuildings = new List<BuiltBuildingInfo>();
     public List<Collider2D> collidersToManage = new List<Collider2D>();
-    // private Dictionary<int, System.Action<int>> resourceHandlers;
+    private Dictionary<int, System.Action<int>> resourceHandlers;
     public Tile[] tiles;
     private void Awake()
     {
@@ -44,20 +44,20 @@ public class BuildManager : MonoBehaviour
             Instance = this;
         }
         CollectColliders();
-        // InitializeResourceHandlers();
+        InitializeResourceHandlers();
     }
-    // private void InitializeResourceHandlers()
-    // {
-    //     // Map item IDs to their respective resource update logic
-    //     resourceHandlers = new Dictionary<int, System.Action<int>>
-    //     {
-    //         { 1020129, amount => { steel += amount; Debug.Log($"Added {amount} Steel. Total: {steel}"); } },
-    //         { 1020128, amount => { plank += amount; Debug.Log($"Added {amount} Plank. Total: {plank}"); } },
-    //         { 1020130, amount => { food += amount; Debug.Log($"Added {amount} Food. Total: {food}"); } },
-    //         { 1020131, amount => { fuel += amount; Debug.Log($"Added {amount} Fuel. Total: {fuel}"); } },
-    //         { 1020132, amount => { ammo += amount; Debug.Log($"Added {amount} Ammo. Total: {ammo}"); } }
-    //     };
-    // }
+    private void InitializeResourceHandlers()
+    {
+        // Map item IDs to their respective resource update logic
+        resourceHandlers = new Dictionary<int, System.Action<int>>
+        {
+            { 1020129, amount => { steel += amount; Debug.Log($"Added {amount} Steel. Total: {steel}"); } },
+            { 1020128, amount => { plank += amount; Debug.Log($"Added {amount} Plank. Total: {plank}"); } },
+            { 1020130, amount => { food += amount; Debug.Log($"Added {amount} Food. Total: {food}"); } },
+            { 1020131, amount => { fuel += amount; Debug.Log($"Added {amount} Fuel. Total: {fuel}"); } },
+            { 1020132, amount => { ammo += amount; Debug.Log($"Added {amount} Ammo. Total: {ammo}"); } }
+        };
+    }
 
 
     // Update is called once per frame
