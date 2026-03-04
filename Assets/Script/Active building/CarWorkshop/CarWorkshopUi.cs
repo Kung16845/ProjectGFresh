@@ -46,7 +46,7 @@ public class CarWorkshopUi : MonoBehaviour
 
             // Set up the slider and text
             int requiredFuel = carWorkshop.upgradeBuilding.currentLevel == carWorkshop.upgradeBuilding.maxLevel ? 3 : 4;
-            int currentFuel = Mathf.FloorToInt(carWorkshop.buildManager.fuel); // Convert fuel to int
+            int currentFuel = Mathf.FloorToInt(BuildManager.Instance.fuel); // Convert fuel to int
 
             fuelSlider.maxValue = requiredFuel;
             fuelSlider.value = Mathf.Min(currentFuel, requiredFuel);
@@ -70,7 +70,7 @@ public class CarWorkshopUi : MonoBehaviour
     }
     private void TryRefillCar(GameObject carSlotObj, Slider fuelSlider, TMP_Text fuelText, int requiredFuel)
     {
-        int currentFuel = Mathf.FloorToInt(carWorkshop.buildManager.fuel); // Ensure fuel is an int
+        int currentFuel = Mathf.FloorToInt(BuildManager.Instance.fuel); // Ensure fuel is an int
 
         if (currentFuel >= requiredFuel)
         {

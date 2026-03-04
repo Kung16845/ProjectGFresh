@@ -31,6 +31,7 @@ public class NpcClass
     public int idnpc;
     public SpecialistRoleNpc roleNpc;
     public bool isWorking;
+    public int workerValue = 1; // How many worker points this NPC contributes (usually 1, can be 2 for strong NPCs)
     public string leaderSkill;
     [Header("ID Coutume")]
     public int idHead;

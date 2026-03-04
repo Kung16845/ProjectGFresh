@@ -119,9 +119,6 @@ MonoBehaviour:
     hour: 0
     minutes: 0
     isDayNight: 0
-    sceneSystem: {fileID: 0}
-    saveDataDDA: {fileID: 0}
-    gameManager: {fileID: 0}
   spriteRenderer: {fileID: 0}
   OriginalSprite: {fileID: 21300000, guid: ab2401c1a4985e14894de18be3ba2b20, type: 3}
   Constructhreshold: {fileID: 21300000, guid: 07b4a0e102a4f7c4bb870c4250e6d18e, type: 3}
@@ -209,9 +206,6 @@ MonoBehaviour:
     hour: 0
     minutes: 0
     isDayNight: 0
-    sceneSystem: {fileID: 0}
-    saveDataDDA: {fileID: 0}
-    gameManager: {fileID: 0}
   spriteRenderer: {fileID: 0}
   ConstructSprite: {fileID: 21300000, guid: 07b4a0e102a4f7c4bb870c4250e6d18e, type: 3}
   buildManager: {fileID: 0}
@@ -231,6 +225,8 @@ MonoBehaviour:
     countInventorySlot: 0
     idnpc: 0
     roleNpc: 0
+    isWorking: 0
+    workerValue: 1
     leaderSkill: 
     idHead: 0
     idBody: 0
@@ -239,6 +235,7 @@ MonoBehaviour:
     building: {fileID: 0}
     level: 0
     tile: {fileID: 0}
+    buildingType: 0
   finishDayBuildingUpgradTime: 0
 --- !u!114 &-2084320460490778845
 MonoBehaviour:
@@ -252,22 +249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0effdff387ced2644a99c5c879be74dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeManager: {fileID: 0}
-  dateTime:
-    day: 0
-    hour: 0
-    minutes: 0
-    isDayNight: 0
-    sceneSystem: {fileID: 0}
-    saveDataDDA: {fileID: 0}
-    gameManager: {fileID: 0}
-  buildManager: {fileID: 0}
-  currentDay: 0
-  building: {fileID: 0}
-  upgradeBuilding: {fileID: 0}
-  globalstat: {fileID: 0}
-  uImanger: {fileID: 0}
-  upgradeUi: {fileID: 0}
 --- !u!114 &2427120366756259571
 MonoBehaviour:
   m_ObjectHideFlags: 0

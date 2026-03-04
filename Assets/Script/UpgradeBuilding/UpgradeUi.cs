@@ -94,6 +94,11 @@ public class UpgradeUi : MonoBehaviour
      private bool AreUpgradeConditionsMet()
     {
         int nextLevelIndex = currentBuildingScript.currentLevel - 1;
+        if (nextLevelIndex >= currentBuildingScript.upgradeLevels.Count)
+        {
+            Debug.Log("Already at max level.");
+            return false;
+        }
         UpgradeLevel nextLevel = currentBuildingScript.upgradeLevels[nextLevelIndex];
 
         var conditions = new List<(bool condition, string failMessage)>
@@ -145,6 +150,8 @@ public class UpgradeUi : MonoBehaviour
     private bool AreResourcesSufficient()
     {
         int nextLevelIndex = currentBuildingScript.currentLevel - 1;
+        if (nextLevelIndex >= currentBuildingScript.upgradeLevels.Count)
+            return false;
         UpgradeLevel nextLevel = currentBuildingScript.upgradeLevels[nextLevelIndex];
 
         return buildManager.steel >= nextLevel.steelCost &&
@@ -159,6 +166,7 @@ public class UpgradeUi : MonoBehaviour
             if (AreResourcesSufficient())
             {
                 int nextLevelIndex = currentBuildingScript.currentLevel - 1;
+                if (nextLevelIndex >= currentBuildingScript.upgradeLevels.Count) return;
                 UpgradeLevel nextLevel = currentBuildingScript.upgradeLevels[nextLevelIndex];
 
                 // Subtract resources

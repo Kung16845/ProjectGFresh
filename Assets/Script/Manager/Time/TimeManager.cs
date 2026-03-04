@@ -89,6 +89,9 @@ public class DateTime
     public int hour;
     public int minutes;
     public bool isDayNight;
+
+    // Absolute hour count for construction/upgrade timers
+    public int TotalHours => day * 24 + hour;
     public DateTime(int day, int hour, int minutes, bool isHaveDayNight)
     {
         this.day = day;

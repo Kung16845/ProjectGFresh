@@ -1,57 +1,60 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Solar : MonoBehaviour
+public class Solar : BaseBuilding
 {
-    public BuildManager buildManager;
-    public Building building;
-    public TimeManager timeManager;
-    public UpgradeBuilding upgradeBuilding;
-    public DateTime dateTime;
-    public UImanger uImanger;
-    public UpgradeUi upgradeUi;
-    public int currentday;
+    private UImanger uImanger;
+    private UpgradeUi upgradeUi;
+    private TimeManager timeManager;
+    private DateTime dateTime;
+    private int currentDay;
     public int steelCost;
-    void Start()
+
+    protected override void Start()
     {
+        base.Start();
         uImanger = FindObjectOfType<UImanger>();
-        timeManager = FindObjectOfType<TimeManager>();
-        buildManager = FindObjectOfType<BuildManager>();
-        upgradeBuilding = FindObjectOfType<UpgradeBuilding>();
-        building = GetComponent<Building>();
+        timeManager = TimeManager.Instance;
         dateTime = timeManager.dateTime;
-        currentday = dateTime.day;
+        currentDay = dateTime.day;
     }
-    void Update()
+
+    // No stat contribution — Solar toggles electricity on BuildManager
+    protected override BuildingContribution GetContributionForLevel(int level)
     {
-        if(currentday != dateTime.day)
+        return new BuildingContribution();
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+
+        if (!building.isfinsih) return;
+
+        // Daily resource check
+        if (currentDay != dateTime.day)
         {
-            if(upgradeBuilding.currentLevel == 1)
+            if (upgradeBuilding != null && upgradeBuilding.currentLevel >= upgradeBuilding.maxLevel)
             {
-                if(buildManager.steel >= steelCost)
-                {
-                    buildManager.steel -= steelCost;
-                    ActiveElecticities();
-                }
-                else if(buildManager.steel < steelCost)
-                {
-                    DeactiveElecticities();
-                }
+                ActivateElectricity();
             }
-            else if(upgradeBuilding.currentLevel == upgradeBuilding.maxLevel)
+            else if (BuildManager.Instance.steel >= steelCost)
             {
-                ActiveElecticities();
+                BuildManager.Instance.steel -= steelCost;
+                ActivateElectricity();
             }
-            currentday = dateTime.day;  
+            else
+            {
+                DeactivateElectricity();
+            }
+            currentDay = dateTime.day;
         }
     }
+
     void OnMouseDown()
     {
         if (building.isfinsih && !upgradeBuilding.isUpgradBuilding)
         {
             uImanger.ToggleUIPanel(UImanger.UIPanel.SolarUI);
-            
             if (upgradeBuilding.currentLevel == upgradeBuilding.maxLevel)
             {
                 steelCost = 0;
@@ -59,20 +62,20 @@ public class Solar : MonoBehaviour
             }
         }
     }
+
     public void AssignUpgradeData()
     {
         upgradeUi = FindObjectOfType<UpgradeUi>();
         upgradeUi.Initialize(upgradeBuilding);
     }
-    void ActiveElecticities()
+
+    private void ActivateElectricity()
     {
-        if(building.isfinsih)
-        {
-            buildManager.iselecticitiesactive = true;
-        }
+        BuildManager.Instance.iselecticitiesactive = true;
     }
-    void DeactiveElecticities()
+
+    private void DeactivateElectricity()
     {
-        buildManager.iselecticitiesactive = false;
+        BuildManager.Instance.iselecticitiesactive = false;
     }
 }

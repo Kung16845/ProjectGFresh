@@ -1,57 +1,54 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
 public enum CraftingResult
 {
     Success,
     NotEnoughItems,
     NoAvailableSlots
 }
-public class Workshop : MonoBehaviour
+
+public class Workshop : BaseBuilding
 {
-    public float Actionspeedincrease;
-    public TimeManager timeManager;
-    public DateTime dateTime;
-    public BuildManager buildManager;
-    public int currentDay;
-    public Building building;
-    public UpgradeUi upgradeUi;
-    public UpgradeBuilding upgradeBuilding;
-    public UImanger uImanger;
-    public Globalstat globalstat;
-    public int Craftingslot;
-    public bool Isapplyspeed;
+    private UImanger uImanger;
+    private UpgradeUi upgradeUi;
+    private CraftManager craftManager;
+    private bool isElectricityApplied;
+
     public List<CraftingItem> craftingItemsLevel1;
     public List<CraftingItem> craftingItemsLevel2;
-    public int maxCraftingSlots = 3;
     public InventoryItemPresent inventoryItemPresent;
-    public CraftManager craftManager;
 
-    void Start()
+    protected override void Start()
     {
-        inventoryItemPresent = FindObjectOfType<InventoryItemPresent>();
+        base.Start();
         uImanger = FindObjectOfType<UImanger>();
-        timeManager = FindObjectOfType<TimeManager>();
-        globalstat = FindObjectOfType<Globalstat>();
-        buildManager = FindObjectOfType<BuildManager>();
-        building = FindObjectOfType<Building>();
-        upgradeBuilding = GetComponent<UpgradeBuilding>();
         craftManager = FindObjectOfType<CraftManager>();
-        dateTime = timeManager.dateTime;
-        currentDay = dateTime.day;
-        Actionspeedincrease = 0.25f;
-        globalstat.UpdateCraftingSlots(maxCraftingSlots);
-
-        
-        Isapplyspeed = false;
+        inventoryItemPresent = FindObjectOfType<InventoryItemPresent>();
+        isElectricityApplied = false;
     }
 
-    void Update()
+    protected override BuildingContribution GetContributionForLevel(int level)
     {
-        IsElectricActive();
-        IsElectricInactive();
-        craftManager.UpdateCraftingJobs();
+        switch (level)
+        {
+            case 2:
+                return new BuildingContribution { craftingSlots = 5 };
+            default:
+                return new BuildingContribution { craftingSlots = 3 };
+        }
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+
+        if (craftManager != null)
+            craftManager.UpdateCraftingJobs();
+
+        // Electricity toggle — not level-based, handled separately
+        if (building.isfinsih)
+            UpdateElectricityBonus();
     }
 
     void OnMouseDown()
@@ -59,51 +56,37 @@ public class Workshop : MonoBehaviour
         if (building.isfinsih && !upgradeBuilding.isUpgradBuilding)
         {
             uImanger.ToggleUIPanel(UImanger.UIPanel.WorkshopUI);
-            CheckUpgrade();
+            if (upgradeBuilding.currentLevel == upgradeBuilding.maxLevel)
+            {
+                uImanger.DisableUIPanel(UImanger.UIPanel.WorkshopUpgradeUI);
+            }
         }
     }
-    void CheckUpgrade()
-    {
-        if(upgradeBuilding.currentLevel == upgradeBuilding.maxLevel)
-        {
-            maxCraftingSlots = 5;
-            globalstat.UpdateCraftingSlots(maxCraftingSlots - globalstat.usedCraftingSlot);
-            uImanger.DisableUIPanel(UImanger.UIPanel.WorkshopUpgradeUI);
-        }
-    }
+
     public void AssignUpgradeData()
     {
         upgradeUi = FindObjectOfType<UpgradeUi>();
         upgradeUi.Initialize(upgradeBuilding);
     }
-    void IsElectricActive()
+
+    private void UpdateElectricityBonus()
     {
-        if (building.isfinsih && buildManager.iselecticitiesactive)
+        bool hasElectricity = BuildManager.Instance.iselecticitiesactive;
+
+        if (hasElectricity && !isElectricityApplied)
         {
-            float IncreaseActionSpeed = 0.25f;
-            if (!Isapplyspeed)
-            {
-                globalstat.CalculateActionSpeed(IncreaseActionSpeed);
-                Isapplyspeed = true;
-            }
+            globalstat.CalculateActionSpeed(0.25f);
+            isElectricityApplied = true;
+        }
+        else if (!hasElectricity && isElectricityApplied)
+        {
+            globalstat.CalculateActionSpeed(-0.25f);
+            isElectricityApplied = false;
         }
     }
 
-    void IsElectricInactive()
-    {
-        if (building.isfinsih && !buildManager.iselecticitiesactive)
-        {
-            float DecreaseActionSpeed = 0.25f;
-            if (Isapplyspeed)
-            {
-                globalstat.CalculateActionSpeed(-DecreaseActionSpeed);
-                Isapplyspeed = false;
-            }
-        }
-    }
     public CraftingResult AddCraftingJob(CraftingItem craftingItem)
     {
         return craftManager.AddCraftingJob(craftingItem, CraftingSource.Workshop);
     }
-
 }

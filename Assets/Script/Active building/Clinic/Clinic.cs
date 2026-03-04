@@ -1,57 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Clinic : MonoBehaviour
+public class Clinic : BaseBuilding
 {
-    public TimeManager timeManager;
-    public DateTime dateTime;
-    public BuildManager buildManager;
-    public int currentDay;
-    public UpgradeBuilding upgradeBuilding;
-    public Globalstat globalstat;
-    public Building building;
-    public UImanger uImanger;
-    public UpgradeUi upgradeUi;
+    private UImanger uImanger;
+    private UpgradeUi upgradeUi;
     private PatienManger patienManger;
-    public float Healingrate;
 
-    private float currentDiscontentContribution = 0f;
-    public int CurrentActiveCurebed = 0;
-    private int previousLevel = 0;
+    // Public for ClinicUI to read
+    public int CurrentActiveCurebed => GetContributionForLevel(upgradeBuilding.currentLevel).curebeds;
 
-    private bool abilitiesApplied = false; // Ensure abilities apply only once
-
-    void Start()
+    protected override void Start()
     {
-        timeManager = FindObjectOfType<TimeManager>();
-        globalstat = FindObjectOfType<Globalstat>();
-        buildManager = FindObjectOfType<BuildManager>();
-        building = FindObjectOfType<Building>();
-        upgradeBuilding = GetComponent<UpgradeBuilding>();
-        patienManger = FindObjectOfType<PatienManger>();
+        base.Start();
         uImanger = FindObjectOfType<UImanger>();
-        dateTime = timeManager.dateTime;
-
-        previousLevel = upgradeBuilding.currentLevel; // Sync level on start
+        patienManger = FindObjectOfType<PatienManger>();
     }
 
-    void Update()
+    protected override BuildingContribution GetContributionForLevel(int level)
     {
-        if (building.isfinsih && !abilitiesApplied)
+        switch (level)
         {
-            ApplyAbilities(); // Apply abilities once when finished
-            abilitiesApplied = true; // Mark as applied to avoid duplication
+            case 2:
+                return new BuildingContribution { curebeds = 2, discontent = 10f };
+            case 3:
+                return new BuildingContribution { curebeds = 4, discontent = 8f };
+            default:
+                return new BuildingContribution { curebeds = 1, discontent = 5f };
         }
-
-        // Detect level changes during runtime
-        if (building.isfinsih && upgradeBuilding.currentLevel != previousLevel)
-        {
-            UpgradeAbilities();
-            previousLevel = upgradeBuilding.currentLevel;
-        }
-        patienManger.UpdateJobs(patienManger.activeHealingClinicPatient);
     }
+
+    protected override void Update()
+    {
+        base.Update();
+        if (patienManger != null)
+            patienManger.UpdateJobs(patienManger.activeHealingClinicPatient);
+    }
+
     void OnMouseDown()
     {
         if (building.isfinsih && !upgradeBuilding.isUpgradBuilding)
@@ -63,56 +47,10 @@ public class Clinic : MonoBehaviour
             }
         }
     }
+
     public void AssignUpgradeData()
     {
         upgradeUi = FindObjectOfType<UpgradeUi>();
         upgradeUi.Initialize(upgradeBuilding);
-    }
-    void ApplyAbilities()
-    {
-        // Get the current contributions based on the level
-        CurrentActiveCurebed = GetActiveCurebedbaseonvalue();
-        currentDiscontentContribution = GetDiscontentValueBasedOnLevel();
-
-        // Apply contributions
-        globalstat.IncreaseCurebed(CurrentActiveCurebed);
-        globalstat.DecreaseDiscontent(currentDiscontentContribution);
-
-        Debug.Log($"Applied abilities for Level {upgradeBuilding.currentLevel}");
-    }
-
-    void UpgradeAbilities()
-    {
-        // Calculate and replace old contributions with new ones
-        int NewCurebedcontribution = GetActiveCurebedbaseonvalue();
-        float newDiscontentContribution = GetDiscontentValueBasedOnLevel();
-
-        globalstat.UpdateCurebedContribution(CurrentActiveCurebed, NewCurebedcontribution);
-        globalstat.UpdateDiscontentContribution(currentDiscontentContribution, newDiscontentContribution);
-
-        CurrentActiveCurebed = NewCurebedcontribution;
-        currentDiscontentContribution = newDiscontentContribution;
-
-        Debug.Log($"Upgraded to Level {upgradeBuilding.currentLevel}");
-    }
-
-    int GetActiveCurebedbaseonvalue()
-    {
-        switch (upgradeBuilding.currentLevel)
-        {
-            case 2: return 2; // Level 2
-            case 3: return 4; // Level 3
-            default: return 1; // Level 1
-        }
-    }
-
-    float GetDiscontentValueBasedOnLevel()
-    {
-        switch (upgradeBuilding.currentLevel)
-        {
-            case 2: return 10f; // Level 2
-            case 3: return 8f; // Level 3
-            default: return 5f; // Level 1
-        }
     }
 }

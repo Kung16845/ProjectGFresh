@@ -1,57 +1,60 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Waterpump : MonoBehaviour
+public class Waterpump : BaseBuilding
 {
-    public BuildManager buildManager;
-    public Building building;
-    public TimeManager timeManager;
-    public UpgradeBuilding upgradeBuilding;
-    public DateTime dateTime;
-    public UpgradeUi upgradeUi;
-    public UImanger uImanger;
-    public int currentday;
+    private UImanger uImanger;
+    private UpgradeUi upgradeUi;
+    private TimeManager timeManager;
+    private DateTime dateTime;
+    private int currentDay;
     public int FuelCost;
-    void Start()
+
+    protected override void Start()
     {
+        base.Start();
         uImanger = FindObjectOfType<UImanger>();
-        timeManager = FindObjectOfType<TimeManager>();
-        buildManager = FindObjectOfType<BuildManager>();
-        upgradeBuilding = FindObjectOfType<UpgradeBuilding>();
-        building = GetComponent<Building>();
+        timeManager = TimeManager.Instance;
         dateTime = timeManager.dateTime;
-        currentday = dateTime.day;
+        currentDay = dateTime.day;
     }
-    void Update()
+
+    // No stat contribution — Waterpump toggles water on BuildManager
+    protected override BuildingContribution GetContributionForLevel(int level)
     {
-        if(currentday != dateTime.day)
+        return new BuildingContribution();
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+
+        if (!building.isfinsih) return;
+
+        // Daily resource check
+        if (currentDay != dateTime.day)
         {
-            if(upgradeBuilding.currentLevel == 1)
+            if (upgradeBuilding != null && upgradeBuilding.currentLevel >= upgradeBuilding.maxLevel)
             {
-                if(buildManager.fuel >= FuelCost)
-                {
-                    buildManager.fuel -= FuelCost;
-                    Activewater();
-                }
-                else if(buildManager.fuel < FuelCost)
-                {
-                    DeactiveWater();
-                }
+                ActivateWater();
             }
-            else if(upgradeBuilding.currentLevel == upgradeBuilding.maxLevel)
+            else if (BuildManager.Instance.fuel >= FuelCost)
             {
-                Activewater();
+                BuildManager.Instance.fuel -= FuelCost;
+                ActivateWater();
             }
-            currentday = dateTime.day;  
+            else
+            {
+                DeactivateWater();
+            }
+            currentDay = dateTime.day;
         }
     }
+
     void OnMouseDown()
     {
         if (building.isfinsih && !upgradeBuilding.isUpgradBuilding)
         {
             uImanger.ToggleUIPanel(UImanger.UIPanel.WaterPumpUI);
-            
             if (upgradeBuilding.currentLevel == upgradeBuilding.maxLevel)
             {
                 FuelCost = 0;
@@ -59,20 +62,20 @@ public class Waterpump : MonoBehaviour
             }
         }
     }
+
     public void AssignUpgradeData()
     {
         upgradeUi = FindObjectOfType<UpgradeUi>();
         upgradeUi.Initialize(upgradeBuilding);
     }
-    void Activewater()
+
+    private void ActivateWater()
     {
-        if(building.isfinsih)
-        {
-            buildManager.iswateractive = true;
-        }
+        BuildManager.Instance.iswateractive = true;
     }
-     void DeactiveWater()
+
+    private void DeactivateWater()
     {
-        buildManager.iswateractive = false;
+        BuildManager.Instance.iswateractive = false;
     }
 }

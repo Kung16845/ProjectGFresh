@@ -21,6 +21,11 @@ public class BuildManager : MonoBehaviour
     public TextMeshProUGUI fuelDisplay;
     public TextMeshProUGUI ammoDisplay;
     public TextMeshProUGUI npcDisplay;
+    [Header("Worker Pool")]
+    public int totalWorkerPoints;
+    public int usedWorkerPoints;
+    public int AvailableWorkerPoints => totalWorkerPoints - usedWorkerPoints;
+
     [Header("Scipt")]
     public bool iswateractive;
     public bool iselecticitiesactive;
@@ -181,6 +186,29 @@ public class BuildManager : MonoBehaviour
         }
     }
     #endregion
+    #region Worker Pool
+    public void RecalculateTotalWorkerPoints()
+    {
+        NpcManager npcManager = GameManager.Instance.npcManager;
+        totalWorkerPoints = 0;
+        foreach (NpcClass npc in npcManager.listNpc)
+            totalWorkerPoints += npc.workerValue;
+    }
+
+    // Returns true and locks points if enough are available, false otherwise
+    public bool ConsumeWorkers(int points)
+    {
+        if (points > AvailableWorkerPoints) return false;
+        usedWorkerPoints += points;
+        return true;
+    }
+
+    public void ReleaseWorkers(int points)
+    {
+        usedWorkerPoints = Mathf.Max(0, usedWorkerPoints - points);
+    }
+    #endregion
+
     #region Supply
     public void AddSupply(SupplyType supplyType, int amount)
     {
