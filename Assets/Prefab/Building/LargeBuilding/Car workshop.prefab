@@ -29,13 +29,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4828145842393980435}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.4, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7577125230850006993
 SpriteRenderer:
@@ -54,6 +54,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -101,33 +104,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9b2dfaa75c6734cb43f35e33c8e243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingData: {fileID: 11400000, guid: a039ed5235c426b4ba9a8892410510de, type: 2}
   nameBuild: Car wrokshop
   detailBuild: Vechiacle is one the most valuable thing we need to take care of it
   steelCost: 10
   plankCost: 20
-  foodCost: 0
-  fuelCost: 0
-  ammoCost: 0
-  npcCost: 4
-  dayCost: 5
-  finishDayBuildingTime: 0
-  isBuildingLarge: 1
-  isBuildingMedium: 0
-  isBuildingSmall: 0
+  workerPointsCost: 0
+  buildTimeHours: 0
+  buildingType: 0
+  requiresSpecialist: 0
+  requiredSpecialist: 0
+  finishBuildingHour: 0
   isBuilding: 0
+  isFinished: 0
   timeManager: {fileID: 0}
   dateTime:
     day: 0
     hour: 0
     minutes: 0
     isDayNight: 0
-    sceneSystem: {fileID: 0}
-    saveDataDDA: {fileID: 0}
   spriteRenderer: {fileID: 0}
   OriginalSprite: {fileID: 21300000, guid: 32c5929182218814bb9b9d39fee17391, type: 3}
-  Constructhreshold: {fileID: 21300000, guid: 86de18d64ecddb940b59f1224df6a387, type: 3}
+  ConstructSprite: {fileID: 21300000, guid: 86de18d64ecddb940b59f1224df6a387, type: 3}
   buildManager: {fileID: 0}
-  isfinsih: 0
 --- !u!114 &9052139273560429677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,35 +139,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83bad588e134a3f4692eef30d28ea68a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameBuild: 
-  detailBuild: 
-  upgradeLevels:
-  - levelNumber: 2
-    steelCost: 15
-    plankCost: 30
-    npcCost: 3
-    dayCost: 2
-    levelSprite: {fileID: 21300000, guid: 650c4faf46f226e4b86c82ba18dc1295, type: 3}
-    isneedwater: 0
-    isneedElecticities: 0
-    isNeedSpecialist: 1
-    requiredSpecialist: 1
   currentLevel: 1
   maxLevel: 1
   isUpgradBuilding: 0
   isFinishedUpgrad: 0
   upgradeUi: {fileID: 0}
-  timeManager: {fileID: 0}
-  dateTime:
-    day: 0
-    hour: 0
-    minutes: 0
-    isDayNight: 0
-    sceneSystem: {fileID: 0}
-    saveDataDDA: {fileID: 0}
-  spriteRenderer: {fileID: 0}
   ConstructSprite: {fileID: 21300000, guid: 86de18d64ecddb940b59f1224df6a387, type: 3}
-  buildManager: {fileID: 0}
   building: {fileID: 0}
   uImanger: {fileID: 0}
   assignedSpecialistNpc:
@@ -185,15 +161,18 @@ MonoBehaviour:
     countInventorySlot: 0
     idnpc: 0
     roleNpc: 0
+    isWorking: 0
+    workerValue: 1
     leaderSkill: 
     idHead: 0
     idBody: 0
     idFeed: 0
   builtBuildingInfo:
-    buildingGameObject: {fileID: 0}
+    building: {fileID: 0}
     level: 0
     tile: {fileID: 0}
-  finishDayBuildingUpgradTime: 0
+    buildingType: 0
+  finishUpgradeHour: 0
 --- !u!61 &-9078002244565238600
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -202,6 +181,7 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4828145842393980435}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -225,7 +205,8 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: -0.4006046, y: 0.29759192}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,7 +217,6 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 3.2445738, y: 3.1987906}
   m_EdgeRadius: 0
 --- !u!114 &382137248366481971
@@ -251,25 +231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf3904449891044784d95d7459de7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  availableCar: 0
-  UnaviableCar: 0
-  FuelRefillRate: 0
-  timeManager: {fileID: 0}
-  dateTime:
-    day: 0
-    hour: 0
-    minutes: 0
-    isDayNight: 0
-    sceneSystem: {fileID: 0}
-    saveDataDDA: {fileID: 0}
-  buildManager: {fileID: 0}
-  currentDay: 0
-  building: {fileID: 0}
-  upgradeUi: {fileID: 0}
-  upgradeBuilding: {fileID: 0}
-  uImanger: {fileID: 0}
-  globalstat: {fileID: 0}
-  hasUpgradeApplied: 0
 --- !u!114 &-6973203171626865246
 MonoBehaviour:
   m_ObjectHideFlags: 0

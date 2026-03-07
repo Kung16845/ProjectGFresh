@@ -62,6 +62,9 @@ public class Zombie : MonoBehaviour
     public Lane currentLane;
     public bool isInEngagingArea = false;    // Whether the zombie is in the Engaging Area
 
+    [Header("Zombie Data")]
+    public ZombieData zombieData;
+
     [Header("Damage Effects")]
     public float slowdownAmount = 0.25f;           // Amount to slow down (e.g., 0.5 means half speed)
     public float damageEffectDuration = 0.01f;       // Duration of the slowdown and red color effect
@@ -107,6 +110,14 @@ public class Zombie : MonoBehaviour
     public GameObject hitMarkerPrefab; // Assign your hit marker prefab in the Inspector
     private RawImage[] hitMarkerImages;    // Array to store references to marker images
     private Coroutine hideMarkerCoroutine;
+    protected virtual void Awake()
+    {
+        if (zombieData != null)
+        {
+            ApplyZombieData(1);
+        }
+    }
+
     protected virtual void Start()
     {
         animator = GetComponent<Animator>();
@@ -118,10 +129,11 @@ public class Zombie : MonoBehaviour
         originalSpeed = maxSpeed;
         rb2D = GetComponent<Rigidbody2D>();
         InitializeDamageMultipliers();
+        SetZombieCostumeId();
         if (hitMarkerPrefab == null)
         {
-            Transform canvasTransform = GameObject.Find("Canvas").transform; // Replace "Canvas" with your actual Canvas name
-            hitMarkerPrefab = canvasTransform.Find("Hitmarker")?.gameObject; 
+            Transform canvasTransform = GameObject.Find("Canvas").transform;
+            hitMarkerPrefab = canvasTransform.Find("Hitmarker")?.gameObject;
         }
         if (hitMarkerPrefab != null)
         {
@@ -133,8 +145,51 @@ public class Zombie : MonoBehaviour
         get { return currentState; }
         private set { currentState = value; }
     }
-    void Update()
+
+    /// <summary>
+    /// Default Update: move toward barrier, attack when reached.
+    /// Subclasses with unique behavior (Charger, Slimer, Reeker) override Update instead.
+    /// </summary>
+    protected virtual void Update()
     {
+        if (currentHp <= 0)
+        {
+            currentState = ZombieState.Dead;
+            return;
+        }
+        if (HasReachedAttackPoint())
+        {
+            rb2D.linearVelocity = Vector2.zero;
+            ZombieAttack();
+        }
+        else
+        {
+            ZombieMoveFindBarrier();
+        }
+    }
+
+    public void ApplyZombieData(int tier)
+    {
+        if (zombieData == null) return;
+        maxHp = zombieData.GetHp(tier);
+        maxSpeed = zombieData.GetSpeed(tier);
+        attackTimer = zombieData.GetAttackSpeed(tier);
+        attackDamage = zombieData.GetDamage(tier);
+        maxArmourHp = zombieData.GetArmourHp(tier);
+        ArmourHp = maxArmourHp;
+        allowSpikeMutation = zombieData.allowSpike;
+        allowAcidMutation = zombieData.allowAcid;
+        allowExploderMutation = zombieData.allowExploder;
+        allowArmourShellMutation = zombieData.allowArmourShell;
+    }
+
+    public virtual void SetZombieCostumeId()
+    {
+        if (zombieData != null && !string.IsNullOrEmpty(zombieData.costumeTypeCode))
+        {
+            string mutationCode = GetMutationCode(mutationType);
+            idZombieCoustume = $"301{zombieData.costumeTypeCode}{mutationCode}";
+        }
     }
     public void ZombieMoveFindBarrier()
     {
@@ -680,17 +735,25 @@ public class Zombie : MonoBehaviour
     }
     protected virtual void InitializeDamageMultipliers()
     {
-        damageMultipliers = new Dictionary<DamageType, float>
+        if (zombieData != null)
         {
-            { DamageType.HighcalliberBullet, 1f },
-            { DamageType.LowcaliberBullet, 1f },
-            { DamageType.MediumcaliberBullet, 1f },
-            { DamageType.ShotgunPellet, 1f },
-            { DamageType.Pulse, 1f },
-            { DamageType.Fire, 1f },
-            { DamageType.Acid, 1f },
-            { DamageType.Explosive, 1f },
-        };
+            damageMultipliers = zombieData.GetDamageMultipliers();
+        }
+        else
+        {
+            damageMultipliers = new Dictionary<DamageType, float>
+            {
+                { DamageType.HighcalliberBullet, 1f },
+                { DamageType.LowcaliberBullet, 1f },
+                { DamageType.MediumcaliberBullet, 1f },
+                { DamageType.ShotgunPellet, 1f },
+                { DamageType.Pulse, 1f },
+                { DamageType.Fire, 1f },
+                { DamageType.Acid, 1f },
+                { DamageType.Explosive, 1f },
+                { DamageType.Poison, 1f },
+            };
+        }
     }
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -753,6 +816,7 @@ public class Zombie : MonoBehaviour
     public void SetTier(int tier)
     {
         mutationTier = tier;
+        ApplyZombieData(tier);
         ApplyMutationEffects();
     }
     public void StopZombie()

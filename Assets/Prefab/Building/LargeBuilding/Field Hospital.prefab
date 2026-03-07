@@ -29,13 +29,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4828145842393980435}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.4, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7577125230850006993
 SpriteRenderer:
@@ -54,6 +54,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -101,34 +104,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9b2dfaa75c6734cb43f35e33c8e243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingData: {fileID: 11400000, guid: 91dd49a83ffca2d448acc792411a1898, type: 2}
   nameBuild: Field Hospital
   detailBuild: Large than clinic, can cure many injured at one time.Our people is
     important we make do anything to protect them.
   steelCost: 10
   plankCost: 19
-  foodCost: 0
-  fuelCost: 0
-  ammoCost: 0
-  npcCost: 3
-  dayCost: 6
-  finishDayBuildingTime: 0
-  isBuildingLarge: 1
-  isBuildingMedium: 0
-  isBuildingSmall: 0
+  workerPointsCost: 0
+  buildTimeHours: 0
+  buildingType: 0
+  requiresSpecialist: 0
+  requiredSpecialist: 0
+  finishBuildingHour: 0
   isBuilding: 0
+  isFinished: 0
   timeManager: {fileID: 0}
   dateTime:
     day: 0
     hour: 0
     minutes: 0
     isDayNight: 0
-    sceneSystem: {fileID: 0}
-    saveDataDDA: {fileID: 0}
   spriteRenderer: {fileID: 0}
   OriginalSprite: {fileID: 21300000, guid: d15b29e725aac434a911e83f02606c87, type: 3}
-  Constructhreshold: {fileID: 21300000, guid: 86de18d64ecddb940b59f1224df6a387, type: 3}
+  ConstructSprite: {fileID: 21300000, guid: 86de18d64ecddb940b59f1224df6a387, type: 3}
   buildManager: {fileID: 0}
-  isfinsih: 0
 --- !u!114 &2274461980007296479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,35 +140,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83bad588e134a3f4692eef30d28ea68a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameBuild: 
-  detailBuild: 
-  upgradeLevels:
-  - levelNumber: 2
-    steelCost: 15
-    plankCost: 15
-    npcCost: 3
-    dayCost: 2
-    levelSprite: {fileID: 21300000, guid: ac87971a4d26cde4db00989fab00f3de, type: 3}
-    isneedwater: 1
-    isneedElecticities: 1
-    isNeedSpecialist: 1
-    requiredSpecialist: 4
   currentLevel: 1
   maxLevel: 1
   isUpgradBuilding: 0
   isFinishedUpgrad: 0
   upgradeUi: {fileID: 0}
-  timeManager: {fileID: 0}
-  dateTime:
-    day: 0
-    hour: 0
-    minutes: 0
-    isDayNight: 0
-    sceneSystem: {fileID: 0}
-    saveDataDDA: {fileID: 0}
-  spriteRenderer: {fileID: 0}
   ConstructSprite: {fileID: 21300000, guid: 86de18d64ecddb940b59f1224df6a387, type: 3}
-  buildManager: {fileID: 0}
   building: {fileID: 0}
   uImanger: {fileID: 0}
   assignedSpecialistNpc:
@@ -186,15 +162,18 @@ MonoBehaviour:
     countInventorySlot: 0
     idnpc: 0
     roleNpc: 0
+    isWorking: 0
+    workerValue: 1
     leaderSkill: 
     idHead: 0
     idBody: 0
     idFeed: 0
   builtBuildingInfo:
-    buildingGameObject: {fileID: 0}
+    building: {fileID: 0}
     level: 0
     tile: {fileID: 0}
-  finishDayBuildingUpgradTime: 0
+    buildingType: 0
+  finishUpgradeHour: 0
 --- !u!61 &1071970053287401713
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -203,6 +182,7 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4828145842393980435}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -226,7 +206,8 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: -0.6519325, y: -0.23340803}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,7 +218,6 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 2.696135, y: 3.533184}
   m_EdgeRadius: 0
 --- !u!114 &-5109370254821173405
@@ -252,18 +232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6849b796b01230f4ebcb230390958041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeManager: {fileID: 0}
-  dateTime:
-    day: 0
-    hour: 0
-    minutes: 0
-    isDayNight: 0
-    sceneSystem: {fileID: 0}
-    saveDataDDA: {fileID: 0}
-  buildManager: {fileID: 0}
-  building: {fileID: 0}
-  upgradeBuilding: {fileID: 0}
-  globalstat: {fileID: 0}
 --- !u!114 &7554529940735710571
 MonoBehaviour:
   m_ObjectHideFlags: 0

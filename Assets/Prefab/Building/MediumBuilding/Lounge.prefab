@@ -104,30 +104,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9b2dfaa75c6734cb43f35e33c8e243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingData: {fileID: 11400000, guid: 6bf818888f976964da554f85e4f57978, type: 2}
   nameBuild: Lounge
   detailBuild: A place where we gonna enjoy ourselves.this world is cruel but perhap
     we can rest here enjoy the moment we have with our comrade.
   steelCost: 4
   plankCost: 12
-  npcCost: 2
-  dayCost: 2
-  finishDayBuildingTime: 0
+  workerPointsCost: 0
+  buildTimeHours: 0
   buildingType: 1
+  requiresSpecialist: 0
+  requiredSpecialist: 0
+  finishBuildingHour: 0
   isBuilding: 0
+  isFinished: 0
   timeManager: {fileID: 0}
   dateTime:
     day: 0
     hour: 0
     minutes: 0
     isDayNight: 0
-    sceneSystem: {fileID: 0}
-    saveDataDDA: {fileID: 0}
-    gameManager: {fileID: 0}
   spriteRenderer: {fileID: 0}
   OriginalSprite: {fileID: 21300000, guid: b2c98c1eb92a7fa4089f9267f08982ea, type: 3}
-  Constructhreshold: {fileID: 21300000, guid: 4bd3ef4be4d8b2b44b5a870ae317e3c9, type: 3}
+  ConstructSprite: {fileID: 21300000, guid: 4bd3ef4be4d8b2b44b5a870ae317e3c9, type: 3}
   buildManager: {fileID: 0}
-  isfinsih: 0
 --- !u!114 &4821248579557678675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,46 +140,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83bad588e134a3f4692eef30d28ea68a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameBuild: 
-  detailBuild: 
-  upgradeLevels:
-  - levelNumber: 2
-    steelCost: 5
-    plankCost: 15
-    npcCost: 2
-    dayCost: 2
-    levelSprite: {fileID: 21300000, guid: 4366655c984d7104eb8dac9ed55d3124, type: 3}
-    isneedwater: 0
-    isneedElecticities: 0
-    isNeedSpecialist: 1
-    requiredSpecialist: 5
-  - levelNumber: 3
-    steelCost: 8
-    plankCost: 25
-    npcCost: 2
-    dayCost: 2
-    levelSprite: {fileID: 21300000, guid: c1ce03f55ecda9e488975aa420f02cfd, type: 3}
-    isneedwater: 1
-    isneedElecticities: 1
-    isNeedSpecialist: 1
-    requiredSpecialist: 5
   currentLevel: 1
   maxLevel: 0
   isUpgradBuilding: 0
   isFinishedUpgrad: 0
   upgradeUi: {fileID: 0}
-  timeManager: {fileID: 0}
-  dateTime:
-    day: 0
-    hour: 0
-    minutes: 0
-    isDayNight: 0
-    sceneSystem: {fileID: 0}
-    saveDataDDA: {fileID: 0}
-    gameManager: {fileID: 0}
-  spriteRenderer: {fileID: 0}
   ConstructSprite: {fileID: 21300000, guid: 4bd3ef4be4d8b2b44b5a870ae317e3c9, type: 3}
-  buildManager: {fileID: 0}
   building: {fileID: 0}
   uImanger: {fileID: 0}
   assignedSpecialistNpc:
@@ -196,6 +162,8 @@ MonoBehaviour:
     countInventorySlot: 0
     idnpc: 0
     roleNpc: 0
+    isWorking: 0
+    workerValue: 1
     leaderSkill: 
     idHead: 0
     idBody: 0
@@ -204,7 +172,8 @@ MonoBehaviour:
     building: {fileID: 0}
     level: 0
     tile: {fileID: 0}
-  finishDayBuildingUpgradTime: 0
+    buildingType: 0
+  finishUpgradeHour: 0
 --- !u!61 &-8499949870484592453
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -263,23 +232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d821c3bb7dd4a4c4b8202869cecda215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeManager: {fileID: 0}
-  dateTime:
-    day: 0
-    hour: 0
-    minutes: 0
-    isDayNight: 0
-    sceneSystem: {fileID: 0}
-    saveDataDDA: {fileID: 0}
-    gameManager: {fileID: 0}
-  buildManager: {fileID: 0}
-  building: {fileID: 0}
-  upgradeBuilding: {fileID: 0}
-  globalstat: {fileID: 0}
-  uImanger: {fileID: 0}
-  upgradeUi: {fileID: 0}
-  currentDiscontentContribution: 0
-  currentBedContribution: 0
 --- !u!114 &2242094906319155668
 MonoBehaviour:
   m_ObjectHideFlags: 0

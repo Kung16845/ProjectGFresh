@@ -104,15 +104,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9b2dfaa75c6734cb43f35e33c8e243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingData: {fileID: 11400000, guid: 1dc1d1fc091fd964c9ec849d8a0e40c9, type: 2}
   nameBuild: Beacon
   detailBuild: 'A Beacon used for signal for expidition '
   steelCost: 3
   plankCost: 7
-  npcCost: 1
-  dayCost: 2
-  finishDayBuildingTime: 0
+  workerPointsCost: 0
+  buildTimeHours: 0
   buildingType: 2
+  requiresSpecialist: 0
+  requiredSpecialist: 0
+  finishBuildingHour: 0
   isBuilding: 0
+  isFinished: 0
   timeManager: {fileID: 0}
   dateTime:
     day: 0
@@ -121,9 +125,8 @@ MonoBehaviour:
     isDayNight: 0
   spriteRenderer: {fileID: 0}
   OriginalSprite: {fileID: 21300000, guid: ab2401c1a4985e14894de18be3ba2b20, type: 3}
-  Constructhreshold: {fileID: 21300000, guid: 07b4a0e102a4f7c4bb870c4250e6d18e, type: 3}
+  ConstructSprite: {fileID: 21300000, guid: 07b4a0e102a4f7c4bb870c4250e6d18e, type: 3}
   buildManager: {fileID: 0}
-  isfinsih: 0
 --- !u!61 &8579113235594884096
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -182,33 +185,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83bad588e134a3f4692eef30d28ea68a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameBuild: Beacon
-  detailBuild: 
-  upgradeLevels:
-  - levelNumber: 0
-    steelCost: 15
-    plankCost: 10
-    npcCost: 1
-    dayCost: 2
-    levelSprite: {fileID: 21300000, guid: 37098832acffb8141bae6207c0370cec, type: 3}
-    isneedwater: 0
-    isneedElecticities: 0
-    isNeedSpecialist: 0
-    requiredSpecialist: 0
   currentLevel: 1
   maxLevel: 0
   isUpgradBuilding: 0
   isFinishedUpgrad: 0
   upgradeUi: {fileID: 0}
-  timeManager: {fileID: 0}
-  dateTime:
-    day: 0
-    hour: 0
-    minutes: 0
-    isDayNight: 0
-  spriteRenderer: {fileID: 0}
   ConstructSprite: {fileID: 21300000, guid: 07b4a0e102a4f7c4bb870c4250e6d18e, type: 3}
-  buildManager: {fileID: 0}
   building: {fileID: 0}
   uImanger: {fileID: 0}
   assignedSpecialistNpc:
@@ -236,7 +218,7 @@ MonoBehaviour:
     level: 0
     tile: {fileID: 0}
     buildingType: 0
-  finishDayBuildingUpgradTime: 0
+  finishUpgradeHour: 0
 --- !u!114 &-2084320460490778845
 MonoBehaviour:
   m_ObjectHideFlags: 0

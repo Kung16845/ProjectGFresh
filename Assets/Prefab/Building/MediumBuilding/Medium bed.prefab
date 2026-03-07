@@ -104,29 +104,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9b2dfaa75c6734cb43f35e33c8e243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingData: {fileID: 11400000, guid: 92391683103ee5f4d9dcabcad10f8f01, type: 2}
   nameBuild: Medium bed
   detailBuild: 5 bed for us,Nothing better than a good sleep.
   steelCost: 5
   plankCost: 14
-  npcCost: 1
-  dayCost: 3
-  finishDayBuildingTime: 0
+  workerPointsCost: 0
+  buildTimeHours: 0
   buildingType: 1
+  requiresSpecialist: 0
+  requiredSpecialist: 0
+  finishBuildingHour: 0
   isBuilding: 0
+  isFinished: 0
   timeManager: {fileID: 0}
   dateTime:
     day: 0
     hour: 0
     minutes: 0
     isDayNight: 0
-    sceneSystem: {fileID: 0}
-    saveDataDDA: {fileID: 0}
-    gameManager: {fileID: 0}
   spriteRenderer: {fileID: 0}
   OriginalSprite: {fileID: 21300000, guid: eb8c48f8422bb7f4a95917abcf057fb4, type: 3}
-  Constructhreshold: {fileID: 21300000, guid: 4bd3ef4be4d8b2b44b5a870ae317e3c9, type: 3}
+  ConstructSprite: {fileID: 21300000, guid: 4bd3ef4be4d8b2b44b5a870ae317e3c9, type: 3}
   buildManager: {fileID: 0}
-  isfinsih: 0
 --- !u!61 &3606732038116109958
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -185,36 +185,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83bad588e134a3f4692eef30d28ea68a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameBuild: 
-  detailBuild: 
-  upgradeLevels:
-  - levelNumber: 2
-    steelCost: 0
-    plankCost: 15
-    npcCost: 1
-    dayCost: 2
-    levelSprite: {fileID: 21300000, guid: d0b8b20f41c54e24baf16f766d57b8cf, type: 3}
-    isneedwater: 0
-    isneedElecticities: 1
-    isNeedSpecialist: 1
-    requiredSpecialist: 0
   currentLevel: 1
   maxLevel: 0
   isUpgradBuilding: 0
   isFinishedUpgrad: 0
   upgradeUi: {fileID: 0}
-  timeManager: {fileID: 0}
-  dateTime:
-    day: 0
-    hour: 0
-    minutes: 0
-    isDayNight: 0
-    sceneSystem: {fileID: 0}
-    saveDataDDA: {fileID: 0}
-    gameManager: {fileID: 0}
-  spriteRenderer: {fileID: 0}
   ConstructSprite: {fileID: 21300000, guid: 4bd3ef4be4d8b2b44b5a870ae317e3c9, type: 3}
-  buildManager: {fileID: 0}
   building: {fileID: 0}
   uImanger: {fileID: 0}
   assignedSpecialistNpc:
@@ -231,6 +207,8 @@ MonoBehaviour:
     countInventorySlot: 0
     idnpc: 0
     roleNpc: 0
+    isWorking: 0
+    workerValue: 1
     leaderSkill: 
     idHead: 0
     idBody: 0
@@ -239,7 +217,8 @@ MonoBehaviour:
     building: {fileID: 0}
     level: 0
     tile: {fileID: 0}
-  finishDayBuildingUpgradTime: 0
+    buildingType: 0
+  finishUpgradeHour: 0
 --- !u!114 &2483199344392073963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,23 +231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6a20c61fe6633a429a3c351b2e906fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeManager: {fileID: 0}
-  dateTime:
-    day: 0
-    hour: 0
-    minutes: 0
-    isDayNight: 0
-    sceneSystem: {fileID: 0}
-    saveDataDDA: {fileID: 0}
-    gameManager: {fileID: 0}
-  buildManager: {fileID: 0}
-  currentDay: 0
-  upgradeBuilding: {fileID: 0}
-  globalstat: {fileID: 0}
-  building: {fileID: 0}
-  uImanger: {fileID: 0}
-  upgradeUi: {fileID: 0}
-  currentBedContribution: 0
 --- !u!114 &6998503922426699637
 MonoBehaviour:
   m_ObjectHideFlags: 0

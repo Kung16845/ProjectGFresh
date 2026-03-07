@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9b2dfaa75c6734cb43f35e33c8e243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingData: {fileID: 0}
+  buildingData: {fileID: 11400000, guid: 84a2dee4e56e39d4bbae387542a72c42, type: 2}
   nameBuild: Water pump
   detailBuild: Provide water supply for our base.but we need to used a fuel to maintain
     the machine.
@@ -199,33 +199,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83bad588e134a3f4692eef30d28ea68a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameBuild: 
-  detailBuild: 
-  upgradeLevels:
-  - levelNumber: 2
-    steelCost: 5
-    plankCost: 10
-    workerPointsCost: 0
-    buildTimeHours: 0
-    levelSprite: {fileID: 21300000, guid: 0d246f180bc9b4749af9622400a6c3d7, type: 3}
-    isneedwater: 0
-    isneedElecticities: 0
-    isNeedSpecialist: 1
-    requiredSpecialist: 1
   currentLevel: 1
   maxLevel: 0
   isUpgradBuilding: 0
   isFinishedUpgrad: 0
   upgradeUi: {fileID: 0}
-  timeManager: {fileID: 0}
-  dateTime:
-    day: 0
-    hour: 0
-    minutes: 0
-    isDayNight: 0
-  spriteRenderer: {fileID: 0}
   ConstructSprite: {fileID: 21300000, guid: 07b4a0e102a4f7c4bb870c4250e6d18e, type: 3}
-  buildManager: {fileID: 0}
   building: {fileID: 0}
   uImanger: {fileID: 0}
   assignedSpecialistNpc:

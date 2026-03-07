@@ -104,29 +104,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9b2dfaa75c6734cb43f35e33c8e243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingData: {fileID: 11400000, guid: 39fdb2cae9ac53b40a3883dc6dca7cc8, type: 2}
   nameBuild: Moonshine
   detailBuild: If we are looking for trading item this may be the best idea for it.
   steelCost: 4
   plankCost: 12
-  npcCost: 2
-  dayCost: 2
-  finishDayBuildingTime: 0
+  workerPointsCost: 0
+  buildTimeHours: 0
   buildingType: 1
+  requiresSpecialist: 0
+  requiredSpecialist: 0
+  finishBuildingHour: 0
   isBuilding: 0
+  isFinished: 0
   timeManager: {fileID: 0}
   dateTime:
     day: 0
     hour: 0
     minutes: 0
     isDayNight: 0
-    sceneSystem: {fileID: 0}
-    saveDataDDA: {fileID: 0}
-    gameManager: {fileID: 0}
   spriteRenderer: {fileID: 0}
   OriginalSprite: {fileID: 21300000, guid: 024aaf320b31e4046b485a33a89df25f, type: 3}
-  Constructhreshold: {fileID: 21300000, guid: 4bd3ef4be4d8b2b44b5a870ae317e3c9, type: 3}
+  ConstructSprite: {fileID: 21300000, guid: 4bd3ef4be4d8b2b44b5a870ae317e3c9, type: 3}
   buildManager: {fileID: 0}
-  isfinsih: 0
 --- !u!61 &2611419574170517660
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -185,36 +185,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83bad588e134a3f4692eef30d28ea68a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameBuild: 
-  detailBuild: 
-  upgradeLevels:
-  - levelNumber: 2
-    steelCost: 5
-    plankCost: 20
-    npcCost: 2
-    dayCost: 2
-    levelSprite: {fileID: 21300000, guid: e42a9f61a2091764db83e26a921ad14d, type: 3}
-    isneedwater: 1
-    isneedElecticities: 0
-    isNeedSpecialist: 1
-    requiredSpecialist: 3
   currentLevel: 1
   maxLevel: 0
   isUpgradBuilding: 0
   isFinishedUpgrad: 0
   upgradeUi: {fileID: 0}
-  timeManager: {fileID: 0}
-  dateTime:
-    day: 0
-    hour: 0
-    minutes: 0
-    isDayNight: 0
-    sceneSystem: {fileID: 0}
-    saveDataDDA: {fileID: 0}
-    gameManager: {fileID: 0}
-  spriteRenderer: {fileID: 0}
   ConstructSprite: {fileID: 21300000, guid: 4bd3ef4be4d8b2b44b5a870ae317e3c9, type: 3}
-  buildManager: {fileID: 0}
   building: {fileID: 0}
   uImanger: {fileID: 0}
   assignedSpecialistNpc:
@@ -231,6 +207,8 @@ MonoBehaviour:
     countInventorySlot: 0
     idnpc: 0
     roleNpc: 0
+    isWorking: 0
+    workerValue: 1
     leaderSkill: 
     idHead: 0
     idBody: 0
@@ -239,7 +217,8 @@ MonoBehaviour:
     building: {fileID: 0}
     level: 0
     tile: {fileID: 0}
-  finishDayBuildingUpgradTime: 0
+    buildingType: 0
+  finishUpgradeHour: 0
 --- !u!114 &6834572234426401681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,23 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1f893c0b0beed34496f90a99fec6d5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeManager: {fileID: 0}
-  dateTime:
-    day: 0
-    hour: 0
-    minutes: 0
-    isDayNight: 0
-    sceneSystem: {fileID: 0}
-    saveDataDDA: {fileID: 0}
-    gameManager: {fileID: 0}
-  buildManager: {fileID: 0}
-  currentDay: 0
-  building: {fileID: 0}
-  upgradeUi: {fileID: 0}
-  upgradeBuilding: {fileID: 0}
-  uImanger: {fileID: 0}
-  globalstat: {fileID: 0}
-  Isapplyspeed: 0
+  inventoryItemPresent: {fileID: 0}
   craftingItemsLevel1:
   - itemID: 1020106
     craftingTime: 5000
@@ -364,6 +327,3 @@ MonoBehaviour:
     itemName: 
     itemIcon: {fileID: 0}
     rarity: 0
-  maxCraftingSlots: 0
-  craftManager: {fileID: 0}
-  inventoryItemPresent: {fileID: 0}

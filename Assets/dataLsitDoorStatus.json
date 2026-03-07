@@ -3,7 +3,7 @@
         {
             "idSceneEx": 0,
             "listUnLockDoorInSceneEx": [
-                true,
+                false,
                 true
             ]
         }

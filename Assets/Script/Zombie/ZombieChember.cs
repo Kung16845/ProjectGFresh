@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ZombieChember : Zombie
@@ -8,25 +6,9 @@ public class ZombieChember : Zombie
     public GameObject speedBoostAreaPrefab;
     public float areaRadius = 3f;
     public float areaDuration = 10f;
-    public float speedIncreaseAmount = 1.5f;          // Movement speed multiplier
-    public float attackSpeedIncreaseAmount = 1.5f;    // Attack speed multiplier
+    public float speedIncreaseAmount = 1.5f;
+    public float attackSpeedIncreaseAmount = 1.5f;
     public float speedIncreaseDuration = 5f;
-    public void SetZombieCostumeId()
-    {
-        string mutationCode = GetMutationCode(mutationType);
-        idZombieCoustume = $"30104{mutationCode}";
-    }
-    protected override void Start()
-    {
-        base.Start();
-        SetZombieCostumeId();
-    }
-    protected override void InitializeDamageMultipliers()
-    {
-        base.InitializeDamageMultipliers(); // Initialize with default multipliers
-
-        damageMultipliers[DamageType.Poison] = 0;
-    }
 
     protected override void OnDeath()
     {
@@ -45,27 +27,10 @@ public class ZombieChember : Zombie
                     areaRadius,
                     areaDuration,
                     speedIncreaseAmount,
-                    attackSpeedIncreaseAmount, // Pass the attack speed increase
+                    attackSpeedIncreaseAmount,
                     speedIncreaseDuration
                 );
             }
-        }
-    }
-    private void Update()
-    {
-        if (currentHp <= 0)
-        {
-            currentState = ZombieState.Dead;
-            return;
-        }
-        if (HasReachedAttackPoint())
-        {
-            rb2D.linearVelocity = Vector2.zero;
-            ZombieAttack();
-        }
-        else
-        {
-            ZombieMoveFindBarrier();
         }
     }
 }

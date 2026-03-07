@@ -6,8 +6,8 @@
     "supplyDropCountdownSattlelite": 0,
     "isRepireSattlelite": false,
     "listsupplyDropItemsSattlelite": [],
-    "finishDayBuildingSattleliteTime": 6,
-    "tuneelIsopen": false,
+    "finishRepairHourSattlelite": 0,
+    "tuneelIsopen": true,
     "isclearingTuneel": false,
-    "finishDayBuildingTunnutTime": 5
+    "finishClearingHourTunnel": 65
 }

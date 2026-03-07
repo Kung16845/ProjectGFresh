@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4765d40eb8f9f8c4eac8c053f11c7bc4, type: 3}
-  m_Name: MediumGarden
+  m_Name: Smallbed
   m_EditorClassIdentifier: 
-  id: M100100
-  buildingName: MediumGarden
-  slotSize: 1
-  steelCost: 6
-  plankCost: 10
+  id: S100104
+  buildingName: SmallBed
+  slotSize: 2
+  steelCost: 3
+  plankCost: 7
   workerPointsRequired: 1
-  buildTimeHours: 34
+  buildTimeHours: 6
   requiresSpecialist: 0
   requiredSpecialist: 0
   upgradeLevels:
-  - steelCost: 4
-    plankCost: 20
-    workerPointsRequired: 2
-    buildTimeHours: 34
-    requiresWater: 1
-    requiresElectricity: 0
+  - steelCost: 0
+    plankCost: 10
+    workerPointsRequired: 1
+    buildTimeHours: 12
+    requiresWater: 0
+    requiresElectricity: 1
     requiresSpecialist: 0
     requiredSpecialist: 0
-    levelSprite: {fileID: 21300000, guid: a1ef738194d78294cad3aacd65de62b9, type: 3}
+    levelSprite: {fileID: 21300000, guid: f57870a62bd961d409c44cecbde441db, type: 3}

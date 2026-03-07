@@ -25,21 +25,12 @@ public class ZombieSlimer : Zombie
 
     // List of all lanes for lane switching
     private List<Lane> allLanes;
-    private AnimationControllerGrunt animationControllerGrunt;
-
     // Reference to the player
     private Transform playerTransform;
-
-    public void SetZombieCostumeId()
-    {
-        string mutationCode = GetMutationCode(mutationType);
-        idZombieCoustume = $"30105{mutationCode}";
-    }
 
     protected override void Start()
     {
         base.Start();
-        SetZombieCostumeId();
         animationControllerGrunt = GetComponent<AnimationControllerGrunt>();
         rb2D = GetComponent<Rigidbody2D>();
         // Initialize variables
@@ -103,7 +94,7 @@ public class ZombieSlimer : Zombie
         return closestLane;
     }
 
-    private void Update()
+    protected override void Update()
     {
         switch (slimerState)
         {

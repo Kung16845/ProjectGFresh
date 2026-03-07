@@ -2,39 +2,31 @@
     "listItemBoxes": [
         {
             "nameItem": "Scrap",
-            "idItem": 1020101,
+            "idItem": "1020101",
             "count": 700,
             "maxCount": 15,
             "itemtype": 7,
-            "parantslotType": 7
+            "parantslotType": 0
         },
         {
             "nameItem": "Broken DMR",
-            "idItem": 1020114,
+            "idItem": "1020114",
             "count": 1,
             "maxCount": 1,
             "itemtype": 7,
-            "parantslotType": 3
+            "parantslotType": 0
         },
         {
             "nameItem": "M4",
-            "idItem": 1020201,
+            "idItem": "1020201",
             "count": 2,
             "maxCount": 1,
             "itemtype": 0,
             "parantslotType": 0
         },
         {
-            "nameItem": "Moonshine",
-            "idItem": 1020109,
-            "count": 50,
-            "maxCount": 1,
-            "itemtype": 7,
-            "parantslotType": 0
-        },
-        {
             "nameItem": "AK47",
-            "idItem": 1020202,
+            "idItem": "1020202",
             "count": 2,
             "maxCount": 1,
             "itemtype": 0,
@@ -42,7 +34,7 @@
         },
         {
             "nameItem": "MP5Drummag",
-            "idItem": 1020208,
+            "idItem": "1020208",
             "count": 2,
             "maxCount": 1,
             "itemtype": 0,
@@ -50,15 +42,15 @@
         },
         {
             "nameItem": "MP7",
-            "idItem": 1020206,
-            "count": 2,
+            "idItem": "1020206",
+            "count": 3,
             "maxCount": 1,
             "itemtype": 0,
             "parantslotType": 0
         },
         {
             "nameItem": "M890",
-            "idItem": 1020209,
+            "idItem": "1020209",
             "count": 3,
             "maxCount": 1,
             "itemtype": 0,
@@ -66,7 +58,7 @@
         },
         {
             "nameItem": "Saiga",
-            "idItem": 1020210,
+            "idItem": "1020210",
             "count": 2,
             "maxCount": 1,
             "itemtype": 0,
@@ -74,7 +66,7 @@
         },
         {
             "nameItem": "MK14",
-            "idItem": 1020212,
+            "idItem": "1020212",
             "count": 2,
             "maxCount": 1,
             "itemtype": 0,
@@ -82,7 +74,7 @@
         },
         {
             "nameItem": "AWP",
-            "idItem": 1020216,
+            "idItem": "1020216",
             "count": 1,
             "maxCount": 1,
             "itemtype": 0,
@@ -90,7 +82,7 @@
         },
         {
             "nameItem": "M24",
-            "idItem": 1020213,
+            "idItem": "1020213",
             "count": 1,
             "maxCount": 1,
             "itemtype": 0,
@@ -98,7 +90,7 @@
         },
         {
             "nameItem": "G18",
-            "idItem": 1020215,
+            "idItem": "1020215",
             "count": 3,
             "maxCount": 1,
             "itemtype": 0,
@@ -106,227 +98,244 @@
         },
         {
             "nameItem": "MediumCalliber",
-            "idItem": 1020127,
+            "idItem": "1020127",
             "count": 3240,
             "maxCount": 90,
             "itemtype": 5,
-            "parantslotType": 3
+            "parantslotType": 0
         },
         {
             "nameItem": "HighCalliber",
-            "idItem": 1020125,
+            "idItem": "1020125",
             "count": 900,
             "maxCount": 20,
             "itemtype": 5,
-            "parantslotType": 3
+            "parantslotType": 0
         },
         {
             "nameItem": "ShotgunAmmo",
-            "idItem": 1020126,
+            "idItem": "1020126",
             "count": 480,
             "maxCount": 40,
             "itemtype": 5,
-            "parantslotType": 3
+            "parantslotType": 0
         },
         {
             "nameItem": "LowCaliber",
-            "idItem": 1020124,
-            "count": 2539,
+            "idItem": "1020124",
+            "count": 2540,
             "maxCount": 150,
             "itemtype": 5,
-            "parantslotType": 3
+            "parantslotType": 0
         },
         {
             "nameItem": "IED",
-            "idItem": 1020301,
+            "idItem": "1020301",
             "count": 12,
             "maxCount": 3,
             "itemtype": 4,
-            "parantslotType": 4
+            "parantslotType": 0
         },
         {
             "nameItem": "Frag Grenade",
-            "idItem": 1020302,
+            "idItem": "1020302",
             "count": 15,
             "maxCount": 3,
             "itemtype": 4,
-            "parantslotType": 4
+            "parantslotType": 0
         },
         {
             "nameItem": "Impact Grenade",
-            "idItem": 1020303,
+            "idItem": "1020303",
             "count": 15,
             "maxCount": 3,
             "itemtype": 4,
-            "parantslotType": 4
+            "parantslotType": 0
         },
         {
             "nameItem": "Dynamite",
-            "idItem": 1020304,
-            "count": 9,
+            "idItem": "1020304",
+            "count": 4,
             "maxCount": 3,
             "itemtype": 4,
-            "parantslotType": 4
+            "parantslotType": 0
         },
         {
             "nameItem": "Poison Grenade",
-            "idItem": 1020305,
+            "idItem": "1020305",
             "count": 12,
             "maxCount": 3,
             "itemtype": 4,
-            "parantslotType": 4
+            "parantslotType": 0
         },
         {
             "nameItem": "Molotov",
-            "idItem": 1020306,
+            "idItem": "1020306",
             "count": 18,
             "maxCount": 3,
             "itemtype": 4,
-            "parantslotType": 4
+            "parantslotType": 0
         },
         {
             "nameItem": "Napalm",
-            "idItem": 1020307,
+            "idItem": "1020307",
             "count": 12,
             "maxCount": 3,
             "itemtype": 4,
-            "parantslotType": 4
+            "parantslotType": 0
         },
         {
             "nameItem": "Pulse Grenade",
-            "idItem": 1020308,
+            "idItem": "1020308",
             "count": 12,
             "maxCount": 3,
             "itemtype": 4,
-            "parantslotType": 4
+            "parantslotType": 0
         },
         {
             "nameItem": "Slime Grenade",
-            "idItem": 1020309,
+            "idItem": "1020309",
             "count": 18,
             "maxCount": 3,
             "itemtype": 4,
-            "parantslotType": 4
+            "parantslotType": 0
         },
         {
             "nameItem": "WoddenVest",
-            "idItem": 1020401,
+            "idItem": "1020401",
             "count": 3,
             "maxCount": 1,
             "itemtype": 1,
-            "parantslotType": 1
+            "parantslotType": 0
         },
         {
             "nameItem": "PoliceVest",
-            "idItem": 1020402,
+            "idItem": "1020402",
             "count": 3,
             "maxCount": 1,
             "itemtype": 1,
-            "parantslotType": 1
+            "parantslotType": 0
         },
         {
             "nameItem": "DemolitionVest",
-            "idItem": 1020405,
+            "idItem": "1020405",
             "count": 3,
             "maxCount": 1,
             "itemtype": 1,
-            "parantslotType": 1
+            "parantslotType": 0
         },
         {
             "nameItem": "HandmadeVest",
-            "idItem": 1020403,
+            "idItem": "1020403",
             "count": 3,
             "maxCount": 1,
             "itemtype": 1,
-            "parantslotType": 1
+            "parantslotType": 0
         },
         {
             "nameItem": "TacitcalVest",
-            "idItem": 1020404,
+            "idItem": "1020404",
             "count": 3,
             "maxCount": 1,
             "itemtype": 1,
-            "parantslotType": 1
+            "parantslotType": 0
         },
         {
             "nameItem": "ScavengerVest",
-            "idItem": 1020406,
+            "idItem": "1020406",
             "count": 3,
             "maxCount": 1,
             "itemtype": 1,
-            "parantslotType": 1
+            "parantslotType": 0
         },
         {
             "nameItem": "Small Backpack",
-            "idItem": 1020601,
+            "idItem": "1020601",
             "count": 3,
             "maxCount": 1,
             "itemtype": 2,
-            "parantslotType": 3
+            "parantslotType": 0
         },
         {
             "nameItem": "Green Backpack",
-            "idItem": 1020602,
+            "idItem": "1020602",
             "count": 3,
             "maxCount": 1,
             "itemtype": 2,
-            "parantslotType": 3
+            "parantslotType": 0
         },
         {
             "nameItem": "Military Backpack",
-            "idItem": 1020603,
+            "idItem": "1020603",
             "count": 3,
             "maxCount": 1,
             "itemtype": 2,
-            "parantslotType": 3
+            "parantslotType": 0
         },
         {
             "nameItem": "Scanvenger Backpack",
-            "idItem": 1020604,
+            "idItem": "1020604",
             "count": 3,
             "maxCount": 1,
             "itemtype": 2,
-            "parantslotType": 3
+            "parantslotType": 0
         },
         {
             "nameItem": "Rifle Holster",
-            "idItem": 1020605,
+            "idItem": "1020605",
             "count": 3,
             "maxCount": 1,
             "itemtype": 2,
-            "parantslotType": 3
+            "parantslotType": 0
         },
         {
             "nameItem": "BoltCutter",
-            "idItem": 1020501,
+            "idItem": "1020501",
             "count": 1,
             "maxCount": 1,
             "itemtype": 3,
-            "parantslotType": 2
+            "parantslotType": 0
         },
         {
             "nameItem": "Crownbar",
-            "idItem": 1020502,
+            "idItem": "1020502",
             "count": 1,
             "maxCount": 1,
             "itemtype": 3,
-            "parantslotType": 2
+            "parantslotType": 0
         },
         {
             "nameItem": "Shovel",
-            "idItem": 1020503,
+            "idItem": "1020503",
             "count": 1,
             "maxCount": 1,
             "itemtype": 3,
-            "parantslotType": 2
+            "parantslotType": 0
         },
         {
             "nameItem": "Chainsaw",
-            "idItem": 1020504,
+            "idItem": "1020504",
             "count": 1,
             "maxCount": 1,
             "itemtype": 3,
-            "parantslotType": 2
+            "parantslotType": 0
+        },
+        {
+            "nameItem": "Circuit",
+            "idItem": "1020102",
+            "count": 50,
+            "maxCount": 10,
+            "itemtype": 7,
+            "parantslotType": 0
+        },
+        {
+            "nameItem": "Wire",
+            "idItem": "1020103",
+            "count": 50,
+            "maxCount": 10,
+            "itemtype": 7,
+            "parantslotType": 0
         }
-    ]
+    ],
+    "listItemsDailyGive": []
 }

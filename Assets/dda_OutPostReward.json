@@ -2,8 +2,8 @@
     "listDataOutPostReward": [
         {
             "location": 0,
-            "amountGive": 1,
-            "itemName": "454",
+            "amountGive": 0,
+            "itemName": "",
             "locationIcon": {
                 "instanceID": 0
             }

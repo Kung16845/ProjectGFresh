@@ -30,28 +30,16 @@ public class ZombieCharger : Zombie
     [SerializeField] private float accumulatedDamage = 0f;
     public AnimationControllerCharger animationControllerCharger;
 
-    // Existing fields...
-    private Color originalColor;
-    public void SetZombieCostumeId()
-    {
-        string mutationCode = GetMutationCode(mutationType);
-        idZombieCoustume = $"30107{mutationCode}";
-    }
     protected override void Start()
     {
         base.Start();
-        SetZombieCostumeId();
         ChargercurrentState= ChargingZombieState.Charging;
         chargeTimer = chargeUpTime;
         attackDamage = normalDamage;  // Set initial attack damage
         currentSpeed = 0f;            // Start stationary
-
-        // Initialize components
-
-        InitializeDamageMultipliers();
     }
 
-    private void Update()
+    protected override void Update()
     {
         CheckForDeathCharger();
         switch (ChargercurrentState)
@@ -173,13 +161,6 @@ public class ZombieCharger : Zombie
         }
     }
 
-    protected override void InitializeDamageMultipliers()
-    {
-        base.InitializeDamageMultipliers();
-        damageMultipliers[DamageType.LowcaliberBullet] = bulletDamageReduction;
-        damageMultipliers[DamageType.MediumcaliberBullet] = bulletDamageReduction;
-        damageMultipliers[DamageType.HighcalliberBullet] = bulletDamageReduction;
-    }
     public override void ZombieTakeDamage(float damage, DamageType damageType, float extraMultiplier = 1f)
     {
         // Apply damage multiplier when in weakness state

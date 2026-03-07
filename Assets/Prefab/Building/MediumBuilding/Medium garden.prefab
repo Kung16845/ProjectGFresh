@@ -126,7 +126,7 @@ MonoBehaviour:
     isDayNight: 0
   spriteRenderer: {fileID: 0}
   OriginalSprite: {fileID: 21300000, guid: c8d6db1a4f5ff134abb79ca57001cacb, type: 3}
-  ConstructSprite: {fileID: 0}
+  ConstructSprite: {fileID: 21300000, guid: 4bd3ef4be4d8b2b44b5a870ae317e3c9, type: 3}
   buildManager: {fileID: 0}
 --- !u!114 &-5879251724972642109
 MonoBehaviour:
@@ -145,15 +145,7 @@ MonoBehaviour:
   isUpgradBuilding: 0
   isFinishedUpgrad: 0
   upgradeUi: {fileID: 0}
-  timeManager: {fileID: 0}
-  dateTime:
-    day: 0
-    hour: 0
-    minutes: 0
-    isDayNight: 0
-  spriteRenderer: {fileID: 0}
   ConstructSprite: {fileID: 21300000, guid: 4bd3ef4be4d8b2b44b5a870ae317e3c9, type: 3}
-  buildManager: {fileID: 0}
   building: {fileID: 0}
   uImanger: {fileID: 0}
   assignedSpecialistNpc:

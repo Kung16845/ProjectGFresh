@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4765d40eb8f9f8c4eac8c053f11c7bc4, type: 3}
+  m_Name: Chemical_lab
+  m_EditorClassIdentifier: 
+  id: M100100
+  buildingName: Chemical lab
+  slotSize: 1
+  steelCost: 8
+  plankCost: 14
+  workerPointsRequired: 3
+  buildTimeHours: 24
+  requiresSpecialist: 0
+  requiredSpecialist: 0
+  upgradeLevels:
+  - steelCost: 5
+    plankCost: 15
+    workerPointsRequired: 3
+    buildTimeHours: 24
+    requiresWater: 1
+    requiresElectricity: 1
+    requiresSpecialist: 1
+    requiredSpecialist: 3
+    levelSprite: {fileID: 21300000, guid: 58acfefafb0ef8744b908afa1f28627d, type: 3}

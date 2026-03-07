@@ -29,20 +29,12 @@ public class ZombieReeker : Zombie
 
     // Reference to the engaging area position
     public Transform engagingPoint;
-    public AnimationControllerGrunt animationControllerGrunt;
-
     // List of all lanes for lane switching
     private List<Lane> allLanes;
-    public void SetZombieCostumeId()
-    {
-        string mutationCode = GetMutationCode(mutationType);
-        idZombieCoustume = $"30106{mutationCode}";
-        Debug.Log($"Zombie Costume ID set to: {idZombieCoustume}");
-    }
+
     protected override void Start()
     {
         base.Start();
-        SetZombieCostumeId();
         animationControllerGrunt = GetComponent<AnimationControllerGrunt>();
         rb2D = GetComponent<Rigidbody2D>();
         // Initialize variables
@@ -97,7 +89,7 @@ public class ZombieReeker : Zombie
         return closestLane;
     }
 
-    private void Update()
+    protected override void Update()
     {
         switch (ReekercurrentState)
         {
