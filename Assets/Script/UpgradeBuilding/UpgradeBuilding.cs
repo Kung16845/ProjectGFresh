@@ -3,12 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 public class UpgradeBuilding : MonoBehaviour
 {
-    public string nameBuild;
-    public string detailBuild;
-
-    // Upgrade levels
-    public List<UpgradeLevel> upgradeLevels = new List<UpgradeLevel>();
-
     public int currentLevel = 1;
     public int maxLevel;
 
@@ -16,34 +10,29 @@ public class UpgradeBuilding : MonoBehaviour
     public bool isFinishedUpgrad;
 
     public UpgradeUi upgradeUi;
-    public TimeManager timeManager;
-    public DateTime dateTime;
-    public SpriteRenderer spriteRenderer;
     public Sprite ConstructSprite;
-    public BuildManager buildManager;
     public Building building;
     public UImanger uImanger;
     public NpcClass assignedSpecialistNpc;
     public BuiltBuildingInfo builtBuildingInfo;
 
-    public int finishDayBuildingUpgradTime;
+    public int finishUpgradeHour;
+
+    private BuildingData BuildingData => building.buildingData;
 
     void Awake()
     {
         uImanger = FindObjectOfType<UImanger>();
-        timeManager = GameManager.Instance.timeManager;
-        buildManager = GameManager.Instance.buildManager;
-        dateTime = timeManager.dateTime;
         building = GetComponent<Building>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         isUpgradBuilding = false;
         isFinishedUpgrad = false;
-        maxLevel = upgradeLevels.Count+1;
-        WaitUpgrade();
+        maxLevel = BuildingData != null ? BuildingData.MaxLevel : 1;
     }
     void Start()
     {
-        foreach (var builtBuilding in buildManager.builtBuildings)
+        WaitUpgrade();
+
+        foreach (var builtBuilding in building.buildManager.builtBuildings)
         {
             if (builtBuilding.building == this.gameObject)
             {
@@ -73,12 +62,13 @@ public class UpgradeBuilding : MonoBehaviour
 
     void WaitUpgrade()
     {
-        if (dateTime.day >= finishDayBuildingUpgradTime && isUpgradBuilding)
+        if (building.dateTime.TotalHours >= finishUpgradeHour && isUpgradBuilding)
         {
-            UpgradeLevel completedLevel = upgradeLevels[currentLevel - 1];
+            BuildingUpgradeData completedLevel = BuildingData.GetUpgradeData(currentLevel + 1);
+            if (completedLevel == null) return;
 
-            buildManager.npc += completedLevel.npcCost;
-            spriteRenderer.sprite = completedLevel.levelSprite;
+            building.buildManager.npc += completedLevel.workerPointsRequired;
+            building.spriteRenderer.sprite = completedLevel.levelSprite;
             isUpgradBuilding = false;
             currentLevel++;
 
@@ -98,48 +88,15 @@ public class UpgradeBuilding : MonoBehaviour
             {
                 NpcManager npcManager = GameManager.Instance.npcManager;
                 NpcClass npc = npcManager.GetNpcById(assignedSpecialistNpc.idnpc);
-                npc.isWorking = false; 
+                if (npc != null) npc.isWorking = false;
                 assignedSpecialistNpc = null;
             }
 
             Debug.Log("Upgraded to Level " + currentLevel);
         }
-        else if (dateTime.day < finishDayBuildingUpgradTime)
+        else if (building.dateTime.TotalHours < finishUpgradeHour)
         {
-            spriteRenderer.sprite = ConstructSprite;
+            building.spriteRenderer.sprite = ConstructSprite;
         }
     }
-    // public void DisableCollider()
-    // {
-    //     Collider2D collider = GetComponent<Collider2D>();
-    //     if (collider != null)
-    //     {
-    //         collider.enabled = false;
-    //     }
-    // }
-
-    // public void EnableCollider()
-    // {
-    //     Collider2D collider = GetComponent<Collider2D>();
-    //     if (collider != null)
-    //     {
-    //         collider.enabled = true;
-    //     }
-    // }
-}
-[System.Serializable]
-public class UpgradeLevel
-{
-    public int levelNumber;
-    public int steelCost;
-    public int plankCost;
-    public int npcCost;
-    public int dayCost;
-    public Sprite levelSprite;
-    public bool isneedwater;
-    public bool isneedElecticities;
-
-    // Add this line to include the required specialist role
-    public bool isNeedSpecialist;
-    public SpecialistRoleNpc requiredSpecialist;
 }

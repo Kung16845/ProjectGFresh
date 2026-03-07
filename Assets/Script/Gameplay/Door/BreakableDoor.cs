@@ -28,7 +28,7 @@ public class BreakableDoor : MonoBehaviour
     private UIInventoryEX inventory; // Use the extended class.
 
     // Map the boolean flags to their respective item IDs
-    private Dictionary<int, bool> requiredItems;
+    private Dictionary<string, bool> requiredItems;
 
     void Awake()
     {
@@ -47,12 +47,12 @@ public class BreakableDoor : MonoBehaviour
         inventory = FindObjectOfType<UIInventoryEX>(); // Find the extended inventory class.
 
         // Initialize the requiredItems dictionary
-        requiredItems = new Dictionary<int, bool>
+        requiredItems = new Dictionary<string, bool>
         {
-            { 1020502, Isusecrownbar },
-            { 1020504, IsuseChainsaw },
-            { 1020501, IsuseBoltCutter },
-            { 1020503, IsuseShovel }
+            { "1020502", Isusecrownbar },
+            { "1020504", IsuseChainsaw },
+            { "1020501", IsuseBoltCutter },
+            { "1020503", IsuseShovel }
         };
 
         OpenProgressSlider.minValue = 0f;

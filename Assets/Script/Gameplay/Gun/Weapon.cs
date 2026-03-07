@@ -455,15 +455,15 @@ public class Weapon : MonoBehaviour
         CaliberType requiredCaliber = this.caliberType; // Use the caliberType directly from the weapon
 
         // Map the caliber type to ammo ID (assuming the ammo IDs are pre-set)
-        Dictionary<CaliberType, int> caliberToAmmoID = new Dictionary<CaliberType, int>
+        Dictionary<CaliberType, string> caliberToAmmoID = new Dictionary<CaliberType, string>
         {
-            { CaliberType.High, 1020125 },
-            { CaliberType.Shotgun, 1020126 },
-            { CaliberType.Low, 1020124 },
-            { CaliberType.Medium, 1020127 }
+            { CaliberType.High, "1020125" },
+            { CaliberType.Shotgun, "1020126" },
+            { CaliberType.Low, "1020124" },
+            { CaliberType.Medium, "1020127" }
         };
 
-        if (!caliberToAmmoID.TryGetValue(requiredCaliber, out int requiredAmmoID))
+        if (!caliberToAmmoID.TryGetValue(requiredCaliber, out string requiredAmmoID))
         {
             isReloading = false;
             animationController.isreload = false;

@@ -18,7 +18,7 @@ public class ItemClass : MonoBehaviour
     public float tradeValueItem;
     public bool carftableItem;
     public int disassembleItem;
-    public int idItem;
+    public string idItem;
     [Header("DDA Stat")]
     public string pointType;
     public int point;

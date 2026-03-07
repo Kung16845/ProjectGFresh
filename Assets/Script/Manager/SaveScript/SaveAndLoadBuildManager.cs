@@ -32,73 +32,48 @@ public class SaveAndLoadBuildManager : MonoBehaviour
         string json = JsonUtility.ToJson(dataColletBuilding, true);
         File.WriteAllText(saveDataBuildingPath, json);
     }
+    private void PopulateBaseInfo(InfoBuilding info, Building building, UpgradeBuilding upgrade)
+    {
+        info.nameBuild = building.nameBuild;
+        info.finishBuildingHour = building.finishBuildingHour;
+        info.transformX = building.transform.position.x;
+        info.transformY = building.transform.position.y;
+        info.levelBuild = upgrade.currentLevel;
+        info.isBuildingUpgrad = upgrade.isUpgradBuilding;
+        info.isBuildFinishedUpgrad = upgrade.isFinishedUpgrad;
+        info.finishUpgradeHour = upgrade.finishUpgradeHour;
+    }
+
     public void AddDataListBuilding()
     {
         foreach (BuiltBuildingInfo build in buildManager.builtBuildings)
         {
-            InfoBuilding infoBuilding = new InfoBuilding();
-
             GameObject buildGameObject = build.building.gameObject;
             Building building = buildGameObject.GetComponent<Building>();
-            UpgradeBuilding upgradeLevel = building.GetComponent<UpgradeBuilding>();
+            UpgradeBuilding upgrade = building.GetComponent<UpgradeBuilding>();
 
-            infoBuilding.nameBuild = building.nameBuild;
-            infoBuilding.dayBuildingFinist = building.finishDayBuildingTime;
-
-            infoBuilding.transformX = building.transform.position.x;
-            infoBuilding.transformY = building.transform.position.y;
-
-            infoBuilding.levelBuild = upgradeLevel.currentLevel;
-            infoBuilding.isBuildingUpgrad = upgradeLevel.isUpgradBuilding;
-            infoBuilding.isBuildFinishedUpgrad = upgradeLevel.isFinishedUpgrad;
-            infoBuilding.dayBuildingUpgradFinist = upgradeLevel.finishDayBuildingUpgradTime;
-
-            if (infoBuilding.nameBuild == "Garden")
+            if (building.nameBuild == "Garden")
             {
-                InfoBuildSmallGarden infoBuildSmallGarden = new InfoBuildSmallGarden();
-
-                infoBuildSmallGarden.nameBuild = building.nameBuild;
-                infoBuildSmallGarden.dayBuildingFinist = building.finishDayBuildingTime;
-
-                infoBuildSmallGarden.transformX = building.transform.position.x;
-                infoBuildSmallGarden.transformY = building.transform.position.y;
-
-                infoBuildSmallGarden.levelBuild = upgradeLevel.currentLevel;
-                infoBuildSmallGarden.isBuildingUpgrad = upgradeLevel.isUpgradBuilding;
-                infoBuildSmallGarden.isBuildFinishedUpgrad = upgradeLevel.isFinishedUpgrad;
-                infoBuildSmallGarden.dayBuildingUpgradFinist = upgradeLevel.finishDayBuildingUpgradTime;
-
-                infoBuildSmallGarden.yielduration = buildGameObject.GetComponent<GardenBuilding>().yieldduration;
-
-                dataColletBuilding.listinfoBuildSmallGardens.Add(infoBuildSmallGarden);
+                InfoBuildSmallGarden info = new InfoBuildSmallGarden();
+                PopulateBaseInfo(info, building, upgrade);
+                info.yielduration = buildGameObject.GetComponent<GardenBuilding>().yieldduration;
+                dataColletBuilding.listinfoBuildSmallGardens.Add(info);
             }
-            else if (infoBuilding.nameBuild == "Medium garden")
+            else if (building.nameBuild == "Medium garden")
             {
-                InfoBuildMediumGarden infoBuildMediumGarden = new InfoBuildMediumGarden();
-
-                infoBuildMediumGarden.nameBuild = building.nameBuild;
-                infoBuildMediumGarden.dayBuildingFinist = building.finishDayBuildingTime;
-
-                infoBuildMediumGarden.transformX = building.transform.position.x;
-                infoBuildMediumGarden.transformY = building.transform.position.y;
-
-                infoBuildMediumGarden.levelBuild = upgradeLevel.currentLevel;
-                infoBuildMediumGarden.isBuildingUpgrad = upgradeLevel.isUpgradBuilding;
-                infoBuildMediumGarden.isBuildFinishedUpgrad = upgradeLevel.isFinishedUpgrad;
-                infoBuildMediumGarden.dayBuildingUpgradFinist = upgradeLevel.finishDayBuildingUpgradTime;
-
-                MediumGarden mediumGardenScript = buildGameObject.GetComponent<MediumGarden>();
-                infoBuildMediumGarden.isHerbalPlant = mediumGardenScript.isHerbalPlanted;
-                infoBuildMediumGarden.yielduration = mediumGardenScript.yieldduration;
-
-                dataColletBuilding.listinfoBuildMediumGardens.Add(infoBuildMediumGarden);
+                InfoBuildMediumGarden info = new InfoBuildMediumGarden();
+                PopulateBaseInfo(info, building, upgrade);
+                MediumGarden mg = buildGameObject.GetComponent<MediumGarden>();
+                info.isHerbalPlant = mg.isHerbalPlanted;
+                info.yielduration = mg.yieldduration;
+                dataColletBuilding.listinfoBuildMediumGardens.Add(info);
             }
             else
             {
-
-                dataColletBuilding.listInfoBuilding.Add(infoBuilding);
+                InfoBuilding info = new InfoBuilding();
+                PopulateBaseInfo(info, building, upgrade);
+                dataColletBuilding.listInfoBuilding.Add(info);
             }
-
         }
     }
     public void LoadBuildInScenes()
@@ -106,150 +81,78 @@ public class SaveAndLoadBuildManager : MonoBehaviour
         if (File.Exists(saveDataBuildingPath))
         {
             string json = File.ReadAllText(saveDataBuildingPath);
-            dataColletBuilding = JsonUtility.FromJson<DataColletBuilding>(json);
+            dataColletBuilding = JsonUtility.FromJson<DataColletBuilding>(json) ?? new DataColletBuilding();
 
-            if (dataColletBuilding == null)
-            {
-                dataColletBuilding = new DataColletBuilding();
-            }
+            foreach (InfoBuilding infoBuilding in dataColletBuilding.listInfoBuilding)
+                CreateBuilding(infoBuilding);
 
-            if (dataColletBuilding.listInfoBuilding == null)
-            {
-                dataColletBuilding.listInfoBuilding = new List<InfoBuilding>();
-            }
-            if (dataColletBuilding.listinfoBuildSmallGardens == null)
-            {
-                dataColletBuilding.listinfoBuildSmallGardens = new List<InfoBuildSmallGarden>();
-            }
-            if (dataColletBuilding.listinfoBuildMediumGardens == null)
-            {
-                dataColletBuilding.listinfoBuildMediumGardens = new List<InfoBuildMediumGarden>();
-            }
+            foreach (InfoBuildSmallGarden infoBuilding in dataColletBuilding.listinfoBuildSmallGardens)
+                CreateBuildingSmallGarden(infoBuilding);
 
-            if (dataColletBuilding.listInfoBuilding.Count > 0)
-            {
-                foreach (InfoBuilding infoBuilding in dataColletBuilding.listInfoBuilding)
-                {
-                    CreateBuilding(infoBuilding);
-                }
-            }
-            if (dataColletBuilding.listinfoBuildSmallGardens.Count > 0)
-            {
-                foreach (InfoBuildSmallGarden infoBuilding in dataColletBuilding.listinfoBuildSmallGardens)
-                {
-                    CreateBuildingSmallGarden(infoBuilding);
-                }
-            }
-
-            if (dataColletBuilding.listinfoBuildMediumGardens.Count > 0)
-            {
-                foreach (InfoBuildMediumGarden infoBuilding in dataColletBuilding.listinfoBuildMediumGardens)
-                {
-                    CreateBuildingMediumGarden(infoBuilding);
-                }
-            }
+            foreach (InfoBuildMediumGarden infoBuilding in dataColletBuilding.listinfoBuildMediumGardens)
+                CreateBuildingMediumGarden(infoBuilding);
         }
         else
         {
             dataColletBuilding = new DataColletBuilding();
-            dataColletBuilding.listInfoBuilding = new List<InfoBuilding>();
-            dataColletBuilding.listinfoBuildSmallGardens = new List<InfoBuildSmallGarden>();
-            dataColletBuilding.listinfoBuildMediumGardens = new List<InfoBuildMediumGarden>();
         }
     }
-    public void CreateBuilding(InfoBuilding infoBuilding)
+    private Building InstantiateAndSetupBuilding(InfoBuilding info)
     {
-        Building newBuildingObject = Instantiate(buildManager.listALLBuilding.FirstOrDefault(build
-        => build.nameBuild == infoBuilding.nameBuild));
+        Building newBuilding = Instantiate(
+            buildManager.listALLBuilding.FirstOrDefault(b => b.nameBuild == info.nameBuild));
 
-        newBuildingObject.nameBuild = infoBuilding.nameBuild;
-        newBuildingObject.finishDayBuildingTime = infoBuilding.dayBuildingFinist;
+        newBuilding.nameBuild = info.nameBuild;
+        newBuilding.finishBuildingHour = info.finishBuildingHour;
+        newBuilding.transform.position = new Vector2(info.transformX, info.transformY);
 
-        Vector2 newVector = new Vector2(infoBuilding.transformX, infoBuilding.transformY);
-        newBuildingObject.transform.position = newVector;
+        UpgradeBuilding upgrade = newBuilding.GetComponent<UpgradeBuilding>();
+        upgrade.currentLevel = info.levelBuild;
+        upgrade.isUpgradBuilding = info.isBuildingUpgrad;
+        upgrade.isFinishedUpgrad = info.isBuildFinishedUpgrad;
+        upgrade.finishUpgradeHour = info.finishUpgradeHour;
 
-        UpgradeBuilding upgradeBuildingScript = newBuildingObject.GetComponent<UpgradeBuilding>();
-        upgradeBuildingScript.currentLevel = infoBuilding.levelBuild;
-        upgradeBuildingScript.isUpgradBuilding = infoBuilding.isBuildingUpgrad;
-        upgradeBuildingScript.isFinishedUpgrad = infoBuilding.isBuildFinishedUpgrad;
-        upgradeBuildingScript.finishDayBuildingUpgradTime = infoBuilding.dayBuildingUpgradFinist;
-
-        Tile tile = buildManager.tiles.FirstOrDefault(tile => tile.transform.position.x == newVector.x && tile.transform.position.y == newVector.y);
+        Vector2 pos = newBuilding.transform.position;
+        Tile tile = buildManager.tiles.FirstOrDefault(t => t.transform.position.x == pos.x && t.transform.position.y == pos.y);
         tile.isOccupied = true;
 
-        BuiltBuildingInfo newBuiltBuildingInfo = new BuiltBuildingInfo(newBuildingObject, infoBuilding.levelBuild, null, newBuildingObject.buildingType);
-        buildManager.builtBuildings.Add(newBuiltBuildingInfo);
+        buildManager.builtBuildings.Add(
+            new BuiltBuildingInfo(newBuilding, info.levelBuild, null, newBuilding.buildingType));
+
+        return newBuilding;
     }
-    public void CreateBuildingSmallGarden(InfoBuildSmallGarden infoBuildSmallGarden)
+
+    public void CreateBuilding(InfoBuilding info)
     {
-        Building newbuildSmallGarden = Instantiate(buildManager.listALLBuilding.FirstOrDefault(build =>
-        build.nameBuild == infoBuildSmallGarden.nameBuild));
-
-        newbuildSmallGarden.nameBuild = infoBuildSmallGarden.nameBuild;
-        newbuildSmallGarden.finishDayBuildingTime = infoBuildSmallGarden.dayBuildingFinist;
-
-        Vector2 newVector = new Vector2(infoBuildSmallGarden.transformX, infoBuildSmallGarden.transformY);
-        newbuildSmallGarden.transform.position = newVector;
-
-        UpgradeBuilding upgradeBuildingScript = newbuildSmallGarden.GetComponent<UpgradeBuilding>();
-        upgradeBuildingScript.currentLevel = infoBuildSmallGarden.levelBuild;
-        upgradeBuildingScript.isUpgradBuilding = infoBuildSmallGarden.isBuildingUpgrad;
-        upgradeBuildingScript.isFinishedUpgrad = infoBuildSmallGarden.isBuildFinishedUpgrad;
-        upgradeBuildingScript.finishDayBuildingUpgradTime = infoBuildSmallGarden.dayBuildingUpgradFinist;
-
-        GardenBuilding gardenBuildingScript = newbuildSmallGarden.GetComponent<GardenBuilding>();
-        gardenBuildingScript.yieldduration = infoBuildSmallGarden.yielduration;
-
-        Tile tile = buildManager.tiles.FirstOrDefault(tile => tile.transform.position.x == newVector.x && tile.transform.position.y == newVector.y);
-        tile.isOccupied = true;
-
-        BuiltBuildingInfo newBuiltBuildingInfo = new BuiltBuildingInfo(newbuildSmallGarden, infoBuildSmallGarden.levelBuild, null,newbuildSmallGarden.buildingType);
-        buildManager.builtBuildings.Add(newBuiltBuildingInfo);
-
+        InstantiateAndSetupBuilding(info);
     }
-    public void CreateBuildingMediumGarden(InfoBuildMediumGarden infoBuildMediumlGarden)
+
+    public void CreateBuildingSmallGarden(InfoBuildSmallGarden info)
     {
-        Building newbuildMediumGarden = Instantiate(buildManager.listALLBuilding.FirstOrDefault(build
-        => build.nameBuild == infoBuildMediumlGarden.nameBuild));
+        Building b = InstantiateAndSetupBuilding(info);
+        b.GetComponent<GardenBuilding>().yieldduration = info.yielduration;
+    }
 
-        newbuildMediumGarden.nameBuild = infoBuildMediumlGarden.nameBuild;
-        newbuildMediumGarden.finishDayBuildingTime = infoBuildMediumlGarden.dayBuildingFinist;
-
-        Vector2 newVector = new Vector2(infoBuildMediumlGarden.transformX, infoBuildMediumlGarden.transformY);
-        newbuildMediumGarden.transform.position = newVector;
-
-        UpgradeBuilding upgradeBuildingScript = newbuildMediumGarden.GetComponent<UpgradeBuilding>();
-        upgradeBuildingScript.currentLevel = infoBuildMediumlGarden.levelBuild;
-        upgradeBuildingScript.isUpgradBuilding = infoBuildMediumlGarden.isBuildingUpgrad;
-        upgradeBuildingScript.isFinishedUpgrad = infoBuildMediumlGarden.isBuildFinishedUpgrad;
-        upgradeBuildingScript.finishDayBuildingUpgradTime = infoBuildMediumlGarden.dayBuildingUpgradFinist;
-
-        MediumGarden gardenBuildingScript = newbuildMediumGarden.GetComponent<MediumGarden>();
-        gardenBuildingScript.yieldduration = infoBuildMediumlGarden.yielduration;
-        gardenBuildingScript.isHerbalPlanted = infoBuildMediumlGarden.isHerbalPlant;
-
-        Tile tile = buildManager.tiles.FirstOrDefault(tile => tile.transform.position.x == newVector.x && tile.transform.position.y == newVector.y);
-        tile.isOccupied = true;
-
-        BuiltBuildingInfo newBuiltBuildingInfo = new BuiltBuildingInfo(newbuildMediumGarden, infoBuildMediumlGarden.levelBuild, null,newbuildMediumGarden.buildingType);
-        buildManager.builtBuildings.Add(newBuiltBuildingInfo);
+    public void CreateBuildingMediumGarden(InfoBuildMediumGarden info)
+    {
+        Building b = InstantiateAndSetupBuilding(info);
+        MediumGarden mg = b.GetComponent<MediumGarden>();
+        mg.yieldduration = info.yielduration;
+        mg.isHerbalPlanted = info.isHerbalPlant;
     }
     public void ResetDataBuilding()
     {
         dataColletBuilding = new DataColletBuilding();
-        dataColletBuilding.listInfoBuilding = new List<InfoBuilding>();
-        dataColletBuilding.listinfoBuildSmallGardens = new List<InfoBuildSmallGarden>();
-        dataColletBuilding.listinfoBuildMediumGardens = new List<InfoBuildMediumGarden>();
         string json = JsonUtility.ToJson(dataColletBuilding, true);
         File.WriteAllText(saveDataBuildingPath, json);
     }
 }
 [Serializable]
 public class DataColletBuilding
-{   
-    public List<InfoBuilding> listInfoBuilding;
-    public List<InfoBuildSmallGarden> listinfoBuildSmallGardens;
-    public List<InfoBuildMediumGarden> listinfoBuildMediumGardens;
+{
+    public List<InfoBuilding> listInfoBuilding = new List<InfoBuilding>();
+    public List<InfoBuildSmallGarden> listinfoBuildSmallGardens = new List<InfoBuildSmallGarden>();
+    public List<InfoBuildMediumGarden> listinfoBuildMediumGardens = new List<InfoBuildMediumGarden>();
 }
 [Serializable]
 public class InfoBuilding
@@ -258,20 +161,10 @@ public class InfoBuilding
     public float transformY;
     public string nameBuild;
     public int levelBuild;
-    public int dayBuildingFinist;
-    public int dayBuildingUpgradFinist;
+    public int finishBuildingHour;
+    public int finishUpgradeHour;
     public bool isBuildingUpgrad;
     public bool isBuildFinishedUpgrad;
-}
-[Serializable]
-public class InfoBuildWorkshop : InfoBuilding
-{
-    //ไม่ต้องเก็บค่าอะไร
-}
-[Serializable]
-public class InfoBuildWaterPump : InfoBuilding
-{
-    //ไม่ต้องเก็บค่าอะไร
 }
 [Serializable]
 public class InfoBuildSmallGarden : InfoBuilding
@@ -279,61 +172,8 @@ public class InfoBuildSmallGarden : InfoBuilding
     public int yielduration;
 }
 [Serializable]
-public class InfoBuildSolar : InfoBuilding
-{
-    //ไม่ต้องเก็บค่าอะไร
-}
-[Serializable]
-public class InfoBuildBeacon : InfoBuilding
-{
-    //ไม่ต้องเก็บค่าอะไร
-}
-[Serializable]
-public class InfoBuildSmallBed : InfoBuilding
-{
-    //ไม่ต้องเก็บค่าอะไร
-}
-[Serializable]
-public class InfoBuildLounge : InfoBuilding
-{
-    //ไม่ต้องเก็บค่าอะไร
-}
-[Serializable]
-public class InfoBuildChemicallab : InfoBuilding
-{
-    //ไม่ต้องเก็บค่าอะไร
-}
-[Serializable]
-public class InfoBuildClinic : InfoBuilding
-{
-    //ไม่ต้องเก็บค่าอะไร
-}
-[Serializable]
-public class InfoBuildMediumBed : InfoBuilding
-{
-    //ไม่ต้องเก็บค่าอะไร
-}
-[Serializable]
-public class InfoBuildMoonshine : InfoBuilding
-{
-    //ไม่ต้องเก็บค่าอะไร
-}
-[Serializable]
 public class InfoBuildMediumGarden : InfoBuilding
 {
     public int yielduration;
     public bool isHerbalPlant;
-}
-[Serializable]
-public class InfoBuildCarWorkshop : InfoBuilding
-{
-    //ไม่ต้องเก็บค่าอะไร
-}
-public class InfoBuildFieldHospital : InfoBuilding
-{
-    //ไม่ต้องเก็บค่าอะไร
-}
-public class InfoBuildWatchTower : InfoBuilding
-{
-    //ไม่ต้องเก็บค่าอะไร
 }

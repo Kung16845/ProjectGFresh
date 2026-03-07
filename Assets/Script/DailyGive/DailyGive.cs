@@ -128,7 +128,7 @@ public class DailyGive : MonoBehaviour
     }
 
 
-    public void AddItemByID(int itemID, int count)
+    public void AddItemByID(string itemID, int count)
     {
         // Find the UIItemData associated with the given itemID
         UIItemData uiItemData = listUIItemPrefab.FirstOrDefault(item => item.idItem == itemID);

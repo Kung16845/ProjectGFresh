@@ -172,7 +172,7 @@ public class DataCollentCraftItems
 [Serializable]
 public class DataItemsCraft
 {
-    public int idItem;
+    public string idItem;
     public float timeRemaining;
     public bool isComplete;
     public int numCraftingSource;

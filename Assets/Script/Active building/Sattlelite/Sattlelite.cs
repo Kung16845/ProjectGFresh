@@ -18,10 +18,10 @@ public class Sattlelite : MonoBehaviour
     public InventoryItemPresent inventoryItemPresent;
     public SpriteRenderer spriteRenderer;
     public Sprite repairedSpriteRenderer;
-    private int daycost = 2;
+    private int buildTimeHours = 48;
     public bool isRepairing = false;
-    private int npcCost = 1;
-    public int finishDayBuildingTime = 0;
+    private int workerPointsCost = 1;
+    public int finishRepairHour = 0;
     public NpcManager npcManager;
     public TextMeshProUGUI SattleliteStatusText;
     public TextMeshProUGUI SattleliteWire;
@@ -132,12 +132,12 @@ public class Sattlelite : MonoBehaviour
 
     public void WaitRepair()
     {
-        if (dateTime.day >= finishDayBuildingTime && isRepairing)
+        if (dateTime.TotalHours >= finishRepairHour && isRepairing)
         {
             isRepairing = false;
             SatelliteOnline = true;
             globalstat.SatelliteOnline = SatelliteOnline;
-            buildManager.npc += npcCost;
+            buildManager.npc += workerPointsCost;
 
             // Change the sprite to the repaired version
             if (spriteRenderer != null && repairedSpriteRenderer != null)
@@ -169,20 +169,20 @@ public class Sattlelite : MonoBehaviour
         isRepairing = true;
         ItemData itemDataToRemove = new ItemData
         {
-            idItem = 1020102,
+            idItem = "1020102",
             count = 20
         };
         inventoryItemPresent.RemoveItem(itemDataToRemove);
         ItemData itemDataToRemove2 = new ItemData
         {
-            idItem = 1020103,
+            idItem = "1020103",
             count = 30
         };
         inventoryItemPresent.RemoveItem(itemDataToRemove2);
         dateTime = timeManager.dateTime;
         buildManager.steel -= 3;
-        finishDayBuildingTime += dateTime.day + daycost;
-        buildManager.npc -= npcCost;
+        finishRepairHour = dateTime.TotalHours + buildTimeHours;
+        buildManager.npc -= workerPointsCost;
         AssignSpecialistToUpgrade(SpecialistRoleNpc.Network);
         uImanger.DisableUIPanel(UImanger.UIPanel.SattleliteUpgradeButton);
         uImanger.DisableUIPanel(UImanger.UIPanel.SattleliteUI);
@@ -190,9 +190,9 @@ public class Sattlelite : MonoBehaviour
 
     private void UpdateSattleliteStatusText()
     {
-        int currentCircuit = inventoryItemPresent.GetItemCountByID(1020102);
+        int currentCircuit = inventoryItemPresent.GetItemCountByID("1020102");
         int requiredCircuit = 20;
-        int currentWire = inventoryItemPresent.GetItemCountByID(1020103);
+        int currentWire = inventoryItemPresent.GetItemCountByID("1020103");
         int requiredWire = 30;
         int currentSteel = buildManager.steel;
         int requiredSteel = 3;
@@ -238,9 +238,9 @@ public class Sattlelite : MonoBehaviour
 
     private void UpdateRepairButton()
     {
-        int currentCircuit = inventoryItemPresent.GetItemCountByID(1020102);
+        int currentCircuit = inventoryItemPresent.GetItemCountByID("1020102");
         int requiredCircuit = 20;
-        int currentWire = inventoryItemPresent.GetItemCountByID(1020103);
+        int currentWire = inventoryItemPresent.GetItemCountByID("1020103");
         int requiredWire = 30;
         int currentSteel = buildManager.steel;
         int requiredSteel = 3;
@@ -294,36 +294,36 @@ public class Sattlelite : MonoBehaviour
             case SuuplyDropType.FirePower:
                 supplyDropCountdown = 3; 
                 // Add the items that will be granted after countdown
-                supplyDropItems.Add(new ItemData { idItem = 1020124, count = 200 }); // Example items
-                supplyDropItems.Add(new ItemData { idItem = 1020125, count = 50 });
-                supplyDropItems.Add(new ItemData { idItem = 1020126, count = 100 }); // Example items
-                supplyDropItems.Add(new ItemData { idItem = 1020127, count = 180 });
-                supplyDropItems.Add(new ItemData { idItem = 1020110, count = 50 });
+                supplyDropItems.Add(new ItemData { idItem = "1020124", count = 200 }); // Example items
+                supplyDropItems.Add(new ItemData { idItem = "1020125", count = 50 });
+                supplyDropItems.Add(new ItemData { idItem = "1020126", count = 100 }); // Example items
+                supplyDropItems.Add(new ItemData { idItem = "1020127", count = 180 });
+                supplyDropItems.Add(new ItemData { idItem = "1020110", count = 50 });
                 break;
 
             case SuuplyDropType.Chemical:
                 supplyDropCountdown = 2;
-                supplyDropItems.Add(new ItemData { idItem = 1020108, count = 50 });
-                supplyDropItems.Add(new ItemData { idItem = 1020111, count = 10 });
-                supplyDropItems.Add(new ItemData { idItem = 1020117, count = 6 });
-                supplyDropItems.Add(new ItemData { idItem = 1020118, count = 6 });
+                supplyDropItems.Add(new ItemData { idItem = "1020108", count = 50 });
+                supplyDropItems.Add(new ItemData { idItem = "1020111", count = 10 });
+                supplyDropItems.Add(new ItemData { idItem = "1020117", count = 6 });
+                supplyDropItems.Add(new ItemData { idItem = "1020118", count = 6 });
                 break;
 
             case SuuplyDropType.Food:
                 supplyDropCountdown = 2;
-                supplyDropItems.Add(new ItemData { idItem = 1020130, count = 15 });
-                supplyDropItems.Add(new ItemData { idItem = 1020107, count = 30 });
-                supplyDropItems.Add(new ItemData { idItem = 1020119, count = 2 });
-                supplyDropItems.Add(new ItemData { idItem = 1020106, count = 2 });
+                supplyDropItems.Add(new ItemData { idItem = "1020130", count = 15 });
+                supplyDropItems.Add(new ItemData { idItem = "1020107", count = 30 });
+                supplyDropItems.Add(new ItemData { idItem = "1020119", count = 2 });
+                supplyDropItems.Add(new ItemData { idItem = "1020106", count = 2 });
                 break;
 
             case SuuplyDropType.Building:
                 supplyDropCountdown = 2;
-                supplyDropItems.Add(new ItemData { idItem = 1020128, count = 10 });
-                supplyDropItems.Add(new ItemData { idItem = 1020129, count = 10 });
-                supplyDropItems.Add(new ItemData { idItem = 1020101, count = 25 });
-                supplyDropItems.Add(new ItemData { idItem = 1020102, count = 10 });
-                supplyDropItems.Add(new ItemData { idItem = 1020103, count = 6 });
+                supplyDropItems.Add(new ItemData { idItem = "1020128", count = 10 });
+                supplyDropItems.Add(new ItemData { idItem = "1020129", count = 10 });
+                supplyDropItems.Add(new ItemData { idItem = "1020101", count = 25 });
+                supplyDropItems.Add(new ItemData { idItem = "1020102", count = 10 });
+                supplyDropItems.Add(new ItemData { idItem = "1020103", count = 6 });
                 break;
         }
         currentDay = dateTime.day;

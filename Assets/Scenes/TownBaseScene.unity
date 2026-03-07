@@ -31755,10 +31755,10 @@ MonoBehaviour:
     supplyDropCountdownSattlelite: 0
     isRepireSattlelite: 0
     listsupplyDropItemsSattlelite: []
-    finishDayBuildingSattleliteTime: 0
+    finishRepairHourSattlelite: 0
     tuneelIsopen: 0
     isclearingTuneel: 0
-    finishDayBuildingTunnutTime: 0
+    finishClearingHourTunnel: 0
   savePathDataTunnutAndBroken: 
 --- !u!1 &741540646
 GameObject:
@@ -32122,7 +32122,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 748564883}
   repairedSpriteRenderer: {fileID: -1526089265, guid: d4bb0a40dfd6f5e4f91ec55634929b22, type: 3}
   isRepairing: 0
-  finishDayBuildingTime: 0
+  finishRepairHour: 0
   npcManager: {fileID: 2063404514}
   SattleliteStatusText: {fileID: 1703713212}
   SattleliteWire: {fileID: 1703713211}
@@ -35056,8 +35056,8 @@ MonoBehaviour:
     listInfoBuilding: []
     listinfoBuildSmallGardens: []
     listinfoBuildMediumGardens: []
-  buildManager: {fileID: 0}
-  gameManager: {fileID: 0}
+  buildManager: {fileID: 1890103467}
+  gameManager: {fileID: 1553585331}
   saveDataBuildingPath: 
 --- !u!1 &825436013
 GameObject:
@@ -79699,6 +79699,8 @@ MonoBehaviour:
   fuelDisplay: {fileID: 153927109}
   ammoDisplay: {fileID: 208958008}
   npcDisplay: {fileID: 1457393210}
+  totalWorkerPoints: 0
+  usedWorkerPoints: 0
   iswateractive: 0
   iselecticitiesactive: 0
   building: {fileID: 0}
@@ -81144,7 +81146,7 @@ MonoBehaviour:
     maxAmount: 10
   spriteRenderer: {fileID: 0}
   isclearing: 0
-  finishDayBuildingTime: 0
+  finishClearingHour: 0
   tunnelStatusText: {fileID: 1198436270}
 --- !u!61 &1896437824
 BoxCollider2D:
@@ -84734,6 +84736,7 @@ MonoBehaviour:
     idnpc: 0
     roleNpc: 0
     isWorking: 0
+    workerValue: 1
     leaderSkill: 
     idHead: 0
     idBody: 0

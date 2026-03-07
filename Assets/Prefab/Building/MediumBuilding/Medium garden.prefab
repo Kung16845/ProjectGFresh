@@ -104,30 +104,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9b2dfaa75c6734cb43f35e33c8e243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingData: {fileID: 11400000, guid: c3c8be32804914041ae94174152679ae, type: 2}
   nameBuild: Medium garden
   detailBuild: Large garden provide more food. We can't always count on expidition
     we must find a way to grown by our own.
   steelCost: 0
   plankCost: 15
-  npcCost: 2
-  dayCost: 5
-  finishDayBuildingTime: 0
+  workerPointsCost: 0
+  buildTimeHours: 0
   buildingType: 1
+  requiresSpecialist: 0
+  requiredSpecialist: 0
+  finishBuildingHour: 0
   isBuilding: 0
+  isFinished: 0
   timeManager: {fileID: 0}
   dateTime:
     day: 0
     hour: 0
     minutes: 0
     isDayNight: 0
-    sceneSystem: {fileID: 0}
-    saveDataDDA: {fileID: 0}
-    gameManager: {fileID: 0}
   spriteRenderer: {fileID: 0}
   OriginalSprite: {fileID: 21300000, guid: c8d6db1a4f5ff134abb79ca57001cacb, type: 3}
-  Constructhreshold: {fileID: 21300000, guid: 4bd3ef4be4d8b2b44b5a870ae317e3c9, type: 3}
+  ConstructSprite: {fileID: 0}
   buildManager: {fileID: 0}
-  isfinsih: 0
 --- !u!114 &-5879251724972642109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,19 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83bad588e134a3f4692eef30d28ea68a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameBuild: 
-  detailBuild: 
-  upgradeLevels:
-  - levelNumber: 2
-    steelCost: 5
-    plankCost: 20
-    npcCost: 1
-    dayCost: 2
-    levelSprite: {fileID: 21300000, guid: a1ef738194d78294cad3aacd65de62b9, type: 3}
-    isneedwater: 1
-    isneedElecticities: 0
-    isNeedSpecialist: 0
-    requiredSpecialist: 0
   currentLevel: 1
   maxLevel: 0
   isUpgradBuilding: 0
@@ -164,9 +151,6 @@ MonoBehaviour:
     hour: 0
     minutes: 0
     isDayNight: 0
-    sceneSystem: {fileID: 0}
-    saveDataDDA: {fileID: 0}
-    gameManager: {fileID: 0}
   spriteRenderer: {fileID: 0}
   ConstructSprite: {fileID: 21300000, guid: 4bd3ef4be4d8b2b44b5a870ae317e3c9, type: 3}
   buildManager: {fileID: 0}
@@ -186,6 +170,8 @@ MonoBehaviour:
     countInventorySlot: 0
     idnpc: 0
     roleNpc: 0
+    isWorking: 0
+    workerValue: 1
     leaderSkill: 
     idHead: 0
     idBody: 0
@@ -194,7 +180,8 @@ MonoBehaviour:
     building: {fileID: 0}
     level: 0
     tile: {fileID: 0}
-  finishDayBuildingUpgradTime: 0
+    buildingType: 0
+  finishUpgradeHour: 0
 --- !u!114 &4204898698752348090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,25 +194,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ead7f226eab8148aaac50abd2aaeba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeManager: {fileID: 0}
-  dateTime:
-    day: 0
-    hour: 0
-    minutes: 0
-    isDayNight: 0
-    sceneSystem: {fileID: 0}
-    saveDataDDA: {fileID: 0}
-    gameManager: {fileID: 0}
-  buildManager: {fileID: 0}
-  building: {fileID: 0}
-  uImanger: {fileID: 0}
-  upgradeUi: {fileID: 0}
-  upgradeBuilding: {fileID: 0}
   inventoryItemPresent: {fileID: 0}
   foodGainPerDay: 0
-  currentDay: 0
-  yieldduration: 4
   currentYield: 0
+  yieldduration: 4
   isHerbalPlanted: 1
   herbalItemID: 1
   herbalDailyAmount: 5

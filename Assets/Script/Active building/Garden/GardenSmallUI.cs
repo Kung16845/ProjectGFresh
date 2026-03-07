@@ -57,7 +57,7 @@ public class GardenSmallUI : MonoBehaviour
         int seedCount = 0;
         foreach (ItemData item in inventoryItemPresent.listItemsDataBox)
         {
-            if (item.idItem == 1020119) // Assuming 1020119 is the ID for seeds
+            if (item.idItem == "1020119") // Assuming 1020119 is the ID for seeds
             {
                 seedCount = item.count;
                 break;
@@ -85,7 +85,7 @@ public class GardenSmallUI : MonoBehaviour
     {
         foreach (ItemData item in inventoryItemPresent.listItemsDataBox)
         {
-            if (item.idItem == 1020119 && item.count >= amount)
+            if (item.idItem == "1020119" && item.count >= amount)
             {
                 item.count -= amount;
                 break;

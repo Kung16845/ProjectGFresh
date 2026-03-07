@@ -5,7 +5,7 @@ using UnityEngine.UI;
 [System.Serializable]
 public class CraftingItem
 {
-    public int itemID;
+    public string itemID;
     public float craftingTime; // 1000 = 1 hr
     public List<RecipeItem> recipeItems; // Items needed to craft this item
     public int Ammoneeded;
@@ -23,7 +23,7 @@ public class CraftingItem
 [System.Serializable]
 public class RecipeItem
 {
-    public int itemID;
+    public string itemID;
     public int amountNeeded;
 
     // These properties will be auto-assigned

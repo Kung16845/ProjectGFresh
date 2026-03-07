@@ -11,7 +11,7 @@ public class WeaponManager : MonoBehaviour
     private UIInventory uiInventory;
 
     // Store ammo for each weapon
-    private Dictionary<int, int> weaponAmmoDict = new Dictionary<int, int>();
+    private Dictionary<string, int> weaponAmmoDict = new Dictionary<string, int>();
 
     void Start()
     {

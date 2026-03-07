@@ -16,10 +16,10 @@ public class Tunnel : MonoBehaviour
     public InventoryItemPresent inventoryItemPresent;
     public List<ItemReward> rewardsPool;
     public SpriteRenderer spriteRenderer;
-    private int daycost = 1;
+    private int buildTimeHours = 24;
     public bool isclearing;
-    private int npcCost = 1;
-    public int finishDayBuildingTime = 0;
+    private int workerPointsCost = 1;
+    public int finishClearingHour = 0;
     public TextMeshProUGUI tunnelStatusText; // Combined status and hint
 
     private int lastRewardDay = -1;
@@ -46,12 +46,12 @@ public class Tunnel : MonoBehaviour
 
     public void WaitClearingRock()
     {
-        if (dateTime.day >= finishDayBuildingTime && isclearing)
+        if (dateTime.TotalHours >= finishClearingHour && isclearing)
         {
             isclearing = false;
             tuneelisopen = true;
             globalstat.Tunnelaviable = true;
-            buildManager.npc += npcCost;
+            buildManager.npc += workerPointsCost;
             return;
         }
     }
@@ -61,13 +61,13 @@ public class Tunnel : MonoBehaviour
         isclearing = true;
         ItemData itemDataToRemove = new ItemData
         {
-            idItem = 1020304,
+            idItem = "1020304",
             count = 5
         };
         inventoryItemPresent.RemoveItem(itemDataToRemove);
         dateTime = timeManager.dateTime;
-        finishDayBuildingTime += dateTime.day + daycost;
-        buildManager.npc -= npcCost;
+        finishClearingHour = dateTime.TotalHours + buildTimeHours;
+        buildManager.npc -= workerPointsCost;
         uImanger.DisableUIPanel(UImanger.UIPanel.ClearingTunnelUI);
         uImanger.DisableUIPanel(UImanger.UIPanel.TunnelUI);
     }
@@ -145,7 +145,7 @@ public class Tunnel : MonoBehaviour
     {
         if (!tuneelisopen && !isclearing)
         {
-            int currentDynamite = inventoryItemPresent.GetItemCountByID(1020304);
+            int currentDynamite = inventoryItemPresent.GetItemCountByID("1020304");
             int requiredDynamite = 5;
             tunnelStatusText.text = $"The tunnel is blocked. If we clear it, we might find something useful. Rumor has it the military left supplies here. <color=#FFFF00>Dynamite collected: {currentDynamite}/{requiredDynamite}</color>";
         }
@@ -176,7 +176,7 @@ public class Tunnel : MonoBehaviour
 [System.Serializable]
 public class ItemReward
 {
-    public int itemID;
+    public string itemID;
     public float chance;
     public int minAmount;
     public int maxAmount;

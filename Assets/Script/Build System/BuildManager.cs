@@ -39,7 +39,7 @@ public class BuildManager : MonoBehaviour
     public List<Building> listALLBuilding = new List<Building>();
     public List<BuiltBuildingInfo> builtBuildings = new List<BuiltBuildingInfo>();
     public List<Collider2D> collidersToManage = new List<Collider2D>();
-    private Dictionary<int, System.Action<int>> resourceHandlers;
+    private Dictionary<string, System.Action<int>> resourceHandlers;
     public Tile[] tiles;
     private void Awake()
     {
@@ -57,13 +57,13 @@ public class BuildManager : MonoBehaviour
     private void InitializeResourceHandlers()
     {
         // Map item IDs to their respective resource update logic
-        resourceHandlers = new Dictionary<int, System.Action<int>>
+        resourceHandlers = new Dictionary<string, System.Action<int>>
         {
-            { 1020129, amount => { steel += amount; Debug.Log($"Added {amount} Steel. Total: {steel}"); } },
-            { 1020128, amount => { plank += amount; Debug.Log($"Added {amount} Plank. Total: {plank}"); } },
-            { 1020130, amount => { food += amount; Debug.Log($"Added {amount} Food. Total: {food}"); } },
-            { 1020131, amount => { fuel += amount; Debug.Log($"Added {amount} Fuel. Total: {fuel}"); } },
-            { 1020132, amount => { ammo += amount; Debug.Log($"Added {amount} Ammo. Total: {ammo}"); } }
+            { "1020129", amount => { steel += amount; Debug.Log($"Added {amount} Steel. Total: {steel}"); } },
+            { "1020128", amount => { plank += amount; Debug.Log($"Added {amount} Plank. Total: {plank}"); } },
+            { "1020130", amount => { food += amount; Debug.Log($"Added {amount} Food. Total: {food}"); } },
+            { "1020131", amount => { fuel += amount; Debug.Log($"Added {amount} Fuel. Total: {fuel}"); } },
+            { "1020132", amount => { ammo += amount; Debug.Log($"Added {amount} Ammo. Total: {ammo}"); } }
         };
     }
 
@@ -98,7 +98,7 @@ public class BuildManager : MonoBehaviour
             {
                 steel += buildingToPlace.steelCost;
                 plank += buildingToPlace.plankCost;
-                npc += buildingToPlace.npcCost;
+                npc += buildingToPlace.workerPointsCost;
                 buildingToPlace = null;
             }
             uIBuilding.SetActive(true);
@@ -133,7 +133,7 @@ public class BuildManager : MonoBehaviour
             Building newBuilding = Instantiate(buildingToPlace, nearestTile.transform.position, Quaternion.identity);
 
             DateTime dateTime = GameManager.Instance.timeManager.dateTime;
-            newBuilding.finishDayBuildingTime = dateTime.day + newBuilding.dayCost;
+            newBuilding.finishBuildingHour = dateTime.TotalHours + newBuilding.buildTimeHours;
             // Update tile status
             nearestTile.isOccupied = true;
             nearestTile.buildingOnTile = newBuilding.GetComponent<Building>();
@@ -153,11 +153,11 @@ public class BuildManager : MonoBehaviour
     }
     public void BuyBuilding()
     {
-        if (steel >= building.steelCost && plank >= building.plankCost && npc >= building.npcCost)
+        if (steel >= building.steelCost && plank >= building.plankCost && npc >= building.workerPointsCost)
         {
             steel -= building.steelCost;
             plank -= building.plankCost;
-            npc -= building.npcCost;
+            npc -= building.workerPointsCost;
             Cursor.visible = false;
             customCursor.gameObject.SetActive(true);
             customCursor.GetComponent<SpriteRenderer>().sprite = building.OriginalSprite;
@@ -243,7 +243,7 @@ public class BuildManager : MonoBehaviour
                 break;
         }
     }
-    public void AddResource(int itemId, int quantity)
+    public void AddResource(string itemId, int quantity)
     {
         if (resourceHandlers.TryGetValue(itemId, out var updateResource))
         {

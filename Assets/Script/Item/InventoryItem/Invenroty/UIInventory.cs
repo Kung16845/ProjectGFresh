@@ -326,7 +326,7 @@ public class UIInventory : MonoBehaviour
     }
     public void CombineAndSplitItems(List<ItemData> items)
     {
-        Dictionary<int, int> itemCountMap = new Dictionary<int, int>();
+        Dictionary<string, int> itemCountMap = new Dictionary<string, int>();
         List<ItemData> updatedItems = new List<ItemData>();
 
         // Combine items by idItem
@@ -345,7 +345,7 @@ public class UIInventory : MonoBehaviour
         // Split items if count exceeds maxCount
         foreach (var kvp in itemCountMap)
         {
-            int itemId = kvp.Key;
+            string itemId = kvp.Key;
             int totalQuantity = kvp.Value;
 
             // Get the template item to copy other properties

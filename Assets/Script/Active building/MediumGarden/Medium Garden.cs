@@ -77,7 +77,7 @@ public class MediumGarden : BaseBuilding
             if (isHerbalPlanted && upgradeBuilding.currentLevel >= 2)
             {
                 int herbalAmount = yieldduration > 0 ? 9 : 5;
-                inventoryItemPresent.AddItemByID(1020105, herbalAmount);
+                inventoryItemPresent.AddItemByID("1020105", herbalAmount);
             }
             else
             {

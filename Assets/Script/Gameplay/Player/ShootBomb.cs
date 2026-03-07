@@ -7,7 +7,7 @@ public class ShootBomb : MonoBehaviour
     [System.Serializable]
     public struct GrenadeData
     {
-        public int idItem;         // Item ID for the grenade
+        public string idItem;         // Item ID for the grenade
         public GameObject prefab;  // Grenade prefab associated with the ID
     }
 

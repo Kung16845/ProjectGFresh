@@ -1,13 +1,24 @@
 {
-    "listInfoBuilding": [],
+    "listInfoBuilding": [
+        {
+            "transformX": 3.0,
+            "transformY": -3.819999933242798,
+            "nameBuild": "Workshop",
+            "levelBuild": 1,
+            "finishBuildingHour": 0,
+            "finishUpgradeHour": 0,
+            "isBuildingUpgrad": false,
+            "isBuildFinishedUpgrad": false
+        }
+    ],
     "listinfoBuildSmallGardens": [
         {
             "transformX": 1.559999942779541,
             "transformY": -3.819999933242798,
             "nameBuild": "Garden",
             "levelBuild": 2,
-            "dayBuildingFinist": 2,
-            "dayBuildingUpgradFinist": 4,
+            "finishBuildingHour": 0,
+            "finishUpgradeHour": 0,
             "isBuildingUpgrad": false,
             "isBuildFinishedUpgrad": true,
             "yielduration": 2

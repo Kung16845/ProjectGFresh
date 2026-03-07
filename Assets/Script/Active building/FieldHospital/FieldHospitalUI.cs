@@ -200,7 +200,7 @@ public class FieldHospitalUI : MonoBehaviour
         Debug.Log("OpenMedicine");
         DisplayPatientsWithAction((uiItem, patient) =>
         {
-            int medicineItemID = 1020122; // Replace with actual medicine item ID
+            string medicineItemID = "1020122"; // Replace with actual medicine item ID
             if (InventoryItemPresent.Instance.HasItem(medicineItemID))
             {
                 Debug.Log("HasPIll");
@@ -214,7 +214,7 @@ public class FieldHospitalUI : MonoBehaviour
         // Display patients currently healing
         DisplayPatientsWithAction((uiItem, patient) =>
         {
-            int bandageItemID = 1020121; // Replace with actual bandage item ID
+            string bandageItemID = "1020121"; // Replace with actual bandage item ID
             if (InventoryItemPresent.Instance.HasItem(bandageItemID))
             {
                 uiItem.InitializeButton(() =>ApplyBandageToPatient(patient, bandageItemID));
@@ -222,7 +222,7 @@ public class FieldHospitalUI : MonoBehaviour
         });
     }
 
-    private void ApplyMedicineToPatient(CurePatient patient, int medicineItemID)
+    private void ApplyMedicineToPatient(CurePatient patient, string medicineItemID)
     {
         float healingBoost = 5f; // Increase healing rate by this value
         patient.Healingrate += healingBoost;
@@ -230,7 +230,7 @@ public class FieldHospitalUI : MonoBehaviour
         Debug.Log($"Applied medicine to Patient ID: {patient.NpcID}, new healing rate: {patient.Healingrate}");
     }
 
-    private void ApplyBandageToPatient(CurePatient patient, int bandageItemID)
+    private void ApplyBandageToPatient(CurePatient patient, string bandageItemID)
     {
         float instantHealAmount = 20f; // Heal this amount instantly
         patient.Npchp = Mathf.Min(patient.Npchp + instantHealAmount, 100f);

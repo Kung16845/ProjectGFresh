@@ -33,11 +33,11 @@ public class SaveAndLoadTunnutAndBroken : MonoBehaviour
         dataCollentTunnutAndBroken.supplyDropCountdownSattlelite = sattlelite.supplyDropCountdown;
         dataCollentTunnutAndBroken.isRepireSattlelite = sattlelite.isRepairing;
         dataCollentTunnutAndBroken.listsupplyDropItemsSattlelite = sattlelite.supplyDropItems;
-        dataCollentTunnutAndBroken.finishDayBuildingSattleliteTime = sattlelite.finishDayBuildingTime;
+        dataCollentTunnutAndBroken.finishRepairHourSattlelite = sattlelite.finishRepairHour;
 
         dataCollentTunnutAndBroken.tuneelIsopen = tunnel.tuneelisopen;
         dataCollentTunnutAndBroken.isclearingTuneel = tunnel.isclearing;
-        dataCollentTunnutAndBroken.finishDayBuildingTunnutTime = tunnel.finishDayBuildingTime;
+        dataCollentTunnutAndBroken.finishClearingHourTunnel = tunnel.finishClearingHour;
     }
     public void LoadDataTunnutAndBroken()
     {
@@ -53,11 +53,11 @@ public class SaveAndLoadTunnutAndBroken : MonoBehaviour
             sattlelite.supplyDropCountdown = dataCollentTunnutAndBroken.supplyDropCountdownSattlelite;
             sattlelite.isRepairing = dataCollentTunnutAndBroken.isRepireSattlelite;
             sattlelite.supplyDropItems = dataCollentTunnutAndBroken.listsupplyDropItemsSattlelite;
-            sattlelite.finishDayBuildingTime = dataCollentTunnutAndBroken.finishDayBuildingSattleliteTime;
+            sattlelite.finishRepairHour = dataCollentTunnutAndBroken.finishRepairHourSattlelite;
 
             tunnel.tuneelisopen = dataCollentTunnutAndBroken.tuneelIsopen;
             tunnel.isclearing = dataCollentTunnutAndBroken.isclearingTuneel;
-            tunnel.finishDayBuildingTime = dataCollentTunnutAndBroken.finishDayBuildingTunnutTime;
+            tunnel.finishClearingHour = dataCollentTunnutAndBroken.finishClearingHourTunnel;
             // timeManager.dateTime.sceneSystem = FindObjectOfType<SceneSystem>();
 
         }
@@ -84,8 +84,8 @@ public class DataCollentTunnutAndBroken
     public int supplyDropCountdownSattlelite;
     public bool isRepireSattlelite;
     public List<ItemData> listsupplyDropItemsSattlelite;
-    public int finishDayBuildingSattleliteTime;
+    public int finishRepairHourSattlelite;
     public bool tuneelIsopen;
     public bool isclearingTuneel;
-    public int finishDayBuildingTunnutTime;
+    public int finishClearingHourTunnel;
 }

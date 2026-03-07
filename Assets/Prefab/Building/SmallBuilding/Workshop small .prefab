@@ -104,15 +104,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9b2dfaa75c6734cb43f35e33c8e243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingData: {fileID: 11400000, guid: f9a8aea066007964690f715777eec771, type: 2}
   nameBuild: WorkShop
   detailBuild: Shop something
   steelCost: 3
   plankCost: 8
-  npcCost: 1
-  dayCost: 1
-  finishDayBuildingTime: 0
+  workerPointsCost: 1
+  buildTimeHours: 10
   buildingType: 2
+  requiresSpecialist: 0
+  requiredSpecialist: 0
+  finishBuildingHour: 0
   isBuilding: 0
+  isFinished: 0
   timeManager: {fileID: 0}
   dateTime:
     day: 0
@@ -121,9 +125,8 @@ MonoBehaviour:
     isDayNight: 0
   spriteRenderer: {fileID: 0}
   OriginalSprite: {fileID: 21300000, guid: 1ca3780fd6c7efb42a36dc6242e4e547, type: 3}
-  Constructhreshold: {fileID: 21300000, guid: 07b4a0e102a4f7c4bb870c4250e6d18e, type: 3}
+  ConstructSprite: {fileID: 21300000, guid: 07b4a0e102a4f7c4bb870c4250e6d18e, type: 3}
   buildManager: {fileID: 0}
-  isfinsih: 0
 --- !u!114 &-4588372894544852915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,19 +474,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83bad588e134a3f4692eef30d28ea68a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameBuild: 
-  detailBuild: 
-  upgradeLevels:
-  - levelNumber: 2
-    steelCost: 5
-    plankCost: 10
-    npcCost: 1
-    dayCost: 1
-    levelSprite: {fileID: 21300000, guid: b5472476c96bcc74890b16ef80e41b50, type: 3}
-    isneedwater: 0
-    isneedElecticities: 0
-    isNeedSpecialist: 1
-    requiredSpecialist: 0
   currentLevel: 1
   maxLevel: 3
   isUpgradBuilding: 0
@@ -504,14 +494,14 @@ MonoBehaviour:
     foodPerDay: 0
     bed: 0
     nameNpc: 
-    hp: 0
-    morale: 0
-    endurance: 0
-    combat: 0
-    speed: 0
+    hp: 1
+    morale: 1
+    endurance: 1
+    combat: 1
+    speed: 1
     recoverSpeed: 0
     isActive: 0
-    countInventorySlot: 0
+    countInventorySlot: 6
     idnpc: 0
     roleNpc: 0
     isWorking: 0
@@ -525,7 +515,7 @@ MonoBehaviour:
     level: 0
     tile: {fileID: 0}
     buildingType: 0
-  finishDayBuildingUpgradTime: 0
+  finishUpgradeHour: 0
 --- !u!61 &-3458361507236262541
 BoxCollider2D:
   m_ObjectHideFlags: 0

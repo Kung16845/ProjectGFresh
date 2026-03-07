@@ -63,7 +63,7 @@ public class InventoryItemPresent : MonoBehaviour
     }
     private void CombineItemsNoSplit(List<ItemData> items)
     {
-        Dictionary<int, ItemData> itemMap = new Dictionary<int, ItemData>();
+        Dictionary<string, ItemData> itemMap = new Dictionary<string, ItemData>();
 
         // Combine items by idItem
         foreach (var item in items)
@@ -130,8 +130,8 @@ public class InventoryItemPresent : MonoBehaviour
         }
 
         // Define the item IDs that unlock the special slots
-        int militaryItemID = 1020605; // Replace with your Military item ID
-        int scavengerItemID = 1020604; // Replace with your Scavenger item ID
+        string militaryItemID = "1020605"; // Replace with your Military item ID
+        string scavengerItemID = "1020604"; // Replace with your Scavenger item ID
 
         // Check if the items are equipped
         bool hasMilitaryItem = listItemDataInventoryEqicment.Any(item => item.idItem == militaryItemID);
@@ -209,7 +209,7 @@ public class InventoryItemPresent : MonoBehaviour
             }
         }
     }
-    public void AddItemByID(int itemID, int count) 
+    public void AddItemByID(string itemID, int count)
     {
         // Find the UIItemData associated with the given itemID
         UIItemData uiItemData = listUIItemPrefab.FirstOrDefault(item => item.idItem == itemID);
@@ -237,7 +237,7 @@ public class InventoryItemPresent : MonoBehaviour
     public void AddItem(ItemData itemDataAdd)
     {
         ItemData itemDataInList = this.listItemsDataBox.FirstOrDefault(item => item.idItem == itemDataAdd.idItem && item.count != item.maxCount);
-        int[] excludedItemIds = { 1020129, 1020130, 1020128, 1020131, 1020132 };
+        string[] excludedItemIds = { "1020129", "1020130", "1020128", "1020131", "1020132" };
         if (itemDataInList != null)
         {   
             if (excludedItemIds.Contains(itemDataAdd.idItem))
@@ -276,14 +276,14 @@ public class InventoryItemPresent : MonoBehaviour
         // RefreshUIBox();
     }
 
-    public int GetItemCountByID(int itemID)
+    public int GetItemCountByID(string itemID)
     {
         ItemData itemData = listItemsDataBox.Find(item => item.idItem == itemID);
         return itemData != null ? itemData.count : 0;
     }
 
     // Method to get item icon by ID
-    public Sprite GetItemIconByID(int itemID)
+    public Sprite GetItemIconByID(string itemID)
     {
         UIItemData uiItemData = listUIItemPrefab.Find(uiItem => uiItem.idItem == itemID);
         if (uiItemData != null && uiItemData.itemIconImage != null)
@@ -296,7 +296,7 @@ public class InventoryItemPresent : MonoBehaviour
             return null;
         }
     }
-    public bool HasItem(int itemID)
+    public bool HasItem(string itemID)
     {
         return listItemsDataBox.Any(item => item.idItem == itemID);
     }
@@ -313,13 +313,13 @@ public class InventoryItemPresent : MonoBehaviour
 
         return newItemData;
     }
-    public Dictionary<int, Ammotype> ammoItemIdToAmmoType = new Dictionary<int, Ammotype>
+    public Dictionary<string, Ammotype> ammoItemIdToAmmoType = new Dictionary<string, Ammotype>
     {
         // Add mappings from ammo item IDs to their ammo types
-        { 1020125, Ammotype.HighCaliber }, // Replace with actual ammo item IDs
-        { 1020127, Ammotype.MediumCaliber },
-        { 1020124, Ammotype.LowCaliber },
-        { 1020126, Ammotype.Shotgun },
+        { "1020125", Ammotype.HighCaliber }, // Replace with actual ammo item IDs
+        { "1020127", Ammotype.MediumCaliber },
+        { "1020124", Ammotype.LowCaliber },
+        { "1020126", Ammotype.Shotgun },
         // Continue for all ammo items
     };
     public void HighlightAmmoItems(Ammotype ammoType)

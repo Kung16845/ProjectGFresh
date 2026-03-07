@@ -8,7 +8,7 @@ using UnityEngine;
 public class ItemData 
 {   
     public string nameItem;
-    public int idItem;
+    public string idItem;
     public int count;
     public int maxCount;
     public Itemtype itemtype;

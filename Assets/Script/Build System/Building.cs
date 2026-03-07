@@ -61,14 +61,15 @@ public class Building : MonoBehaviour
             requiresSpecialist = buildingData.requiresSpecialist;
             requiredSpecialist = buildingData.requiredSpecialist;
         }
-    }
 
-    private void Start()
-    {
         timeManager = GameManager.Instance.timeManager;
         buildManager = GameManager.Instance.buildManager;
         dateTime = timeManager.dateTime;
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
         isBuilding = true;
         isFinished = false;
     }

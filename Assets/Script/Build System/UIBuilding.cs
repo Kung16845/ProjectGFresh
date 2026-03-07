@@ -31,8 +31,8 @@ public class UIBuilding : MonoBehaviour
         textDescriveBuild.text = building.detailBuild;
         textPlankCost.text = building.plankCost.ToString();
         textSteelCost.text = building.steelCost.ToString();
-        textNpcCost.text = building.npcCost.ToString();
-        textDayCost.text = building.dayCost.ToString();
+        textNpcCost.text = building.workerPointsCost.ToString();
+        textDayCost.text = building.buildTimeHours.ToString();
         image.sprite = building.GetComponent<SpriteRenderer>().sprite;
         buildManager.building = building;
     }

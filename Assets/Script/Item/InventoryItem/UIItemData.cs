@@ -5,7 +5,7 @@ using TMPro;
 public class UIItemData : MonoBehaviour
 {
     public TextMeshProUGUI count;
-    public int idItem;
+    public string idItem;
     public string nameItem;
     public SlotType slotType;
     public LootingSystem originatingLootSystem;

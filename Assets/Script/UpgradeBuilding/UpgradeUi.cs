@@ -45,28 +45,32 @@ public class UpgradeUi : MonoBehaviour
         SetDataUpgrade();
     }
 
+    private BuildingUpgradeData GetNextUpgradeData()
+    {
+        int nextLevel = currentBuildingScript.currentLevel + 1;
+        return currentBuildingScript.building.buildingData.GetUpgradeData(nextLevel);
+    }
+
    public void SetDataUpgrade()
     {
-        int nextLevelIndex = currentBuildingScript.currentLevel - 1;
+        BuildingUpgradeData nextLevel = GetNextUpgradeData();
 
-        if (nextLevelIndex >= currentBuildingScript.upgradeLevels.Count)
+        if (nextLevel == null)
         {
             Debug.Log("No further upgrades available.");
             return;
         }
 
-        UpgradeLevel nextLevel = currentBuildingScript.upgradeLevels[nextLevelIndex];
-
         textPlankCost.text = nextLevel.plankCost.ToString();
         textSteelCost.text = nextLevel.steelCost.ToString();
-        textNpcCost.text = nextLevel.npcCost.ToString();
-        textDayCost.text = nextLevel.dayCost.ToString();
+        textNpcCost.text = nextLevel.workerPointsRequired.ToString();
+        textDayCost.text = nextLevel.buildTimeHours.ToString();
         image.sprite = nextLevel.levelSprite;
-        WaterImage.SetActive(nextLevel.isneedwater);
-        ElectricityImage.SetActive(nextLevel.isneedElecticities);
+        WaterImage.SetActive(nextLevel.requiresWater);
+        ElectricityImage.SetActive(nextLevel.requiresElectricity);
 
         // Update the UI for required specialist
-        if (nextLevel.isNeedSpecialist)
+        if (nextLevel.requiresSpecialist)
         {
             requiredSpecialistText.text = nextLevel.requiredSpecialist.ToString();
             requiredSpecialistText.gameObject.SetActive(true);
@@ -93,20 +97,18 @@ public class UpgradeUi : MonoBehaviour
 
      private bool AreUpgradeConditionsMet()
     {
-        int nextLevelIndex = currentBuildingScript.currentLevel - 1;
-        if (nextLevelIndex >= currentBuildingScript.upgradeLevels.Count)
+        BuildingUpgradeData nextLevel = GetNextUpgradeData();
+        if (nextLevel == null)
         {
             Debug.Log("Already at max level.");
             return false;
         }
-        UpgradeLevel nextLevel = currentBuildingScript.upgradeLevels[nextLevelIndex];
 
         var conditions = new List<(bool condition, string failMessage)>
         {
-            (!nextLevel.isneedwater || buildManager.iswateractive, "Water is required but not active."),
-            (!nextLevel.isneedElecticities || buildManager.iselecticitiesactive, "Electricity is required but not active."),
-            // Conditionally add the specialist requirement
-            (!nextLevel.isNeedSpecialist || HasRequiredSpecialist(nextLevel.requiredSpecialist), $"A {nextLevel.requiredSpecialist} specialist is required but not available."),
+            (!nextLevel.requiresWater || buildManager.iswateractive, "Water is required but not active."),
+            (!nextLevel.requiresElectricity || buildManager.iselecticitiesactive, "Electricity is required but not active."),
+            (!nextLevel.requiresSpecialist || HasRequiredSpecialist(nextLevel.requiredSpecialist), $"A {nextLevel.requiredSpecialist} specialist is required but not available."),
         };
 
         foreach (var (condition, failMessage) in conditions)
@@ -136,7 +138,6 @@ public class UpgradeUi : MonoBehaviour
 
         if (specialistNpc != null)
         {
- 
             specialistNpc.isWorking = true;
             // Store a reference to the NPC in the building
             currentBuildingScript.assignedSpecialistNpc = specialistNpc;
@@ -149,14 +150,13 @@ public class UpgradeUi : MonoBehaviour
     }
     private bool AreResourcesSufficient()
     {
-        int nextLevelIndex = currentBuildingScript.currentLevel - 1;
-        if (nextLevelIndex >= currentBuildingScript.upgradeLevels.Count)
+        BuildingUpgradeData nextLevel = GetNextUpgradeData();
+        if (nextLevel == null)
             return false;
-        UpgradeLevel nextLevel = currentBuildingScript.upgradeLevels[nextLevelIndex];
 
         return buildManager.steel >= nextLevel.steelCost &&
                buildManager.plank >= nextLevel.plankCost &&
-               buildManager.npc >= nextLevel.npcCost;
+               buildManager.npc >= nextLevel.workerPointsRequired;
     }
 
     public void ConfirmUpgrade()
@@ -165,23 +165,22 @@ public class UpgradeUi : MonoBehaviour
         {
             if (AreResourcesSufficient())
             {
-                int nextLevelIndex = currentBuildingScript.currentLevel - 1;
-                if (nextLevelIndex >= currentBuildingScript.upgradeLevels.Count) return;
-                UpgradeLevel nextLevel = currentBuildingScript.upgradeLevels[nextLevelIndex];
+                BuildingUpgradeData nextLevel = GetNextUpgradeData();
+                if (nextLevel == null) return;
 
                 // Subtract resources
                 buildManager.steel -= nextLevel.steelCost;
                 buildManager.plank -= nextLevel.plankCost;
-                buildManager.npc -= nextLevel.npcCost;
+                buildManager.npc -= nextLevel.workerPointsRequired;
 
                 // Conditionally assign the specialist NPC to the upgrade task
-                if (nextLevel.isNeedSpecialist)
+                if (nextLevel.requiresSpecialist)
                 {
                     AssignSpecialistToUpgrade(nextLevel.requiredSpecialist);
                 }
 
                 currentBuildingScript.isUpgradBuilding = true;
-                currentBuildingScript.finishDayBuildingUpgradTime = dateTime.day + nextLevel.dayCost;
+                currentBuildingScript.finishUpgradeHour = dateTime.TotalHours + nextLevel.buildTimeHours;
 
                 this.gameObject.SetActive(false);
             }

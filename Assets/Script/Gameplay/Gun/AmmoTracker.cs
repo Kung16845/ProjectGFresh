@@ -75,15 +75,15 @@ public class WeaponAmmoTracker : MonoBehaviour
         }
     }
 
-    private CaliberType ConvertAmmoIDToCaliberType(int ammoID)
+    private CaliberType ConvertAmmoIDToCaliberType(string ammoID)
     {
         // Map ammo IDs to their respective caliber types
         switch (ammoID)
         {
-            case 1020125: return CaliberType.High;
-            case 1020126: return CaliberType.Shotgun;
-            case 1020124: return CaliberType.Low;
-            case 1020127: return CaliberType.Medium;
+            case "1020125": return CaliberType.High;
+            case "1020126": return CaliberType.Shotgun;
+            case "1020124": return CaliberType.Low;
+            case "1020127": return CaliberType.Medium;
             default: return CaliberType.Low; // Default to Low if no match
         }
     }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class BuildingData : ScriptableObject
 {
     [Header("Identity")]
-    public int id;
+    public string id;
     public string buildingName;
 
     [Header("Slot")]

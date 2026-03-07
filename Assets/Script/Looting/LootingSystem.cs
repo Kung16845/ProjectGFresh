@@ -162,7 +162,7 @@ public class LootingSystem : MonoBehaviour
             lootProgressSlider.value = progress / 100f;
         }
     }
-    public void RemoveItemFromLootList(int itemId, int quantity)
+    public void RemoveItemFromLootList(string itemId, int quantity)
     {
         var itemToRemove = droppedItems.FirstOrDefault(item => item.idItem == itemId);
         if (itemToRemove != null)
