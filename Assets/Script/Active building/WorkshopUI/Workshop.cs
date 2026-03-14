@@ -10,8 +10,6 @@ public enum CraftingResult
 
 public class Workshop : BaseBuilding
 {
-    private UImanger uImanger;
-    private UpgradeUi upgradeUi;
     private CraftManager craftManager;
     private bool isElectricityApplied;
 
@@ -22,7 +20,6 @@ public class Workshop : BaseBuilding
     protected override void Start()
     {
         base.Start();
-        uImanger = FindObjectOfType<UImanger>();
         craftManager = FindObjectOfType<CraftManager>();
         inventoryItemPresent = FindObjectOfType<InventoryItemPresent>();
         isElectricityApplied = false;
@@ -49,24 +46,6 @@ public class Workshop : BaseBuilding
         // Electricity toggle — not level-based, handled separately
         if (building.isfinsih)
             UpdateElectricityBonus();
-    }
-
-    void OnMouseDown()
-    {
-        if (building.isfinsih && !upgradeBuilding.isUpgradBuilding)
-        {
-            uImanger.ToggleUIPanel(UImanger.UIPanel.WorkshopUI);
-            if (upgradeBuilding.currentLevel == upgradeBuilding.maxLevel)
-            {
-                uImanger.DisableUIPanel(UImanger.UIPanel.WorkshopUpgradeUI);
-            }
-        }
-    }
-
-    public void AssignUpgradeData()
-    {
-        upgradeUi = FindObjectOfType<UpgradeUi>();
-        upgradeUi.Initialize(upgradeBuilding);
     }
 
     private void UpdateElectricityBonus()

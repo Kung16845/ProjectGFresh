@@ -51,12 +51,19 @@ public class UpgradeBuilding : MonoBehaviour
 
     void OnMouseDown()
     {
+        // Skip if the active building script handles its own click (e.g. Garden, Waterpump, Solar)
+        BaseBuilding activeBuilding = GetComponent<BaseBuilding>();
+        if (activeBuilding != null && activeBuilding.HasOwnClickHandler) return;
+
         if (building.isfinsih && !isUpgradBuilding && currentLevel < maxLevel)
         {
-            Debug.Log("showupgradeUI");
-            // uImanger.ActiveUpgradeUI();
-            // upgradeUi = FindObjectOfType<UpgradeUi>();
-            // upgradeUi.Initialize(this);
+            if (upgradeUi == null)
+                upgradeUi = FindObjectOfType<UpgradeUi>(true);
+            if (upgradeUi != null)
+            {
+                upgradeUi.gameObject.SetActive(true);
+                upgradeUi.Initialize(this);
+            }
         }
     }
 

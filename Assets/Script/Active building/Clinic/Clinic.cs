@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class Clinic : BaseBuilding
 {
-    private UImanger uImanger;
-    private UpgradeUi upgradeUi;
     private PatienManger patienManger;
 
     // Public for ClinicUI to read
@@ -12,7 +10,6 @@ public class Clinic : BaseBuilding
     protected override void Start()
     {
         base.Start();
-        uImanger = FindObjectOfType<UImanger>();
         patienManger = FindObjectOfType<PatienManger>();
     }
 
@@ -34,23 +31,5 @@ public class Clinic : BaseBuilding
         base.Update();
         if (patienManger != null)
             patienManger.UpdateJobs(patienManger.activeHealingClinicPatient);
-    }
-
-    void OnMouseDown()
-    {
-        if (building.isfinsih && !upgradeBuilding.isUpgradBuilding)
-        {
-            uImanger.ToggleUIPanel(UImanger.UIPanel.ClinicUI);
-            if (upgradeBuilding.currentLevel == upgradeBuilding.maxLevel)
-            {
-                uImanger.DisableUIPanel(UImanger.UIPanel.ClinicUpgradeUI);
-            }
-        }
-    }
-
-    public void AssignUpgradeData()
-    {
-        upgradeUi = FindObjectOfType<UpgradeUi>();
-        upgradeUi.Initialize(upgradeBuilding);
     }
 }

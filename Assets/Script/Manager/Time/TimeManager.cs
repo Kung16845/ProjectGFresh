@@ -127,33 +127,42 @@ public class DateTime
     {
         if (!isDayNight)
         {
-            if (this.hour == 18 && this.minutes == 0)
+            if (this.hour == 18)
             {
                 SetTimeStartDay();
                 GameManager.Instance.SaveGame();
                 this.day++;
             }
         }
-        else if (isDayNight)
+        else // isDayNight
         {
-
-            if (this.hour == 24 && this.minutes == 0)
+            if (this.hour == 24)
             {
                 this.hour = 0;
             }
-            else if (this.hour == 4 && this.minutes == 0)
+            else if (this.hour == 4)
             {
                 this.isDayNight = false;
                 this.day++;
                 SceneSystem.Instance.ReturnToMainScene();
-
             }
-            // else if (SceneManager.GetActiveScene().buildIndex == 0 && this.hour == 18 && this.minutes >= 0)
-            else if (isDayNight && this.hour >= 18 && this.minutes >= 0 && TimeManager.Instance.dayCountAttack <= 0)
+            else if (this.hour == 18)
             {
-                Debug.Log("Sceneswitch");
-                SetTimeNightDay();
-                SceneSystem.Instance.SwitchScene(1);
+                TimeManager.Instance.dayCountAttack--;
+                if (TimeManager.Instance.dayCountAttack <= 0)
+                {
+                    // Attack night — switch to defence scene
+                    Debug.Log("Sceneswitch");
+                    SetTimeNightDay();
+                    SceneSystem.Instance.SwitchScene(1);
+                }
+                else
+                {
+                    // Still counting down — skip night
+                    SetTimeStartDay();
+                    GameManager.Instance.SaveGame();
+                    this.day++;
+                }
             }
         }
     }

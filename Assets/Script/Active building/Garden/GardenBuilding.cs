@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class GardenBuilding : BaseBuilding
 {
+    public override bool HasOwnClickHandler => true;
     private UImanger uImanger;
-    private UpgradeUi upgradeUi;
+
     private TimeManager timeManager;
     private DateTime dateTime;
     private int currentDay;
@@ -49,12 +50,7 @@ public class GardenBuilding : BaseBuilding
         }
     }
 
-    public void AssignUpgradeData()
-    {
-        upgradeUi = FindObjectOfType<UpgradeUi>();
-        upgradeUi.Initialize(upgradeBuilding);
-        UpdateFoodGainPerDay();
-    }
+
 
     private void FoodGain()
     {

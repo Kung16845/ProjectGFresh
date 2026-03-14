@@ -22,8 +22,9 @@ public class AirStrikeController : MonoBehaviour
 
     private void Update()
     {
-        // Start targeting mode if pressed '4' and not on cooldown
-        if (Input.GetKeyDown(KeyCode.Alpha4) && canUseAirStrike)
+        // Start targeting mode if the "AirStrike" button is pressed and not on cooldown.
+        // Note: "AirStrike" must be set up in Project Settings > Input Manager.
+        if (Input.GetButtonDown("AirStrike") && canUseAirStrike)
         {
             StartTargeting();
         }
@@ -42,6 +43,11 @@ public class AirStrikeController : MonoBehaviour
                 isTargeting = false;
                 StartCoroutine(ExecuteAirStrike(mousePosition));
             }
+            // Cancel targeting on right click
+            else if (Input.GetMouseButtonDown(1))
+            {
+                CancelTargeting();
+            }
         }
     }
 
@@ -57,19 +63,25 @@ public class AirStrikeController : MonoBehaviour
 
     private Vector3 GetMouseWorldPosition()
     {
+        // This implementation is more robust for a 2D game with an orthographic camera.
         Vector3 mousePos = Input.mousePosition;
-        mousePos.z = 10f; // Ensure the camera is set properly or adjust this value depending on your setup
-        return Camera.main.ScreenToWorldPoint(mousePos);
+        // Set Z to the distance from the camera to the game plane. For a 2D game, this is often 0.
+        Vector3 worldPoint = Camera.main.ScreenToWorldPoint(mousePos);
+        worldPoint.z = 0f; 
+        return worldPoint;
     }
 
-    private IEnumerator ExecuteAirStrike(Vector3 position)
+    private void CancelTargeting()
     {
-        // Destroy marker after placement
+        isTargeting = false;
         if (currentMarker != null)
         {
             Destroy(currentMarker);
         }
+    }
 
+    private IEnumerator ExecuteAirStrike(Vector3 position)
+    {
         // Wait for the countdown
         yield return new WaitForSeconds(countdownBeforeStrike);
 
@@ -82,6 +94,12 @@ public class AirStrikeController : MonoBehaviour
             {
                 explosion.Initialize(barrierDamage, zombieDamage, targetingRadius);
             }
+        }
+
+        // Clean up the marker if it still exists (it shouldn't if logic is correct, but good practice)
+        if (currentMarker != null)
+        {
+            Destroy(currentMarker);
         }
 
         // Start cooldown

@@ -644,6 +644,7 @@ public class Weapon : MonoBehaviour
     }
      public void OnStatsChanged()
     {
+        if (statManager == null) return;
         // Update weapon properties based on new stats from StatManager
         damage = statManager.damage;
         handling = statManager.handling;

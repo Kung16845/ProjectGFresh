@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
-using UnityEditor.ShortcutManagement;
 using UnityEngine;
 
 public class BuildManager : MonoBehaviour
@@ -41,6 +40,10 @@ public class BuildManager : MonoBehaviour
     public List<Collider2D> collidersToManage = new List<Collider2D>();
     private Dictionary<string, System.Action<int>> resourceHandlers;
     public Tile[] tiles;
+    private Building previousBuildingToPlace;
+    private Camera mainCamera;
+    private bool resourcesDirty = true;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -53,58 +56,67 @@ public class BuildManager : MonoBehaviour
         }
         CollectColliders();
         InitializeResourceHandlers();
+        mainCamera = Camera.main;
     }
     private void InitializeResourceHandlers()
     {
         // Map item IDs to their respective resource update logic
         resourceHandlers = new Dictionary<string, System.Action<int>>
         {
-            { "1020129", amount => { steel += amount; Debug.Log($"Added {amount} Steel. Total: {steel}"); } },
-            { "1020128", amount => { plank += amount; Debug.Log($"Added {amount} Plank. Total: {plank}"); } },
-            { "1020130", amount => { food += amount; Debug.Log($"Added {amount} Food. Total: {food}"); } },
-            { "1020131", amount => { fuel += amount; Debug.Log($"Added {amount} Fuel. Total: {fuel}"); } },
-            { "1020132", amount => { ammo += amount; Debug.Log($"Added {amount} Ammo. Total: {ammo}"); } }
+            { "1020129", amount => { steel += amount; MarkResourcesDirty(); } },
+            { "1020128", amount => { plank += amount; MarkResourcesDirty(); } },
+            { "1020130", amount => { food += amount; MarkResourcesDirty(); } },
+            { "1020131", amount => { fuel += amount; MarkResourcesDirty(); } },
+            { "1020132", amount => { ammo += amount; MarkResourcesDirty(); } }
         };
     }
 
 
-    // Update is called once per frame
     void Update()
     {
-        UpdateResoureDisplay();
+        if (resourcesDirty)
+        {
+            UpdateResoureDisplay();
+            resourcesDirty = false;
+        }
+
+        // Only update tile visibility when the building to place changes
+        if (buildingToPlace != previousBuildingToPlace)
+        {
+            previousBuildingToPlace = buildingToPlace;
+            UpdateTileVisibility();
+        }
+
         if (buildingToPlace != null)
         {
-            foreach (Tile tile in tiles)
+            if (Input.GetMouseButtonDown(0))
             {
-                if (tile.buildingType == buildingToPlace.buildingType)
-                {
-                    tile.gameObject.SetActive(true);
-                }
-                else
-                {
-                    tile.gameObject.SetActive(false);
-                }
-
+                BuildPlace();
             }
-        }
-        if (Input.GetMouseButtonDown(0) && buildingToPlace != null)
-        {
-            BuildPlace();
-        }
-        else if (Input.GetMouseButtonDown(1) && buildingToPlace != null)
-        {
-
-            if (buildingToPlace != null)
+            else if (Input.GetMouseButtonDown(1))
             {
                 steel += buildingToPlace.steelCost;
                 plank += buildingToPlace.plankCost;
                 npc += buildingToPlace.workerPointsCost;
                 buildingToPlace = null;
+                MarkResourcesDirty();
+                uIBuilding.SetActive(true);
+                UIUpdateAfterBuildOrCancelBuild();
             }
-            uIBuilding.SetActive(true);
-            UIUpdateAfterBuildOrCancelBuild();
-
         }
+    }
+
+    private void UpdateTileVisibility()
+    {
+        foreach (Tile tile in tiles)
+        {
+            tile.gameObject.SetActive(buildingToPlace != null && tile.buildingType == buildingToPlace.buildingType);
+        }
+    }
+
+    public void MarkResourcesDirty()
+    {
+        resourcesDirty = true;
     }
     #region  Building 
     private void BuildPlace()
@@ -117,7 +129,7 @@ public class BuildManager : MonoBehaviour
             {
                 continue; // Skip the rest of the loop if the tile is not active
             }
-            float dist = Vector2.Distance(tile.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            float dist = Vector2.Distance(tile.transform.position, mainCamera.ScreenToWorldPoint(Input.mousePosition));
             if (dist < nearestDistance)
             {
                 nearestDistance = dist;
@@ -135,7 +147,7 @@ public class BuildManager : MonoBehaviour
             DateTime dateTime = GameManager.Instance.timeManager.dateTime;
             newBuilding.finishBuildingHour = dateTime.TotalHours + newBuilding.buildTimeHours;
             // Update tile status
-            nearestTile.isOccupied = true;
+            nearestTile.SetOccupied(true);
             nearestTile.buildingOnTile = newBuilding.GetComponent<Building>();
 
             // Add the building to the builtBuildings list
@@ -158,6 +170,7 @@ public class BuildManager : MonoBehaviour
             steel -= building.steelCost;
             plank -= building.plankCost;
             npc -= building.workerPointsCost;
+            MarkResourcesDirty();
             Cursor.visible = false;
             customCursor.gameObject.SetActive(true);
             customCursor.GetComponent<SpriteRenderer>().sprite = building.OriginalSprite;
@@ -174,7 +187,7 @@ public class BuildManager : MonoBehaviour
         if (buildingInfo != null)
         {
             // Update tile status
-            buildingInfo.tile.isOccupied = false;
+            buildingInfo.tile.SetOccupied(false);
             buildingInfo.tile.buildingOnTile = null;
 
             // Remove from list
@@ -242,6 +255,7 @@ public class BuildManager : MonoBehaviour
                 Debug.LogWarning($"Supply type '{supplyType}' is not recognized.");
                 break;
         }
+        MarkResourcesDirty();
     }
     public void AddResource(string itemId, int quantity)
     {

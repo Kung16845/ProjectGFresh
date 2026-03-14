@@ -282,63 +282,16 @@ public class InventorySlots : MonoBehaviour, IDropHandler
 
     private void AddOrUpdateItemDataInList(List<ItemData> list, ItemData sourceItem, int quantity)
     {
-        var existingItem = list.FirstOrDefault(i => i.idItem == sourceItem.idItem && i.itemtype == sourceItem.itemtype);
-        if (existingItem != null)
-        {
-            // Update the count of the existing item
-            existingItem.count += quantity;
-        }
-        else
-        {
-            // Add a new item to the list
-            ItemData newItem = new ItemData
-            {
-                idItem = sourceItem.idItem,
-                nameItem = sourceItem.nameItem,
-                count = quantity,
-                maxCount = sourceItem.maxCount,
-                itemtype = sourceItem.itemtype,
-            };
-            list.Add(newItem);
-        }
+        InventoryItemPresent.AddOrUpdateItemInList(list, sourceItem, quantity);
     }
 
     private void RemoveItemDataFromOrigin(SlotType originSlotType, ItemData sourceItem, int quantity)
     {
-        List<ItemData> originList = null;
-        TradesystemScript tradesystemScript = TradesystemScript.GetActiveTrade();
-        // Determine the appropriate source list based on the origin slot type
-        if (originSlotType == SlotType.SlotBag)
-            originList = uIInventory.listItemDataInventorySlot;
-        else if (originSlotType == SlotType.SlotCar)
-            originList = ((UIInventoryEX)uIInventory).listItemDataCarInventorySlot;
-        else if (originSlotType == SlotType.SlotBoxes)
-            originList = uIInventory.inventoryItemPresent.listItemsDataBox;
-        else if (originSlotType == SlotType.SlotWeapon || originSlotType == SlotType.SlotVest ||
-                originSlotType == SlotType.SlotTool || originSlotType == SlotType.SlotBackpack || 
-                originSlotType == SlotType.SlotGrenade)
-            originList = uIInventory.listItemDataInventoryEquipment;
-        else if (originSlotType == SlotType.SlotNpcItem)
-            originList = tradesystemScript?.listInvenrotyNpcItem;
-        else if (originSlotType == SlotType.SlotPlayerTrade)
-            originList = tradesystemScript?.listPlayerItemWaitforTrade;
-        else if (originSlotType == SlotType.SlotNpcTrade)
-            originList = tradesystemScript?.listNpcItemWaitforTrade;
-
+        List<ItemData> originList = InventoryItemPresent.ResolveListForSlotType(originSlotType, uIInventory);
         if (originList == null) return;
-        
-        // Find and update or remove the item in the source list
-        var originItem = originList.FirstOrDefault(i => i.idItem == sourceItem.idItem && i.itemtype == sourceItem.itemtype);
-        if (originItem != null)
-        {
-            originItem.count -= quantity;
-            if (originItem.count <= 0)
-                originList.Remove(originItem);
-        }
-        tradesystemScript?.RefreshTrade();
-        Debug.Log(originSlotType);
-        Debug.Log(quantity);
-        Debug.Log(sourceItem.nameItem);
+
+        InventoryItemPresent.RemoveItemFromList(originList, sourceItem, quantity);
+        TradesystemScript.GetActiveTrade()?.RefreshTrade();
     }
 }
 

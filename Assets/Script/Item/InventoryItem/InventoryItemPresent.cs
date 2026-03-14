@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class InventoryItemPresent : MonoBehaviour
 {
-    public static InventoryItemPresent Instance = new InventoryItemPresent();
+    public static InventoryItemPresent Instance = null;
     private void Awake()
     {
         if (Instance == null)
@@ -29,26 +29,10 @@ public class InventoryItemPresent : MonoBehaviour
     public Transform transformsBoxes;
 
     public Canvas canvas;
-    public GameObject targetObject; // Drag and drop the GameObject to toggle
-    private float toggleCooldown = 0.5f; // Set cooldown interval
-    private float nextToggleTime = 0f;
 
     private void Start()
     {
         canvas = FindAnyObjectByType<Canvas>();
-
-    }
-    private void Update()
-    {
-        // ตรวจสอบว่าปุ่ม I ถูกกดและว่า cooldown หมดลงแล้ว
-        if (Input.GetKeyDown(KeyCode.I) && Time.time >= nextToggleTime)
-        {
-            // Toggle เปิด-ปิด GameObject
-            targetObject.SetActive(!targetObject.activeSelf);
-
-            // ตั้งเวลา cooldown สำหรับการกดครั้งถัดไป
-            nextToggleTime = Time.time + toggleCooldown;
-        }
     }
 
     public void RefreshUIBox()
@@ -94,9 +78,9 @@ public class InventoryItemPresent : MonoBehaviour
 
     public void CreateUIItemInBoxes(ItemData itemData)
     {
-
-        GameObject uiItem = listUIItemPrefab.FirstOrDefault(idItem => idItem.idItem == itemData.idItem).gameObject;
-        GameObject uIItemOBJ = Instantiate(uiItem, transformsBoxes, false);
+        UIItemData prefab = listUIItemPrefab.FirstOrDefault(idItem => idItem.idItem == itemData.idItem);
+        if (prefab == null) return;
+        GameObject uIItemOBJ = Instantiate(prefab.gameObject, transformsBoxes, false);
 
         UIItemData uIItemData = uIItemOBJ.GetComponent<UIItemData>();
         ItemClass itemClass = uIItemOBJ.GetComponent<ItemClass>();
@@ -123,10 +107,10 @@ public class InventoryItemPresent : MonoBehaviour
         }
 
         // Unlock general inventory slots based on numUnlock
-        for (int i = 1; i <= numUnlock; i++)
+        int maxUnlock = Mathf.Min(numUnlock, listInvenrotySlots.Count);
+        for (int i = 0; i < maxUnlock; i++)
         {
-            InventorySlots slot = listInvenrotySlots.ElementAt(i - 1);
-            slot.slotTypeInventory = SlotType.SlotBag;
+            listInvenrotySlots[i].slotTypeInventory = SlotType.SlotBag;
         }
 
         // Define the item IDs that unlock the special slots
@@ -138,23 +122,19 @@ public class InventoryItemPresent : MonoBehaviour
         bool hasScavengerItem = listItemDataInventoryEqicment.Any(item => item.idItem == scavengerItemID);
 
         // Unlock or lock the special military slot
-        if (specialistRoleNpc == SpecialistRoleNpc.Military_training || hasMilitaryItem)
+        if (invenrotySlotSpecialMilitaryLock != null)
         {
-            invenrotySlotSpecialMilitaryLock.slotTypeInventory = SlotType.SlotWeapon;
-        }
-        else
-        {
-            invenrotySlotSpecialMilitaryLock.slotTypeInventory = SlotType.SlotLock;
+            invenrotySlotSpecialMilitaryLock.slotTypeInventory =
+                (specialistRoleNpc == SpecialistRoleNpc.Military_training || hasMilitaryItem)
+                    ? SlotType.SlotWeapon : SlotType.SlotLock;
         }
 
         // Unlock or lock the special scavenger slot
-        if (specialistRoleNpc == SpecialistRoleNpc.Scavenger || hasScavengerItem)
+        if (invenrotySlotSpecialScavengerLock != null)
         {
-            invenrotySlotSpecialScavengerLock.slotTypeInventory = SlotType.SlotTool;
-        }
-        else
-        {
-            invenrotySlotSpecialScavengerLock.slotTypeInventory = SlotType.SlotLock;
+            invenrotySlotSpecialScavengerLock.slotTypeInventory =
+                (specialistRoleNpc == SpecialistRoleNpc.Scavenger || hasScavengerItem)
+                    ? SlotType.SlotTool : SlotType.SlotLock;
         }
     }
 
@@ -213,12 +193,12 @@ public class InventoryItemPresent : MonoBehaviour
     {
         // Find the UIItemData associated with the given itemID
         UIItemData uiItemData = listUIItemPrefab.FirstOrDefault(item => item.idItem == itemID);
-        ItemClass itemClass = uiItemData.GetComponent<ItemClass>();
         if (uiItemData == null)
         {
             Debug.LogWarning($"No UIItemData found for itemID: {itemID}");
             return;
         }
+        ItemClass itemClass = uiItemData.GetComponent<ItemClass>();
 
         // Construct a new ItemData object based on the UIItemData template
         ItemData newItemData = new ItemData
@@ -258,8 +238,8 @@ public class InventoryItemPresent : MonoBehaviour
     }
     public void RemoveItem(ItemData itemDataRemove)
     {
-
         ItemData itemDataInList = listItemsDataBox.LastOrDefault(item => item.idItem == itemDataRemove.idItem);
+        if (itemDataInList == null) return;
 
         if (itemDataInList.count - itemDataRemove.count >= 0)
         {
@@ -269,11 +249,6 @@ public class InventoryItemPresent : MonoBehaviour
                 listItemsDataBox.Remove(itemDataInList);
             }
         }
-        else
-        {
-            //ถ้าไปเท็มในกล่องไม่พอให้ทำอะไร
-        }
-        // RefreshUIBox();
     }
 
     public int GetItemCountByID(string itemID)
@@ -364,6 +339,107 @@ public class InventoryItemPresent : MonoBehaviour
                     itemImage.color = Color.white; // Original color
                 }
             }
+        }
+    }
+
+    /// <summary>
+    /// Shared helper: Add or update an item in a list, splitting into multiple entries if quantity exceeds maxCount.
+    /// </summary>
+    public static void AddOrUpdateItemInList(List<ItemData> list, ItemData sourceItem, int quantity)
+    {
+        var existingItem = list.FirstOrDefault(item => item.idItem == sourceItem.idItem);
+
+        if (existingItem != null)
+        {
+            int totalQuantity = existingItem.count + quantity;
+
+            if (totalQuantity <= existingItem.maxCount)
+            {
+                existingItem.count = totalQuantity;
+            }
+            else
+            {
+                existingItem.count = existingItem.maxCount;
+                int excess = totalQuantity - existingItem.maxCount;
+
+                while (excess > 0)
+                {
+                    int newSlotQuantity = Mathf.Min(excess, sourceItem.maxCount);
+                    list.Add(new ItemData
+                    {
+                        idItem = sourceItem.idItem,
+                        nameItem = sourceItem.nameItem,
+                        count = newSlotQuantity,
+                        maxCount = sourceItem.maxCount,
+                        itemtype = sourceItem.itemtype,
+                    });
+                    excess -= newSlotQuantity;
+                }
+            }
+        }
+        else
+        {
+            while (quantity > 0)
+            {
+                int newSlotQuantity = Mathf.Min(quantity, sourceItem.maxCount);
+                list.Add(new ItemData
+                {
+                    idItem = sourceItem.idItem,
+                    nameItem = sourceItem.nameItem,
+                    count = newSlotQuantity,
+                    maxCount = sourceItem.maxCount,
+                    itemtype = sourceItem.itemtype,
+                });
+                quantity -= newSlotQuantity;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Shared helper: Remove quantity of an item from a list.
+    /// </summary>
+    public static void RemoveItemFromList(List<ItemData> list, ItemData sourceItem, int quantity)
+    {
+        var originItem = list.FirstOrDefault(item => item.idItem == sourceItem.idItem && item.itemtype == sourceItem.itemtype);
+        if (originItem != null)
+        {
+            originItem.count -= quantity;
+            if (originItem.count <= 0)
+            {
+                list.Remove(originItem);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Shared helper: Resolve the item list for a given SlotType.
+    /// </summary>
+    public static List<ItemData> ResolveListForSlotType(SlotType slotType, UIInventory uIInventory)
+    {
+        TradesystemScript tradesystemScript = TradesystemScript.GetActiveTrade();
+
+        switch (slotType)
+        {
+            case SlotType.SlotBag:
+                return uIInventory.listItemDataInventorySlot;
+            case SlotType.SlotCar:
+                return ((UIInventoryEX)uIInventory).listItemDataCarInventorySlot;
+            case SlotType.SlotBoxes:
+                return uIInventory.inventoryItemPresent.listItemsDataBox;
+            case SlotType.SlotWeapon:
+            case SlotType.SlotVest:
+            case SlotType.SlotTool:
+            case SlotType.SlotBackpack:
+            case SlotType.SlotGrenade:
+                return uIInventory.listItemDataInventoryEquipment;
+            case SlotType.SlotNpcItem:
+                return tradesystemScript?.listInvenrotyNpcItem;
+            case SlotType.SlotPlayerTrade:
+                return tradesystemScript?.listPlayerItemWaitforTrade;
+            case SlotType.SlotNpcTrade:
+                return tradesystemScript?.listNpcItemWaitforTrade;
+            default:
+                return null;
         }
     }
 }

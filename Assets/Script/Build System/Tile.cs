@@ -10,22 +10,30 @@ public class Tile : MonoBehaviour
     public Color redColor;
     public SpriteRenderer rend;
     public Building buildingOnTile;
+    private bool lastOccupied;
+
     private void Start()
     {
         rend = GetComponent<SpriteRenderer>();
-    }
-    protected void Update()
-    {
-        if (isOccupied)
-        {
-            rend.color = redColor;
-        }
-        else
-        {
-            rend.color = greenColor;
-        }
+        UpdateColor();
     }
 
-   
+    private void OnEnable()
+    {
+        UpdateColor();
+    }
+
+    public void SetOccupied(bool occupied)
+    {
+        if (isOccupied == occupied) return;
+        isOccupied = occupied;
+        UpdateColor();
+    }
+
+    private void UpdateColor()
+    {
+        if (rend == null) return;
+        rend.color = isOccupied ? redColor : greenColor;
+    }
 }
 

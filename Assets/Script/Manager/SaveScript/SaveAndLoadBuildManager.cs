@@ -99,8 +99,13 @@ public class SaveAndLoadBuildManager : MonoBehaviour
     }
     private Building InstantiateAndSetupBuilding(InfoBuilding info)
     {
-        Building newBuilding = Instantiate(
-            buildManager.listALLBuilding.FirstOrDefault(b => b.nameBuild == info.nameBuild));
+        Building prefab = buildManager.listALLBuilding.FirstOrDefault(b => b != null && b.nameBuild == info.nameBuild);
+        if (prefab == null)
+        {
+            Debug.LogWarning($"Building prefab not found for: {info.nameBuild}");
+            return null;
+        }
+        Building newBuilding = Instantiate(prefab);
 
         newBuilding.nameBuild = info.nameBuild;
         newBuilding.finishBuildingHour = info.finishBuildingHour;
@@ -114,7 +119,8 @@ public class SaveAndLoadBuildManager : MonoBehaviour
 
         Vector2 pos = newBuilding.transform.position;
         Tile tile = buildManager.tiles.FirstOrDefault(t => t.transform.position.x == pos.x && t.transform.position.y == pos.y);
-        tile.isOccupied = true;
+        if (tile != null)
+            tile.SetOccupied(true);
 
         buildManager.builtBuildings.Add(
             new BuiltBuildingInfo(newBuilding, info.levelBuild, null, newBuilding.buildingType));
@@ -130,12 +136,14 @@ public class SaveAndLoadBuildManager : MonoBehaviour
     public void CreateBuildingSmallGarden(InfoBuildSmallGarden info)
     {
         Building b = InstantiateAndSetupBuilding(info);
+        if (b == null) return;
         b.GetComponent<GardenBuilding>().yieldduration = info.yielduration;
     }
 
     public void CreateBuildingMediumGarden(InfoBuildMediumGarden info)
     {
         Building b = InstantiateAndSetupBuilding(info);
+        if (b == null) return;
         MediumGarden mg = b.GetComponent<MediumGarden>();
         mg.yieldduration = info.yielduration;
         mg.isHerbalPlanted = info.isHerbalPlant;

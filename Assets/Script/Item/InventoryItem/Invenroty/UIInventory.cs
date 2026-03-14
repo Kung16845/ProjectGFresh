@@ -157,7 +157,6 @@ public class UIInventory : MonoBehaviour
     {
 
         inventoryItemPresent = GameManager.Instance.inventoryItemPresent;
-        inventoryItemPresent.targetObject = this.gameObject;
 
         npcManager = GameManager.Instance.npcManager;
         npcManager.uIInventory = this;
@@ -167,6 +166,8 @@ public class UIInventory : MonoBehaviour
         npcManager.specialistNpcText = specialistNpcText;
 
         SetSlotToInventory();
+        dropdown.ClearOptions();
+        dropdown.onValueChanged.RemoveAllListeners();
         dropdown.AddOptions(npcManager.SetNpcOptionDropDown());
         dropdown.onValueChanged.AddListener(npcManager.OnDropdownValueChanged);
 
@@ -178,12 +179,15 @@ public class UIInventory : MonoBehaviour
     {
         inventoryItemPresent.listInvenrotySlots.Clear();
 
-        inventoryItemPresent.invenrotySlotSpecialMilitaryLock = listInventorySlotsUI.ElementAt(13);
-        inventoryItemPresent.invenrotySlotSpecialScavengerLock = listInventorySlotsUI.ElementAt(16);
+        if (listInventorySlotsUI.Count > 13)
+            inventoryItemPresent.invenrotySlotSpecialMilitaryLock = listInventorySlotsUI[13];
+        if (listInventorySlotsUI.Count > 16)
+            inventoryItemPresent.invenrotySlotSpecialScavengerLock = listInventorySlotsUI[16];
 
-        for (int i = 0; i < 12; i++)
+        int slotCount = Mathf.Min(12, listInventorySlotsUI.Count);
+        for (int i = 0; i < slotCount; i++)
         {
-            inventoryItemPresent.listInvenrotySlots.Add(listInventorySlotsUI.ElementAt(i));
+            inventoryItemPresent.listInvenrotySlots.Add(listInventorySlotsUI[i]);
         }
         if(transformBoxes != null)
             inventoryItemPresent.transformsBoxes = transformBoxes;
@@ -211,8 +215,9 @@ public class UIInventory : MonoBehaviour
 
     }
     public virtual void RefreshUIInventory()
-    {   
-        
+    {
+        if (npcSelecting == null || inventoryItemPresent == null) return;
+
         // 1. Clear all existing UI items
         ClearAllChildInvenrotySlot();
         // 2. Combine items with the same idItem in listItemDataInventorySlot
@@ -308,7 +313,7 @@ public class UIInventory : MonoBehaviour
         inventoryItemPresent.UnlockSlotInventory(npcSelecting.countInventorySlot, npcSelecting.roleNpc, listItemDataInventoryEquipment);
 
         // 7. Bind inventory items to UI slots
-        int maxBagSlots = 12;
+        int maxBagSlots = Mathf.Min(12, listInventorySlotsUI.Count);
         for (int i = 0; i < maxBagSlots; i++)
         {
             if (i < listItemDataInventorySlot.Count)

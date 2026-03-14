@@ -27,12 +27,24 @@ public class UIBuilding : MonoBehaviour
 
     public void SetDataBuild()
     {
-        textNameBuild.text = building.nameBuild;
+        BuildingData data = building.buildingData;
+        if (data != null)
+        {
+            textNameBuild.text = data.buildingName;
+            textPlankCost.text = data.plankCost.ToString();
+            textSteelCost.text = data.steelCost.ToString();
+            textNpcCost.text = data.workerPointsRequired.ToString();
+            textDayCost.text = data.buildTimeHours.ToString();
+        }
+        else
+        {
+            textNameBuild.text = building.nameBuild;
+            textPlankCost.text = building.plankCost.ToString();
+            textSteelCost.text = building.steelCost.ToString();
+            textNpcCost.text = building.workerPointsCost.ToString();
+            textDayCost.text = building.buildTimeHours.ToString();
+        }
         textDescriveBuild.text = building.detailBuild;
-        textPlankCost.text = building.plankCost.ToString();
-        textSteelCost.text = building.steelCost.ToString();
-        textNpcCost.text = building.workerPointsCost.ToString();
-        textDayCost.text = building.buildTimeHours.ToString();
         image.sprite = building.GetComponent<SpriteRenderer>().sprite;
         buildManager.building = building;
     }

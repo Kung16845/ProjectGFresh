@@ -2,18 +2,9 @@ using UnityEngine;
 
 public class Lounge : BaseBuilding
 {
-    private UImanger uImanger;
-    private UpgradeUi upgradeUi;
-
     // Public for LoungeUI to read
     public int currentBedContribution => GetContributionForLevel(upgradeBuilding.currentLevel).beds;
     public float currentDiscontentContribution => GetContributionForLevel(upgradeBuilding.currentLevel).discontent;
-
-    protected override void Start()
-    {
-        base.Start();
-        uImanger = FindObjectOfType<UImanger>();
-    }
 
     protected override BuildingContribution GetContributionForLevel(int level)
     {
@@ -26,24 +17,6 @@ public class Lounge : BaseBuilding
             default:
                 return new BuildingContribution { beds = 1, discontent = 15f };
         }
-    }
-
-    void OnMouseDown()
-    {
-        if (building.isfinsih && !upgradeBuilding.isUpgradBuilding)
-        {
-            uImanger.ToggleUIPanel(UImanger.UIPanel.LoungeUI);
-            if (upgradeBuilding.currentLevel == upgradeBuilding.maxLevel)
-            {
-                uImanger.DisableUIPanel(UImanger.UIPanel.LoungeUpgradeButton);
-            }
-        }
-    }
-
-    public void AssignUpgradeData()
-    {
-        upgradeUi = FindObjectOfType<UpgradeUi>();
-        upgradeUi.Initialize(upgradeBuilding);
     }
 
     // For LoungeUI to preview next level values

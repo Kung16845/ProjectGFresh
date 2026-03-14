@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SceneTestVarit/TestTownScene.unity
     guid: e99bad3a26c4fe14eac734226b9bb1e7
   - enabled: 1
-    path: Assets/Scenes/DefendSceneFare.unity
+    path: Assets/Scenes/DefendScene.unity
     guid: 0301e9acf77bf824b93e7a52618379c4
   - enabled: 0
     path: Assets/Scenes/SceneTestVarit/TestTransferData.unity
@@ -39,3 +39,4 @@ EditorBuildSettings:
     path: Assets/Scenes/SceneSteelFactory.unity
     guid: e1894ed0cd4eee948868080749c65cd6
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

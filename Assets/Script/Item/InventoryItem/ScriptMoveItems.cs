@@ -157,39 +157,8 @@ public class ScriptMoveItems : MonoBehaviour
         int actualQuantityToMove = countItemMove;
         ItemData sourceItemData = inventoryItemPresent.ConventItemClassToItemData(itemClassMove);
 
-        List<ItemData> targetList = null;
-        TradesystemScript tradesystemScript = TradesystemScript.GetActiveTrade(); // Use activeTrade
-
-        if (targetSlotType == SlotType.SlotBag)
-        {
-            targetList = uIInventory.listItemDataInventorySlot;
-        }
-        else if (targetSlotType == SlotType.SlotCar)
-        {
-            targetList = ((UIInventoryEX)uIInventory).listItemDataCarInventorySlot;
-        }
-        else if (targetSlotType == SlotType.SlotBoxes)
-        {
-            targetList = uIInventory.inventoryItemPresent.listItemsDataBox;
-        }
-        else if (targetSlotType == SlotType.SlotWeapon || targetSlotType == SlotType.SlotVest ||
-                targetSlotType == SlotType.SlotTool || targetSlotType == SlotType.SlotBackpack ||
-                targetSlotType == SlotType.SlotGrenade)
-        {
-            targetList = uIInventory.listItemDataInventoryEquipment;
-        }
-        else if (targetSlotType == SlotType.SlotNpcTrade || targetSlotType == SlotType.SlotPlayerTrade)
-        {
-            if (tradesystemScript != null)
-            {
-                if(targetSlotType == SlotType.SlotPlayerTrade)
-                    targetList = tradesystemScript.listPlayerItemWaitforTrade;
-                else if(targetSlotType == SlotType.SlotNpcItem)
-                    targetList = tradesystemScript.listInvenrotyNpcItem;
-                else
-                    targetList = tradesystemScript.listNpcItemWaitforTrade;
-            }
-        }
+        TradesystemScript tradesystemScript = TradesystemScript.GetActiveTrade();
+        List<ItemData> targetList = InventoryItemPresent.ResolveListForSlotType(targetSlotType, uIInventory);
         if (targetList == null) return;
 
         if (sourceSlotType == SlotType.SlotLoot)
@@ -257,101 +226,15 @@ public class ScriptMoveItems : MonoBehaviour
 
     private void AddOrUpdateItemDataInList(List<ItemData> list, ItemData sourceItem, int quantity)
     {
-        // Check if the item already exists in the target list
-        var existingItem = list.FirstOrDefault(item => item.idItem == sourceItem.idItem);
-
-        if (existingItem != null)
-        {
-            int totalQuantity = existingItem.count + quantity;
-
-            if (totalQuantity <= existingItem.maxCount)
-            {
-                // Fits within the same slot
-                existingItem.count = totalQuantity;
-            }
-            else
-            {
-                // Exceeds maxCount, split the excess
-                existingItem.count = existingItem.maxCount;
-                int excess = totalQuantity - existingItem.maxCount;
-
-                // Create new entries for the excess
-                while (excess > 0)
-                {
-                    int newSlotQuantity = Mathf.Min(excess, sourceItem.maxCount);
-                    ItemData newItem = new ItemData
-                    {
-                        idItem = sourceItem.idItem,
-                        nameItem = sourceItem.nameItem,
-                        count = newSlotQuantity,
-                        maxCount = sourceItem.maxCount,
-                        itemtype = sourceItem.itemtype,
-                    };
-
-                    list.Add(newItem);
-                    excess -= newSlotQuantity;
-                }
-            }
-        }
-        else
-        {
-            // No existing entry, add a new one
-            while (quantity > 0)
-            {
-                int newSlotQuantity = Mathf.Min(quantity, sourceItem.maxCount);
-                ItemData newItem = new ItemData
-                {
-                    idItem = sourceItem.idItem,
-                    nameItem = sourceItem.nameItem,
-                    count = newSlotQuantity,
-                    maxCount = sourceItem.maxCount,
-                    itemtype = sourceItem.itemtype,
-                };
-
-                list.Add(newItem);
-                quantity -= newSlotQuantity;
-            }
-        }
+        InventoryItemPresent.AddOrUpdateItemInList(list, sourceItem, quantity);
     }
-
 
     private void RemoveItemDataFromOrigin(SlotType originSlotType, ItemData sourceItem, int quantity)
     {
-        List<ItemData> originList = null;
-        TradesystemScript tradesystemScript = TradesystemScript.GetActiveTrade();
-        // Determine the appropriate source list based on the origin slot type
-        if (originSlotType == SlotType.SlotBag)
-            originList = uIInventory.listItemDataInventorySlot;
-        else if (originSlotType == SlotType.SlotCar)
-            originList = ((UIInventoryEX)uIInventory).listItemDataCarInventorySlot;
-        else if (originSlotType == SlotType.SlotBoxes)
-            originList = uIInventory.inventoryItemPresent.listItemsDataBox;
-        else if (originSlotType == SlotType.SlotWeapon || originSlotType == SlotType.SlotVest ||
-                originSlotType == SlotType.SlotTool || originSlotType == SlotType.SlotBackpack || 
-                originSlotType == SlotType.SlotGrenade)
-            originList = uIInventory.listItemDataInventoryEquipment;
-        else if (originSlotType == SlotType.SlotNpcItem)
-            originList = tradesystemScript?.listInvenrotyNpcItem;
-        else if (originSlotType == SlotType.SlotPlayerTrade)
-            originList = tradesystemScript?.listPlayerItemWaitforTrade;
-        else if (originSlotType == SlotType.SlotNpcTrade)
-            originList = tradesystemScript?.listNpcItemWaitforTrade;
-
+        List<ItemData> originList = InventoryItemPresent.ResolveListForSlotType(originSlotType, uIInventory);
         if (originList == null) return;
 
-        // Find the item in the origin list
-        var originItem = originList.FirstOrDefault(item => item.idItem == sourceItem.idItem && item.itemtype == sourceItem.itemtype);
-        if (originItem != null)
-        {
-            // Decrease the count of the item
-            originItem.count -= quantity;
-            if (originItem.count <= 0)
-            {
-                // Remove the item from the list if the count drops to zero
-                originList.Remove(originItem);
-                Debug.Log("Remove Item");
-            }
-        }
+        InventoryItemPresent.RemoveItemFromList(originList, sourceItem, quantity);
     }
 
 

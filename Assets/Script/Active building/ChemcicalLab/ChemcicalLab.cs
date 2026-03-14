@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class ChemcicalLab : BaseBuilding
 {
-    private UImanger uImanger;
-    private UpgradeUi upgradeUi;
     private CraftManager craftManager;
     public InventoryItemPresent inventoryItemPresent;
 
@@ -14,7 +12,6 @@ public class ChemcicalLab : BaseBuilding
     protected override void Start()
     {
         base.Start();
-        uImanger = FindObjectOfType<UImanger>();
         craftManager = FindObjectOfType<CraftManager>();
         inventoryItemPresent = FindObjectOfType<InventoryItemPresent>();
     }
@@ -35,24 +32,6 @@ public class ChemcicalLab : BaseBuilding
         base.Update();
         if (craftManager != null)
             craftManager.UpdateCraftingJobs();
-    }
-
-    void OnMouseDown()
-    {
-        if (building.isfinsih && !upgradeBuilding.isUpgradBuilding)
-        {
-            uImanger.ToggleUIPanel(UImanger.UIPanel.ChemcicalLabWorkshopUI);
-            if (upgradeBuilding.currentLevel == upgradeBuilding.maxLevel)
-            {
-                uImanger.DisableUIPanel(UImanger.UIPanel.ChemcicalLabButtonUpgradeUI);
-            }
-        }
-    }
-
-    public void AssignUpgradeData()
-    {
-        upgradeUi = FindObjectOfType<UpgradeUi>();
-        upgradeUi.Initialize(upgradeBuilding);
     }
 
     public CraftingResult AddCraftingJob(CraftingItem craftingItem)

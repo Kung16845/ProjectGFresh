@@ -23,10 +23,12 @@ public class UIInventoryBP : UIInventory
     }
     private void OnDestroy()
     {
-        int gameobjectsceneIndex = gameObject.scene.buildIndex;
-        Debug.Log("Scene index Game object : " + gameobjectsceneIndex);
         ClearItemDataInAllInventorySlotToListDataBoxes();
-        NpcClass npc = npcManager.GetNpcById(npcSelecting.idnpc);
-        npc.isWorking = false;
+        if (npcManager != null && npcSelecting != null)
+        {
+            NpcClass npc = npcManager.GetNpcById(npcSelecting.idnpc);
+            if (npc != null)
+                npc.isWorking = false;
+        }
     }
 }

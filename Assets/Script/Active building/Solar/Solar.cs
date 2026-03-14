@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class Solar : BaseBuilding
 {
+    public override bool HasOwnClickHandler => true;
     private UImanger uImanger;
-    private UpgradeUi upgradeUi;
+
     private TimeManager timeManager;
     private DateTime dateTime;
     private int currentDay;
@@ -63,11 +64,7 @@ public class Solar : BaseBuilding
         }
     }
 
-    public void AssignUpgradeData()
-    {
-        upgradeUi = FindObjectOfType<UpgradeUi>();
-        upgradeUi.Initialize(upgradeBuilding);
-    }
+
 
     private void ActivateElectricity()
     {

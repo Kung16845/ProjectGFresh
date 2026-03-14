@@ -106,12 +106,13 @@ public class PlayerMovement : MonoBehaviour
     // Method called when stats change
     public void OnStatsChanged()
     {
+        if (statManager == null) return;
         // Adjust current stamina if max stamina has changed
         if (currentStamina > statManager.maxStamina)
         {
             currentStamina = statManager.maxStamina;
         }
-          if (staminaUI != null)
+        if (staminaUI != null)
         {
             staminaUI.InitializeStaminaSlider(statManager.maxStamina);
         }

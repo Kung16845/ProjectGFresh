@@ -45,6 +45,22 @@ public abstract class BaseBuilding : MonoBehaviour
     }
 
     /// <summary>
+    /// If true, this building has its own OnMouseDown and UpgradeBuilding should not open the upgrade UI on click.
+    /// </summary>
+    public virtual bool HasOwnClickHandler => false;
+
+    /// <summary>
+    /// Opens the UpgradeUi and initializes it with this building's upgrade data.
+    /// Called by UI buttons on building panels.
+    /// </summary>
+    public void AssignUpgradeData()
+    {
+        UpgradeUi upgradeUi = FindObjectOfType<UpgradeUi>();
+        if (upgradeUi != null)
+            upgradeUi.Initialize(upgradeBuilding);
+    }
+
+    /// <summary>
     /// Return the stat contribution for the given level.
     /// Only set the fields your building uses — leave the rest at 0.
     /// </summary>

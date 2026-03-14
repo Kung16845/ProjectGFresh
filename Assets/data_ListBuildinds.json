@@ -1,36 +1,5 @@
 {
-    "listInfoBuilding": [
-        {
-            "transformX": -3.2899999618530275,
-            "transformY": -0.4699999988079071,
-            "nameBuild": "CarWorkshop",
-            "levelBuild": 1,
-            "finishBuildingHour": 54,
-            "finishUpgradeHour": 0,
-            "isBuildingUpgrad": false,
-            "isBuildFinishedUpgrad": false
-        },
-        {
-            "transformX": -0.20999999344348908,
-            "transformY": 3.0299999713897707,
-            "nameBuild": "Water pump",
-            "levelBuild": 2,
-            "finishBuildingHour": 12,
-            "finishUpgradeHour": 25,
-            "isBuildingUpgrad": false,
-            "isBuildFinishedUpgrad": true
-        },
-        {
-            "transformX": -1.4500000476837159,
-            "transformY": -3.4700000286102297,
-            "nameBuild": "Workshop",
-            "levelBuild": 1,
-            "finishBuildingHour": 16,
-            "finishUpgradeHour": 0,
-            "isBuildingUpgrad": false,
-            "isBuildFinishedUpgrad": false
-        }
-    ],
+    "listInfoBuilding": [],
     "listinfoBuildSmallGardens": [],
     "listinfoBuildMediumGardens": []
 }

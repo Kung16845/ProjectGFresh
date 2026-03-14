@@ -7,7 +7,7 @@
     "isRepireSattlelite": false,
     "listsupplyDropItemsSattlelite": [],
     "finishRepairHourSattlelite": 0,
-    "tuneelIsopen": true,
+    "tuneelIsopen": false,
     "isclearingTuneel": false,
-    "finishClearingHourTunnel": 65
+    "finishClearingHourTunnel": 0
 }

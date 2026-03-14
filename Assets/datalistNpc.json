@@ -1,3 +1,67 @@
 {
-    "listDataNPC": []
+    "listDataNPC": [
+        {
+            "foodPerDay": 1,
+            "bed": 0,
+            "nameNpc": "Alex",
+            "hp": 100,
+            "morale": 80,
+            "endurance": 5,
+            "combat": 6,
+            "speed": 4,
+            "recoverSpeed": 1.0,
+            "isActive": true,
+            "countInventorySlot": 6,
+            "idnpc": 1,
+            "roleNpc": 7,
+            "isWorking": false,
+            "workerValue": 1,
+            "leaderSkill": "",
+            "idHead": 1,
+            "idBody": 1,
+            "idFeed": 1
+        },
+        {
+            "foodPerDay": 1,
+            "bed": 0,
+            "nameNpc": "Maria",
+            "hp": 100,
+            "morale": 75,
+            "endurance": 4,
+            "combat": 3,
+            "speed": 5,
+            "recoverSpeed": 1.2,
+            "isActive": true,
+            "countInventorySlot": 6,
+            "idnpc": 2,
+            "roleNpc": 4,
+            "isWorking": false,
+            "workerValue": 1,
+            "leaderSkill": "",
+            "idHead": 2,
+            "idBody": 2,
+            "idFeed": 2
+        },
+        {
+            "foodPerDay": 1,
+            "bed": 0,
+            "nameNpc": "Jake",
+            "hp": 100,
+            "morale": 70,
+            "endurance": 7,
+            "combat": 4,
+            "speed": 3,
+            "recoverSpeed": 0.8,
+            "isActive": true,
+            "countInventorySlot": 6,
+            "idnpc": 3,
+            "roleNpc": 0,
+            "isWorking": false,
+            "workerValue": 1,
+            "leaderSkill": "",
+            "idHead": 3,
+            "idBody": 3,
+            "idFeed": 3
+        }
+    ]
 }
