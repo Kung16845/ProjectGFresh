@@ -4,11 +4,32 @@ using UnityEngine;
 
 public class CustomCursor : MonoBehaviour
 {
+    private Camera _mainCamera;
+    private Transform _transform;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = mousePosition;
+        _transform = transform;
+        _mainCamera = Camera.main;
+    }
+
+    private void OnEnable()
+    {
+        if (_mainCamera == null)
+        {
+            _mainCamera = Camera.main;
+        }
+    }
+
+    private void Update()
+    {
+        if (_mainCamera == null)
+        {
+            _mainCamera = Camera.main;
+            if (_mainCamera == null) return;
+        }
+
+        Vector2 mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        _transform.position = mousePosition;
     }
 }
