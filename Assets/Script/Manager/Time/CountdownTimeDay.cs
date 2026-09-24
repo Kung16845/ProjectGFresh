@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
 public class CountdownTimeDay : MonoBehaviour
@@ -15,57 +12,91 @@ public class CountdownTimeDay : MonoBehaviour
     public GameObject iconCompleteSend;
     public TimeManager timeManager;
     public UIInventoryEX uIInventoryEX;
+
     public void SaveDayFinishExpenditionInUIEX()
     {
+        if (uIInventoryEX == null) return;
         uIInventoryEX.finishDayCraftingTime = finishDayCraftingTime;
         uIInventoryEX.finishHourCraftingTime = finishHourCraftingTime;
         uIInventoryEX.finishMinutesCraftingTime = finishMinutesCraftingTime;
     }
+
     public void SetStartExpendition()
     {
-       
-        timeManager = FindObjectOfType<TimeManager>();
-        ratio = timeScale / 1000f;
-        timeInSeconds = ratio * 60;
-      
-
-        if (timeManager.dateTime.hour + (timeInSeconds / 60) >= 18)
+        if (timeManager == null)
         {
-            finishDayCraftingTime = timeManager.dateTime.day + 1;
-            finishHourCraftingTime = 6 + timeManager.dateTime.hour + (int)(timeInSeconds / 60) - 18;
-            finishMinutesCraftingTime = timeManager.dateTime.minutes +(int)timeInSeconds % 60;
+            timeManager = TimeManager.Instance != null ? TimeManager.Instance : FindFirstObjectByType<TimeManager>();
+        }
+
+        if (timeManager == null || timeManager.dateTime == null)
+        {
+            Debug.LogWarning("[CountdownTimeDay] TimeManager or dateTime is null!");
+            return;
+        }
+
+        ratio = timeScale / 1000f;
+        timeInSeconds = ratio * 60f;
+
+        int totalMinutesToAdd = (int)timeInSeconds;
+        int currentDay = timeManager.dateTime.day;
+        int currentHour = timeManager.dateTime.hour;
+        int currentMinutes = timeManager.dateTime.minutes;
+
+        int newMinutes = currentMinutes + totalMinutesToAdd;
+        int newHour = currentHour + (newMinutes / 60);
+        newMinutes %= 60;
+
+        if (newHour >= 18)
+        {
+            finishDayCraftingTime = currentDay + 1;
+            finishHourCraftingTime = 6 + (newHour - 18);
+            finishMinutesCraftingTime = newMinutes;
         }
         else
         {
-            finishDayCraftingTime = timeManager.dateTime.day;
-            finishHourCraftingTime = timeManager.dateTime.hour + (int)(timeInSeconds / 60);
-            finishMinutesCraftingTime = timeManager.dateTime.minutes +(int)timeInSeconds % 60;
+            finishDayCraftingTime = currentDay;
+            finishHourCraftingTime = newHour;
+            finishMinutesCraftingTime = newMinutes;
         }
-        
+
         SaveDayFinishExpenditionInUIEX();
-        // Debug.Log("Day : " + finishDayCraftingTime + " Hour : " + finishHourCraftingTime
-        // + " Minutes : " + finishMinutesCraftingTime);
-
     }
-    // Update is called once per frame
-    void Update()
-    {   
 
+    private void Update()
+    {
+        if (timeManager == null)
+        {
+            timeManager = TimeManager.Instance != null ? TimeManager.Instance : FindFirstObjectByType<TimeManager>();
+            if (timeManager == null) return;
+        }
 
-        if (timeManager.dateTime.day > finishDayCraftingTime  || 
-        (timeManager.dateTime.day == finishDayCraftingTime &&
-        timeManager.dateTime.hour >= finishHourCraftingTime &&
-        timeManager.dateTime.minutes >= finishMinutesCraftingTime) )
-        {   
-            if(!uIInventoryEX.isArriveEx && !uIInventoryEX.isArriveHome)
-                uIInventoryEX.isArriveEx = true;
-            else 
-            {   
-                uIInventoryEX.isArriveHome = true;
+        if (timeManager.dateTime == null) return;
+
+        bool isComplete = (timeManager.dateTime.day > finishDayCraftingTime) ||
+                          (timeManager.dateTime.day == finishDayCraftingTime &&
+                           (timeManager.dateTime.hour > finishHourCraftingTime ||
+                            (timeManager.dateTime.hour == finishHourCraftingTime && timeManager.dateTime.minutes >= finishMinutesCraftingTime)));
+
+        if (isComplete)
+        {
+            if (uIInventoryEX != null)
+            {
+                if (!uIInventoryEX.isArriveEx && !uIInventoryEX.isArriveHome)
+                {
+                    uIInventoryEX.isArriveEx = true;
+                }
+                else
+                {
+                    uIInventoryEX.isArriveHome = true;
+                }
             }
-            iconCompleteSend.gameObject.SetActive(true);
+
+            if (iconCompleteSend != null)
+            {
+                iconCompleteSend.SetActive(true);
+            }
+
             Destroy(this);
         }
     }
-
 }

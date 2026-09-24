@@ -1,30 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TimePause : MonoBehaviour
 {
     public TimeManager timeManager;
-    // Start is called before the first frame update
-    void Awake()
+
+    private void Awake()
     {
-        timeManager = FindObjectOfType<TimeManager>();
+        EnsureTimeManager();
     }
-    private void Update() {
-        if(this.gameObject.activeSelf)
+
+    private void OnEnable()
+    {
+        EnsureTimeManager();
+        if (timeManager != null)
         {
             timeManager.TimeStop();
         }
-        else 
+    }
+
+    private void OnDisable()
+    {
+        if (timeManager != null)
         {
             timeManager.TimeContinue();
         }
     }
-    private void OnEnable() {
-        timeManager.TimeStop();
+
+    private void EnsureTimeManager()
+    {
+        if (timeManager == null)
+        {
+            timeManager = TimeManager.Instance != null ? TimeManager.Instance : FindFirstObjectByType<TimeManager>();
+        }
     }
-    private void OnDisable() {
-        timeManager.TimeContinue();
-    }
-  
 }
