@@ -1,9 +1,6 @@
-// ItemStatDisplay.cs
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 
 public class ItemStatDisplay : MonoBehaviour
 {
@@ -11,16 +8,17 @@ public class ItemStatDisplay : MonoBehaviour
     public ItemClass item;
 
     [Header("UI Prefabs")]
-    public GameObject statPanelPrefab; // The panel prefab to display stats
-    public GameObject statElementPrefab; // The prefab for individual stat elements
+    public GameObject statPanelPrefab;
+    public GameObject statElementPrefab;
     public Transform statPanelParent;
+
     private GameObject statPanelInstance;
     private StatPanelUI statPanelUI;
     private UIInventory uIInventory;
 
     private void Start()
     {
-        uIInventory = FindObjectOfType<UIInventory>();
+        uIInventory = FindFirstObjectByType<UIInventory>();
         if (item == null)
         {
             item = GetComponent<ItemClass>();
@@ -30,7 +28,6 @@ public class ItemStatDisplay : MonoBehaviour
             }
         }
 
-        // Optionally, you can add a listener to the Button component here
         Button button = GetComponent<Button>();
         if (button != null)
         {
@@ -42,7 +39,6 @@ public class ItemStatDisplay : MonoBehaviour
         }
     }
 
-    // This method will be called when the button is clicked
     public void OnButtonClick()
     {
         if (statPanelInstance == null)
@@ -57,10 +53,11 @@ public class ItemStatDisplay : MonoBehaviour
 
     private void ShowStatPanel()
     {
-        // Check if the statPanelParent is set, default to the root of the canvas
+        if (statPanelPrefab == null || item == null) return;
+
         if (statPanelParent == null)
         {
-            Canvas canvas = FindObjectOfType<Canvas>();
+            Canvas canvas = FindFirstObjectByType<Canvas>();
             if (canvas != null)
             {
                 statPanelParent = canvas.transform;
@@ -72,10 +69,7 @@ public class ItemStatDisplay : MonoBehaviour
             }
         }
 
-        // Instantiate the stat panel as a child of the specified parent
         statPanelInstance = Instantiate(statPanelPrefab, statPanelParent);
-
-        // Get the StatPanelUI component
         statPanelUI = statPanelInstance.GetComponent<StatPanelUI>();
         if (statPanelUI == null)
         {
@@ -83,41 +77,47 @@ public class ItemStatDisplay : MonoBehaviour
             return;
         }
 
-        // Assign this ItemStatDisplay to the StatPanelUI
-        // If you made the field public
         statPanelUI.itemStatDisplay = this;
 
-        // If you provided a setter method
-        // statPanelUI.SetItemStatDisplay(this);
+        if (statPanelUI.itemImage != null)
+        {
+            statPanelUI.itemImage.sprite = (item.itemIcon != null) ? item.itemIcon : (item.IconSprite != null ? item.IconSprite.sprite : null);
+        }
 
-        // Populate the UI elements
-        statPanelUI.itemImage.sprite = item.itemIcon;  // Use item.itemIcon
-        statPanelUI.itemNameText.text = item.nameItem;
+        if (statPanelUI.itemNameText != null)
+        {
+            statPanelUI.itemNameText.text = item.nameItem;
+        }
 
         Dictionary<string, float> itemStats = item.GetStats();
         Dictionary<string, float> maxStatValues = item.GetMaxStatValues();
 
-        foreach (var stat in itemStats)
+        if (statElementPrefab != null && statPanelUI.statContainer != null && itemStats != null)
         {
-            string statName = stat.Key;
-            float statValueFloat = stat.Value;
-            float maxStatValue = maxStatValues.ContainsKey(statName) ? maxStatValues[statName] : 100f;
-
-            GameObject statElementInstance = Instantiate(statElementPrefab, statPanelUI.statContainer);
-
-            StatElementUI statElementUI = statElementInstance.GetComponent<StatElementUI>();
-            if (statElementUI == null)
+            foreach (var stat in itemStats)
             {
-                Debug.LogError("StatElementUI script not found on the stat element prefab.");
-                continue;
+                string statName = stat.Key;
+                float statValueFloat = stat.Value;
+                float maxStatValue = (maxStatValues != null && maxStatValues.ContainsKey(statName)) ? maxStatValues[statName] : 100f;
+
+                GameObject statElementInstance = Instantiate(statElementPrefab, statPanelUI.statContainer);
+                StatElementUI statElementUI = statElementInstance.GetComponent<StatElementUI>();
+                if (statElementUI == null)
+                {
+                    continue;
+                }
+
+                if (statElementUI.statText != null)
+                {
+                    statElementUI.statText.text = $"{statName}: {statValueFloat}";
+                }
+                if (statElementUI.statSlider != null)
+                {
+                    statElementUI.statSlider.maxValue = maxStatValue;
+                    statElementUI.statSlider.value = Mathf.Clamp(statValueFloat, 0, maxStatValue);
+                }
             }
-
-            statElementUI.statText.text = $"{statName}: {statValueFloat}";
-            statElementUI.statSlider.maxValue = maxStatValue;
-            statElementUI.statSlider.value = Mathf.Clamp(statValueFloat, 0, maxStatValue);
         }
-
-        // StartCoroutine(DetectOutsideClick());
     }
 
     private void CloseStatPanel()
@@ -130,39 +130,16 @@ public class ItemStatDisplay : MonoBehaviour
         }
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         CloseStatPanel();
     }
 
-    private IEnumerator DetectOutsideClick()
-    {
-        // Wait until next frame to avoid immediate closing
-        yield return null;
-
-        bool clickedOutside = false;
-        while (!clickedOutside)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (statPanelInstance == null || !RectTransformUtility.RectangleContainsScreenPoint(
-                    statPanelInstance.GetComponent<RectTransform>(),
-                    Input.mousePosition,
-                    Camera.main))
-                {
-                    clickedOutside = true;
-                    CloseStatPanel();
-                }
-            }
-            yield return null;
-        }
-    }
-
     public void DeletethisItem()
     {
-        if(uIInventory != null)
+        if (uIInventory != null)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
         else
         {

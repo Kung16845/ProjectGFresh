@@ -1,4 +1,3 @@
-// StatPanelUI.cs
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -8,11 +7,11 @@ public class StatPanelUI : MonoBehaviour
     public Image itemImage;
     public TextMeshProUGUI itemNameText;
     public Transform statContainer;
-    public ItemStatDisplay itemStatDisplay; // Changed from private to public
+    public ItemStatDisplay itemStatDisplay;
 
     public void DeleteItem()
     {
-        if(itemStatDisplay != null)
+        if (itemStatDisplay != null)
         {
             itemStatDisplay.DeletethisItem();
         }
@@ -24,6 +23,6 @@ public class StatPanelUI : MonoBehaviour
 
     public void Destroythisobject()
     {
-        Destroy(gameObject); // Typically, you'd want to destroy the GameObject, not the script
+        Destroy(gameObject);
     }
 }

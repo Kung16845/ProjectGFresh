@@ -1,16 +1,12 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine;
 
 public class UIInventoryEX : UIInventory
 {
     public List<InventorySlots> listInvenrotyCarSlotsUI = new List<InventorySlots>();
-    public List<ItemData> listItemDataCarInventorySlot;
+    public List<ItemData> listItemDataCarInventorySlot = new List<ItemData>();
     public float timeScale;
     public float riskValue;
     public int indexButtonExpendition;
@@ -35,81 +31,131 @@ public class UIInventoryEX : UIInventory
     public GameObject uINpcGoBack;
     public GameObject CloseButton;
     public Globalstat globalstat;
+    public List<GameObject> listEvnet = new List<GameObject>();
 
-    public List<GameObject> listEvnet;
     private void Awake()
     {
         SetValuableUIInventory();
-        expenditionManager = GameManager.Instance.expenditionManager;
+        if (GameManager.Instance != null)
+        {
+            expenditionManager = GameManager.Instance.expenditionManager;
+        }
     }
+
     public void Start()
     {
-        if(isuseCar && UICarInventory != null)
+        if (isuseCar && UICarInventory != null)
+        {
             UICarInventory.SetActive(true);
-        globalstat = GameManager.Instance.globalstat;
+        }
+
+        if (GameManager.Instance != null)
+        {
+            globalstat = GameManager.Instance.globalstat;
+        }
+
         sceneSystem = FindFirstObjectByType<SceneSystem>();
         SetPlayerExpendition();
-        if (indexButtonExpendition == 1)
+
+        if (expenditionManager != null)
         {
-            expenditionManager.uIExOne = this.gameObject;
-        }
-        else if (indexButtonExpendition == 2)
-        {
-            expenditionManager.uIExTwo = this.gameObject;
-        }
-    }
-     public void ConventAllUIItemInListCarInventorySlotToListItemData(List<ItemData> listSlotItemDatas)
-    {
-        listSlotItemDatas.Clear(); // Clear old data
-        for (int i = 0; i < listInvenrotyCarSlotsUI.Count; i++)
-        {
-            ItemClass itemClass = listInvenrotyCarSlotsUI.ElementAt(i).GetComponentInChildren<ItemClass>();
-            if (itemClass != null)
+            if (indexButtonExpendition == 1)
             {
-                ItemData itemData = inventoryItemPresent.ConventItemClassToItemData(itemClass);
-                listSlotItemDatas.Add(itemData);
+                expenditionManager.uIExOne = gameObject;
+            }
+            else if (indexButtonExpendition == 2)
+            {
+                expenditionManager.uIExTwo = gameObject;
             }
         }
     }
+
+    public void ConventAllUIItemInListCarInventorySlotToListItemData(List<ItemData> listSlotItemDatas)
+    {
+        if (listSlotItemDatas == null || listInvenrotyCarSlotsUI == null) return;
+
+        listSlotItemDatas.Clear();
+        for (int i = 0; i < listInvenrotyCarSlotsUI.Count; i++)
+        {
+            var slot = listInvenrotyCarSlotsUI[i];
+            if (slot == null) continue;
+
+            ItemClass itemClass = slot.GetComponentInChildren<ItemClass>();
+            if (itemClass != null)
+            {
+                listSlotItemDatas.Add(itemClass.ToItemData());
+            }
+        }
+    }
+
     public void SetPlayerExpendition()
     {
-        if (isExpenditon)
+        if (!isExpenditon) return;
+
+        if (GameManager.Instance != null)
         {
-            Debug.Log("Enter Scene Expendition");
             expenditionManager = GameManager.Instance.expenditionManager;
             inventoryItemPresent = GameManager.Instance.inventoryItemPresent;
-            expenditionManager.playerObject = FindFirstObjectByType<PlayerMovement>().gameObject;
-            statAmplifier = FindFirstObjectByType<StatAmplifier>();
-            listItemDataCarInventorySlot = expenditionManager.listItemDataCarInventory;
-            GameObject npcPlayer = expenditionManager.playerObject;
-
-            npcSelecting = expenditionManager.npcSelecying;
             npcManager = GameManager.Instance.npcManager;
+        }
 
+        PlayerMovement playerMovement = FindFirstObjectByType<PlayerMovement>();
+        if (expenditionManager != null && playerMovement != null)
+        {
+            expenditionManager.playerObject = playerMovement.gameObject;
+        }
+
+        statAmplifier = FindFirstObjectByType<StatAmplifier>();
+
+        if (expenditionManager != null)
+        {
+            listItemDataCarInventorySlot = expenditionManager.listItemDataCarInventory;
+            npcSelecting = expenditionManager.npcSelecying;
+            iswalk = expenditionManager.iswalk;
+            isuseCar = expenditionManager.isuseCar;
+            isuseTunnel = expenditionManager.isuseTunnel;
+        }
+
+        if (npcManager != null && npcSelecting != null)
+        {
             npcManager.uIInventory = this;
             npcManager.levelCombatText = levelCombatText;
             npcManager.levelEnduranceText = levelEnduranceText;
             npcManager.levelSpeedText = levelSpeedText;
             npcManager.specialistNpcText = specialistNpcText;
 
-            levelCombatText.text = npcSelecting.combat.ToString();
-            levelEnduranceText.text = npcSelecting.endurance.ToString();
-            levelSpeedText.text = npcSelecting.speed.ToString();
-            specialistNpcText.text = npcSelecting.roleNpc.ToString();
+            if (levelCombatText != null) levelCombatText.text = npcSelecting.combat.ToString();
+            if (levelEnduranceText != null) levelEnduranceText.text = npcSelecting.endurance.ToString();
+            if (levelSpeedText != null) levelSpeedText.text = npcSelecting.speed.ToString();
+            if (specialistNpcText != null) specialistNpcText.text = npcSelecting.roleNpc.ToString();
 
-            iswalk = expenditionManager.iswalk;
-            isuseCar = expenditionManager.isuseCar;
-            isuseTunnel = expenditionManager.isuseTunnel;
+            if (dropdown != null)
+            {
+                dropdown.ClearOptions();
+                TMP_Dropdown.OptionData option = new TMP_Dropdown.OptionData { text = npcSelecting.nameNpc };
+                dropdown.AddOptions(new List<TMP_Dropdown.OptionData> { option });
+            }
 
-            dropdown.ClearOptions();
-            TMP_Dropdown.OptionData option = new TMP_Dropdown.OptionData();
-            option.text = npcSelecting.nameNpc;
+            if (spriteHeadNpc != null && npcManager.listHeadCoutume != null)
+            {
+                for (int i = 0; i < npcManager.listHeadCoutume.Count; i++)
+                {
+                    if (npcManager.listHeadCoutume[i] != null && npcManager.listHeadCoutume[i].idHead == npcSelecting.idHead)
+                    {
+                        spriteHeadNpc.sprite = npcManager.listHeadCoutume[i].spriteHead;
+                        break;
+                    }
+                }
+            }
 
-            dropdown.AddOptions(new List<TMP_Dropdown.OptionData> { option });
-            spriteHeadNpc.sprite = npcManager.listHeadCoutume.FirstOrDefault(npcCoustume => npcCoustume.idHead == npcSelecting.idHead).spriteHead;
-
-            SetInventoryItemDataEx(expenditionManager.listItemDataInventoryslot, expenditionManager.listItemDataInventoryEqicment);
-            SetCostumeNpcExpentdition(npcSelecting, npcPlayer);
+            if (expenditionManager != null)
+            {
+                SetInventoryItemDataEx(expenditionManager.listItemDataInventoryslot, expenditionManager.listItemDataInventoryEqicment);
+                if (expenditionManager.playerObject != null)
+                {
+                    SetCostumeNpcExpentdition(npcSelecting, expenditionManager.playerObject);
+                }
+            }
 
             if (statAmplifier != null)
             {
@@ -120,57 +166,61 @@ public class UIInventoryEX : UIInventory
                 statAmplifier.specialistRole = npcSelecting.roleNpc;
                 statAmplifier.InitializeAmplifiers();
             }
-            if(isuseCar)
-                UICarInventory.SetActive(true);
-
-            // Load car slot data into UI
-            LoadCarSlotsFromData();
-
-            RefreshUIInventory();
         }
+
+        if (isuseCar && UICarInventory != null)
+        {
+            UICarInventory.SetActive(true);
+        }
+
+        LoadCarSlotsFromData();
+        RefreshUIInventory();
     }
+
     public override void RefreshUIInventory()
     {
-        base.RefreshUIInventory(); // Refresh normal slots and equipment from the parent class logic
-        if(listItemDataCarInventorySlot.Count >= 1)
+        base.RefreshUIInventory();
+
+        if (listItemDataCarInventorySlot != null && listItemDataCarInventorySlot.Count >= 1)
         {
-            Debug.Log($"Before Refresh: {listItemDataCarInventorySlot.Count} items");
             CombineAndSplitItems(listItemDataCarInventorySlot);
             RefreshCarInventorySlots();
-            Debug.Log($"After Refresh: {listItemDataCarInventorySlot.Count} items");
         }
-        // BindCarSlotsToData();
     }
-   public void RefreshCarInventorySlots()
+
+    public void RefreshCarInventorySlots()
     {
-        // Step 1: Clear all children from slots
         ClearAllChildInvenrotyCarSlot();
+        if (listItemDataCarInventorySlot == null || listInvenrotyCarSlotsUI == null) return;
 
-        // Step 2: Sort and update data
-        var orderedItems = listItemDataCarInventorySlot.OrderBy(item => item.idItem).ToList();
+        listItemDataCarInventorySlot.Sort((a, b) => a.idItem.CompareTo(b.idItem));
 
-        // Step 3: Sync UI with data
-        for (int i = 0; i < 12; i++)
+        int limit = Mathf.Min(12, listInvenrotyCarSlotsUI.Count);
+        for (int i = 0; i < limit; i++)
         {
-            if (i < listItemDataCarInventorySlot.Count)
+            if (i < listItemDataCarInventorySlot.Count && listInvenrotyCarSlotsUI[i] != null)
             {
-                // Place this item in slot i
                 CreateUIItem(listItemDataCarInventorySlot[i], listInvenrotyCarSlotsUI[i]);
             }
         }
     }
 
-
-   public void ClearAllChildInvenrotyCarSlot()
+    public void ClearAllChildInvenrotyCarSlot()
     {
-        foreach (var carSlot in listInvenrotyCarSlotsUI)
+        if (listInvenrotyCarSlotsUI == null) return;
+
+        for (int i = 0; i < listInvenrotyCarSlotsUI.Count; i++)
         {
-            if (carSlot != null && carSlot.transform.childCount > 0)
+            var carSlot = listInvenrotyCarSlotsUI[i];
+            if (carSlot == null) continue;
+
+            Transform slotTransform = carSlot.transform;
+            for (int c = slotTransform.childCount - 1; c >= 0; c--)
             {
-                foreach (Transform child in carSlot.transform)
+                Transform child = slotTransform.GetChild(c);
+                if (child != null)
                 {
-                    Debug.Log($"Destroying child {child.name} in slot {carSlot.name}");
-                    Destroy(child.gameObject); // Destroy each child
+                    Destroy(child.gameObject);
                 }
             }
         }
@@ -178,68 +228,102 @@ public class UIInventoryEX : UIInventory
 
     public override void ConventDataUIToItemData()
     {
-        base.ConventDataUIToItemData(); // Convert normal and equipment slots
+        base.ConventDataUIToItemData();
         SyncCarSlotsToItemData();
     }
+
     private void SyncCarSlotsToItemData()
     {
-        listItemDataCarInventorySlot.Clear(); // Clear once here
-        foreach (var slot in listInvenrotyCarSlotsUI)
+        if (listItemDataCarInventorySlot == null)
         {
+            listItemDataCarInventorySlot = new List<ItemData>();
+        }
+        listItemDataCarInventorySlot.Clear();
+
+        if (listInvenrotyCarSlotsUI == null) return;
+
+        InventoryItemPresent presenter = (inventoryItemPresent != null) 
+            ? inventoryItemPresent 
+            : InventoryItemPresent.Instance;
+
+        for (int i = 0; i < listInvenrotyCarSlotsUI.Count; i++)
+        {
+            var slot = listInvenrotyCarSlotsUI[i];
+            if (slot == null) continue;
+
             var itemClass = slot.GetComponentInChildren<ItemClass>();
             if (itemClass != null)
             {
-                var itemData = inventoryItemPresent.ConventItemClassToItemData(itemClass);
+                var itemData = presenter != null 
+                    ? presenter.ConventItemClassToItemData(itemClass) 
+                    : itemClass.ToItemData();
 
-                // Avoid duplicates
-                if (!listItemDataCarInventorySlot.Any(item => item.idItem == itemData.idItem && item.count == itemData.count))
+                bool exists = false;
+                for (int s = 0; s < listItemDataCarInventorySlot.Count; s++)
+                {
+                    if (listItemDataCarInventorySlot[s].idItem == itemData.idItem && 
+                        listItemDataCarInventorySlot[s].count == itemData.count)
+                    {
+                        exists = true;
+                        break;
+                    }
+                }
+
+                if (!exists)
                 {
                     listItemDataCarInventorySlot.Add(itemData);
                 }
             }
         }
     }
+
     public void BindCarSlotsToData()
     {
-        // Step 1: Clear all children in the car slots
         ClearAllChildInvenrotyCarSlot();
+        if (listInvenrotyCarSlotsUI == null || listItemDataCarInventorySlot == null) return;
 
-        // Step 2: Loop through both lists and bind each slot to the corresponding data
         for (int i = 0; i < listInvenrotyCarSlotsUI.Count; i++)
         {
-            // Ensure the data list has enough items for the slot
-            if (i < listItemDataCarInventorySlot.Count)
+            if (i < listItemDataCarInventorySlot.Count && listInvenrotyCarSlotsUI[i] != null)
             {
-                // Get the corresponding item data
-                var itemData = listItemDataCarInventorySlot[i];
-
-                // Create a UI item in the slot
-                CreateUIItem(itemData, listInvenrotyCarSlotsUI[i]);
+                CreateUIItem(listItemDataCarInventorySlot[i], listInvenrotyCarSlotsUI[i]);
             }
         }
-
-        // Debugging to ensure alignment
-        Debug.Log($"Car slots and inventory data bound successfully. Total slots: {listInvenrotyCarSlotsUI.Count}, Total items: {listItemDataCarInventorySlot.Count}");
     }
 
-   public void LoadCarSlotsFromData()
+    public void LoadCarSlotsFromData()
     {
         ClearAllChildInvenrotyCarSlot();
+        if (listItemDataCarInventorySlot == null || listInvenrotyCarSlotsUI == null) return;
 
-        // Ensure data is ordered by ID
-        var orderedItems = listItemDataCarInventorySlot.OrderBy(item => item.idItem).ToList();
+        listItemDataCarInventorySlot.Sort((a, b) => a.idItem.CompareTo(b.idItem));
 
-        foreach (var itemData in orderedItems)
+        for (int i = 0; i < listItemDataCarInventorySlot.Count; i++)
         {
-            var availableSlot = listInvenrotyCarSlotsUI.FirstOrDefault(slot => slot.transform.childCount == 0);
+            ItemData itemData = listItemDataCarInventorySlot[i];
+            InventorySlots availableSlot = null;
+
+            for (int s = 0; s < listInvenrotyCarSlotsUI.Count; s++)
+            {
+                InventorySlots slot = listInvenrotyCarSlotsUI[s];
+                if (slot != null && slot.transform.childCount == 0)
+                {
+                    availableSlot = slot;
+                    break;
+                }
+            }
+
             if (availableSlot != null)
             {
                 CreateUIItem(itemData, availableSlot);
             }
         }
     }
+
     public void CallFuntionAddListenerButton()
     {
+        if (expenditionManager == null) return;
+
         if (indexButtonExpendition == 1)
         {
             expenditionManager.OpenUIExpenditionInventoryOne();
@@ -252,80 +336,106 @@ public class UIInventoryEX : UIInventory
 
     public void SetDataMoveSceneForEventExpendition()
     {
-        Debug.Log("SetDataMoveSceneForEventExpendition");
+        if (expenditionManager == null) return;
+
         expenditionManager.iswalk = iswalk;
         expenditionManager.isuseCar = isuseCar;
         expenditionManager.isuseTunnel = isuseTunnel;
-        expenditionManager.npcSelecying = this.npcSelecting;
-        expenditionManager.listItemDataInventoryEqicment = this.listItemDataInventoryEquipment;
-        expenditionManager.listItemDataInventoryslot = this.listItemDataInventorySlot;
-        expenditionManager.listItemDataCarInventory = this.listItemDataCarInventorySlot;
+        expenditionManager.npcSelecying = npcSelecting;
+        expenditionManager.listItemDataInventoryEqicment = listItemDataInventoryEquipment;
+        expenditionManager.listItemDataInventoryslot = listItemDataInventorySlot;
+        expenditionManager.listItemDataCarInventory = listItemDataCarInventorySlot;
     }
+
     public void SetInventoryItemDataEx(List<ItemData> listDataInventoryslot, List<ItemData> listDataInventoryEqicment)
     {
-        listItemDataInventorySlot.Clear();
-        listItemDataInventoryEquipment.Clear();
-        listItemDataInventorySlot = listDataInventoryslot;
-        listItemDataInventoryEquipment = listDataInventoryEqicment;
+        listItemDataInventorySlot = listDataInventoryslot ?? new List<ItemData>();
+        listItemDataInventoryEquipment = listDataInventoryEqicment ?? new List<ItemData>();
         RefreshUIInventory();
     }
+
     public void SendNpcExpendition()
     {   
+        if (expenditionManager == null) return;
+
         istraveling = true;
-        CountdownTimeDay countdownTimeDay = expenditionManager.AddComponent<CountdownTimeDay>();
+        CountdownTimeDay countdownTimeDay = expenditionManager.gameObject.AddComponent<CountdownTimeDay>();
         countdownTimeDay.timeScale = timeScale;
         countdownTimeDay.uIInventoryEX = this;
         countdownTimeDay.SetStartExpendition();
-        npcSelecting.isWorking = true;
-        DateTime dateTime = countdownTimeDay.timeManager.dateTime;
 
-        // if (dateTime.day <= countdownTimeDay.finishDayCraftingTime)
-        // {
-        //     npcManager.listNpcWorking.Add(npcSelecying);
-        // }
-        // else
-        // {
-        //     npcManager.listNpcWorkingMoreOneDay.Add(npcSelecying);
-        // }
+        if (npcSelecting != null)
+        {
+            npcSelecting.isWorking = true;
+        }
+
         SetUIExButton(countdownTimeDay);
 
-        uINpcSending.SetActive(true);
-        this.gameObject.SetActive(false);
+        if (uINpcSending != null) uINpcSending.SetActive(true);
+        gameObject.SetActive(false);
     }
+
     public void SetUIExButton(CountdownTimeDay countdownTimeDay)
     {
+        if (expenditionManager == null || countdownTimeDay == null) return;
+
         if (expenditionManager.uIExOne == null)
         {
-            expenditionManager.uIExOne = this.gameObject;
-            countdownTimeDay.iconCompleteSend = expenditionManager.uIButtonEXOne.iconComplete;
+            expenditionManager.uIExOne = gameObject;
+            if (expenditionManager.uIButtonEXOne != null)
+            {
+                countdownTimeDay.iconCompleteSend = expenditionManager.uIButtonEXOne.iconComplete;
+            }
             indexButtonExpendition = 1;
         }
         else
         {
-            expenditionManager.uIExTwo = this.gameObject;
-            countdownTimeDay.iconCompleteSend = expenditionManager.uIButtonEXTwo.iconComplete;
+            expenditionManager.uIExTwo = gameObject;
+            if (expenditionManager.uIButtonEXTwo != null)
+            {
+                countdownTimeDay.iconCompleteSend = expenditionManager.uIButtonEXTwo.iconComplete;
+            }
             indexButtonExpendition = 2;
         }
 
+        string textdayFinish = $"Day : {finishDayCraftingTime}\n{finishHourCraftingTime}:{finishMinutesCraftingTime:D2}";
+        Sprite headSprite = null;
 
-        string textdayFinish = "Day : " + finishDayCraftingTime.ToString() + "\n"
-        + finishHourCraftingTime.ToString() + ":" + finishMinutesCraftingTime.ToString();
-        Sprite spriteHeadNpc = npcManager.listHeadCoutume.FirstOrDefault(head => head.idHead == npcSelecting.idHead).spriteHead;
+        if (npcManager != null && npcManager.listHeadCoutume != null && npcSelecting != null)
+        {
+            for (int i = 0; i < npcManager.listHeadCoutume.Count; i++)
+            {
+                if (npcManager.listHeadCoutume[i] != null && npcManager.listHeadCoutume[i].idHead == npcSelecting.idHead)
+                {
+                    headSprite = npcManager.listHeadCoutume[i].spriteHead;
+                    break;
+                }
+            }
+        }
 
-        expenditionManager.SetUIExButton(indexButtonExpendition, spriteHeadNpc, textdayFinish);
+        expenditionManager.SetUIExButton(indexButtonExpendition, headSprite, textdayFinish);
     }
+
     public void GoExpendition()
     {   
-        expenditionManager.npcSelecying = npcSelecting;
-        expenditionManager.listItemDataInventoryEqicment = listItemDataInventoryEquipment;
-        expenditionManager.listItemDataInventoryslot = listItemDataInventorySlot;
+        if (expenditionManager != null)
+        {
+            expenditionManager.npcSelecying = npcSelecting;
+            expenditionManager.listItemDataInventoryEqicment = listItemDataInventoryEquipment;
+            expenditionManager.listItemDataInventoryslot = listItemDataInventorySlot;
+        }
 
-        sceneSystem.SwitchScene(indexSceneExpendition);
+        if (sceneSystem != null)
+        {
+            sceneSystem.SwitchScene(indexSceneExpendition);
+        }
     }
 
     public void CancleGoExpenditionAndGoHone()
     {
-        CountdownTimeDay countdownTimeDay = expenditionManager.AddComponent<CountdownTimeDay>();
+        if (expenditionManager == null) return;
+
+        CountdownTimeDay countdownTimeDay = expenditionManager.gameObject.AddComponent<CountdownTimeDay>();
         countdownTimeDay.timeScale = timeScale;
         countdownTimeDay.uIInventoryEX = this;
         countdownTimeDay.SetStartExpendition();
@@ -333,109 +443,156 @@ public class UIInventoryEX : UIInventory
 
         if (indexButtonExpendition == 1)
         {
-            expenditionManager.uIExOne = this.gameObject;
-            countdownTimeDay.iconCompleteSend = expenditionManager.uIButtonEXOne.iconComplete;
-            uIIconComplete = expenditionManager.uIButtonEXOne.iconComplete;
+            expenditionManager.uIExOne = gameObject;
+            if (expenditionManager.uIButtonEXOne != null)
+            {
+                countdownTimeDay.iconCompleteSend = expenditionManager.uIButtonEXOne.iconComplete;
+                uIIconComplete = expenditionManager.uIButtonEXOne.iconComplete;
+            }
         }
         else if (indexButtonExpendition == 2)
         {
-            expenditionManager.uIExTwo = this.gameObject;
-            countdownTimeDay.iconCompleteSend = expenditionManager.uIButtonEXTwo.iconComplete;
-            uIIconComplete = expenditionManager.uIButtonEXTwo.iconComplete;
+            expenditionManager.uIExTwo = gameObject;
+            if (expenditionManager.uIButtonEXTwo != null)
+            {
+                countdownTimeDay.iconCompleteSend = expenditionManager.uIButtonEXTwo.iconComplete;
+                uIIconComplete = expenditionManager.uIButtonEXTwo.iconComplete;
+            }
         }
 
-        uIIconComplete.gameObject.SetActive(false);
+        if (uIIconComplete != null)
+        {
+            uIIconComplete.SetActive(false);
+        }
 
-        Sprite spriteHeadNpc = npcManager.listHeadCoutume.FirstOrDefault(head => head.idHead == npcSelecting.idHead).spriteHead;
-        string textdayFinish = "Day : " + countdownTimeDay.finishDayCraftingTime.ToString() + "\n"
-        + countdownTimeDay.finishHourCraftingTime.ToString() + ":" + countdownTimeDay.finishMinutesCraftingTime.ToString();
+        Sprite headSprite = null;
+        if (npcManager != null && npcManager.listHeadCoutume != null && npcSelecting != null)
+        {
+            for (int i = 0; i < npcManager.listHeadCoutume.Count; i++)
+            {
+                if (npcManager.listHeadCoutume[i] != null && npcManager.listHeadCoutume[i].idHead == npcSelecting.idHead)
+                {
+                    headSprite = npcManager.listHeadCoutume[i].spriteHead;
+                    break;
+                }
+            }
+        }
 
-        expenditionManager.SetUIExButton(indexButtonExpendition, spriteHeadNpc, textdayFinish);
-        this.gameObject.SetActive(false);
+        string textdayFinish = $"Day : {countdownTimeDay.finishDayCraftingTime}\n{countdownTimeDay.finishHourCraftingTime}:{countdownTimeDay.finishMinutesCraftingTime:D2}";
+        expenditionManager.SetUIExButton(indexButtonExpendition, headSprite, textdayFinish);
+        gameObject.SetActive(false);
     }
+
     public void ResetSlotUIEx()
     {
+        if (expenditionManager == null) return;
+
         GameObject uIIconComplete = null;
 
-        if (indexButtonExpendition == 1)
+        if (indexButtonExpendition == 1 && expenditionManager.uIButtonEXOne != null)
         {
             uIIconComplete = expenditionManager.uIButtonEXOne.iconComplete;
         }
-        else if (indexButtonExpendition == 2)
+        else if (indexButtonExpendition == 2 && expenditionManager.uIButtonEXTwo != null)
         {
             uIIconComplete = expenditionManager.uIButtonEXTwo.iconComplete;
         }
 
-        uIIconComplete.gameObject.SetActive(false);
+        if (uIIconComplete != null)
+        {
+            uIIconComplete.SetActive(false);
+        }
         expenditionManager.SetUIExButton(indexButtonExpendition, null, null);
     }
+
     public void ChoiceLeaveOurSupplies()
     {
-        globalstat.expiditionactiveeventactive = false;
-        listItemDataInventorySlot.Clear();
-        listItemDataCarInventorySlot.Clear();
-        RefreshUIInventory();
-        Destroy(this.gameObject);
-    }
-    public void ChoiceFightForIt()
-    {
-        // เปลีย่นแมพต่อสู้
-    }
-    public void Nottogive()
-    {
-        if(IsEventTriggered())
+        if (globalstat != null)
         {
-            listItemDataInventorySlot.Clear();
+            globalstat.expiditionactiveeventactive = false;
+        }
+        listItemDataInventorySlot.Clear();
+        if (listItemDataCarInventorySlot != null)
+        {
             listItemDataCarInventorySlot.Clear();
         }
-        globalstat.expiditionactiveeventactive = false;
         RefreshUIInventory();
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
+
+    public void ChoiceFightForIt()
+    {
+    }
+
+    public void Nottogive()
+    {
+        if (IsEventTriggered())
+        {
+            listItemDataInventorySlot.Clear();
+            if (listItemDataCarInventorySlot != null)
+            {
+                listItemDataCarInventorySlot.Clear();
+            }
+        }
+        if (globalstat != null)
+        {
+            globalstat.expiditionactiveeventactive = false;
+        }
+        RefreshUIInventory();
+        Destroy(gameObject);
+    }
+
     public void ChoiceGiveThemHalfourSupplies()
     {
-        if(isuseCar)
+        if (isuseCar && listItemDataCarInventorySlot != null)
         {
-            foreach (ItemData item in listItemDataCarInventorySlot)
+            for (int i = 0; i < listItemDataCarInventorySlot.Count; i++)
             {
-                if (item.count == 1)
+                ItemData item = listItemDataCarInventorySlot[i];
+                if (item != null)
                 {
-                    item.count = 0;
+                    item.count = (item.count <= 1) ? 0 : item.count / 2;
                 }
-                item.count /= 2;
             }
         }
-        foreach (ItemData item in listItemDataInventorySlot)
+
+        for (int i = 0; i < listItemDataInventorySlot.Count; i++)
         {
-            if (item.count == 1)
+            ItemData item = listItemDataInventorySlot[i];
+            if (item != null)
             {
-                item.count = 0;
+                item.count = (item.count <= 1) ? 0 : item.count / 2;
             }
-            item.count /= 2;
         }
-        globalstat.expiditionactiveeventactive = false;
+
+        if (globalstat != null)
+        {
+            globalstat.expiditionactiveeventactive = false;
+        }
         RefreshUIInventory();
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
+
     public bool IsEventTriggered()
     {
-        float randomValue = Random.Range(0f, 100f); // สุ่มตัวเลขระหว่าง 0 ถึง 100
-        return randomValue < riskValue; // คืนค่า true ถ้า randomValue น้อยกว่า riskValue
+        float randomValue = UnityEngine.Random.Range(0f, 100f);
+        return randomValue < riskValue;
     }
+
     private void OnEnable()
     {
         RefreshUIInventory();
-        if(istraveling)
+        if (istraveling)
         {
-            UICarInventory.SetActive(false);
-            UIBOxInventory.SetActive(false);
+            if (UICarInventory != null) UICarInventory.SetActive(false);
+            if (UIBOxInventory != null) UIBOxInventory.SetActive(false);
         }
         if (isArriveEx && !isArriveHome)
         {
             SetDataMoveSceneForEventExpendition();
-            uINpcSending.SetActive(false);
-            uINpcArriveEx.SetActive(true);
-            if (uINpcGoBack.activeSelf)
+            if (uINpcSending != null) uINpcSending.SetActive(false);
+            if (uINpcArriveEx != null) uINpcArriveEx.SetActive(true);
+            if (uINpcGoBack != null && uINpcGoBack.activeSelf && uINpcArriveEx != null)
             {
                 uINpcArriveEx.SetActive(false);
             }
@@ -445,16 +602,21 @@ public class UIInventoryEX : UIInventory
             if (IsEventTriggered())
             {
                 SetDataMoveSceneForEventExpendition();
-                CloseButton.SetActive(false);
-                globalstat.expiditionactiveeventactive = true;
-                Debug.Log("Found Event");
-                uINpcGoBack.SetActive(false);
-                int randomValue = UnityEngine.Random.Range(0, 2);
-                listEvnet.ElementAt(randomValue).gameObject.SetActive(true);
+                if (CloseButton != null) CloseButton.SetActive(false);
+                if (globalstat != null) globalstat.expiditionactiveeventactive = true;
+                if (uINpcGoBack != null) uINpcGoBack.SetActive(false);
+                if (listEvnet != null && listEvnet.Count > 0)
+                {
+                    int randomValue = UnityEngine.Random.Range(0, listEvnet.Count);
+                    if (listEvnet[randomValue] != null)
+                    {
+                        listEvnet[randomValue].SetActive(true);
+                    }
+                }
             }
             else
             {
-                Destroy(this.gameObject);
+                Destroy(gameObject);
             }
         }
     }
@@ -463,82 +625,105 @@ public class UIInventoryEX : UIInventory
     {
         ConventDataUIToItemData();
     }
+
     private void OnDestroy()
     {
         int gameobjectsceneIndex = gameObject.scene.buildIndex;
-        Debug.Log("Scene index Game object : " + gameobjectsceneIndex);
         if (gameobjectsceneIndex != 0)
         {
             return;
         }
-        if (indexButtonExpendition == 1)
+
+        if (expenditionManager != null)
         {
-            expenditionManager.uIExOne = null;
+            if (indexButtonExpendition == 1)
+            {
+                expenditionManager.uIExOne = null;
+            }
+            else
+            {
+                expenditionManager.uIExTwo = null;
+            }
+            ResetSlotUIEx();
+            expenditionManager.SetUIExButton(indexButtonExpendition, null, null);
+            expenditionManager.listItemDataInventoryEqicment.Clear();
+            expenditionManager.listItemDataInventoryslot.Clear();
+        }
+
+        ClearItemDataInAllInventorySlotToListDataBoxes();
+        ClearItemDataInAllInventoryCarSlotToListDataBoxes();
+
+        if (isuseCar && globalstat != null)
+        {
+            globalstat.UnaviableCar += 1;
+        }
+
+        if (npcSelecting != null)
+        {
+            npcSelecting.isWorking = false;
+        }
+    }
+
+    public void EndSceneExpendition()
+    {
+        ClearItemDataInAllInventorySlotToListDataBoxes();
+        ClearItemDataInAllInventoryCarSlotToListDataBoxes();
+        if (expenditionManager != null)
+        {
+            expenditionManager.listItemDataInventoryEqicment.Clear();
+            expenditionManager.listItemDataInventoryslot.Clear();
+        }
+        listItemDataInventoryEquipment.Clear();
+        listItemDataInventorySlot.Clear();
+    }
+
+    public void DeleteObjectAndTransferInventory()
+    {
+        if (!istraveling)
+        {
+            ClearItemDataInAllInventorySlotToListDataBoxes();
+            if (isuseCar && globalstat != null)
+            {
+                globalstat.availablecar += 1;
+            }
+            Destroy(gameObject);
         }
         else
         {
-            expenditionManager.uIExTwo = null;
+            gameObject.SetActive(false);
         }
-        ResetSlotUIEx();
-        expenditionManager.SetUIExButton(indexButtonExpendition, null, null);
-        ClearItemDataInAllInventorySlotToListDataBoxes();
-        ClearItemDataInAllInventoryCarSlotToListDataBoxes();
-        if(isuseCar)
-            globalstat.UnaviableCar += 1;
-        npcSelecting.isWorking = false;
-        expenditionManager.listItemDataInventoryEqicment.Clear();
-        expenditionManager.listItemDataInventoryslot.Clear();
     }
-    public void EndSceneExpendition()
-    {
 
-        Debug.Log(" EndSceneExpendition");
-        ClearItemDataInAllInventorySlotToListDataBoxes();
-        ClearItemDataInAllInventoryCarSlotToListDataBoxes();
-        // SetDataMoveSceneForEventExpendition();
-        expenditionManager.listItemDataInventoryEqicment.Clear();
-        expenditionManager.listItemDataInventoryslot.Clear();
-        listItemDataInventoryEquipment.Clear();
-        listItemDataInventorySlot.Clear();
-        // this.gameObject.SetActive(false);
-        // sceneSystem.SwitchScene(0);
-    }
-    public void DeleteObjectAndTransferInventory()
+    public void ClearItemDataInAllInventoryCarSlotToListDataBoxes()
     {
-        Debug.Log("Deleting object and transferring inventory data to data box");
+        if (listInvenrotyCarSlotsUI == null) return;
 
-        if(!istraveling)
+        InventoryItemPresent presenter = (inventoryItemPresent != null) 
+            ? inventoryItemPresent 
+            : InventoryItemPresent.Instance;
+
+        for (int i = 0; i < listInvenrotyCarSlotsUI.Count; i++)
         {
-            ClearItemDataInAllInventorySlotToListDataBoxes();
-            if(isuseCar)
-                globalstat.availablecar += 1;
-            Destroy(this.gameObject);
-        }
-        else 
-            this.gameObject.SetActive(false);
-    }
-     public void ClearItemDataInAllInventoryCarSlotToListDataBoxes()
-    {
-        Debug.Log("ClearItemDataInAllInventoryCarSlotToListDataBoxes");
+            InventorySlots slotsItem = listInvenrotyCarSlotsUI[i];
+            if (slotsItem == null) continue;
 
-        foreach (InventorySlots slotsItem in listInvenrotyCarSlotsUI)
-        {
             ItemClass itemClass = slotsItem.GetComponentInChildren<ItemClass>();
             if (itemClass != null)
             {
-                // Convert ItemClass to ItemData
-                ItemData itemData = inventoryItemPresent.ConventItemClassToItemData(itemClass);
+                ItemData itemData = itemClass.ToItemData();
 
-                // Check if the item ID maps to a resource
                 if (BuildManager.Instance != null)
                 {
                     BuildManager.Instance.AddResource(itemData.idItem, itemData.count);
                 }
-                inventoryItemPresent.AddItem(itemData);
-                // Destroy the item GameObject
+
+                if (presenter != null)
+                {
+                    presenter.AddItem(itemData);
+                }
+
                 Destroy(itemClass.gameObject);
             }
         }
     }
-    
 }

@@ -1,18 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UPSizeScoreBar : MonoBehaviour
 {
     public RectTransform rectTransform;
-    // Update is called once per frame
-    void Update()
+    private int _lastChildCount = -1;
+
+    private void Start()
     {
-        int mutipal = transform.childCount / 20 +1;
+        if (rectTransform == null)
+        {
+            rectTransform = GetComponent<RectTransform>();
+        }
+        UpdateSize();
+    }
+
+    private void Update()
+    {
+        int currentCount = transform.childCount;
+        if (currentCount != _lastChildCount)
+        {
+            UpdateSize();
+        }
+    }
+
+    public void UpdateSize()
+    {
+        if (rectTransform == null) return;
+
+        _lastChildCount = transform.childCount;
+        int multiplier = _lastChildCount / 20 + 1;
 
         Vector2 size = rectTransform.sizeDelta;
-        size.y = 600 * mutipal;
+        size.y = 600f * multiplier;
         rectTransform.sizeDelta = size;
-
     }
 }
