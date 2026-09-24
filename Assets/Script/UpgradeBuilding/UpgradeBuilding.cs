@@ -1,20 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
+
 public class UpgradeBuilding : MonoBehaviour
 {
+    [Header("Building Info")]
     public string nameBuild;
     public string detailBuild;
 
-    // Upgrade levels
+    [Header("Upgrade Levels")]
     public List<UpgradeLevel> upgradeLevels = new List<UpgradeLevel>();
-
     public int currentLevel = 1;
     public int maxLevel;
 
+    [Header("Upgrade State")]
     public bool isUpgradBuilding;
     public bool isFinishedUpgrad;
+    public int finishDayBuildingUpgradTime;
 
+    [Header("Components & Visuals")]
     public UpgradeUi upgradeUi;
     public TimeManager timeManager;
     public DateTime dateTime;
@@ -26,33 +31,56 @@ public class UpgradeBuilding : MonoBehaviour
     public NpcClass assignedSpecialistNpc;
     public BuiltBuildingInfo builtBuildingInfo;
 
-    public int finishDayBuildingUpgradTime;
-
-    void Awake()
+    private void Awake()
     {
-        uImanger = FindObjectOfType<UImanger>();
-        timeManager = GameManager.Instance.timeManager;
-        buildManager = GameManager.Instance.buildManager;
-        dateTime = timeManager.dateTime;
+        if (GameManager.Instance != null)
+        {
+            timeManager = GameManager.Instance.timeManager;
+            buildManager = GameManager.Instance.buildManager;
+        }
+
+        if (timeManager == null)
+        {
+            timeManager = FindFirstObjectByType<TimeManager>();
+        }
+
+        if (buildManager == null)
+        {
+            buildManager = FindFirstObjectByType<BuildManager>();
+        }
+
+        uImanger = FindFirstObjectByType<UImanger>();
         building = GetComponent<Building>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (timeManager != null)
+        {
+            dateTime = timeManager.dateTime;
+        }
+
         isUpgradBuilding = false;
         isFinishedUpgrad = false;
-        maxLevel = upgradeLevels.Count+1;
-        WaitUpgrade();
+        maxLevel = upgradeLevels.Count + 1;
     }
-    void Start()
+
+    private void Start()
     {
-        foreach (var builtBuilding in buildManager.builtBuildings)
+        if (buildManager != null && buildManager.builtBuildings != null)
         {
-            if (builtBuilding.building == this.gameObject)
+            GameObject currentObj = gameObject;
+            for (int i = 0; i < buildManager.builtBuildings.Count; i++)
             {
-                builtBuildingInfo = builtBuilding;
-                break;
+                BuiltBuildingInfo builtBuilding = buildManager.builtBuildings[i];
+                if (builtBuilding != null && builtBuilding.building != null && builtBuilding.building.gameObject == currentObj)
+                {
+                    builtBuildingInfo = builtBuilding;
+                    break;
+                }
             }
         }
     }
-    void LateUpdate()
+
+    private void LateUpdate()
     {
         if (isUpgradBuilding)
         {
@@ -60,73 +88,77 @@ public class UpgradeBuilding : MonoBehaviour
         }
     }
 
-    void OnMouseDown()
+    public void OnMouseDown()
     {
-        if (building.isfinsih && !isUpgradBuilding && currentLevel < maxLevel)
+        if (building != null && building.isfinsih && !isUpgradBuilding && currentLevel < maxLevel)
         {
-            Debug.Log("showupgradeUI");
-            // uImanger.ActiveUpgradeUI();
-            // upgradeUi = FindObjectOfType<UpgradeUi>();
-            // upgradeUi.Initialize(this);
+            // Debug.Log("showupgradeUI");
         }
     }
 
-    void WaitUpgrade()
+    public void WaitUpgrade()
     {
+        if (dateTime == null)
+        {
+            if (timeManager != null) dateTime = timeManager.dateTime;
+            if (dateTime == null) return;
+        }
+
         if (dateTime.day >= finishDayBuildingUpgradTime && isUpgradBuilding)
         {
-            UpgradeLevel completedLevel = upgradeLevels[currentLevel - 1];
+            int levelIndex = currentLevel - 1;
+            if (levelIndex >= 0 && levelIndex < upgradeLevels.Count)
+            {
+                UpgradeLevel completedLevel = upgradeLevels[levelIndex];
 
-            buildManager.npc += completedLevel.npcCost;
-            spriteRenderer.sprite = completedLevel.levelSprite;
+                if (buildManager != null)
+                {
+                    buildManager.npc += completedLevel.npcCost;
+                }
+
+                if (spriteRenderer != null && completedLevel.levelSprite != null)
+                {
+                    spriteRenderer.sprite = completedLevel.levelSprite;
+                }
+            }
+
             isUpgradBuilding = false;
             currentLevel++;
 
-            // Update the level in builtBuildingInfo
             if (builtBuildingInfo != null)
             {
                 builtBuildingInfo.level = currentLevel;
             }
 
-            if (currentLevel == maxLevel)
+            if (currentLevel >= maxLevel)
             {
                 isFinishedUpgrad = true;
             }
 
-            // Return the assigned specialist NPC to the available list
-            if (assignedSpecialistNpc != null)
+            // Return the assigned specialist NPC to available
+            if (assignedSpecialistNpc != null && GameManager.Instance != null && GameManager.Instance.npcManager != null)
             {
-                NpcManager npcManager = GameManager.Instance.npcManager;
-                NpcClass npc = npcManager.GetNpcById(assignedSpecialistNpc.idnpc);
-                npc.isWorking = false; 
+                NpcClass npc = GameManager.Instance.npcManager.GetNpcById(assignedSpecialistNpc.idnpc);
+                if (npc != null)
+                {
+                    npc.isWorking = false;
+                }
                 assignedSpecialistNpc = null;
             }
 
-            Debug.Log("Upgraded to Level " + currentLevel);
+            Debug.Log($"Upgraded to Level {currentLevel}");
         }
-        else if (dateTime.day < finishDayBuildingUpgradTime)
+        else if (dateTime.day < finishDayBuildingUpgradTime && isUpgradBuilding)
         {
-            spriteRenderer.sprite = ConstructSprite;
+            // Only set ConstructSprite once, avoid per-frame assignment
+            if (spriteRenderer != null && ConstructSprite != null && spriteRenderer.sprite != ConstructSprite)
+            {
+                spriteRenderer.sprite = ConstructSprite;
+            }
         }
     }
-    // public void DisableCollider()
-    // {
-    //     Collider2D collider = GetComponent<Collider2D>();
-    //     if (collider != null)
-    //     {
-    //         collider.enabled = false;
-    //     }
-    // }
-
-    // public void EnableCollider()
-    // {
-    //     Collider2D collider = GetComponent<Collider2D>();
-    //     if (collider != null)
-    //     {
-    //         collider.enabled = true;
-    //     }
-    // }
 }
+
 [System.Serializable]
 public class UpgradeLevel
 {
@@ -138,8 +170,6 @@ public class UpgradeLevel
     public Sprite levelSprite;
     public bool isneedwater;
     public bool isneedElecticities;
-
-    // Add this line to include the required specialist role
     public bool isNeedSpecialist;
     public SpecialistRoleNpc requiredSpecialist;
 }
