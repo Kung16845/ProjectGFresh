@@ -1,368 +1,518 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using JetBrains.Annotations;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class InventoryItemPresent : MonoBehaviour
 {
-    public static InventoryItemPresent Instance = new InventoryItemPresent();
+    public static InventoryItemPresent Instance { get; private set; }
+
+    [Header("Inventory Data")]
+    public List<ItemData> listItemsDataBox = new List<ItemData>();
+    public List<UIItemData> listUIItemPrefab = new List<UIItemData>();
+    public List<InventorySlots> listInvenrotySlots = new List<InventorySlots>();
+    public InventorySlots invenrotySlotSpecialMilitaryLock;
+    public InventorySlots invenrotySlotSpecialScavengerLock;
+    public Transform transformsBoxes;
+
+    [Header("UI Toggle Settings")]
+    public Canvas canvas;
+    public GameObject targetObject;
+    [SerializeField] private float toggleCooldown = 0.5f;
+    private float nextToggleTime = 0f;
+
+    [Header("Ammo Mapping")]
+    public Dictionary<int, Ammotype> ammoItemIdToAmmoType = new Dictionary<int, Ammotype>
+    {
+        { 1020125, Ammotype.HighCaliber },
+        { 1020127, Ammotype.MediumCaliber },
+        { 1020124, Ammotype.LowCaliber },
+        { 1020126, Ammotype.Shotgun }
+    };
+
+    // Cached lookups and reusable containers (Zero-GC)
+    private readonly Dictionary<int, UIItemData> _prefabLookup = new Dictionary<int, UIItemData>();
+    private readonly Dictionary<int, ItemData> _combineDictionary = new Dictionary<int, ItemData>();
+    private static readonly HashSet<int> ExcludedItemIds = new HashSet<int>
+    {
+        1020129, 1020130, 1020128, 1020131, 1020132
+    };
+
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            InitializePrefabLookup();
         }
-        else
+        else if (Instance != this)
         {
             Destroy(gameObject);
         }
     }
-    public List<ItemData> listItemsDataBox = new List<ItemData>();
-    public List<UIItemData> listUIItemPrefab;
-    public List<InventorySlots> listInvenrotySlots = new List<InventorySlots>();
-    public InventorySlots invenrotySlotSpecialMilitaryLock;
-    public InventorySlots invenrotySlotSpecialScavengerLock;
-    public Transform transformsBoxes;
-
-    public Canvas canvas;
-    public GameObject targetObject; // Drag and drop the GameObject to toggle
-    private float toggleCooldown = 0.5f; // Set cooldown interval
-    private float nextToggleTime = 0f;
 
     private void Start()
     {
-        canvas = FindAnyObjectByType<Canvas>();
-
+        if (canvas == null)
+        {
+            canvas = FindFirstObjectByType<Canvas>();
+        }
     }
+
     private void Update()
     {
-        // ตรวจสอบว่าปุ่ม I ถูกกดและว่า cooldown หมดลงแล้ว
         if (Input.GetKeyDown(KeyCode.I) && Time.time >= nextToggleTime)
         {
-            // Toggle เปิด-ปิด GameObject
-            targetObject.SetActive(!targetObject.activeSelf);
-
-            // ตั้งเวลา cooldown สำหรับการกดครั้งถัดไป
-            nextToggleTime = Time.time + toggleCooldown;
+            if (targetObject != null)
+            {
+                targetObject.SetActive(!targetObject.activeSelf);
+                nextToggleTime = Time.time + toggleCooldown;
+            }
         }
+    }
+
+    public void InitializePrefabLookup()
+    {
+        _prefabLookup.Clear();
+        if (listUIItemPrefab == null) return;
+
+        for (int i = 0; i < listUIItemPrefab.Count; i++)
+        {
+            UIItemData item = listUIItemPrefab[i];
+            if (item != null && !_prefabLookup.ContainsKey(item.idItem))
+            {
+                _prefabLookup.Add(item.idItem, item);
+            }
+        }
+    }
+
+    public UIItemData GetUIItemPrefab(int idItem)
+    {
+        if (_prefabLookup.TryGetValue(idItem, out UIItemData prefab))
+        {
+            return prefab;
+        }
+
+        // Fallback scan if lookup was not initialized or updated dynamically
+        if (listUIItemPrefab != null)
+        {
+            for (int i = 0; i < listUIItemPrefab.Count; i++)
+            {
+                if (listUIItemPrefab[i] != null && listUIItemPrefab[i].idItem == idItem)
+                {
+                    _prefabLookup[idItem] = listUIItemPrefab[i];
+                    return listUIItemPrefab[i];
+                }
+            }
+        }
+
+        return null;
     }
 
     public void RefreshUIBox()
     {
+        if (transformsBoxes == null) return;
+
         ClearUIBoxes();
         CombineItemsNoSplit(listItemsDataBox);
-        foreach (ItemData itemData in listItemsDataBox.OrderBy(item => item.idItem))
+
+        listItemsDataBox.Sort((a, b) => a.idItem.CompareTo(b.idItem));
+
+        for (int i = 0; i < listItemsDataBox.Count; i++)
         {
-            CreateUIItemInBoxes(itemData);
+            CreateUIItemInBoxes(listItemsDataBox[i]);
         }
-        
     }
+
     private void CombineItemsNoSplit(List<ItemData> items)
     {
-        Dictionary<int, ItemData> itemMap = new Dictionary<int, ItemData>();
+        if (items == null) return;
 
-        // Combine items by idItem
-        foreach (var item in items)
+        _combineDictionary.Clear();
+
+        for (int i = 0; i < items.Count; i++)
         {
-            if (itemMap.ContainsKey(item.idItem))
+            ItemData item = items[i];
+            if (item == null) continue;
+
+            if (_combineDictionary.TryGetValue(item.idItem, out ItemData existing))
             {
-                // Update the count in the existing item
-                itemMap[item.idItem].count += item.count;
+                existing.count += item.count;
             }
             else
             {
-                // Add a new item to the map (copying properties)
-                itemMap[item.idItem] = new ItemData
+                _combineDictionary[item.idItem] = new ItemData
                 {
                     idItem = item.idItem,
                     nameItem = item.nameItem,
                     count = item.count,
                     maxCount = item.maxCount,
-                    itemtype = item.itemtype,
+                    itemtype = item.itemtype
                 };
             }
         }
 
-        // Update the original list in place
         items.Clear();
-        items.AddRange(itemMap.Values);
+        foreach (var kvp in _combineDictionary)
+        {
+            items.Add(kvp.Value);
+        }
     }
 
     public void CreateUIItemInBoxes(ItemData itemData)
     {
+        if (itemData == null || transformsBoxes == null) return;
 
-        GameObject uiItem = listUIItemPrefab.FirstOrDefault(idItem => idItem.idItem == itemData.idItem).gameObject;
-        GameObject uIItemOBJ = Instantiate(uiItem, transformsBoxes, false);
-
-        UIItemData uIItemData = uIItemOBJ.GetComponent<UIItemData>();
-        ItemClass itemClass = uIItemOBJ.GetComponent<ItemClass>();
-
-        itemClass.quantityItem = itemData.count;
-        itemClass.maxCountItem = itemData.maxCount;
-
-        uIItemData.slotTypeParent = transformsBoxes.GetComponent<InventorySlots>().slotTypeInventory;
-        uIItemData.UpdateDataUI(itemClass);
-    }
-    public void ClearUIBoxes()
-    {
-        foreach (Transform child in transformsBoxes)
+        UIItemData uiItemPrefab = GetUIItemPrefab(itemData.idItem);
+        if (uiItemPrefab == null)
         {
-            Destroy(child.gameObject);
+            Debug.LogWarning($"UIItemData prefab not found for itemID: {itemData.idItem}");
+            return;
+        }
+
+        GameObject uiItemObj = Instantiate(uiItemPrefab.gameObject, transformsBoxes, false);
+        UIItemData uiItemData = uiItemObj.GetComponent<UIItemData>();
+        ItemClass itemClass = uiItemObj.GetComponent<ItemClass>();
+
+        if (itemClass != null)
+        {
+            itemClass.quantityItem = itemData.count;
+            itemClass.maxCountItem = itemData.maxCount;
+        }
+
+        if (uiItemData != null)
+        {
+            InventorySlots parentSlot = transformsBoxes.GetComponent<InventorySlots>();
+            if (parentSlot != null)
+            {
+                uiItemData.slotTypeParent = parentSlot.slotTypeInventory;
+            }
+            uiItemData.UpdateDataUI(itemClass);
         }
     }
+
+    public void ClearUIBoxes()
+    {
+        if (transformsBoxes == null) return;
+
+        for (int i = transformsBoxes.childCount - 1; i >= 0; i--)
+        {
+            Transform child = transformsBoxes.GetChild(i);
+            if (child != null)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+    }
+
     public void UnlockSlotInventory(int numUnlock, SpecialistRoleNpc specialistRoleNpc, List<ItemData> listItemDataInventoryEqicment)
     {
+        if (listInvenrotySlots == null) return;
+
         // Lock all slots initially
-        foreach (InventorySlots slot in listInvenrotySlots)
+        for (int i = 0; i < listInvenrotySlots.Count; i++)
         {
-            slot.slotTypeInventory = SlotType.SlotLock;
+            if (listInvenrotySlots[i] != null)
+            {
+                listInvenrotySlots[i].slotTypeInventory = SlotType.SlotLock;
+            }
         }
 
         // Unlock general inventory slots based on numUnlock
-        for (int i = 1; i <= numUnlock; i++)
+        int unlockLimit = Mathf.Min(numUnlock, listInvenrotySlots.Count);
+        for (int i = 0; i < unlockLimit; i++)
         {
-            InventorySlots slot = listInvenrotySlots.ElementAt(i - 1);
-            slot.slotTypeInventory = SlotType.SlotBag;
+            if (listInvenrotySlots[i] != null)
+            {
+                listInvenrotySlots[i].slotTypeInventory = SlotType.SlotBag;
+            }
         }
 
         // Define the item IDs that unlock the special slots
-        int militaryItemID = 1020605; // Replace with your Military item ID
-        int scavengerItemID = 1020604; // Replace with your Scavenger item ID
+        const int militaryItemID = 1020605;
+        const int scavengerItemID = 1020604;
 
-        // Check if the items are equipped
-        bool hasMilitaryItem = listItemDataInventoryEqicment.Any(item => item.idItem == militaryItemID);
-        bool hasScavengerItem = listItemDataInventoryEqicment.Any(item => item.idItem == scavengerItemID);
+        bool hasMilitaryItem = false;
+        bool hasScavengerItem = false;
+
+        if (listItemDataInventoryEqicment != null)
+        {
+            for (int i = 0; i < listItemDataInventoryEqicment.Count; i++)
+            {
+                ItemData item = listItemDataInventoryEqicment[i];
+                if (item != null)
+                {
+                    if (item.idItem == militaryItemID) hasMilitaryItem = true;
+                    if (item.idItem == scavengerItemID) hasScavengerItem = true;
+                }
+            }
+        }
 
         // Unlock or lock the special military slot
-        if (specialistRoleNpc == SpecialistRoleNpc.Military_training || hasMilitaryItem)
+        if (invenrotySlotSpecialMilitaryLock != null)
         {
-            invenrotySlotSpecialMilitaryLock.slotTypeInventory = SlotType.SlotWeapon;
-        }
-        else
-        {
-            invenrotySlotSpecialMilitaryLock.slotTypeInventory = SlotType.SlotLock;
+            invenrotySlotSpecialMilitaryLock.slotTypeInventory =
+                (specialistRoleNpc == SpecialistRoleNpc.Military_training || hasMilitaryItem)
+                    ? SlotType.SlotWeapon
+                    : SlotType.SlotLock;
         }
 
         // Unlock or lock the special scavenger slot
-        if (specialistRoleNpc == SpecialistRoleNpc.Scavenger || hasScavengerItem)
+        if (invenrotySlotSpecialScavengerLock != null)
         {
-            invenrotySlotSpecialScavengerLock.slotTypeInventory = SlotType.SlotTool;
-        }
-        else
-        {
-            invenrotySlotSpecialScavengerLock.slotTypeInventory = SlotType.SlotLock;
+            invenrotySlotSpecialScavengerLock.slotTypeInventory =
+                (specialistRoleNpc == SpecialistRoleNpc.Scavenger || hasScavengerItem)
+                    ? SlotType.SlotTool
+                    : SlotType.SlotLock;
         }
     }
-
 
     public void RefreshCarInventory()
     {
+        if (listInvenrotySlots == null || listItemsDataBox == null) return;
+
         // Ensure all car slots are cleared
-        foreach (var slot in listInvenrotySlots.Where(s => s.slotTypeInventory == SlotType.SlotCar))
+        for (int i = 0; i < listInvenrotySlots.Count; i++)
         {
-            ClearSlot(slot);
+            InventorySlots slot = listInvenrotySlots[i];
+            if (slot != null && slot.slotTypeInventory == SlotType.SlotCar)
+            {
+                ClearSlot(slot);
+            }
         }
 
         // Populate car inventory slots
-        foreach (var itemData in listItemsDataBox) // Assuming `listItemsDataBox` is the correct field
+        for (int i = 0; i < listItemsDataBox.Count; i++)
         {
-            var carSlot = listInvenrotySlots.FirstOrDefault(s => s.slotTypeInventory == SlotType.SlotCar && s.transform.childCount == 0);
-            if (carSlot != null)
+            ItemData itemData = listItemsDataBox[i];
+            InventorySlots emptyCarSlot = null;
+
+            for (int s = 0; s < listInvenrotySlots.Count; s++)
             {
-                CreateUIItemInSlot(itemData, carSlot);
+                InventorySlots slot = listInvenrotySlots[s];
+                if (slot != null && slot.slotTypeInventory == SlotType.SlotCar && slot.transform.childCount == 0)
+                {
+                    emptyCarSlot = slot;
+                    break;
+                }
+            }
+
+            if (emptyCarSlot != null)
+            {
+                CreateUIItemInSlot(itemData, emptyCarSlot);
             }
         }
     }
 
-    // Clear all child elements from a slot
     private void ClearSlot(InventorySlots slot)
     {
-        foreach (Transform child in slot.transform)
+        if (slot == null) return;
+
+        for (int i = slot.transform.childCount - 1; i >= 0; i--)
         {
-            Destroy(child.gameObject);
+            Transform child = slot.transform.GetChild(i);
+            if (child != null)
+            {
+                Destroy(child.gameObject);
+            }
         }
     }
 
-    // Create a UI item in a specified slot
     private void CreateUIItemInSlot(ItemData itemData, InventorySlots slot)
     {
-        var uiItemPrefab = listUIItemPrefab.FirstOrDefault(p => p.idItem == itemData.idItem)?.gameObject;
-        if (uiItemPrefab != null)
-        {
-            var uiItem = Instantiate(uiItemPrefab, slot.transform);
-            var itemClass = uiItem.GetComponent<ItemClass>();
-            if (itemClass != null)
-            {
-                itemClass.quantityItem = itemData.count;
-                itemClass.maxCountItem = itemData.maxCount;
-            }
+        if (itemData == null || slot == null) return;
 
-            var uiItemData = uiItem.GetComponent<UIItemData>();
-            if (uiItemData != null)
-            {
-                uiItemData.slotTypeParent = slot.slotTypeInventory;
-                uiItemData.UpdateDataUI(itemClass);
-            }
+        UIItemData uiPrefab = GetUIItemPrefab(itemData.idItem);
+        if (uiPrefab == null) return;
+
+        GameObject uiItem = Instantiate(uiPrefab.gameObject, slot.transform);
+        ItemClass itemClass = uiItem.GetComponent<ItemClass>();
+        if (itemClass != null)
+        {
+            itemClass.quantityItem = itemData.count;
+            itemClass.maxCountItem = itemData.maxCount;
+        }
+
+        UIItemData uiItemData = uiItem.GetComponent<UIItemData>();
+        if (uiItemData != null)
+        {
+            uiItemData.slotTypeParent = slot.slotTypeInventory;
+            uiItemData.UpdateDataUI(itemClass);
         }
     }
+
     public void AddItemByID(int itemID, int count) 
     {
-        // Find the UIItemData associated with the given itemID
-        UIItemData uiItemData = listUIItemPrefab.FirstOrDefault(item => item.idItem == itemID);
-        ItemClass itemClass = uiItemData.GetComponent<ItemClass>();
+        UIItemData uiItemData = GetUIItemPrefab(itemID);
         if (uiItemData == null)
         {
             Debug.LogWarning($"No UIItemData found for itemID: {itemID}");
             return;
         }
 
-        // Construct a new ItemData object based on the UIItemData template
+        ItemClass itemClass = uiItemData.GetComponent<ItemClass>();
+        if (itemClass == null)
+        {
+            Debug.LogWarning($"No ItemClass component found on prefab for itemID: {itemID}");
+            return;
+        }
+
         ItemData newItemData = new ItemData
         {
             nameItem = uiItemData.nameItem,
             idItem = uiItemData.idItem,
             count = count,
             maxCount = itemClass.maxCountItem,
-            itemtype = itemClass.itemtype,
+            itemtype = itemClass.itemtype
         };
 
-        // Use the existing AddItem method to handle addition logic
         AddItem(newItemData);
     }
 
     public void AddItem(ItemData itemDataAdd)
     {
-        ItemData itemDataInList = this.listItemsDataBox.FirstOrDefault(item => item.idItem == itemDataAdd.idItem && item.count != item.maxCount);
-        int[] excludedItemIds = { 1020129, 1020130, 1020128, 1020131, 1020132 };
-        if (itemDataInList != null)
-        {   
-            if (excludedItemIds.Contains(itemDataAdd.idItem))
-            {
-                return;
-            }
-            else
-                itemDataInList.count = itemDataInList.count + itemDataAdd.count;
-        }
-        else if(itemDataInList == null)
+        if (itemDataAdd == null) return;
+        if (ExcludedItemIds.Contains(itemDataAdd.idItem)) return;
+
+        ItemData itemDataInList = null;
+        for (int i = 0; i < listItemsDataBox.Count; i++)
         {
-            if (excludedItemIds.Contains(itemDataAdd.idItem))
+            ItemData item = listItemsDataBox[i];
+            if (item != null && item.idItem == itemDataAdd.idItem && item.count != item.maxCount)
             {
-                return;
+                itemDataInList = item;
+                break;
             }
+        }
+
+        if (itemDataInList != null)
+        {
+            itemDataInList.count += itemDataAdd.count;
+        }
+        else
+        {
             listItemsDataBox.Add(itemDataAdd);
         }
     }
+
     public void RemoveItem(ItemData itemDataRemove)
     {
+        if (itemDataRemove == null || listItemsDataBox == null) return;
 
-        ItemData itemDataInList = listItemsDataBox.LastOrDefault(item => item.idItem == itemDataRemove.idItem);
+        ItemData itemDataInList = null;
+        for (int i = listItemsDataBox.Count - 1; i >= 0; i--)
+        {
+            if (listItemsDataBox[i] != null && listItemsDataBox[i].idItem == itemDataRemove.idItem)
+            {
+                itemDataInList = listItemsDataBox[i];
+                break;
+            }
+        }
 
-        if (itemDataInList.count - itemDataRemove.count >= 0)
+        if (itemDataInList == null)
+        {
+            Debug.LogWarning($"Item to remove not found in box: {itemDataRemove.idItem}");
+            return;
+        }
+
+        if (itemDataInList.count >= itemDataRemove.count)
         {
             itemDataInList.count -= itemDataRemove.count;
-            if (itemDataInList.count == 0)
+            if (itemDataInList.count <= 0)
             {
                 listItemsDataBox.Remove(itemDataInList);
             }
         }
         else
         {
-            //ถ้าไปเท็มในกล่องไม่พอให้ทำอะไร
+            Debug.LogWarning($"Insufficient item quantity in box to remove. Has {itemDataInList.count}, required {itemDataRemove.count}");
         }
-        // RefreshUIBox();
     }
 
     public int GetItemCountByID(int itemID)
     {
-        ItemData itemData = listItemsDataBox.Find(item => item.idItem == itemID);
-        return itemData != null ? itemData.count : 0;
+        if (listItemsDataBox == null) return 0;
+
+        int totalCount = 0;
+        for (int i = 0; i < listItemsDataBox.Count; i++)
+        {
+            ItemData item = listItemsDataBox[i];
+            if (item != null && item.idItem == itemID)
+            {
+                totalCount += item.count;
+            }
+        }
+        return totalCount;
     }
 
-    // Method to get item icon by ID
     public Sprite GetItemIconByID(int itemID)
     {
-        UIItemData uiItemData = listUIItemPrefab.Find(uiItem => uiItem.idItem == itemID);
+        UIItemData uiItemData = GetUIItemPrefab(itemID);
         if (uiItemData != null && uiItemData.itemIconImage != null)
         {
             return uiItemData.itemIconImage.sprite;
         }
-        else
-        {
-            Debug.LogWarning($"Item icon not found for itemID: {itemID}");
-            return null;
-        }
+
+        Debug.LogWarning($"Item icon not found for itemID: {itemID}");
+        return null;
     }
+
     public bool HasItem(int itemID)
     {
-        return listItemsDataBox.Any(item => item.idItem == itemID);
+        if (listItemsDataBox == null) return false;
+
+        for (int i = 0; i < listItemsDataBox.Count; i++)
+        {
+            if (listItemsDataBox[i] != null && listItemsDataBox[i].idItem == itemID && listItemsDataBox[i].count > 0)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public ItemData ConventItemClassToItemData(ItemClass itemClass)
     {
-        ItemData newItemData = new ItemData();
-
-        newItemData.nameItem = itemClass.nameItem;
-        newItemData.idItem = itemClass.idItem;
-        newItemData.count = itemClass.quantityItem;
-        newItemData.maxCount = itemClass.maxCountItem;
-        newItemData.itemtype = itemClass.itemtype;
-
-        return newItemData;
+        if (itemClass == null) return null;
+        return itemClass.ToItemData();
     }
-    public Dictionary<int, Ammotype> ammoItemIdToAmmoType = new Dictionary<int, Ammotype>
-    {
-        // Add mappings from ammo item IDs to their ammo types
-        { 1020125, Ammotype.HighCaliber }, // Replace with actual ammo item IDs
-        { 1020127, Ammotype.MediumCaliber },
-        { 1020124, Ammotype.LowCaliber },
-        { 1020126, Ammotype.Shotgun },
-        // Continue for all ammo items
-    };
+
     public void HighlightAmmoItems(Ammotype ammoType)
     {
-        Debug.Log("HighlightItem");
-        foreach (Transform child in transformsBoxes)
-        {
-            UIItemData uiItemData = child.GetComponent<UIItemData>();
-            if (uiItemData != null)
-            {
-                ItemData itemData = listItemsDataBox.FirstOrDefault(item => item.idItem == uiItemData.idItem);
+        if (transformsBoxes == null) return;
 
-                if (itemData != null && itemData.itemtype == Itemtype.Ammo)
+        for (int i = 0; i < transformsBoxes.childCount; i++)
+        {
+            Transform child = transformsBoxes.GetChild(i);
+            if (child == null) continue;
+
+            UIItemData uiItemData = child.GetComponent<UIItemData>();
+            if (uiItemData == null) continue;
+
+            if (ammoItemIdToAmmoType.TryGetValue(uiItemData.idItem, out Ammotype itemAmmoType))
+            {
+                if (itemAmmoType == ammoType && uiItemData.itemIconImage != null)
                 {
-                    // Get the ammo type for this item via the mapping
-                    if (ammoItemIdToAmmoType.TryGetValue(itemData.idItem, out Ammotype itemAmmoType))
-                    {
-                        if (itemAmmoType == ammoType)
-                        {
-                            // Highlight the ammo item by changing its image color
-                            Image itemImage = uiItemData.itemIconImage;
-                            if (itemImage != null)
-                            {
-                                itemImage.color = Color.yellow; // Highlight color
-                            }
-                        }
-                    }
+                    uiItemData.itemIconImage.color = Color.yellow;
                 }
             }
         }
     }
+
     public void ResetAmmoHighlighting()
     {
-        foreach (Transform child in transformsBoxes)
+        if (transformsBoxes == null) return;
+
+        for (int i = 0; i < transformsBoxes.childCount; i++)
         {
+            Transform child = transformsBoxes.GetChild(i);
+            if (child == null) continue;
+
             UIItemData uiItemData = child.GetComponent<UIItemData>();
-            if (uiItemData != null)
+            if (uiItemData != null && uiItemData.itemIconImage != null)
             {
-                Image itemImage = uiItemData.itemIconImage;
-                if (itemImage != null)
-                {
-                    itemImage.color = Color.white; // Original color
-                }
+                uiItemData.itemIconImage.color = Color.white;
             }
         }
     }
