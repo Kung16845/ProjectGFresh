@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,32 +8,28 @@ public class ButtonChoiceEx : MonoBehaviour
     public Transform transformParent;
     public int indexEXButton;
 
-    void Start()
+    private void Start()
     {
-        expenditionManager = FindObjectOfType<ExpenditionManager>();
-        expenditionManager.transformsUIEx = transformParent;
-        if (indexEXButton == 1)
+        if (expenditionManager == null)
         {
-            Debug.Log("Reset Button One");
-            buttonCreateExpendition.onClick.RemoveAllListeners();
-            // buttonCreateExpendition.onClick.AddListener(() => ExpenditionManager.Instance.CreateInventorySetExpendition(8000,20));
+            expenditionManager = ExpenditionManager.Instance != null ? ExpenditionManager.Instance : FindFirstObjectByType<ExpenditionManager>();
         }
-        else if (indexEXButton == 2)
+
+        if (expenditionManager != null && transformParent != null)
         {
-
-            Debug.Log("Reset Button Two");
-            buttonCreateExpendition.onClick.RemoveAllListeners();
-            // buttonCreateExpendition.onClick.AddListener(() => ExpenditionManager.Instance.CreateInventorySetExpendition(10000,20));
+            expenditionManager.transformsUIEx = transformParent;
         }
-        else if (indexEXButton == 3)
+
+        if (buttonCreateExpendition != null)
         {
-
+            if (indexEXButton == 1)
+            {
+                buttonCreateExpendition.onClick.RemoveAllListeners();
+            }
+            else if (indexEXButton == 2)
+            {
+                buttonCreateExpendition.onClick.RemoveAllListeners();
+            }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

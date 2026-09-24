@@ -1,58 +1,15 @@
-using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using System.Linq;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+
 public class ExpenditionManager : MonoBehaviour
 {
     public static ExpenditionManager Instance { get; private set; }
-    public GameObject FindGameObjectWithUIExSelectPlace()
-    {
-        // ดึง GameObjects ทั้งหมดในระดับ Root ของฉากปัจจุบัน
-        GameObject[] allGameObjects = SceneManager.GetActiveScene().GetRootGameObjects();
-
-        // วนลูปหา GameObjects และตรวจสอบว่ามี Script UIExSelectPlace หรือไม่
-        foreach (GameObject go in allGameObjects)
-        {
-            // ตรวจสอบใน GameObject และลูกของมัน (รวมถึง Inactive)
-            UIExSelectPlace[] components = go.GetComponentsInChildren<UIExSelectPlace>(true);
-
-            foreach (UIExSelectPlace component in components)
-            {
-                if (component != null)
-                {
-                    Debug.Log($"Found UIExSelectPlace on GameObject: {component.gameObject.name}");
-                    return component.gameObject; // Return ตัว GameObject
-                }
-            }
-        }
-
-        Debug.Log("No GameObject with UIExSelectPlace found.");
-        return null;
-    }
-
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-        
-        UIExSelectPlace uIExSelectPlace = FindGameObjectWithUIExSelectPlace().GetComponent<UIExSelectPlace>();
-        transformsUIEx = uIExSelectPlace.transformParentUIEx;
-    }
 
     public NpcClass npcSelecying;
-    public List<ItemData> listItemDataInventoryslot; // Items in the player's inventory (not the box)
-    public List<ItemData> listItemDataInventoryEqicment;
-    public List<ItemData> listItemDataCarInventory;
+    public List<ItemData> listItemDataInventoryslot = new List<ItemData>();
+    public List<ItemData> listItemDataInventoryEqicment = new List<ItemData>();
+    public List<ItemData> listItemDataCarInventory = new List<ItemData>();
     public GameObject uIExOne;
     public GameObject uIExTwo;
     public GameObject playerObject;
@@ -67,44 +24,108 @@ public class ExpenditionManager : MonoBehaviour
     public Globalstat globalstat;
     public InventoryItemPresent inventoryItemPresent;
 
-    private void Start()
-    {   
-       
-        inventoryItemPresent = FindObjectOfType<InventoryItemPresent>();
-        globalstat = FindObjectOfType<Globalstat>();
+    public GameObject FindGameObjectWithUIExSelectPlace()
+    {
+        Scene activeScene = SceneManager.GetActiveScene();
+        if (!activeScene.isLoaded) return null;
+
+        GameObject[] allGameObjects = activeScene.GetRootGameObjects();
+        foreach (GameObject go in allGameObjects)
+        {
+            if (go == null) continue;
+            UIExSelectPlace[] components = go.GetComponentsInChildren<UIExSelectPlace>(true);
+            foreach (UIExSelectPlace component in components)
+            {
+                if (component != null)
+                {
+                    return component.gameObject;
+                }
+            }
+        }
+
+        return null;
     }
 
-    // Alternate "AddItem" method for the player's inventory slots
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        EnsureTransformsUIEx();
+    }
+
+    private void Start()
+    {
+        if (inventoryItemPresent == null)
+        {
+            inventoryItemPresent = FindFirstObjectByType<InventoryItemPresent>();
+        }
+
+        if (globalstat == null)
+        {
+            globalstat = FindFirstObjectByType<Globalstat>();
+        }
+    }
+
+    public void EnsureTransformsUIEx()
+    {
+        if (transformsUIEx != null) return;
+
+        GameObject selectPlaceObj = FindGameObjectWithUIExSelectPlace();
+        if (selectPlaceObj != null)
+        {
+            UIExSelectPlace uIExSelectPlace = selectPlaceObj.GetComponent<UIExSelectPlace>();
+            if (uIExSelectPlace != null)
+            {
+                transformsUIEx = uIExSelectPlace.transformParentUIEx;
+            }
+        }
+    }
+
     public void AddItemToInventorySlot(ItemData itemDataAdd)
     {
+        if (itemDataAdd == null) return;
+
         if (npcSelecying == null)
         {
-            Debug.LogWarning("npcSelecying is not assigned. Cannot determine max slot count.");
+            Debug.LogWarning("[ExpenditionManager] npcSelecying is not assigned. Cannot determine max slot count.");
             return;
+        }
+
+        if (listItemDataInventoryslot == null)
+        {
+            listItemDataInventoryslot = new List<ItemData>();
         }
 
         int maxSlots = npcSelecying.countInventorySlot;
         int leftover = itemDataAdd.count;
 
-        // First, try to fill existing partial stacks of the same item.
-        foreach (ItemData stack in listItemDataInventoryslot)
+        // First, try to fill existing partial stacks
+        for (int i = 0; i < listItemDataInventoryslot.Count; i++)
         {
-            if (stack.idItem == itemDataAdd.idItem && stack.count < stack.maxCount)
+            ItemData stack = listItemDataInventoryslot[i];
+            if (stack != null && stack.idItem == itemDataAdd.idItem && stack.count < stack.maxCount)
             {
                 int availableSpace = stack.maxCount - stack.count;
                 int toAdd = Mathf.Min(availableSpace, leftover);
                 stack.count += toAdd;
                 leftover -= toAdd;
 
-                if (leftover == 0)
-                    break; // All items added successfully
+                if (leftover <= 0) break;
             }
         }
 
-        // If we still have leftover items, try to create new stacks
+        // If leftover remains, create new stacks
         while (leftover > 0 && listItemDataInventoryslot.Count < maxSlots)
         {
-            // Determine how many items we can put in a new stack
             int itemsToStack = Mathf.Min(itemDataAdd.maxCount, leftover);
 
             ItemData newItemData = new ItemData
@@ -120,95 +141,108 @@ public class ExpenditionManager : MonoBehaviour
             leftover -= itemsToStack;
         }
 
-        // If after filling partial stacks and creating new stacks we still have leftover,
-        // it means we hit the slot limit. Discard the remaining items.
         if (leftover > 0)
         {
-            Debug.Log($"Discarded {leftover} '{itemDataAdd.nameItem}' items because the inventory is full.");
-            // At this point, we simply do nothing with the leftover items.
-            // They are considered 'destroyed'.
+            Debug.Log($"[ExpenditionManager] Discarded {leftover} '{itemDataAdd.nameItem}' items because inventory is full.");
         }
     }
 
-
-    // Alternate "RemoveItem" method for the player's inventory slots
     public void RemoveItemFromInventorySlot(ItemData itemDataRemove)
     {
-        // Find an item stack that matches the ID from the "end" of the list
-        ItemData itemDataInInventory = listItemDataInventoryslot
-            .LastOrDefault(item => item.idItem == itemDataRemove.idItem);
+        if (itemDataRemove == null || listItemDataInventoryslot == null) return;
 
-        if (itemDataInInventory != null)
+        // Find last matching item from reverse
+        for (int i = listItemDataInventoryslot.Count - 1; i >= 0; i--)
         {
-            if (itemDataInInventory.count >= itemDataRemove.count)
+            ItemData stack = listItemDataInventoryslot[i];
+            if (stack != null && stack.idItem == itemDataRemove.idItem)
             {
-                // We have enough items in that stack to remove
-                itemDataInInventory.count -= itemDataRemove.count;
-
-                // If the stack is now empty, remove it entirely
-                if (itemDataInInventory.count == 0)
+                if (stack.count >= itemDataRemove.count)
                 {
-                    listItemDataInventoryslot.Remove(itemDataInInventory);
+                    stack.count -= itemDataRemove.count;
+                    if (stack.count <= 0)
+                    {
+                        listItemDataInventoryslot.RemoveAt(i);
+                    }
+                    return;
+                }
+                else
+                {
+                    Debug.LogWarning("[ExpenditionManager] Not enough items in inventory slot to remove.");
+                    return;
                 }
             }
-            else
-            {
-                // Not enough items to remove. Handle as needed (e.g., show error message)
-                Debug.LogWarning("Not enough items in inventory to remove.");
-            }
         }
-        else
-        {
-            // The item does not exist in the inventory at all
-            Debug.LogWarning("Item to remove not found in inventory.");
-        }
+
+        Debug.LogWarning("[ExpenditionManager] Item to remove not found in inventory.");
     }
 
     public void CreateInventorySetExpendition(float timeScale, float riskValue, int indexSceneExpendition, bool isCar, bool isWalk, bool isTunnel)
     {
         if (uIInventoryExPrefab == null)
         {
-            Debug.LogError("itemPrefab is not assigned in the Inspector.");
+            Debug.LogError("[ExpenditionManager] uIInventoryExPrefab is not assigned in the Inspector.");
             return;
         }
 
-        GameObject uIEx = Instantiate(uIInventoryExPrefab, transformsUIEx);
+        EnsureTransformsUIEx();
 
+        if (globalstat == null)
+        {
+            globalstat = FindFirstObjectByType<Globalstat>();
+        }
+
+        GameObject uIEx = Instantiate(uIInventoryExPrefab, transformsUIEx);
         UIInventoryEX uIInventoryEx = uIEx.GetComponent<UIInventoryEX>();
+        if (uIInventoryEx == null)
+        {
+            Debug.LogError("[ExpenditionManager] UIInventoryEX component missing on instantiated prefab.");
+            return;
+        }
+
         uIInventoryEx.inventoryItemPresent = inventoryItemPresent;
         uIInventoryEx.timeScale = timeScale;
 
-        // Adjust riskValue based on global factors and transport mode
-        uIInventoryEx.riskValue = Mathf.Min(riskValue + globalstat.expiditionrisk,90);
+        float baseRisk = globalstat != null ? globalstat.expiditionrisk : 0f;
+        uIInventoryEx.riskValue = Mathf.Min(riskValue + baseRisk, 90f);
 
         if (isCar)
         {
-            uIInventoryEx.riskValue = Mathf.Min(uIInventoryEx.riskValue * 2, 90);
-            globalstat.availablecar -= 1;
+            uIInventoryEx.riskValue = Mathf.Min(uIInventoryEx.riskValue * 2f, 90f);
+            if (globalstat != null)
+            {
+                globalstat.availablecar -= 1;
+            }
         }
+
         if (isTunnel)
         {
-            uIInventoryEx.riskValue = 0; // Tunnel has no risk
+            uIInventoryEx.riskValue = 0f;
         }
 
         uIInventoryEx.indexSceneExpendition = indexSceneExpendition;
-
-        // Store mode information for UI or logic, if needed
         uIInventoryEx.isuseCar = isCar;
         uIInventoryEx.iswalk = isWalk;
         uIInventoryEx.isuseTunnel = isTunnel;
 
         uIEx.SetActive(true);
     }
+
     public void SetUIExButton(int indexEXUI, Sprite spriteHeadNpc, string textdayFinish)
     {
         if (indexEXUI == 1)
         {
-            uIButtonEXOne.GetComponent<UIButtonEX>().SetUIButtonEX(spriteHeadNpc, textdayFinish);
+            if (uIButtonEXOne != null)
+            {
+                uIButtonEXOne.SetUIButtonEX(spriteHeadNpc, textdayFinish);
+            }
         }
         else
         {
-            uIButtonEXTwo.GetComponent<UIButtonEX>().SetUIButtonEX(spriteHeadNpc, textdayFinish);
+            if (uIButtonEXTwo != null)
+            {
+                uIButtonEXTwo.SetUIButtonEX(spriteHeadNpc, textdayFinish);
+            }
         }
     }
 
@@ -219,6 +253,7 @@ public class ExpenditionManager : MonoBehaviour
             uIExOne.SetActive(true);
         }
     }
+
     public void OpenUIExpenditionInventoryTwo()
     {
         if (uIExTwo != null)
@@ -226,9 +261,16 @@ public class ExpenditionManager : MonoBehaviour
             uIExTwo.SetActive(true);
         }
     }
+
     public bool IsActiveEvent()
     {
+        if (globalstat == null)
+        {
+            globalstat = FindFirstObjectByType<Globalstat>();
+        }
+
+        float risk = globalstat != null ? globalstat.expiditionrisk : 0f;
         float randomValue = Random.Range(0f, 100f);
-        return randomValue <= globalstat.expiditionrisk;
+        return randomValue <= risk;
     }
 }

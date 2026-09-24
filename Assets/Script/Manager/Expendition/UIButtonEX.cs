@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,29 +11,49 @@ public class UIButtonEX : MonoBehaviour
 
     public int indexEXUI;
     public ExpenditionManager expenditionManager;
+
     private void Start()
     {
-        expenditionManager = FindObjectOfType<ExpenditionManager>();
-
-        if (indexEXUI == 1)
-        {   
-            expenditionManager.uIButtonEXOne = this;
-            // Debug.Log("Reset Button One");
-            buttonOpen.onClick.RemoveAllListeners();
-            buttonOpen.onClick.AddListener(ExpenditionManager.Instance.OpenUIExpenditionInventoryOne);
-        }
-        else if(indexEXUI == 2)
+        if (expenditionManager == null)
         {
-            expenditionManager.uIButtonEXTwo = this;
-            // Debug.Log("Reset Button Two");
+            expenditionManager = ExpenditionManager.Instance != null ? ExpenditionManager.Instance : FindFirstObjectByType<ExpenditionManager>();
+        }
+
+        if (expenditionManager != null && buttonOpen != null)
+        {
             buttonOpen.onClick.RemoveAllListeners();
-            buttonOpen.onClick.AddListener(ExpenditionManager.Instance.OpenUIExpenditionInventoryTwo);
+
+            if (indexEXUI == 1)
+            {
+                expenditionManager.uIButtonEXOne = this;
+                buttonOpen.onClick.AddListener(expenditionManager.OpenUIExpenditionInventoryOne);
+            }
+            else if (indexEXUI == 2)
+            {
+                expenditionManager.uIButtonEXTwo = this;
+                buttonOpen.onClick.AddListener(expenditionManager.OpenUIExpenditionInventoryTwo);
+            }
         }
     }
-    
+
+    private void OnDestroy()
+    {
+        if (buttonOpen != null)
+        {
+            buttonOpen.onClick.RemoveAllListeners();
+        }
+    }
+
     public void SetUIButtonEX(Sprite spriteHead, string finishDayHour)
     {
-        textDayHourFinish.text = finishDayHour;
-        imageHead.sprite = spriteHead;
+        if (textDayHourFinish != null)
+        {
+            textDayHourFinish.text = finishDayHour;
+        }
+
+        if (imageHead != null)
+        {
+            imageHead.sprite = spriteHead;
+        }
     }
 }
