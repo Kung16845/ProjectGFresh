@@ -4,22 +4,33 @@ using UnityEngine.UI;
 
 public class UIButtonCooldown : MonoBehaviour
 {
-    public Button targetButton; // ปุ่มที่ต้องการควบคุม
-    public float cooldownTime = 3f; // ระยะเวลาที่ปิดใช้งาน (วินาที)
+    public Button targetButton;
+    public float cooldownTime = 3f;
+
+    private WaitForSeconds _waitInstruction;
+
+    private void Awake()
+    {
+        if (targetButton == null)
+        {
+            targetButton = GetComponent<Button>();
+        }
+        _waitInstruction = new WaitForSeconds(cooldownTime);
+    }
 
     public void OnButtonClick()
     {
-        // เรียกเมื่อปุ่มถูกกด
-        Debug.Log("Button clicked!");
-
-        // ปิดการใช้งานปุ่ม
+        if (targetButton == null) return;
         StartCoroutine(DisableButtonTemporarily());
     }
 
     private IEnumerator DisableButtonTemporarily()
     {
-        targetButton.interactable = false; // ปิดการใช้งานปุ่ม
-        yield return new WaitForSeconds(cooldownTime); // รอเวลาตามที่กำหนด
-        targetButton.interactable = true; // เปิดใช้งานปุ่มอีกครั้ง
+        targetButton.interactable = false;
+        yield return _waitInstruction;
+        if (targetButton != null)
+        {
+            targetButton.interactable = true;
+        }
     }
 }

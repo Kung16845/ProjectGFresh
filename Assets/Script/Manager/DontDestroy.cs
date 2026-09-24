@@ -3,19 +3,15 @@ using UnityEngine;
 public class DontDestroy : MonoBehaviour
 {
     public static DontDestroy Instance { get; private set; }
-    private static bool instanceExists = false;
-    private void Start()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
-    void Awake()
+
+    private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
+        else if (Instance != this)
         {
             Destroy(gameObject);
         }

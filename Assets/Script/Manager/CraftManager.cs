@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,22 +7,34 @@ public class CraftManager : MonoBehaviour
     public List<CraftingJob> ChemicalactiveJobs = new List<CraftingJob>();
     public List<CraftingJob> MedicineactiveJobs = new List<CraftingJob>();
     public List<CraftingJob> MoonshienactiveJobs = new List<CraftingJob>();
+
     public InventoryItemPresent inventoryItemPresent;
     public BuildManager buildManager;
-    public Globalstat globalstat; // Reference to Globalstat
+    public Globalstat globalstat;
 
-    void Awake()
+    private void Awake()
     {
-        globalstat = FindObjectOfType<Globalstat>();
-        inventoryItemPresent = FindObjectOfType<InventoryItemPresent>();
-        buildManager = FindObjectOfType<BuildManager>();
+        if (GameManager.Instance != null)
+        {
+            globalstat = GameManager.Instance.globalstat;
+            inventoryItemPresent = GameManager.Instance.inventoryItemPresent;
+            buildManager = GameManager.Instance.buildManager;
+        }
 
-        // Initialize used slots based on the current job lists
+        if (globalstat == null) globalstat = FindFirstObjectByType<Globalstat>();
+        if (inventoryItemPresent == null) inventoryItemPresent = InventoryItemPresent.Instance ?? FindFirstObjectByType<InventoryItemPresent>();
+        if (buildManager == null) buildManager = BuildManager.Instance ?? FindFirstObjectByType<BuildManager>();
+
         UpdateUsedSlots();
     }
 
     public CraftingResult AddCraftingJob(CraftingItem craftingItem, CraftingSource source)
     {
+        if (craftingItem == null || globalstat == null || inventoryItemPresent == null)
+        {
+            return CraftingResult.NoAvailableSlots;
+        }
+
         switch (source)
         {
             case CraftingSource.Workshop:
@@ -41,10 +52,11 @@ public class CraftManager : MonoBehaviour
                     return CraftingResult.NoAvailableSlots;
                 }
                 break;
+
             case CraftingSource.Moonshine:
                 if (globalstat.MoonshineCraftingSlot <= 0)
                 {
-                    Debug.LogWarning("Crafting is not allowed in Chemical Lab: No active crafting slots.");
+                    Debug.LogWarning("Crafting is not allowed in Moonshine: No active crafting slots.");
                     return CraftingResult.NoAvailableSlots;
                 }
                 break;
@@ -55,13 +67,19 @@ public class CraftManager : MonoBehaviour
         }
 
         // Check if the player has enough items for the recipe
-        foreach (RecipeItem recipeItem in craftingItem.recipeItems)
+        if (craftingItem.recipeItems != null)
         {
-            int amountHave = inventoryItemPresent.GetItemCountByID(recipeItem.itemID);
-            if (amountHave < recipeItem.amountNeeded)
+            for (int i = 0; i < craftingItem.recipeItems.Count; i++)
             {
-                Debug.LogWarning($"Not enough {recipeItem.itemName}. Required: {recipeItem.amountNeeded}, Have: {amountHave}");
-                return CraftingResult.NotEnoughItems;
+                RecipeItem recipeItem = craftingItem.recipeItems[i];
+                if (recipeItem == null) continue;
+
+                int amountHave = inventoryItemPresent.GetItemCountByID(recipeItem.itemID);
+                if (amountHave < recipeItem.amountNeeded)
+                {
+                    Debug.LogWarning($"Not enough {recipeItem.itemName}. Required: {recipeItem.amountNeeded}, Have: {amountHave}");
+                    return CraftingResult.NotEnoughItems;
+                }
             }
         }
 
@@ -79,14 +97,11 @@ public class CraftManager : MonoBehaviour
             }
         }
 
-        // Deduct resources
         DeductResources(craftingItem);
 
-        // Use ActionSpeed to calculate crafting time
         float actionSpeed = globalstat.ActionSpeed > 0 ? globalstat.ActionSpeed : 1f;
         CraftingJob newJob = new CraftingJob(craftingItem, actionSpeed, source);
 
-        // Add the job to the specified list based on source
         switch (source)
         {
             case CraftingSource.Workshop:
@@ -109,9 +124,7 @@ public class CraftManager : MonoBehaviour
                 return CraftingResult.NoAvailableSlots;
         }
 
-        // Update used slots after adding the job
         UpdateUsedSlots();
-
         return CraftingResult.Success;
     }
 
@@ -120,16 +133,17 @@ public class CraftManager : MonoBehaviour
         UpdateJobs(activeCraftingJobs);
         UpdateJobs(ChemicalactiveJobs);
         UpdateJobs(MoonshienactiveJobs);
-        // Update used slots after processing jobs
         UpdateUsedSlots();
     }
 
     private void UpdateJobs(List<CraftingJob> jobList)
     {
+        if (jobList == null) return;
+
         for (int i = jobList.Count - 1; i >= 0; i--)
         {
             CraftingJob job = jobList[i];
-            if (!job.isComplete)
+            if (job != null && !job.isComplete)
             {
                 job.timeRemaining -= Time.deltaTime;
 
@@ -146,8 +160,9 @@ public class CraftManager : MonoBehaviour
 
     private void CompleteCraftingJob(CraftingJob job)
     {
-        // Handle completed crafting job
-        UIItemData uiItemData = inventoryItemPresent.listUIItemPrefab.Find(uiItem => uiItem.idItem == job.craftingItem.itemID);
+        if (job == null || job.craftingItem == null || inventoryItemPresent == null) return;
+
+        UIItemData uiItemData = inventoryItemPresent.GetUIItemPrefab(job.craftingItem.itemID);
         if (uiItemData == null)
         {
             Debug.LogError($"UIItemData not found for itemID: {job.craftingItem.itemID}");
@@ -162,7 +177,7 @@ public class CraftManager : MonoBehaviour
         }
 
         int totalAmount = job.craftingItem.amountProduced;
-        int maxStack = itemClass.maxCountItem;
+        int maxStack = itemClass.maxCountItem > 0 ? itemClass.maxCountItem : 1;
 
         while (totalAmount > 0)
         {
@@ -178,37 +193,31 @@ public class CraftManager : MonoBehaviour
             };
 
             inventoryItemPresent.AddItem(craftedItemData);
-            Debug.Log($"Crafting complete: {job.craftingItem.itemName}, Amount Added: {amountToAdd}");
             totalAmount -= amountToAdd;
         }
 
-        // Increase the appropriate crafting slot based on the job source
-        switch (job.source)
+        if (globalstat != null)
         {
-            case CraftingSource.Workshop:
-                globalstat.CraftingSlot += 1; // Free up a Workshop slot
-                break;
-            case CraftingSource.ChemicalLab:
-                globalstat.ChemicalCraftingSlot += 1; // Free up a Chemical Lab slot
-                break;
-            case CraftingSource.Moonshine:
-                globalstat.MoonshineCraftingSlot += 1;
-                break;
-            default:
-                Debug.LogWarning("Unknown crafting source when completing job.");
-                break;
+            switch (job.source)
+            {
+                case CraftingSource.Workshop:
+                    globalstat.CraftingSlot += 1;
+                    break;
+                case CraftingSource.ChemicalLab:
+                    globalstat.ChemicalCraftingSlot += 1;
+                    break;
+                case CraftingSource.Moonshine:
+                    globalstat.MoonshineCraftingSlot += 1;
+                    break;
+            }
         }
 
-        // Update used slots after completing the job
         UpdateUsedSlots();
     }
-    void Update()
+
+    public void UpdateUsedSlots()
     {
-        UpdateUsedSlots();
-    }
-    private void UpdateUsedSlots()
-    {
-        // Update the globalstat used slot values
+        if (globalstat == null) return;
         globalstat.usedCraftingSlot = activeCraftingJobs.Count;
         globalstat.usedChemicalCraftingSlot = ChemicalactiveJobs.Count;
         globalstat.usedMoonshineCraftingSlot = MoonshienactiveJobs.Count;
@@ -216,21 +225,32 @@ public class CraftManager : MonoBehaviour
 
     private bool HasRequiredResources(CraftingItem craftingItem)
     {
-        foreach (RecipeItem recipeItem in craftingItem.recipeItems)
+        if (craftingItem == null || inventoryItemPresent == null) return false;
+
+        if (craftingItem.recipeItems != null)
         {
-            if (inventoryItemPresent.GetItemCountByID(recipeItem.itemID) < recipeItem.amountNeeded)
+            for (int i = 0; i < craftingItem.recipeItems.Count; i++)
             {
-                Debug.LogWarning($"Not enough {recipeItem.itemName}.");
-                return false;
+                RecipeItem recipeItem = craftingItem.recipeItems[i];
+                if (recipeItem == null) continue;
+
+                if (inventoryItemPresent.GetItemCountByID(recipeItem.itemID) < recipeItem.amountNeeded)
+                {
+                    return false;
+                }
             }
         }
 
-        if (buildManager.ammo < craftingItem.Ammoneeded || buildManager.fuel < craftingItem.Fuelneeded ||
-            buildManager.steel < craftingItem.Steelneeded || buildManager.plank < craftingItem.Plankneeded ||
-            buildManager.food < craftingItem.Foodneeded)
+        if (buildManager != null)
         {
-            Debug.LogWarning("Not enough resources.");
-            return false;
+            if (buildManager.ammo < craftingItem.Ammoneeded ||
+                buildManager.fuel < craftingItem.Fuelneeded ||
+                buildManager.steel < craftingItem.Steelneeded ||
+                buildManager.plank < craftingItem.Plankneeded ||
+                buildManager.food < craftingItem.Foodneeded)
+            {
+                return false;
+            }
         }
 
         return true;
@@ -238,16 +258,25 @@ public class CraftManager : MonoBehaviour
 
     private void DeductResources(CraftingItem craftingItem)
     {
-        foreach (RecipeItem recipeItem in craftingItem.recipeItems)
+        if (craftingItem == null) return;
+
+        if (craftingItem.recipeItems != null && inventoryItemPresent != null)
         {
-            inventoryItemPresent.RemoveItem(new ItemData { idItem = recipeItem.itemID, count = recipeItem.amountNeeded });
+            for (int i = 0; i < craftingItem.recipeItems.Count; i++)
+            {
+                RecipeItem recipeItem = craftingItem.recipeItems[i];
+                if (recipeItem == null) continue;
+                inventoryItemPresent.RemoveItem(new ItemData { idItem = recipeItem.itemID, count = recipeItem.amountNeeded });
+            }
         }
 
-        buildManager.ammo -= craftingItem.Ammoneeded;
-        buildManager.fuel -= craftingItem.Fuelneeded;
-        buildManager.steel -= craftingItem.Steelneeded;
-        buildManager.plank -= craftingItem.Plankneeded;
-        buildManager.food -= craftingItem.Foodneeded;
+        if (buildManager != null)
+        {
+            buildManager.ammo -= craftingItem.Ammoneeded;
+            buildManager.fuel -= craftingItem.Fuelneeded;
+            buildManager.steel -= craftingItem.Steelneeded;
+            buildManager.plank -= craftingItem.Plankneeded;
+            buildManager.food -= craftingItem.Foodneeded;
+        }
     }
 }
-
