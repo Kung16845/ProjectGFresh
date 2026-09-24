@@ -20,25 +20,48 @@ public class Tunnel : MonoBehaviour
     public bool isclearing;
     private int npcCost = 1;
     public int finishDayBuildingTime = 0;
-    public TextMeshProUGUI tunnelStatusText; // Combined status and hint
+    public TextMeshProUGUI tunnelStatusText;
 
     private int lastRewardDay = -1;
+    private List<ItemReward> shuffledRewardsPool = new List<ItemReward>();
 
-    void OnMouseDown()
+    private void Awake()
     {
-        uImanger.ToggleUIPanel(UImanger.UIPanel.TunnelUI);
+        if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
+        if (timeManager == null) timeManager = GameManager.Instance != null ? GameManager.Instance.timeManager : FindFirstObjectByType<TimeManager>();
+        if (dailyGive == null) dailyGive = FindFirstObjectByType<DailyGive>();
+        if (uImanger == null) uImanger = FindFirstObjectByType<UImanger>();
+        if (buildManager == null) buildManager = GameManager.Instance != null ? GameManager.Instance.buildManager : FindFirstObjectByType<BuildManager>();
+        if (globalstat == null) globalstat = GameManager.Instance != null ? GameManager.Instance.globalstat : FindFirstObjectByType<Globalstat>();
+        if (inventoryItemPresent == null) inventoryItemPresent = FindFirstObjectByType<InventoryItemPresent>();
+    }
+
+    private void Start()
+    {
+        if (timeManager != null)
+        {
+            dateTime = timeManager.dateTime;
+            if (dateTime != null) currentDay = dateTime.day;
+        }
+    }
+
+    private void OnMouseDown()
+    {
+        if (uImanger != null)
+        {
+            uImanger.ToggleUIPanel(UImanger.UIPanel.TunnelUI);
+        }
 
         UpdateTunnelStatus();
     }
 
-    void Start()
+    private void Update()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        dateTime = timeManager.dateTime;
-    }
+        if (dateTime == null && timeManager != null)
+        {
+            dateTime = timeManager.dateTime;
+        }
 
-    void Update()
-    {
         WaitClearingRock();
         CheckMaintenance();
         GiveDailyReward();
@@ -46,122 +69,137 @@ public class Tunnel : MonoBehaviour
 
     public void WaitClearingRock()
     {
-        if (dateTime.day >= finishDayBuildingTime && isclearing)
+        if (dateTime != null && dateTime.day >= finishDayBuildingTime && isclearing)
         {
             isclearing = false;
             tuneelisopen = true;
-            globalstat.Tunnelaviable = true;
-            buildManager.npc += npcCost;
-            return;
+            if (globalstat != null) globalstat.Tunnelaviable = true;
+            if (buildManager != null) buildManager.npc += npcCost;
         }
     }
 
     public void InitializeOpenGateway()
     {
         isclearing = true;
-        ItemData itemDataToRemove = new ItemData
+
+        if (inventoryItemPresent != null)
         {
-            idItem = 1020304,
-            count = 5
-        };
-        inventoryItemPresent.RemoveItem(itemDataToRemove);
-        dateTime = timeManager.dateTime;
-        finishDayBuildingTime += dateTime.day + daycost;
-        buildManager.npc -= npcCost;
-        uImanger.DisableUIPanel(UImanger.UIPanel.ClearingTunnelUI);
-        uImanger.DisableUIPanel(UImanger.UIPanel.TunnelUI);
+            inventoryItemPresent.RemoveItem(new ItemData { idItem = 1020304, count = 5 });
+        }
+
+        if (timeManager != null)
+        {
+            dateTime = timeManager.dateTime;
+        }
+
+        int currentDayVal = dateTime != null ? dateTime.day : 0;
+        finishDayBuildingTime = currentDayVal + daycost;
+
+        if (buildManager != null)
+        {
+            buildManager.npc -= npcCost;
+        }
+
+        if (uImanger != null)
+        {
+            uImanger.DisableUIPanel(UImanger.UIPanel.ClearingTunnelUI);
+            uImanger.DisableUIPanel(UImanger.UIPanel.TunnelUI);
+        }
     }
 
-    void CheckMaintenance()
+    private void CheckMaintenance()
     {
+        if (buildManager == null || globalstat == null) return;
+
         if (tuneelisopen && !buildManager.iswateractive)
         {
-            spriteRenderer.enabled = false;
+            if (spriteRenderer != null) spriteRenderer.enabled = false;
             tuneelisopen = false;
             globalstat.Tunnelaviable = false;
         }
         else if (tuneelisopen)
         {
-            spriteRenderer.enabled = false;
+            if (spriteRenderer != null) spriteRenderer.enabled = false;
             tuneelisopen = true;
             globalstat.Tunnelaviable = true;
         }
     }
 
-    private List<ItemReward> shuffledRewardsPool = new List<ItemReward>();
-
     public void GiveDailyReward()
     {
-        // Do not give daily rewards if water is unavailable
-        if (!buildManager.iswateractive)
+        if (buildManager == null || !buildManager.iswateractive || dailyGive == null)
         {
             return;
         }
 
-        if (tuneelisopen && dateTime.day != lastRewardDay)
+        if (tuneelisopen && dateTime != null && dateTime.day != lastRewardDay)
         {
             lastRewardDay = dateTime.day;
 
-            // Shuffle the rewards pool daily
             ShuffleRewardsPool();
 
-            // Create a list to store eligible rewards based on chance
             List<ItemReward> validRewards = new List<ItemReward>();
-            foreach (var reward in shuffledRewardsPool)
+            for (int i = 0; i < shuffledRewardsPool.Count; i++)
             {
+                ItemReward reward = shuffledRewardsPool[i];
                 if (Random.value <= reward.chance)
                 {
                     validRewards.Add(reward);
                 }
             }
 
-            // Limit to a maximum of 3 unique items
             int maxItemsToGive = Mathf.Min(3, validRewards.Count);
             for (int i = 0; i < maxItemsToGive; i++)
             {
                 ItemReward chosenReward = validRewards[i];
                 int randomAmount = Random.Range(chosenReward.minAmount, chosenReward.maxAmount + 1);
-
                 dailyGive.AddItemByID(chosenReward.itemID, randomAmount);
             }
         }
     }
 
-    void ShuffleRewardsPool()
+    private void ShuffleRewardsPool()
     {
         shuffledRewardsPool.Clear();
-        shuffledRewardsPool.AddRange(rewardsPool);
-
-        // Shuffle using Fisher-Yates algorithm
-        for (int i = shuffledRewardsPool.Count - 1; i > 0; i--)
+        if (rewardsPool != null)
         {
-            int randomIndex = Random.Range(0, i + 1);
-            ItemReward temp = shuffledRewardsPool[i];
-            shuffledRewardsPool[i] = shuffledRewardsPool[randomIndex];
-            shuffledRewardsPool[randomIndex] = temp;
+            shuffledRewardsPool.AddRange(rewardsPool);
+
+            for (int i = shuffledRewardsPool.Count - 1; i > 0; i--)
+            {
+                int randomIndex = Random.Range(0, i + 1);
+                ItemReward temp = shuffledRewardsPool[i];
+                shuffledRewardsPool[i] = shuffledRewardsPool[randomIndex];
+                shuffledRewardsPool[randomIndex] = temp;
+            }
         }
     }
+
     private void UpdateTunnelStatus()
     {
+        if (tunnelStatusText == null) return;
+
+        bool hasWater = buildManager != null && buildManager.iswateractive;
+
         if (!tuneelisopen && !isclearing)
         {
-            int currentDynamite = inventoryItemPresent.GetItemCountByID(1020304);
+            int currentDynamite = inventoryItemPresent != null ? inventoryItemPresent.GetItemCountByID(1020304) : 0;
             int requiredDynamite = 5;
             tunnelStatusText.text = $"The tunnel is blocked. If we clear it, we might find something useful. Rumor has it the military left supplies here. <color=#FFFF00>Dynamite collected: {currentDynamite}/{requiredDynamite}</color>";
         }
-        else if (isclearing && !buildManager.iswateractive)
+        else if (isclearing && !hasWater)
         {
             tunnelStatusText.text = "The tunnel is being cleared, but it's flooded. This might take longer than expected.";
         }
-        else if (isclearing && buildManager.iswateractive)
+        else if (isclearing && hasWater)
         {
             tunnelStatusText.text = "The tunnel is being cleared, and the water is being drained.";
         }
-        else if (tuneelisopen && !buildManager.iswateractive)
+        else if (tuneelisopen && !hasWater)
         {
             tunnelStatusText.text = "The tunnel is open, but it's still flooded with water. We can't explore for supplies yet.";
         }
-        else if (tuneelisopen && buildManager.iswateractive)
+        else if (tuneelisopen && hasWater)
         {
             tunnelStatusText.text = "The tunnel is now open and clear! It's a safe route for expeditions and supplies are accessible.";
         }
@@ -171,7 +209,6 @@ public class Tunnel : MonoBehaviour
         }
     }
 }
-
 
 [System.Serializable]
 public class ItemReward

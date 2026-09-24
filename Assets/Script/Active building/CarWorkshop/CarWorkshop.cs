@@ -18,73 +18,80 @@ public class CarWorkshop : MonoBehaviour
     public Globalstat globalstat;
     private int StandardFuelcost = 5;
     public bool hasUpgradeApplied;
-    void Start()
+
+    private void Start()
     {
-        uImanger = FindObjectOfType<UImanger>();
-        timeManager = FindObjectOfType<TimeManager>();
-        globalstat = FindObjectOfType<Globalstat>();
-        buildManager = FindObjectOfType<BuildManager>();
-        building = FindObjectOfType<Building>();
+        uImanger = FindFirstObjectByType<UImanger>();
+        timeManager = GameManager.Instance != null ? GameManager.Instance.timeManager : FindFirstObjectByType<TimeManager>();
+        globalstat = GameManager.Instance != null ? GameManager.Instance.globalstat : FindFirstObjectByType<Globalstat>();
+        buildManager = GameManager.Instance != null ? GameManager.Instance.buildManager : FindFirstObjectByType<BuildManager>();
+
+        // Always get components directly on this GameObject
+        building = GetComponent<Building>();
         upgradeBuilding = GetComponent<UpgradeBuilding>();
-        dateTime = timeManager.dateTime;
-        currentDay = dateTime.day;
+
+        if (timeManager != null)
+        {
+            dateTime = timeManager.dateTime;
+            if (dateTime != null) currentDay = dateTime.day;
+        }
+
         availableCar = 1;
         FuelRefillRate = 1;
     }
 
-
-    void Update()
+    private void OnMouseDown()
     {
-        IsElectricActive();
-        IsElectricInactive();
-    }
-
-    
-    void OnMouseDown()
-    {
-        if (building.isfinsih && !upgradeBuilding.isUpgradBuilding)
+        if (building != null && building.isfinsih && upgradeBuilding != null && !upgradeBuilding.isUpgradBuilding)
         {
-            uImanger.ToggleUIPanel(UImanger.UIPanel.CarWorkshopUI);
-            
-            if (upgradeBuilding.currentLevel == upgradeBuilding.maxLevel && !hasUpgradeApplied)
+            if (uImanger != null)
             {
-                uImanger.DisableUIPanel(UImanger.UIPanel.CarUpgradeWorkshopUI);
-                globalstat.availablecar += 1; // Increment available cars
-                StandardFuelcost = 3;
-
-                hasUpgradeApplied = true; // Set the flag to true to prevent reapplying the upgrade logic
+                uImanger.ToggleUIPanel(UImanger.UIPanel.CarWorkshopUI);
+                
+                if (upgradeBuilding.currentLevel >= upgradeBuilding.maxLevel && !hasUpgradeApplied)
+                {
+                    uImanger.DisableUIPanel(UImanger.UIPanel.CarUpgradeWorkshopUI);
+                    if (globalstat != null)
+                    {
+                        globalstat.availablecar += 1;
+                    }
+                    StandardFuelcost = 3;
+                    hasUpgradeApplied = true;
+                }
             }
-
         }
     }
+
     public void AssignUpgradeData()
     {
-        upgradeUi = FindObjectOfType<UpgradeUi>();
-        upgradeUi.Initialize(upgradeBuilding);
-    }
-    void IsElectricActive()
-    {
-        if (building.isfinsih && buildManager.iselecticitiesactive)
+        if (upgradeUi == null)
         {
-            
+            upgradeUi = FindFirstObjectByType<UpgradeUi>();
+        }
+        if (upgradeUi != null && upgradeBuilding != null)
+        {
+            upgradeUi.Initialize(upgradeBuilding);
         }
     }
 
-    void IsElectricInactive()
-    {
-        if (building.isfinsih && !buildManager.iselecticitiesactive)
-        {
-            
-        }
-    }
     public void AddCartoGlobalstat()
     {
-        globalstat.availablecar += 1;
-        buildManager.fuel -= StandardFuelcost;
-        globalstat.UnaviableCar -= 1;
+        if (globalstat != null)
+        {
+            globalstat.availablecar += 1;
+            globalstat.UnaviableCar -= 1;
+        }
+        if (buildManager != null)
+        {
+            buildManager.fuel -= StandardFuelcost;
+        }
     }
+
     public void DecreaseCartoGlobalstat()
     {
-        globalstat.availablecar -= 1;
+        if (globalstat != null)
+        {
+            globalstat.availablecar -= 1;
+        }
     }
 }

@@ -26,7 +26,7 @@ public class Sattlelite : MonoBehaviour
     public TextMeshProUGUI SattleliteStatusText;
     public TextMeshProUGUI SattleliteWire;
     public TextMeshProUGUI SattleliteCircuit;
-    public TextMeshProUGUI SattleliteSteel; // Combined status and hint
+    public TextMeshProUGUI SattleliteSteel;
     public Image CircuitIcon;
     public Image WireIcon;
     public Image SteelIcon;
@@ -35,71 +35,100 @@ public class Sattlelite : MonoBehaviour
     public Button ReconButton;
     public Button SupplyDropButton;
 
-    // Reference to the DailyGive component where we add items when countdown finishes
     public DailyGive dailyGive;
 
-    // Variables for Supply Drop system
     public bool supplyDropActive = false;
     public int supplyDropCountdown = 0;
     private SuuplyDropType currentSupplyDropType;
 
-    // List of items that will be given once the countdown ends
-    // Rename this as needed; for example: supplyDropItems
     public List<ItemData> supplyDropItems = new List<ItemData>();
 
-    void Start()
+    private void Awake()
     {
-        dateTime = timeManager.dateTime;
+        if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
+        if (timeManager == null) timeManager = GameManager.Instance != null ? GameManager.Instance.timeManager : FindFirstObjectByType<TimeManager>();
+        if (buildManager == null) buildManager = GameManager.Instance != null ? GameManager.Instance.buildManager : FindFirstObjectByType<BuildManager>();
+        if (globalstat == null) globalstat = GameManager.Instance != null ? GameManager.Instance.globalstat : FindFirstObjectByType<Globalstat>();
+        if (uImanger == null) uImanger = FindFirstObjectByType<UImanger>();
+        if (inventoryItemPresent == null) inventoryItemPresent = FindFirstObjectByType<InventoryItemPresent>();
+        if (npcManager == null) npcManager = GameManager.Instance != null ? GameManager.Instance.npcManager : FindFirstObjectByType<NpcManager>();
+        if (dailyGive == null) dailyGive = FindFirstObjectByType<DailyGive>();
     }
 
-    void OnMouseDown()
+    private void Start()
     {
-        uImanger.ToggleUIPanel(UImanger.UIPanel.SattleliteUI);
+        if (timeManager != null)
+        {
+            dateTime = timeManager.dateTime;
+            if (dateTime != null) currentDay = dateTime.day;
+        }
+    }
+
+    private void OnMouseDown()
+    {
+        if (uImanger != null)
+        {
+            uImanger.ToggleUIPanel(UImanger.UIPanel.SattleliteUI);
+        }
 
         UpdateSattleliteStatusText();
         UpdateRepairButton();
         UpdateSpecialistIcon(SpecialistRoleNpc.Network);
     }
-    void Update()
+
+    private void Update()
     {
+        if (dateTime == null && timeManager != null)
+        {
+            dateTime = timeManager.dateTime;
+        }
+
         WaitRepair();
         CheckMaintenance();
         Checkrecon();
         DynamicbuttonandIcon();
         CheckSupplyDropCountdown();
-        // If needed, you can call CheckSupplyDropCountdown() here each frame,
-        // but it's likely better to call it once per in-game day as shown in Checkrecon().
     }
-    void DynamicbuttonandIcon()
+
+    private void DynamicbuttonandIcon()
     {
-        ReconButton.interactable = globalstat.SatelliteOnline;
-         SupplyDropButton.interactable = globalstat.SatelliteOnline;
-        if(Reconduration > 0)
+        if (globalstat == null) return;
+
+        bool shouldReconBeInteractable = globalstat.SatelliteOnline && Reconduration <= 0;
+        if (ReconButton != null && ReconButton.interactable != shouldReconBeInteractable)
         {
-            ReconButton.interactable = false;
+            ReconButton.interactable = shouldReconBeInteractable;
+        }
+
+        if (Reconduration > 0)
+        {
             globalstat.ReconActive = true;
         }
-        if(supplyDropCountdown > 0)
+
+        bool shouldSupplyDropBeInteractable = globalstat.SatelliteOnline && supplyDropCountdown <= 0;
+        if (SupplyDropButton != null && SupplyDropButton.interactable != shouldSupplyDropBeInteractable)
         {
-             SupplyDropButton.interactable = false;
+            SupplyDropButton.interactable = shouldSupplyDropBeInteractable;
         }
-        if(SatelliteOnline)
+
+        if (SatelliteOnline)
         {
-            WireIcon.gameObject.SetActive(false);
-            CircuitIcon.gameObject.SetActive(false);
-            SteelIcon.gameObject.SetActive(false);
-            newworkIcon.gameObject.SetActive(false);
+            if (WireIcon != null && WireIcon.gameObject.activeSelf) WireIcon.gameObject.SetActive(false);
+            if (CircuitIcon != null && CircuitIcon.gameObject.activeSelf) CircuitIcon.gameObject.SetActive(false);
+            if (SteelIcon != null && SteelIcon.gameObject.activeSelf) SteelIcon.gameObject.SetActive(false);
+            if (newworkIcon != null && newworkIcon.gameObject.activeSelf) newworkIcon.gameObject.SetActive(false);
         }
     }
-    void Checkrecon()
+
+    private void Checkrecon()
     {
-        if (dateTime.day != currentDay && Reconduration > 0)
+        if (dateTime != null && dateTime.day != currentDay && Reconduration > 0)
         {
             Reconduration--;
             currentDay = dateTime.day;
-            return;
         }
     }
+
     public void ActiveRecon()
     {
         Reconduration = 5;
@@ -113,18 +142,16 @@ public class Sattlelite : MonoBehaviour
 
             if (hasSpecialist)
             {
-                Color whiteColor;
-                if (ColorUtility.TryParseHtmlString("#FFFFFF", out whiteColor))
+                if (ColorUtility.TryParseHtmlString("#FFFFFF", out Color whiteColor))
                 {
-                    newworkIcon.color = whiteColor; // Set to white
+                    newworkIcon.color = whiteColor;
                 }
             }
             else
             {
-                Color greyColor;
-                if (ColorUtility.TryParseHtmlString("#8C8C8C", out greyColor))
+                if (ColorUtility.TryParseHtmlString("#8C8C8C", out Color greyColor))
                 {
-                    newworkIcon.color = greyColor; // Set to grey
+                    newworkIcon.color = greyColor;
                 }
             }
         }
@@ -132,34 +159,41 @@ public class Sattlelite : MonoBehaviour
 
     public void WaitRepair()
     {
-        if (dateTime.day >= finishDayBuildingTime && isRepairing)
+        if (dateTime != null && dateTime.day >= finishDayBuildingTime && isRepairing)
         {
             isRepairing = false;
             SatelliteOnline = true;
-            globalstat.SatelliteOnline = SatelliteOnline;
-            buildManager.npc += npcCost;
+            if (globalstat != null) globalstat.SatelliteOnline = SatelliteOnline;
+            if (buildManager != null) buildManager.npc += npcCost;
 
-            // Change the sprite to the repaired version
             if (spriteRenderer != null && repairedSpriteRenderer != null)
             {
                 spriteRenderer.sprite = repairedSpriteRenderer;
             }
-            NpcClass npc = npcManager.GetNpcByClass(SpecialistRoleNpc.Network);
-            npc.isWorking = false; // Mark the specialist as not working
-            return;
+
+            if (npcManager != null)
+            {
+                NpcClass npc = npcManager.GetNpcByClass(SpecialistRoleNpc.Network);
+                if (npc != null)
+                {
+                    npc.isWorking = false;
+                }
+            }
         }
     }
 
-    void CheckMaintenance()
+    private void CheckMaintenance()
     {
+        if (buildManager == null || globalstat == null) return;
+
         if (SatelliteOnline && !buildManager.iselecticitiesactive)
         {
-            SatelliteOnline= false;
+            SatelliteOnline = false;
             globalstat.SatelliteOnline = false;
         }
         else if (SatelliteOnline)
         {
-            SatelliteOnline= true;
+            SatelliteOnline = true;
             globalstat.SatelliteOnline = true;
         }
     }
@@ -167,82 +201,93 @@ public class Sattlelite : MonoBehaviour
     public void InitializeRepair()
     {
         isRepairing = true;
-        ItemData itemDataToRemove = new ItemData
+
+        if (inventoryItemPresent != null)
         {
-            idItem = 1020102,
-            count = 20
-        };
-        inventoryItemPresent.RemoveItem(itemDataToRemove);
-        ItemData itemDataToRemove2 = new ItemData
+            inventoryItemPresent.RemoveItem(new ItemData { idItem = 1020102, count = 20 });
+            inventoryItemPresent.RemoveItem(new ItemData { idItem = 1020103, count = 30 });
+        }
+
+        if (timeManager != null)
         {
-            idItem = 1020103,
-            count = 30
-        };
-        inventoryItemPresent.RemoveItem(itemDataToRemove2);
-        dateTime = timeManager.dateTime;
-        buildManager.steel -= 3;
-        finishDayBuildingTime += dateTime.day + daycost;
-        buildManager.npc -= npcCost;
+            dateTime = timeManager.dateTime;
+        }
+
+        int currentDayVal = dateTime != null ? dateTime.day : 0;
+        finishDayBuildingTime = currentDayVal + daycost;
+
+        if (buildManager != null)
+        {
+            buildManager.steel -= 3;
+            buildManager.npc -= npcCost;
+        }
+
         AssignSpecialistToUpgrade(SpecialistRoleNpc.Network);
-        uImanger.DisableUIPanel(UImanger.UIPanel.SattleliteUpgradeButton);
-        uImanger.DisableUIPanel(UImanger.UIPanel.SattleliteUI);
+
+        if (uImanger != null)
+        {
+            uImanger.DisableUIPanel(UImanger.UIPanel.SattleliteUpgradeButton);
+            uImanger.DisableUIPanel(UImanger.UIPanel.SattleliteUI);
+        }
     }
 
     private void UpdateSattleliteStatusText()
     {
-        int currentCircuit = inventoryItemPresent.GetItemCountByID(1020102);
+        int currentCircuit = inventoryItemPresent != null ? inventoryItemPresent.GetItemCountByID(1020102) : 0;
         int requiredCircuit = 20;
-        int currentWire = inventoryItemPresent.GetItemCountByID(1020103);
+        int currentWire = inventoryItemPresent != null ? inventoryItemPresent.GetItemCountByID(1020103) : 0;
         int requiredWire = 30;
-        int currentSteel = buildManager.steel;
+        int currentSteel = buildManager != null ? buildManager.steel : 0;
         int requiredSteel = 3;
 
         string circuitColor = currentCircuit >= requiredCircuit ? "green" : "yellow";
         string wireColor = currentWire >= requiredWire ? "green" : "yellow";
         string steelColor = currentSteel >= requiredSteel ? "green" : "yellow";
 
-        SattleliteCircuit.text = $"<color={circuitColor}>Circuits: {currentCircuit}/{requiredCircuit}</color>";
-        SattleliteWire.text = $"<color={wireColor}>Wires: {currentWire}/{requiredWire}</color>";
-        SattleliteSteel.text = $"<color={steelColor}>Steel: {currentSteel}/{requiredSteel}</color>";
+        if (SattleliteCircuit != null) SattleliteCircuit.text = $"<color={circuitColor}>Circuits: {currentCircuit}/{requiredCircuit}</color>";
+        if (SattleliteWire != null) SattleliteWire.text = $"<color={wireColor}>Wires: {currentWire}/{requiredWire}</color>";
+        if (SattleliteSteel != null) SattleliteSteel.text = $"<color={steelColor}>Steel: {currentSteel}/{requiredSteel}</color>";
 
-        if (!SatelliteOnline && !isRepairing)
+        if (SattleliteStatusText != null)
         {
-            SattleliteStatusText.text =
-                "The satellite is damaged. Once repaired, it can be used to call an airstrike during the night.";
-        }
-        else if (isRepairing && !buildManager.iselecticitiesactive)
-        {
-            SattleliteStatusText.text =
-                "The satellite is currently being repaired, but there’s no power supply. Even if repaired, it cannot be used without electricity.";
-        }
-        else if (isRepairing && buildManager.iselecticitiesactive)
-        {
-            SattleliteStatusText.text =
-                "The satellite is being repaired and we have power. It should be operational soon.";
-        }
-        else if (SatelliteOnline && !buildManager.iselecticitiesactive)
-        {
-            SattleliteStatusText.text =
-                "The satellite is online, but there’s no electricity to power it. Restore power to use its functionality.";
-        }
-        else if (SatelliteOnline && buildManager.iselecticitiesactive)
-        {
-            SattleliteStatusText.text =
-                "The satellite is fully operational and ready for use.";
-        }
-        else
-        {
-            SattleliteStatusText.text = string.Empty;
+            bool hasPower = buildManager != null && buildManager.iselecticitiesactive;
+
+            if (!SatelliteOnline && !isRepairing)
+            {
+                SattleliteStatusText.text = "The satellite is damaged. Once repaired, it can be used to call an airstrike during the night.";
+            }
+            else if (isRepairing && !hasPower)
+            {
+                SattleliteStatusText.text = "The satellite is currently being repaired, but there’s no power supply. Even if repaired, it cannot be used without electricity.";
+            }
+            else if (isRepairing && hasPower)
+            {
+                SattleliteStatusText.text = "The satellite is being repaired and we have power. It should be operational soon.";
+            }
+            else if (SatelliteOnline && !hasPower)
+            {
+                SattleliteStatusText.text = "The satellite is online, but there’s no electricity to power it. Restore power to use its functionality.";
+            }
+            else if (SatelliteOnline && hasPower)
+            {
+                SattleliteStatusText.text = "The satellite is fully operational and ready for use.";
+            }
+            else
+            {
+                SattleliteStatusText.text = string.Empty;
+            }
         }
     }
 
     private void UpdateRepairButton()
     {
-        int currentCircuit = inventoryItemPresent.GetItemCountByID(1020102);
+        if (RepariButton == null) return;
+
+        int currentCircuit = inventoryItemPresent != null ? inventoryItemPresent.GetItemCountByID(1020102) : 0;
         int requiredCircuit = 20;
-        int currentWire = inventoryItemPresent.GetItemCountByID(1020103);
+        int currentWire = inventoryItemPresent != null ? inventoryItemPresent.GetItemCountByID(1020103) : 0;
         int requiredWire = 30;
-        int currentSteel = buildManager.steel;
+        int currentSteel = buildManager != null ? buildManager.steel : 0;
         int requiredSteel = 3;
 
         bool hasSufficientMaterials = currentCircuit >= requiredCircuit &&
@@ -256,17 +301,23 @@ public class Sattlelite : MonoBehaviour
 
     private void AssignSpecialistToUpgrade(SpecialistRoleNpc requiredSpecialist)
     {
-        NpcClass specialistNpc = npcManager.listNpc.Find(npc => npc.roleNpc == requiredSpecialist);
-
-        if (specialistNpc != null)
+        if (npcManager != null && npcManager.listNpc != null)
         {
-            npcManager.listNpc.Remove(specialistNpc);
+            NpcClass specialistNpc = npcManager.listNpc.Find(npc => npc.roleNpc == requiredSpecialist);
+            if (specialistNpc != null)
+            {
+                npcManager.listNpc.Remove(specialistNpc);
+            }
         }
     }
 
     private bool HasRequiredSpecialist(SpecialistRoleNpc requiredSpecialist)
     {
-        return npcManager.listNpc.Exists(npc => npc.roleNpc == requiredSpecialist);
+        if (npcManager != null && npcManager.listNpc != null)
+        {
+            return npcManager.listNpc.Exists(npc => npc.roleNpc == requiredSpecialist);
+        }
+        return false;
     }
 
     public void InitiateSupplyDropByIndex(int typeIndex)
@@ -274,9 +325,10 @@ public class Sattlelite : MonoBehaviour
         SuuplyDropType supplyType = (SuuplyDropType)typeIndex;
         InitiateSupplyDrop(supplyType);
     }
+
     public void InitiateSupplyDrop(SuuplyDropType supplyType)
     {
-        if (!SatelliteOnline || !buildManager.iselecticitiesactive) 
+        if (!SatelliteOnline || (buildManager != null && !buildManager.iselecticitiesactive)) 
         {
             Debug.Log("Cannot initiate supply drop without satellite online and electricity.");
             return;
@@ -284,19 +336,15 @@ public class Sattlelite : MonoBehaviour
 
         currentSupplyDropType = supplyType;
         supplyDropActive = true;
-
-        // Clear any previous items
         supplyDropItems.Clear();
 
-        // Set fixed countdown and items based on the supply type
         switch (supplyType)
         {
             case SuuplyDropType.FirePower:
                 supplyDropCountdown = 3; 
-                // Add the items that will be granted after countdown
-                supplyDropItems.Add(new ItemData { idItem = 1020124, count = 200 }); // Example items
+                supplyDropItems.Add(new ItemData { idItem = 1020124, count = 200 });
                 supplyDropItems.Add(new ItemData { idItem = 1020125, count = 50 });
-                supplyDropItems.Add(new ItemData { idItem = 1020126, count = 100 }); // Example items
+                supplyDropItems.Add(new ItemData { idItem = 1020126, count = 100 });
                 supplyDropItems.Add(new ItemData { idItem = 1020127, count = 180 });
                 supplyDropItems.Add(new ItemData { idItem = 1020110, count = 50 });
                 break;
@@ -326,18 +374,20 @@ public class Sattlelite : MonoBehaviour
                 supplyDropItems.Add(new ItemData { idItem = 1020103, count = 6 });
                 break;
         }
-        currentDay = dateTime.day;
+
+        if (dateTime != null)
+        {
+            currentDay = dateTime.day;
+        }
+
         Debug.Log($"Supply drop initiated: {supplyType}. Countdown: {supplyDropCountdown} days.");
     }
 
-    // This function should be called once per new day, similar to Checkrecon().
-    // For example, you can call it in Update() if date has changed or in any daily tick method.
     public void CheckSupplyDropCountdown()
     {
         if (!supplyDropActive) return;
 
-        // If a new day has started
-        if (dateTime.day != currentDay && supplyDropCountdown > 0)
+        if (dateTime != null && dateTime.day != currentDay && supplyDropCountdown > 0)
         {
             supplyDropCountdown--;
             currentDay = dateTime.day;
@@ -349,17 +399,16 @@ public class Sattlelite : MonoBehaviour
         }
     }
 
-    // Called when the countdown finishes
     private void CompleteSupplyDrop()
     {
         supplyDropActive = false;
         supplyDropCountdown = 0;
 
-        // Add the supplyDropItems to the DailyGive list
         if (dailyGive != null && supplyDropItems.Count > 0)
         {
-            foreach (var item in supplyDropItems)
+            for (int i = 0; i < supplyDropItems.Count; i++)
             {
+                ItemData item = supplyDropItems[i];
                 dailyGive.AddItemByID(item.idItem, item.count);
             }
             Debug.Log("Supply drop complete! Items added to DailyGive.");
@@ -369,7 +418,6 @@ public class Sattlelite : MonoBehaviour
             Debug.LogWarning("No DailyGive reference or no items defined.");
         }
 
-        // Clear the items since they have been given
         supplyDropItems.Clear();
     }
 }
@@ -381,4 +429,3 @@ public enum SuuplyDropType
     Food,
     Building
 }
-

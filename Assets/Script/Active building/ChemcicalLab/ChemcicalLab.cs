@@ -1,8 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using System.Linq;
 
 public class ChemcicalLab : MonoBehaviour
 {
@@ -22,66 +19,86 @@ public class ChemcicalLab : MonoBehaviour
     public CraftManager craftManager;
     public InventoryItemPresent inventoryItemPresent;
 
-    void Start()
+    private void Start()
     {
-        inventoryItemPresent = FindObjectOfType<InventoryItemPresent>();
-        uImanger = FindObjectOfType<UImanger>();
-        timeManager = FindObjectOfType<TimeManager>();
-        globalstat = FindObjectOfType<Globalstat>();
-        buildManager = FindObjectOfType<BuildManager>();
-        building = FindObjectOfType<Building>();
+        inventoryItemPresent = FindFirstObjectByType<InventoryItemPresent>();
+        uImanger = FindFirstObjectByType<UImanger>();
+        timeManager = GameManager.Instance != null ? GameManager.Instance.timeManager : FindFirstObjectByType<TimeManager>();
+        globalstat = GameManager.Instance != null ? GameManager.Instance.globalstat : FindFirstObjectByType<Globalstat>();
+        buildManager = GameManager.Instance != null ? GameManager.Instance.buildManager : FindFirstObjectByType<BuildManager>();
+        craftManager = FindFirstObjectByType<CraftManager>();
+
+        // Always get components directly on this GameObject
+        building = GetComponent<Building>();
         upgradeBuilding = GetComponent<UpgradeBuilding>();
-        craftManager = FindObjectOfType<CraftManager>();
-        dateTime = timeManager.dateTime;
-        currentDay = dateTime.day;
-        globalstat.UpdateChemicalCraftingSlot(maxCraftingSlots);
-        maxCraftingSlots = 3;
-    }
 
-    void Update()
-    {
-        IsElectricActive();
-        IsElectricInactive();
-        craftManager.UpdateCraftingJobs();
-    }
-
-    void OnMouseDown()
-    {
-        if (building.isfinsih && !upgradeBuilding.isUpgradBuilding)
+        if (timeManager != null)
         {
-            uImanger.ToggleUIPanel(UImanger.UIPanel.ChemcicalLabWorkshopUI);
+            dateTime = timeManager.dateTime;
+            if (dateTime != null) currentDay = dateTime.day;
+        }
+
+        maxCraftingSlots = 3;
+        if (globalstat != null)
+        {
+            globalstat.UpdateChemicalCraftingSlot(maxCraftingSlots);
+        }
+    }
+
+    private void Update()
+    {
+        if (craftManager != null)
+        {
+            craftManager.UpdateCraftingJobs();
+        }
+    }
+
+    private void OnMouseDown()
+    {
+        if (building != null && building.isfinsih && upgradeBuilding != null && !upgradeBuilding.isUpgradBuilding)
+        {
+            if (uImanger != null)
+            {
+                uImanger.ToggleUIPanel(UImanger.UIPanel.ChemcicalLabWorkshopUI);
+            }
             CheckUpgrade();
         }
     }
-    void CheckUpgrade()
+
+    private void CheckUpgrade()
     {
-        if(upgradeBuilding.currentLevel == upgradeBuilding.maxLevel)
+        if (upgradeBuilding != null && upgradeBuilding.currentLevel >= upgradeBuilding.maxLevel)
         {
             maxCraftingSlots = 5;
-            globalstat.UpdateChemicalCraftingSlot(maxCraftingSlots - globalstat.usedChemicalCraftingSlot);
-            uImanger.DisableUIPanel(UImanger.UIPanel.ChemcicalLabButtonUpgradeUI);
-        }
-    }
-    public void AssignUpgradeData()
-    {
-        upgradeUi = FindObjectOfType<UpgradeUi>();
-        upgradeUi.Initialize(upgradeBuilding);
-    }
-    void IsElectricActive()
-    {
-        if (building.isfinsih && buildManager.iselecticitiesactive)
-        {
+            if (globalstat != null)
+            {
+                globalstat.UpdateChemicalCraftingSlot(maxCraftingSlots - globalstat.usedChemicalCraftingSlot);
+            }
+            if (uImanger != null)
+            {
+                uImanger.DisableUIPanel(UImanger.UIPanel.ChemcicalLabButtonUpgradeUI);
+            }
         }
     }
 
-    void IsElectricInactive()
+    public void AssignUpgradeData()
     {
-        if (building.isfinsih && !buildManager.iselecticitiesactive)
+        if (upgradeUi == null)
         {
+            upgradeUi = FindFirstObjectByType<UpgradeUi>();
+        }
+        if (upgradeUi != null && upgradeBuilding != null)
+        {
+            upgradeUi.Initialize(upgradeBuilding);
         }
     }
+
     public CraftingResult AddCraftingJob(CraftingItem craftingItem)
     {
-        return craftManager.AddCraftingJob(craftingItem, CraftingSource.ChemicalLab);
+        if (craftManager != null)
+        {
+            return craftManager.AddCraftingJob(craftingItem, CraftingSource.ChemicalLab);
+        }
+        return CraftingResult.NoAvailableSlots;
     }
 }

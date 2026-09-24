@@ -19,65 +19,87 @@ public class Moonshine : MonoBehaviour
     public int maxCraftingSlots;
     public CraftManager craftManager;
     public InventoryItemPresent inventoryItemPresent;
-    void Start()
-    {
-        inventoryItemPresent = FindObjectOfType<InventoryItemPresent>();
-        uImanger = FindObjectOfType<UImanger>();
-        timeManager = FindObjectOfType<TimeManager>();
-        globalstat = FindObjectOfType<Globalstat>();
-        buildManager = FindObjectOfType<BuildManager>();
-        building = FindObjectOfType<Building>();
-        upgradeBuilding = GetComponent<UpgradeBuilding>();
-        craftManager = FindObjectOfType<CraftManager>();
-        dateTime = timeManager.dateTime;
-        currentDay = dateTime.day;
-        maxCraftingSlots = 2;
-        globalstat.UpdateMoonshineCraftingSlot(maxCraftingSlots);
-    }
 
-    void Update()
+    private void Start()
     {
-        IsElectricActive();
-        IsElectricInactive();
-        craftManager.UpdateCraftingJobs();
-    }
-    void CheckUpgrade()
-    {
-        if(upgradeBuilding.currentLevel == upgradeBuilding.maxLevel)
+        inventoryItemPresent = FindFirstObjectByType<InventoryItemPresent>();
+        uImanger = FindFirstObjectByType<UImanger>();
+        timeManager = GameManager.Instance != null ? GameManager.Instance.timeManager : FindFirstObjectByType<TimeManager>();
+        globalstat = GameManager.Instance != null ? GameManager.Instance.globalstat : FindFirstObjectByType<Globalstat>();
+        buildManager = GameManager.Instance != null ? GameManager.Instance.buildManager : FindFirstObjectByType<BuildManager>();
+        craftManager = FindFirstObjectByType<CraftManager>();
+
+        // Always get components directly on this GameObject
+        building = GetComponent<Building>();
+        upgradeBuilding = GetComponent<UpgradeBuilding>();
+
+        if (timeManager != null)
         {
-            maxCraftingSlots = 5;
-            globalstat.UpdateMoonshineCraftingSlot(maxCraftingSlots - globalstat.usedMoonshineCraftingSlot);
-            uImanger.DisableUIPanel(UImanger.UIPanel.MoonshineUpgradeButton);
+            dateTime = timeManager.dateTime;
+            if (dateTime != null) currentDay = dateTime.day;
+        }
+
+        maxCraftingSlots = 2;
+        if (globalstat != null)
+        {
+            globalstat.UpdateMoonshineCraftingSlot(maxCraftingSlots);
         }
     }
-    void OnMouseDown()
+
+    private void Update()
     {
-        if (building.isfinsih && !upgradeBuilding.isUpgradBuilding)
+        if (craftManager != null)
         {
-            uImanger.ToggleUIPanel(UImanger.UIPanel.MoonshineUI);
+            craftManager.UpdateCraftingJobs();
+        }
+    }
+
+    private void CheckUpgrade()
+    {
+        if (upgradeBuilding != null && upgradeBuilding.currentLevel >= upgradeBuilding.maxLevel)
+        {
+            maxCraftingSlots = 5;
+            if (globalstat != null)
+            {
+                globalstat.UpdateMoonshineCraftingSlot(maxCraftingSlots - globalstat.usedMoonshineCraftingSlot);
+            }
+            if (uImanger != null)
+            {
+                uImanger.DisableUIPanel(UImanger.UIPanel.MoonshineUpgradeButton);
+            }
+        }
+    }
+
+    private void OnMouseDown()
+    {
+        if (building != null && building.isfinsih && upgradeBuilding != null && !upgradeBuilding.isUpgradBuilding)
+        {
+            if (uImanger != null)
+            {
+                uImanger.ToggleUIPanel(UImanger.UIPanel.MoonshineUI);
+            }
             CheckUpgrade();
         }
     }
+
     public void AssignUpgradeData()
     {
-        upgradeUi = FindObjectOfType<UpgradeUi>();
-        upgradeUi.Initialize(upgradeBuilding);
-    }
-        void IsElectricActive()
-    {
-        if (building.isfinsih && buildManager.iselecticitiesactive)
+        if (upgradeUi == null)
         {
+            upgradeUi = FindFirstObjectByType<UpgradeUi>();
+        }
+        if (upgradeUi != null && upgradeBuilding != null)
+        {
+            upgradeUi.Initialize(upgradeBuilding);
         }
     }
 
-    void IsElectricInactive()
-    {
-        if (building.isfinsih && !buildManager.iselecticitiesactive)
-        {
-        }
-    }
     public CraftingResult AddCraftingJob(CraftingItem craftingItem)
     {
-        return craftManager.AddCraftingJob(craftingItem, CraftingSource.Moonshine);
+        if (craftManager != null)
+        {
+            return craftManager.AddCraftingJob(craftingItem, CraftingSource.Moonshine);
+        }
+        return CraftingResult.NoAvailableSlots;
     }
 }

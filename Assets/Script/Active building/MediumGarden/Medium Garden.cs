@@ -18,143 +18,159 @@ public class MediumGarden : MonoBehaviour
     public int yieldduration;
     public int currentYield;
 
-    // New variables for herbal planting option
-    public bool isHerbalPlanted = false; // Whether the player chose herbal instead of normal
-    public int herbalItemID = 1; // The ID for the herbal item, replace with the correct ID
-    public int herbalDailyAmount = 5; // Amount of herbal items produced per day when herbal is chosen
+    public bool isHerbalPlanted = false;
+    public int herbalItemID = 1;
+    public int herbalDailyAmount = 5;
 
-    void Start()
+    private int _previousLevel = 1;
+
+    private void Start()
     {
-        inventoryItemPresent = FindObjectOfType<InventoryItemPresent>();
-        timeManager = FindObjectOfType<TimeManager>();
-        buildManager = FindObjectOfType<BuildManager>();
-        building = FindObjectOfType<Building>();
+        inventoryItemPresent = FindFirstObjectByType<InventoryItemPresent>();
+        timeManager = GameManager.Instance != null ? GameManager.Instance.timeManager : FindFirstObjectByType<TimeManager>();
+        buildManager = GameManager.Instance != null ? GameManager.Instance.buildManager : FindFirstObjectByType<BuildManager>();
+        uImanger = FindFirstObjectByType<UImanger>();
+
+        // Always get components directly from this GameObject
+        building = GetComponent<Building>();
         upgradeBuilding = GetComponent<UpgradeBuilding>();
-        uImanger = FindObjectOfType<UImanger>();
 
-        dateTime = timeManager.dateTime;
-        currentDay = dateTime.day;
-    }
+        if (timeManager != null)
+        {
+            dateTime = timeManager.dateTime;
+            if (dateTime != null) currentDay = dateTime.day;
+        }
 
-    void Update()
-    {
+        if (upgradeBuilding != null)
+        {
+            _previousLevel = upgradeBuilding.currentLevel;
+        }
+
         UpdateFoodGainPerDay();
-        FoodGain();
         UpdateCurrentYield();
     }
 
-    // This function is called when player clicks on the building
-    void OnMouseDown()
+    private void Update()
     {
-        if (building.isfinsih && !upgradeBuilding.isUpgradBuilding)
+        if (upgradeBuilding != null && upgradeBuilding.currentLevel != _previousLevel)
         {
-            // Toggle UI panel for MediumGarden (similar to SmallGardenUI)
-            // Assuming you have a UIPanel enum and a corresponding panel for MediumGarden:
-            uImanger.ToggleUIPanel(UImanger.UIPanel.MediumGardenUI);
+            _previousLevel = upgradeBuilding.currentLevel;
+            UpdateFoodGainPerDay();
+            UpdateCurrentYield();
+        }
 
-            // If max level reached, disable upgrade button
-            if (upgradeBuilding.currentLevel == upgradeBuilding.maxLevel)
+        FoodGain();
+    }
+
+    private void OnMouseDown()
+    {
+        if (building != null && building.isfinsih && upgradeBuilding != null && !upgradeBuilding.isUpgradBuilding)
+        {
+            if (uImanger != null)
             {
-                uImanger.DisableUIPanel(UImanger.UIPanel.MediumGardenUpgradeButton);
+                uImanger.ToggleUIPanel(UImanger.UIPanel.MediumGardenUI);
+                if (upgradeBuilding.currentLevel >= upgradeBuilding.maxLevel)
+                {
+                    uImanger.DisableUIPanel(UImanger.UIPanel.MediumGardenUpgradeButton);
+                }
             }
-
-            // Here you could also present an option to choose herbal or normal
-            // This choice can be made via UI buttons and set the isHerbalPlanted flag accordingly.
         }
     }
 
     public void AssignUpgradeData()
     {
-        upgradeUi = FindObjectOfType<UpgradeUi>();
-        upgradeUi.Initialize(upgradeBuilding);
-        UpdateFoodGainPerDay(); // ensure correct gain after upgrading
+        if (upgradeUi == null)
+        {
+            upgradeUi = FindFirstObjectByType<UpgradeUi>();
+        }
+        if (upgradeUi != null && upgradeBuilding != null)
+        {
+            upgradeUi.Initialize(upgradeBuilding);
+        }
+        UpdateFoodGainPerDay();
+        UpdateCurrentYield();
     }
 
-    // Called once per frame, checks if day changed and gives yield
-    void FoodGain()
+    private void FoodGain()
     {
-        // Check if the day has changed
-        if (dateTime.day != currentDay && building.isfinsih)
+        if (dateTime == null && timeManager != null)
+        {
+            dateTime = timeManager.dateTime;
+        }
+
+        if (dateTime != null && dateTime.day != currentDay && building != null && building.isfinsih)
         {
             int finalDailyYield = foodGainPerDay;
 
-            // If yield duration bonus is active, add 3 to daily yield and decrease duration
             if (yieldduration > 0)
             {
                 finalDailyYield += 3;
                 yieldduration--;
             }
 
-            // If herbal is chosen and level is at least 2, give herbal items instead of normal food
-            if (isHerbalPlanted && upgradeBuilding.currentLevel >= 2)
+            if (isHerbalPlanted && upgradeBuilding != null && upgradeBuilding.currentLevel >= 2)
             {
-                if(yieldduration > 0)
-                    inventoryItemPresent.AddItemByID(1020105, 9);
-                else    
-                    inventoryItemPresent.AddItemByID(1020105,5);
+                if (inventoryItemPresent != null)
+                {
+                    int herbalCount = yieldduration > 0 ? 9 : 5;
+                    inventoryItemPresent.AddItemByID(1020105, herbalCount);
+                }
             }
             else
             {
-                // Normal yield (food)
-                buildManager.food += finalDailyYield;
+                if (buildManager != null)
+                {
+                    buildManager.food += finalDailyYield;
+                }
             }
 
-            // Update current day
             currentDay = dateTime.day;
-
-            Debug.Log("Current Day: " + currentDay);
-            Debug.Log("Yield Duration: " + yieldduration);
+            UpdateCurrentYield();
         }
     }
 
-    // Update the food gain per day based on the current building upgrade level
-    void UpdateFoodGainPerDay()
+    public void UpdateFoodGainPerDay()
     {
         if (upgradeBuilding != null)
         {
             switch (upgradeBuilding.currentLevel)
             {
                 case 1:
-                    foodGainPerDay = 3; // Level 1 food gain
+                    foodGainPerDay = 3;
                     break;
                 case 2:
-                    foodGainPerDay = 5; // Level 2 food gain
+                    foodGainPerDay = 5;
                     break;
                 default:
-                    foodGainPerDay = 3; // Default to Level 1 if no match
+                    foodGainPerDay = 3;
                     break;
             }
         }
+        else
+        {
+            foodGainPerDay = 3;
+        }
     }
 
-    // Update the current yield shown to the player
-    void UpdateCurrentYield()
+    public void UpdateCurrentYield()
     {
-        // If yield bonus is active, add 3 to the base yield
         int baseYield = foodGainPerDay;
         if (yieldduration > 0)
         {
             baseYield += 3;
         }
 
-        // If herbal is chosen and level is at least 2, the current yield should reflect herbal output (5 items)
-        if (isHerbalPlanted && upgradeBuilding.currentLevel >= 2)
+        if (isHerbalPlanted && upgradeBuilding != null && upgradeBuilding.currentLevel >= 2)
         {
-            currentYield = herbalDailyAmount; // Always 5 if herbal is chosen at lvl 2
+            currentYield = herbalDailyAmount;
         }
         else
         {
-            currentYield = baseYield; // normal yield
+            currentYield = baseYield;
         }
-
-        Debug.Log("Current Yield: " + currentYield);
-        Debug.Log("Yield Duration: " + yieldduration);
     }
 
     public void IncreaseYield()
     {
-        // Implement or leave as is, depending on the original mechanics
-        // This function can be triggered by UI or other events
     }
-
 }

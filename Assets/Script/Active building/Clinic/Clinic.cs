@@ -19,100 +19,139 @@ public class Clinic : MonoBehaviour
     private float currentDiscontentContribution = 0f;
     public int CurrentActiveCurebed = 0;
     private int previousLevel = 0;
+    private bool abilitiesApplied = false;
 
-    private bool abilitiesApplied = false; // Ensure abilities apply only once
-
-    void Start()
+    private void Start()
     {
-        timeManager = FindObjectOfType<TimeManager>();
-        globalstat = FindObjectOfType<Globalstat>();
-        buildManager = FindObjectOfType<BuildManager>();
-        building = FindObjectOfType<Building>();
+        timeManager = GameManager.Instance != null ? GameManager.Instance.timeManager : FindFirstObjectByType<TimeManager>();
+        globalstat = GameManager.Instance != null ? GameManager.Instance.globalstat : FindFirstObjectByType<Globalstat>();
+        buildManager = GameManager.Instance != null ? GameManager.Instance.buildManager : FindFirstObjectByType<BuildManager>();
+        patienManger = GameManager.Instance != null ? GameManager.Instance.patienManger : FindFirstObjectByType<PatienManger>();
+        uImanger = FindFirstObjectByType<UImanger>();
+
+        // Always get components directly on this GameObject
+        building = GetComponent<Building>();
         upgradeBuilding = GetComponent<UpgradeBuilding>();
-        patienManger = FindObjectOfType<PatienManger>();
-        uImanger = FindObjectOfType<UImanger>();
-        dateTime = timeManager.dateTime;
 
-        previousLevel = upgradeBuilding.currentLevel; // Sync level on start
-    }
-
-    void Update()
-    {
-        if (building.isfinsih && !abilitiesApplied)
+        if (timeManager != null)
         {
-            ApplyAbilities(); // Apply abilities once when finished
-            abilitiesApplied = true; // Mark as applied to avoid duplication
+            dateTime = timeManager.dateTime;
         }
 
-        // Detect level changes during runtime
-        if (building.isfinsih && upgradeBuilding.currentLevel != previousLevel)
+        if (upgradeBuilding != null)
         {
-            UpgradeAbilities();
             previousLevel = upgradeBuilding.currentLevel;
         }
-        patienManger.UpdateJobs(patienManger.activeHealingClinicPatient);
     }
-    void OnMouseDown()
+
+    private void Update()
     {
-        if (building.isfinsih && !upgradeBuilding.isUpgradBuilding)
+        if (building != null && building.isfinsih)
         {
-            uImanger.ToggleUIPanel(UImanger.UIPanel.ClinicUI);
-            if (upgradeBuilding.currentLevel == upgradeBuilding.maxLevel)
+            if (!abilitiesApplied)
             {
-                uImanger.DisableUIPanel(UImanger.UIPanel.ClinicUpgradeUI);
+                ApplyAbilities();
+                abilitiesApplied = true;
+                if (upgradeBuilding != null) previousLevel = upgradeBuilding.currentLevel;
+            }
+            else if (upgradeBuilding != null && upgradeBuilding.currentLevel != previousLevel)
+            {
+                UpgradeAbilities();
+                previousLevel = upgradeBuilding.currentLevel;
+            }
+        }
+
+        if (patienManger != null && patienManger.activeHealingClinicPatient != null)
+        {
+            patienManger.UpdateJobs(patienManger.activeHealingClinicPatient);
+        }
+    }
+
+    private void OnMouseDown()
+    {
+        if (building != null && building.isfinsih && upgradeBuilding != null && !upgradeBuilding.isUpgradBuilding)
+        {
+            if (uImanger != null)
+            {
+                uImanger.ToggleUIPanel(UImanger.UIPanel.ClinicUI);
+                if (upgradeBuilding.currentLevel >= upgradeBuilding.maxLevel)
+                {
+                    uImanger.DisableUIPanel(UImanger.UIPanel.ClinicUpgradeUI);
+                }
             }
         }
     }
+
     public void AssignUpgradeData()
     {
-        upgradeUi = FindObjectOfType<UpgradeUi>();
-        upgradeUi.Initialize(upgradeBuilding);
+        if (upgradeUi == null)
+        {
+            upgradeUi = FindFirstObjectByType<UpgradeUi>();
+        }
+        if (upgradeUi != null && upgradeBuilding != null)
+        {
+            upgradeUi.Initialize(upgradeBuilding);
+        }
     }
-    void ApplyAbilities()
+
+    private void ApplyAbilities()
     {
-        // Get the current contributions based on the level
         CurrentActiveCurebed = GetActiveCurebedbaseonvalue();
         currentDiscontentContribution = GetDiscontentValueBasedOnLevel();
 
-        // Apply contributions
-        globalstat.IncreaseCurebed(CurrentActiveCurebed);
-        globalstat.DecreaseDiscontent(currentDiscontentContribution);
+        if (globalstat != null)
+        {
+            globalstat.IncreaseCurebed(CurrentActiveCurebed);
+            globalstat.DecreaseDiscontent(currentDiscontentContribution);
+        }
 
-        Debug.Log($"Applied abilities for Level {upgradeBuilding.currentLevel}");
+        int level = upgradeBuilding != null ? upgradeBuilding.currentLevel : 1;
+        Debug.Log($"Applied abilities for Level {level}");
     }
 
-    void UpgradeAbilities()
+    private void UpgradeAbilities()
     {
-        // Calculate and replace old contributions with new ones
-        int NewCurebedcontribution = GetActiveCurebedbaseonvalue();
+        int newCurebedContribution = GetActiveCurebedbaseonvalue();
         float newDiscontentContribution = GetDiscontentValueBasedOnLevel();
 
-        globalstat.UpdateCurebedContribution(CurrentActiveCurebed, NewCurebedcontribution);
-        globalstat.UpdateDiscontentContribution(currentDiscontentContribution, newDiscontentContribution);
+        if (globalstat != null)
+        {
+            globalstat.UpdateCurebedContribution(CurrentActiveCurebed, newCurebedContribution);
+            globalstat.UpdateDiscontentContribution(currentDiscontentContribution, newDiscontentContribution);
+        }
 
-        CurrentActiveCurebed = NewCurebedcontribution;
+        CurrentActiveCurebed = newCurebedContribution;
         currentDiscontentContribution = newDiscontentContribution;
 
-        Debug.Log($"Upgraded to Level {upgradeBuilding.currentLevel}");
+        int level = upgradeBuilding != null ? upgradeBuilding.currentLevel : 1;
+        Debug.Log($"Upgraded to Level {level}");
     }
 
-    int GetActiveCurebedbaseonvalue()
+    private int GetActiveCurebedbaseonvalue()
     {
-        switch (upgradeBuilding.currentLevel)
+        if (upgradeBuilding != null)
         {
-            case 2: return 2; // Level 2
-            case 3: return 4; // Level 3
-            default: return 1; // Level 1
+            switch (upgradeBuilding.currentLevel)
+            {
+                case 2: return 2;
+                case 3: return 4;
+                default: return 1;
+            }
         }
+        return 1;
     }
 
-    float GetDiscontentValueBasedOnLevel()
+    private float GetDiscontentValueBasedOnLevel()
     {
-        switch (upgradeBuilding.currentLevel)
+        if (upgradeBuilding != null)
         {
-            case 2: return 10f; // Level 2
-            case 3: return 8f; // Level 3
-            default: return 5f; // Level 1
+            switch (upgradeBuilding.currentLevel)
+            {
+                case 2: return 10f;
+                case 3: return 8f;
+                default: return 5f;
+            }
         }
+        return 5f;
     }
 }
