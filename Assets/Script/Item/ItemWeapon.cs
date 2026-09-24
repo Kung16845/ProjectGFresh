@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +6,7 @@ public class ItemWeapon : ItemClass
     [Header("Quality")]
     public int Repairmaterial;
     public float Quality;  
+
     [Header("Stat Weapon")]
     public int rateOfFire;
     public int handling; 
@@ -24,7 +23,8 @@ public class ItemWeapon : ItemClass
     public Reloadtype reloadtype;
     public AudioClip Gunshotsound;
     public Sprite gunsprite;
-    private string GetReloadAnimationName(Reloadtype reloadtype)
+
+    public static string GetReloadAnimationName(Reloadtype reloadtype)
     {
         switch (reloadtype)
         {
@@ -42,6 +42,7 @@ public class ItemWeapon : ItemClass
                 return "ReloadGenericRifle";
         }
     }
+
     public override Dictionary<string, float> GetStats()
     {
         return new Dictionary<string, float>
@@ -53,7 +54,7 @@ public class ItemWeapon : ItemClass
             { "capacity", capacity },
             { "stability", stability },
             { "damageDropOff", damageDropOff },
-            { "rarityItem", rarityItem}
+            { "rarityItem", rarityItem }
         };
     }
 
@@ -62,13 +63,13 @@ public class ItemWeapon : ItemClass
         return new Dictionary<string, float>
         {
             { "Damage", 350 },
-            { "Rate of Fire", 1000},
+            { "Rate of Fire", 1000 },
             { "handling", 100 },
             { "Accuracy", 100 },
             { "capacity", 100 },
             { "stability", 100 },
             { "damageDropOff", 30 },
-            { "rarityItem", 5}
+            { "rarityItem", 5 }
         };
     }
 }
@@ -80,6 +81,7 @@ public enum Ammotype
     LowCaliber,
     Shotgun
 }
+
 public enum Reloadtype
 {
     AssaultRifle, 

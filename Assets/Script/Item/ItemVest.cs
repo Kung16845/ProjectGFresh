@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,15 +12,15 @@ public class ItemVest : ItemClass
     public float riskdecrease;
     public float Repairmaterial;
     public float Quality;
-    // Start is called before the first frame update
-     public override Dictionary<string, float> GetStats()
+
+    public override Dictionary<string, float> GetStats()
     {
         return new Dictionary<string, float>
         {
             { "damageIncrease", damageIncreasePercent },
             { "speedIncrease", speedIncreasePercent },
             { "staminaIncrease", staminaIncreasePercent },
-            { "rarityItem", rarityItem}
+            { "rarityItem", rarityItem }
         };
     }
 
@@ -32,7 +31,7 @@ public class ItemVest : ItemClass
             { "damageIncrease", 2 },
             { "speedIncrease", 2 },
             { "staminaIncrease", 2 },
-            { "rarityItem", 5}
+            { "rarityItem", 5 }
         };
     }
 }

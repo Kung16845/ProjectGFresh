@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +9,7 @@ public class ItemBackpack : ItemClass
     public float IncreaseSpeed;
     public string buff;
     public string debuff;
+
     public override Dictionary<string, float> GetStats()
     {
         return new Dictionary<string, float>
@@ -17,7 +17,7 @@ public class ItemBackpack : ItemClass
             { "slotIncreasing", slotIncreasing },
             { "StaminaRecoverSpeed", StaminaRecoverSpeed },
             { "IncreaseSpeed", IncreaseSpeed },
-            { "rarityItem", rarityItem}
+            { "rarityItem", rarityItem }
         };
     }
 
@@ -26,9 +26,9 @@ public class ItemBackpack : ItemClass
         return new Dictionary<string, float>
         {
             { "slotIncreasing", 6 },
-            { "StaminaRecoverSpeed", 2},
+            { "StaminaRecoverSpeed", 2 },
             { "IncreaseSpeed", 2 },
-            { "rarityItem", 5}
+            { "rarityItem", 5 }
         };
     }
 }

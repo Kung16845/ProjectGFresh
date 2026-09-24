@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,7 +20,7 @@ public class ItemGrenade : ItemClass
             { "damage", damage },
             { "AoeRange", AoeRange },
             { "armTime", armTime },
-            { "rarityItem", rarityItem}
+            { "rarityItem", rarityItem }
         };
     }
 
@@ -32,7 +31,7 @@ public class ItemGrenade : ItemClass
             { "damage", 500 },
             { "AoeRange", 3 },
             { "armTime", 3 },
-            { "rarityItem", 5}
+            { "rarityItem", 5 }
         };
     }
 }
