@@ -8,21 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TownBaseScene.unity
     guid: ac3d6dac2d8541a4d8869c9a24ebb9fd
-  - enabled: 0
-    path: Assets/Scenes/SceneTestVarit/Old/Town 1.unity
-    guid: ebdf74903ce40b949aa9dff4b7add3ae
-  - enabled: 0
-    path: Assets/Scenes/SceneTestVarit/TestTownScene.unity
-    guid: e99bad3a26c4fe14eac734226b9bb1e7
   - enabled: 1
     path: Assets/Scenes/DefendSceneFare.unity
     guid: 0301e9acf77bf824b93e7a52618379c4
-  - enabled: 0
-    path: Assets/Scenes/SceneTestVarit/TestTransferData.unity
-    guid: 002abf68fc8b3124e8bdacec6d498287
-  - enabled: 0
-    path: Assets/Scenes/SceneTestVarit/TestLootItem.unity
-    guid: 966e3013fc27aba49a4b3837a29f99c6
   - enabled: 1
     path: Assets/Scenes/SceneMall.unity
     guid: fd20642a54fbe754baec3e2bec4df328
