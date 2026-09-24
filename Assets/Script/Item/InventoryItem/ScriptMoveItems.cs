@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -15,51 +13,79 @@ public class ScriptMoveItems : MonoBehaviour
     public SlotType sourceSlotType;
     public SlotType targetSlotType;
     public InventoryItemPresent inventoryItemPresent;
-    public TradesystemScript tradeSystem; // This will be set dynamically
+    public TradesystemScript tradeSystem;
     public UIInventory uIInventory;
-    // Start is called before the first frame update
+
+    private void Awake()
+    {
+        CacheReferences();
+    }
 
     private void OnEnable()
     {
-        inventoryItemPresent = FindObjectOfType<InventoryItemPresent>();
-        uIInventory = FindObjectOfType<UIInventory>();
-        // Debug.Log("Open UI ScriptMoveItens");
-    }
-    void Start()
-    {
-        uIInventory = FindObjectOfType<UIInventory>();
-        inventoryItemPresent = FindObjectOfType<InventoryItemPresent>();
+        CacheReferences();
         countItemMove = 1;
-        countText.text = countItemMove.ToString();
-
+        if (countText != null)
+        {
+            countText.text = countItemMove.ToString();
+        }
     }
+
+    private void Start()
+    {
+        CacheReferences();
+        countItemMove = 1;
+        if (countText != null)
+        {
+            countText.text = countItemMove.ToString();
+        }
+    }
+
+    private void CacheReferences()
+    {
+        if (inventoryItemPresent == null)
+        {
+            inventoryItemPresent = InventoryItemPresent.Instance ?? FindFirstObjectByType<InventoryItemPresent>();
+        }
+        if (uIInventory == null)
+        {
+            uIInventory = FindFirstObjectByType<UIInventory>();
+        }
+    }
+
     public void IncreateCountItem(int count)
     {
+        if (itemClassMove == null) return;
         countItemMove += count;
-        SlotType slotTypeItemMove = itemClassMove.gameObject.GetComponentInParent<InventorySlots>().slotTypeInventory;
+
+        InventorySlots parentSlot = itemClassMove.GetComponentInParent<InventorySlots>();
+        SlotType slotTypeItemMove = parentSlot != null ? parentSlot.slotTypeInventory : SlotType.SlotLock;
 
         if (slotTypeItemMove == SlotType.SlotLoot)
         {
-            // Handle count increase for loot system
-            LootingSystem lootSystem = itemClassMove.GetComponent<UIItemData>().originatingLootSystem;
+            UIItemData uiData = itemClassMove.GetComponent<UIItemData>();
+            LootingSystem lootSystem = uiData != null ? uiData.originatingLootSystem : null;
 
-            if (lootSystem != null)
+            if (lootSystem != null && lootSystem.droppedItems != null)
             {
-                ItemData lootItem = lootSystem.droppedItems.FirstOrDefault(d => d.idItem == itemClassMove.idItem);
-                if (lootItem != null)
+                ItemData lootItem = null;
+                for (int i = 0; i < lootSystem.droppedItems.Count; i++)
                 {
-                    // Limit countItemMove to the available loot item quantity
-                    if (countItemMove > lootItem.count)
+                    if (lootSystem.droppedItems[i] != null && lootSystem.droppedItems[i].idItem == itemClassMove.idItem)
                     {
-                        countItemMove = lootItem.count;
+                        lootItem = lootSystem.droppedItems[i];
+                        break;
                     }
+                }
+                if (lootItem != null && countItemMove > lootItem.count)
+                {
+                    countItemMove = lootItem.count;
                 }
             }
         }
 
         if (itemClassInChild == null)
         {
-            // Check if countItemMove exceeds maxCountItem or available quantity
             if (countItemMove > itemClassMove.quantityItem)
             {
                 countItemMove = itemClassMove.quantityItem;
@@ -69,11 +95,9 @@ public class ScriptMoveItems : MonoBehaviour
                 countItemMove = itemClassMove.maxCountItem;
             }
         }
-        else if (itemClassInChild != null)
+        else
         {
-            // Ensure the total quantity in child and move does not exceed maxCountItem
             int totalQuantity = itemClassInChild.quantityItem + countItemMove;
-
             if (totalQuantity > itemClassMove.quantityItem)
             {
                 countItemMove = itemClassMove.quantityItem - itemClassInChild.quantityItem;
@@ -83,35 +107,47 @@ public class ScriptMoveItems : MonoBehaviour
                 countItemMove = itemClassMove.maxCountItem - itemClassInChild.quantityItem;
             }
         }
-        countText.text = countItemMove.ToString();
+
+        if (countItemMove < 1) countItemMove = 1;
+
+        if (countText != null)
+        {
+            countText.text = countItemMove.ToString();
+        }
     }
 
     public void DecreasteCountItem(int count)
     {
+        if (itemClassMove == null) return;
         countItemMove -= count;
 
-        // Ensure countItemMove does not fall below 1
         if (countItemMove < 1)
         {
             countItemMove = 1;
         }
 
-        SlotType slotTypeItemMove = itemClassMove.gameObject.GetComponentInParent<InventorySlots>().slotTypeInventory;
+        InventorySlots parentSlot = itemClassMove.GetComponentInParent<InventorySlots>();
+        SlotType slotTypeItemMove = parentSlot != null ? parentSlot.slotTypeInventory : SlotType.SlotLock;
 
         if (slotTypeItemMove == SlotType.SlotLoot)
         {
-            // Handle count decrease for loot system
-            LootingSystem lootSystem = itemClassMove.GetComponent<UIItemData>().originatingLootSystem;
+            UIItemData uiData = itemClassMove.GetComponent<UIItemData>();
+            LootingSystem lootSystem = uiData != null ? uiData.originatingLootSystem : null;
 
-            if (lootSystem != null)
+            if (lootSystem != null && lootSystem.droppedItems != null)
             {
-                ItemData lootItem = lootSystem.droppedItems.FirstOrDefault(d => d.idItem == itemClassMove.idItem);
-                if (lootItem != null)
+                ItemData lootItem = null;
+                for (int i = 0; i < lootSystem.droppedItems.Count; i++)
                 {
-                    if (countItemMove > lootItem.count)
+                    if (lootSystem.droppedItems[i] != null && lootSystem.droppedItems[i].idItem == itemClassMove.idItem)
                     {
-                        countItemMove = lootItem.count;
+                        lootItem = lootSystem.droppedItems[i];
+                        break;
                     }
+                }
+                if (lootItem != null && countItemMove > lootItem.count)
+                {
+                    countItemMove = lootItem.count;
                 }
             }
         }
@@ -122,7 +158,7 @@ public class ScriptMoveItems : MonoBehaviour
             {
                 countItemMove = Mathf.Min(itemClassMove.maxCountItem, itemClassMove.quantityItem);
             }
-            else if (itemClassInChild != null)
+            else
             {
                 int maxAllowed = itemClassMove.maxCountItem - itemClassInChild.quantityItem;
                 countItemMove = Mathf.Min(itemClassMove.quantityItem, maxAllowed);
@@ -137,10 +173,9 @@ public class ScriptMoveItems : MonoBehaviour
                     countItemMove = itemClassMove.quantityItem;
                 }
             }
-            else if (itemClassInChild != null)
+            else
             {
                 int maxAllowed = itemClassMove.maxCountItem - itemClassInChild.quantityItem;
-
                 if (countItemMove > itemClassMove.quantityItem || countItemMove > maxAllowed)
                 {
                     countItemMove = Mathf.Min(itemClassMove.quantityItem, maxAllowed);
@@ -148,33 +183,48 @@ public class ScriptMoveItems : MonoBehaviour
             }
         }
 
-        countText.text = countItemMove.ToString();
+        if (countItemMove < 1) countItemMove = 1;
+
+        if (countText != null)
+        {
+            countText.text = countItemMove.ToString();
+        }
     }
+
     public void MoveItem()
     {
         if (itemClassMove == null || draggableItemMove == null) return;
 
+        InventoryItemPresent presenter = (inventoryItemPresent != null) 
+            ? inventoryItemPresent 
+            : (uIInventory != null && uIInventory.inventoryItemPresent != null 
+                ? uIInventory.inventoryItemPresent 
+                : InventoryItemPresent.Instance);
+
+        if (presenter == null) return;
+
         int actualQuantityToMove = countItemMove;
-        ItemData sourceItemData = inventoryItemPresent.ConventItemClassToItemData(itemClassMove);
+        ItemData sourceItemData = presenter.ConventItemClassToItemData(itemClassMove);
+        if (sourceItemData == null) return;
 
         List<ItemData> targetList = null;
-        TradesystemScript tradesystemScript = TradesystemScript.GetActiveTrade(); // Use activeTrade
+        TradesystemScript tradesystemScript = TradesystemScript.GetActiveTrade();
 
-        if (targetSlotType == SlotType.SlotBag)
+        if (targetSlotType == SlotType.SlotBag && uIInventory != null)
         {
             targetList = uIInventory.listItemDataInventorySlot;
         }
-        else if (targetSlotType == SlotType.SlotCar)
+        else if (targetSlotType == SlotType.SlotCar && uIInventory is UIInventoryEX exUI)
         {
-            targetList = ((UIInventoryEX)uIInventory).listItemDataCarInventorySlot;
+            targetList = exUI.listItemDataCarInventorySlot;
         }
         else if (targetSlotType == SlotType.SlotBoxes)
         {
-            targetList = uIInventory.inventoryItemPresent.listItemsDataBox;
+            targetList = presenter.listItemsDataBox;
         }
-        else if (targetSlotType == SlotType.SlotWeapon || targetSlotType == SlotType.SlotVest ||
+        else if (uIInventory != null && (targetSlotType == SlotType.SlotWeapon || targetSlotType == SlotType.SlotVest ||
                 targetSlotType == SlotType.SlotTool || targetSlotType == SlotType.SlotBackpack ||
-                targetSlotType == SlotType.SlotGrenade)
+                targetSlotType == SlotType.SlotGrenade))
         {
             targetList = uIInventory.listItemDataInventoryEquipment;
         }
@@ -182,52 +232,49 @@ public class ScriptMoveItems : MonoBehaviour
         {
             if (tradesystemScript != null)
             {
-                if(targetSlotType == SlotType.SlotPlayerTrade)
+                if (targetSlotType == SlotType.SlotPlayerTrade)
                     targetList = tradesystemScript.listPlayerItemWaitforTrade;
-                else if(targetSlotType == SlotType.SlotNpcItem)
+                else if (targetSlotType == SlotType.SlotNpcItem)
                     targetList = tradesystemScript.listInvenrotyNpcItem;
                 else
                     targetList = tradesystemScript.listNpcItemWaitforTrade;
             }
         }
+
         if (targetList == null) return;
 
-        if (sourceSlotType == SlotType.SlotLoot)
+        if (sourceSlotType == SlotType.SlotLoot && uIInventory != null)
         {
             LootingSystem currentLootSystem = uIInventory.currentLootingSystem;
-
             if (currentLootSystem != null)
             {
                 currentLootSystem.RemoveItemFromLootList(sourceItemData.idItem, actualQuantityToMove);
             }
         }
 
-        if (itemClassMove.itemtype == Itemtype.Backpack)
+        if (itemClassMove.itemtype == Itemtype.Backpack && uIInventory != null && uIInventory.npcSelecting != null)
         {
             if (sourceSlotType != SlotType.SlotBoxes && targetSlotType != SlotType.SlotBoxes)
             {
-                // Remove backpack effect from source slot
                 uIInventory.npcSelecting.countInventorySlot -= uIInventory.SlotHasincreased;
                 uIInventory.SlotHasincreased = 0;
             }
 
             if (targetSlotType == SlotType.SlotBag)
             {
-                // Add backpack effect to target slot
                 ItemBackpack backpack = itemClassMove.GetComponent<ItemBackpack>();
-                uIInventory.npcSelecting.countInventorySlot += backpack.slotIncreasing;
-                uIInventory.SlotHasincreased = backpack.slotIncreasing;
+                if (backpack != null)
+                {
+                    uIInventory.npcSelecting.countInventorySlot += backpack.slotIncreasing;
+                    uIInventory.SlotHasincreased = backpack.slotIncreasing;
+                }
             }
         }
 
-        // Add the item to the target list
         AddOrUpdateItemDataInList(targetList, sourceItemData, actualQuantityToMove);
-
-        // Remove the item from the source list
         RemoveItemDataFromOrigin(sourceSlotType, sourceItemData, actualQuantityToMove);
 
-        // Update UI or destroy item if quantity reaches zero
-        if (actualQuantityToMove == itemClassMove.quantityItem)
+        if (actualQuantityToMove >= itemClassMove.quantityItem)
         {
             Destroy(itemClassMove.gameObject);
         }
@@ -237,28 +284,39 @@ public class ScriptMoveItems : MonoBehaviour
             UpdateUIItemMove();
         }
 
-        if (targetSlotType == SlotType.SlotCar)
+        if (targetSlotType == SlotType.SlotCar && uIInventory is UIInventoryEX exInventory)
         {
-            ((UIInventoryEX)uIInventory).RefreshUIInventory();
+            exInventory.RefreshUIInventory();
         }
-        if(tradesystemScript != null)
+
+        if (tradesystemScript != null)
         {
             tradesystemScript.RefreshTrade();
         }
-        uIInventory.RefreshUIInventory();
-        inventoryItemPresent.RefreshUIBox();
-        uIInventory.RefreshUIBoxCategory(uIInventory.currentNumCategory);
-        Debug.Log($"Moved {actualQuantityToMove} of {sourceItemData.nameItem} from {sourceSlotType} to {targetSlotType}");
 
-        // Close the move UI
+        if (uIInventory != null)
+        {
+            uIInventory.RefreshUIInventory();
+            uIInventory.RefreshUIBoxCategory(uIInventory.currentNumCategory);
+        }
+
+        presenter.RefreshUIBox();
         gameObject.SetActive(false);
     }
 
-
     private void AddOrUpdateItemDataInList(List<ItemData> list, ItemData sourceItem, int quantity)
     {
-        // Check if the item already exists in the target list
-        var existingItem = list.FirstOrDefault(item => item.idItem == sourceItem.idItem);
+        if (list == null || sourceItem == null) return;
+
+        ItemData existingItem = null;
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (list[i] != null && list[i].idItem == sourceItem.idItem)
+            {
+                existingItem = list[i];
+                break;
+            }
+        }
 
         if (existingItem != null)
         {
@@ -266,16 +324,13 @@ public class ScriptMoveItems : MonoBehaviour
 
             if (totalQuantity <= existingItem.maxCount)
             {
-                // Fits within the same slot
                 existingItem.count = totalQuantity;
             }
             else
             {
-                // Exceeds maxCount, split the excess
                 existingItem.count = existingItem.maxCount;
                 int excess = totalQuantity - existingItem.maxCount;
 
-                // Create new entries for the excess
                 while (excess > 0)
                 {
                     int newSlotQuantity = Mathf.Min(excess, sourceItem.maxCount);
@@ -285,7 +340,7 @@ public class ScriptMoveItems : MonoBehaviour
                         nameItem = sourceItem.nameItem,
                         count = newSlotQuantity,
                         maxCount = sourceItem.maxCount,
-                        itemtype = sourceItem.itemtype,
+                        itemtype = sourceItem.itemtype
                     };
 
                     list.Add(newItem);
@@ -295,7 +350,6 @@ public class ScriptMoveItems : MonoBehaviour
         }
         else
         {
-            // No existing entry, add a new one
             while (quantity > 0)
             {
                 int newSlotQuantity = Mathf.Min(quantity, sourceItem.maxCount);
@@ -305,7 +359,7 @@ public class ScriptMoveItems : MonoBehaviour
                     nameItem = sourceItem.nameItem,
                     count = newSlotQuantity,
                     maxCount = sourceItem.maxCount,
-                    itemtype = sourceItem.itemtype,
+                    itemtype = sourceItem.itemtype
                 };
 
                 list.Add(newItem);
@@ -314,21 +368,27 @@ public class ScriptMoveItems : MonoBehaviour
         }
     }
 
-
     private void RemoveItemDataFromOrigin(SlotType originSlotType, ItemData sourceItem, int quantity)
     {
+        if (sourceItem == null) return;
+
         List<ItemData> originList = null;
         TradesystemScript tradesystemScript = TradesystemScript.GetActiveTrade();
-        // Determine the appropriate source list based on the origin slot type
-        if (originSlotType == SlotType.SlotBag)
+
+        if (originSlotType == SlotType.SlotBag && uIInventory != null)
             originList = uIInventory.listItemDataInventorySlot;
-        else if (originSlotType == SlotType.SlotCar)
-            originList = ((UIInventoryEX)uIInventory).listItemDataCarInventorySlot;
+        else if (originSlotType == SlotType.SlotCar && uIInventory is UIInventoryEX exUI)
+            originList = exUI.listItemDataCarInventorySlot;
         else if (originSlotType == SlotType.SlotBoxes)
-            originList = uIInventory.inventoryItemPresent.listItemsDataBox;
-        else if (originSlotType == SlotType.SlotWeapon || originSlotType == SlotType.SlotVest ||
+        {
+            var presenter = (uIInventory != null && uIInventory.inventoryItemPresent != null) 
+                ? uIInventory.inventoryItemPresent 
+                : (inventoryItemPresent != null ? inventoryItemPresent : InventoryItemPresent.Instance);
+            originList = presenter?.listItemsDataBox;
+        }
+        else if (uIInventory != null && (originSlotType == SlotType.SlotWeapon || originSlotType == SlotType.SlotVest ||
                 originSlotType == SlotType.SlotTool || originSlotType == SlotType.SlotBackpack || 
-                originSlotType == SlotType.SlotGrenade)
+                originSlotType == SlotType.SlotGrenade))
             originList = uIInventory.listItemDataInventoryEquipment;
         else if (originSlotType == SlotType.SlotNpcItem)
             originList = tradesystemScript?.listInvenrotyNpcItem;
@@ -339,40 +399,68 @@ public class ScriptMoveItems : MonoBehaviour
 
         if (originList == null) return;
 
-        // Find the item in the origin list
-        var originItem = originList.FirstOrDefault(item => item.idItem == sourceItem.idItem && item.itemtype == sourceItem.itemtype);
-        if (originItem != null)
+        for (int i = 0; i < originList.Count; i++)
         {
-            // Decrease the count of the item
-            originItem.count -= quantity;
-            if (originItem.count <= 0)
+            ItemData originItem = originList[i];
+            if (originItem != null && originItem.idItem == sourceItem.idItem && originItem.itemtype == sourceItem.itemtype)
             {
-                // Remove the item from the list if the count drops to zero
-                originList.Remove(originItem);
-                Debug.Log("Remove Item");
+                originItem.count -= quantity;
+                if (originItem.count <= 0)
+                {
+                    originList.RemoveAt(i);
+                }
+                break;
             }
         }
     }
 
-
     public void UpdateUIItemMove()
     {
+        if (itemClassMove == null) return;
+
         GameObject uIItemObject = itemClassMove.gameObject;
         UIItemData uIItemData = uIItemObject.GetComponent<UIItemData>();
-        uIItemData.slotTypeParent = uIItemData.GetComponentInParent<InventorySlots>().slotTypeInventory;
-        uIItemData.UpdateDataUI(itemClassMove);
+        if (uIItemData != null)
+        {
+            InventorySlots parentSlot = uIItemData.GetComponentInParent<InventorySlots>();
+            if (parentSlot != null)
+            {
+                uIItemData.slotTypeParent = parentSlot.slotTypeInventory;
+            }
+            uIItemData.UpdateDataUI(itemClassMove);
+        }
     }
+
     public void CancleMove()
     {
-
-        DraggableItem draggableItemMove = itemClassMove.gameObject.GetComponent<DraggableItem>();
-        draggableItemMove.transform.SetParent(draggableItemMove.parentBeforeDray);
-        draggableItemMove.parentAfterDray = draggableItemMove.parentBeforeDray;
-        if (draggableItemMove.parentBeforeDray == inventoryItemPresent.transformsBoxes)
+        if (itemClassMove != null)
         {
-            Destroy(draggableItemMove.gameObject);
+            DraggableItem draggable = itemClassMove.GetComponent<DraggableItem>();
+            if (draggable != null)
+            {
+                if (draggable.parentBeforeDray != null)
+                {
+                    draggable.transform.SetParent(draggable.parentBeforeDray);
+                    draggable.parentAfterDray = draggable.parentBeforeDray;
+                }
+
+                InventoryItemPresent presenter = (inventoryItemPresent != null) 
+                    ? inventoryItemPresent 
+                    : InventoryItemPresent.Instance;
+
+                if (presenter != null && draggable.parentBeforeDray == presenter.transformsBoxes)
+                {
+                    Destroy(draggable.gameObject);
+                }
+            }
         }
-        inventoryItemPresent.ResetAmmoHighlighting();
+
+        InventoryItemPresent p = (inventoryItemPresent != null) ? inventoryItemPresent : InventoryItemPresent.Instance;
+        if (p != null)
+        {
+            p.ResetAmmoHighlighting();
+        }
+
         gameObject.SetActive(false);
     }
 }

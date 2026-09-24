@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -13,31 +12,54 @@ public class InventorySlots : MonoBehaviour, IDropHandler
     public InventoryItemPresent inventoryItemPresent;
     public UIInventory uIInventory;
 
-    void Start()
-    {
-        // Find canvas and inventory item presenter in the active scene
-        canvas = FindFirstObjectByType<Canvas>();
-        inventoryItemPresent = GameManager.Instance.inventoryItemPresent;
+    private static GameObject s_cachedMoveItemsUI;
 
-        // Get all objects of type ScriptMoveItems
+    private void Start()
+    {
+        if (canvas == null)
+        {
+            canvas = FindFirstObjectByType<Canvas>();
+        }
+
+        if (GameManager.Instance != null && GameManager.Instance.inventoryItemPresent != null)
+        {
+            inventoryItemPresent = GameManager.Instance.inventoryItemPresent;
+        }
+        else if (inventoryItemPresent == null)
+        {
+            inventoryItemPresent = InventoryItemPresent.Instance;
+        }
+
+        // Cache and find ScriptMoveItems UI object once across slots
         if (uIMoveItemsBoxesToInventory == null)
         {
-            ScriptMoveItems[] objectsWithScript = Resources.FindObjectsOfTypeAll<ScriptMoveItems>();
-
-            // Get the active scene
-            Scene activeScene = SceneManager.GetActiveScene();
-
-            foreach (var item in objectsWithScript)
+            if (s_cachedMoveItemsUI != null)
             {
-                GameObject obj = item.gameObject;
+                uIMoveItemsBoxesToInventory = s_cachedMoveItemsUI;
+            }
+            else
+            {
+                ScriptMoveItems[] objectsWithScript = Resources.FindObjectsOfTypeAll<ScriptMoveItems>();
+                Scene activeScene = SceneManager.GetActiveScene();
 
-                // Ensure the object is in the active scene and is not inactive 
-                if (obj.scene == activeScene && !obj.activeInHierarchy)
+                for (int i = 0; i < objectsWithScript.Length; i++)
                 {
-                    uIMoveItemsBoxesToInventory = obj;
-                    ScriptMoveItems scriptMoveItems = uIMoveItemsBoxesToInventory.GetComponent<ScriptMoveItems>();
+                    GameObject obj = objectsWithScript[i].gameObject;
+                    if (obj.scene == activeScene && !obj.activeInHierarchy)
+                    {
+                        uIMoveItemsBoxesToInventory = obj;
+                        s_cachedMoveItemsUI = obj;
+                        break;
+                    }
+                }
+            }
+
+            if (uIMoveItemsBoxesToInventory != null)
+            {
+                ScriptMoveItems scriptMoveItems = uIMoveItemsBoxesToInventory.GetComponent<ScriptMoveItems>();
+                if (scriptMoveItems != null && uIInventory != null)
+                {
                     scriptMoveItems.uIInventory = uIInventory;
-                    break; // Optional: Stop after finding the first match
                 }
             }
         }
@@ -46,18 +68,22 @@ public class InventorySlots : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         if (slotTypeInventory == SlotType.SlotLock) return;
-        GameObject uIitem = eventData.pointerDrag;
-        if (uIitem == null) return;
+        if (eventData == null || eventData.pointerDrag == null) return;
 
+        GameObject uIitem = eventData.pointerDrag;
         DraggableItem draggableItem = uIitem.GetComponent<DraggableItem>();
         UIItemData uIItemDataDrag = uIitem.GetComponent<UIItemData>();
         ItemClass itemClassMove = uIitem.GetComponent<ItemClass>();
         if (draggableItem == null || uIItemDataDrag == null || itemClassMove == null) return;
 
+        if (draggableItem.parentBeforeDray == null) return;
         InventorySlots originSlot = draggableItem.parentBeforeDray.GetComponentInParent<InventorySlots>();
         if (originSlot == null) return;
 
+        if (uIMoveItemsBoxesToInventory == null) return;
         ScriptMoveItems scriptMoveItems = uIMoveItemsBoxesToInventory.GetComponent<ScriptMoveItems>();
+        if (scriptMoveItems == null) return;
+
         scriptMoveItems.uIInventory = uIInventory;
         scriptMoveItems.itemClassMove = itemClassMove;
         scriptMoveItems.draggableItemMove = draggableItem;
@@ -82,10 +108,6 @@ public class InventorySlots : MonoBehaviour, IDropHandler
         }
 
         TradesystemScript tradesystemScript = TradesystemScript.GetActiveTrade();
-        if (tradesystemScript == null)
-        {
-            Debug.Log("No active TradesystemScript instance available. Proceeding without trade.");
-        }
 
         List<ItemData> targetDataList = null;
 
@@ -101,20 +123,23 @@ public class InventorySlots : MonoBehaviour, IDropHandler
                 targetDataList = tradesystemScript?.listPlayerItemWaitforTrade;
                 break;
             case SlotType.SlotBag:
-                targetDataList = uIInventory.listItemDataInventorySlot;
+                targetDataList = uIInventory != null ? uIInventory.listItemDataInventorySlot : null;
                 break;
             case SlotType.SlotCar:
-                targetDataList = ((UIInventoryEX)uIInventory).listItemDataCarInventorySlot;
+                targetDataList = (uIInventory is UIInventoryEX exUI) ? exUI.listItemDataCarInventorySlot : null;
                 break;
             case SlotType.SlotWeapon:
             case SlotType.SlotVest:
             case SlotType.SlotTool:
             case SlotType.SlotBackpack:
             case SlotType.SlotGrenade:
-                targetDataList = uIInventory.listItemDataInventoryEquipment;
+                targetDataList = uIInventory != null ? uIInventory.listItemDataInventoryEquipment : null;
                 break;
             case SlotType.SlotBoxes:
-                targetDataList = uIInventory.inventoryItemPresent.listItemsDataBox;
+                var present = (uIInventory != null && uIInventory.inventoryItemPresent != null) 
+                    ? uIInventory.inventoryItemPresent 
+                    : (inventoryItemPresent != null ? inventoryItemPresent : InventoryItemPresent.Instance);
+                targetDataList = present != null ? present.listItemsDataBox : null;
                 break; 
             case SlotType.SlotLoot:
                 break;
@@ -130,7 +155,6 @@ public class InventorySlots : MonoBehaviour, IDropHandler
             itemClassInChild != null && 
             destinationSlotType != SlotType.SlotNpcItem)
         {
-            // Item already exists in this equipment slot, cancel the transfer
             Debug.Log("Slot already occupied. Cannot move item.");
             return;
         }
@@ -139,34 +163,29 @@ public class InventorySlots : MonoBehaviour, IDropHandler
         bool openUI = false;
         int quantityToMove = itemClassMove.quantityItem;
 
-        // Backpack logic: Always transfer 1 backpack
-        if (itemClassMove.itemtype == Itemtype.Backpack)
+        if (itemClassMove.itemtype == Itemtype.Backpack || itemClassMove.maxCountItem == 1)
         {
-            quantityToMove = 1;
-        }
-        else if (itemClassMove.maxCountItem == 1)
-        {
-            // Always transfer 1 item if maxCountItem is 1
             quantityToMove = 1;
         }
         else if (itemClassMove.quantityItem > 1 && destinationSlotType != SlotType.SlotBoxes)
         {
-            // Open UI for deciding the quantity if moving to non-boxes with multiple items
             openUI = true;
         }
+
         if (itemClassMove.itemtype == Itemtype.Ammo && destinationSlotType != SlotType.SlotNpcTrade) 
         {
             openUI = false;
             quantityToMove = itemClassMove.maxCountItem;
         }
+
         // Prevent invalid trade interactions
         if ((destinationSlotType == SlotType.SlotNpcTrade && originSlot.slotTypeInventory != SlotType.SlotNpcItem) ||
             (destinationSlotType == SlotType.SlotPlayerTrade && originSlot.slotTypeInventory == SlotType.SlotNpcItem) ||
             (destinationSlotType == SlotType.SlotNpcItem && originSlot.slotTypeInventory == SlotType.SlotPlayerTrade) ||
-            (destinationSlotType == SlotType.SlotPlayerTrade && originSlot.slotTypeInventory == SlotType.SlotNpcTrade)||
-            (destinationSlotType == SlotType.SlotBag && originSlot.slotTypeInventory == SlotType.SlotNpcItem)||
-            (destinationSlotType == SlotType.SlotBackpack && originSlot.slotTypeInventory == SlotType.SlotNpcItem)||
-            (destinationSlotType == SlotType.SlotBackpack && originSlot.slotTypeInventory == SlotType.SlotNpcTrade)||
+            (destinationSlotType == SlotType.SlotPlayerTrade && originSlot.slotTypeInventory == SlotType.SlotNpcTrade) ||
+            (destinationSlotType == SlotType.SlotBag && originSlot.slotTypeInventory == SlotType.SlotNpcItem) ||
+            (destinationSlotType == SlotType.SlotBackpack && originSlot.slotTypeInventory == SlotType.SlotNpcItem) ||
+            (destinationSlotType == SlotType.SlotBackpack && originSlot.slotTypeInventory == SlotType.SlotNpcTrade) ||
             (destinationSlotType == SlotType.SlotBag && originSlot.slotTypeInventory == SlotType.SlotNpcTrade))
         {
             Debug.Log("Invalid trade interaction.");
@@ -175,34 +194,37 @@ public class InventorySlots : MonoBehaviour, IDropHandler
 
         if (destinationSlotType == SlotType.SlotBoxes || destinationSlotType == SlotType.SlotNpcItem)
         {
-            // For SlotBoxes, always transfer the full quantity without opening UI
             openUI = false;
             quantityToMove = itemClassMove.quantityItem;
         }
 
         if (openUI)
         {
-            // Set up ScriptMoveItems for UI flow
-            scriptMoveItems.countItemMove = 1; // Default to 1
-            scriptMoveItems.countText.text = "1";
+            scriptMoveItems.countItemMove = 1;
+            if (scriptMoveItems.countText != null)
+            {
+                scriptMoveItems.countText.text = "1";
+            }
             scriptMoveItems.itemClassMove = itemClassMove;
             scriptMoveItems.draggableItemMove = draggableItem;
             scriptMoveItems.sourceSlotType = originSlot.slotTypeInventory;
             scriptMoveItems.targetSlotType = destinationSlotType;
 
-            // Show the UI
             uIMoveItemsBoxesToInventory.SetActive(true);
 
-            // Position UI near the cursor
-            Vector2 mousePos;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                canvas.transform as RectTransform,
-                Input.mousePosition,
-                canvas.worldCamera,
-                out mousePos);
-            uIMoveItemsBoxesToInventory.GetComponent<RectTransform>().anchoredPosition = mousePos;
-
-            Debug.Log("Opened Move Items UI.");
+            if (canvas != null)
+            {
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                    canvas.transform as RectTransform,
+                    Input.mousePosition,
+                    canvas.worldCamera,
+                    out Vector2 mousePos);
+                RectTransform rectTransform = uIMoveItemsBoxesToInventory.GetComponent<RectTransform>();
+                if (rectTransform != null)
+                {
+                    rectTransform.anchoredPosition = mousePos;
+                }
+            }
             return;
         }
 
@@ -213,7 +235,7 @@ public class InventorySlots : MonoBehaviour, IDropHandler
         }
 
         TransferItems(itemClassMove, quantityToMove, originSlot, destinationSlotType, itemClassInChild, targetDataList);
-        if(tradesystemScript != null)
+        if (tradesystemScript != null)
         {
             tradesystemScript.RefreshTrade();
         }
@@ -221,76 +243,96 @@ public class InventorySlots : MonoBehaviour, IDropHandler
 
     private void TransferItems(ItemClass itemClassMove, int quantityToMove, InventorySlots originSlot, SlotType destinationSlotType, ItemClass itemClassInChild, List<ItemData> targetDataList)
     {
-        // Convert ItemClass to ItemData
-        ItemData sourceItemData = inventoryItemPresent.ConventItemClassToItemData(itemClassMove);
+        InventoryItemPresent presenter = (inventoryItemPresent != null) ? inventoryItemPresent : InventoryItemPresent.Instance;
+        if (presenter == null || itemClassMove == null) return;
+
+        ItemData sourceItemData = presenter.ConventItemClassToItemData(itemClassMove);
+        if (sourceItemData == null) return;
+
         if (originSlot.slotTypeInventory == SlotType.SlotLoot)
         {
-            LootingSystem lootSystem = itemClassMove.GetComponent<UIItemData>()?.originatingLootSystem;
-            if (lootSystem != null)
+            UIItemData uiItemData = itemClassMove.GetComponent<UIItemData>();
+            if (uiItemData != null && uiItemData.originatingLootSystem != null)
             {
-                lootSystem.RemoveItemFromLootList(sourceItemData.idItem, quantityToMove);
+                uiItemData.originatingLootSystem.RemoveItemFromLootList(sourceItemData.idItem, quantityToMove);
             }
         }
-        // Handle SlotBoxes separately to transfer full quantity
+
         if (destinationSlotType == SlotType.SlotBoxes)
         {
-            // Add to boxes
-            AddOrUpdateItemDataInList(uIInventory.inventoryItemPresent.listItemsDataBox, sourceItemData, quantityToMove);
+            List<ItemData> boxList = (uIInventory != null && uIInventory.inventoryItemPresent != null)
+                ? uIInventory.inventoryItemPresent.listItemsDataBox
+                : presenter.listItemsDataBox;
 
-            // Remove from origin
+            AddOrUpdateItemDataInList(boxList, sourceItemData, quantityToMove);
             RemoveItemDataFromOrigin(originSlot.slotTypeInventory, sourceItemData, quantityToMove);
 
-            // Destroy the original UI item if all quantity moved
-            if (quantityToMove == itemClassMove.quantityItem)
+            if (quantityToMove >= itemClassMove.quantityItem)
             {
                 Destroy(itemClassMove.gameObject);
             }
             else
             {
-                // Decrease the quantity if partially moved
                 itemClassMove.quantityItem -= quantityToMove;
-                itemClassMove.GetComponent<UIItemData>().UpdateDataUI(itemClassMove);
+                UIItemData uiItem = itemClassMove.GetComponent<UIItemData>();
+                if (uiItem != null) uiItem.UpdateDataUI(itemClassMove);
             }
 
-            // Refresh UI
-            inventoryItemPresent.RefreshUIBox();
-            uIInventory.RefreshUIInventory();
-            uIInventory.RefreshUIBoxCategory(uIInventory.currentNumCategory);
+            presenter.RefreshUIBox();
+            if (uIInventory != null)
+            {
+                uIInventory.RefreshUIInventory();
+                uIInventory.RefreshUIBoxCategory(uIInventory.currentNumCategory);
+            }
             return;
         }
 
-        AddOrUpdateItemDataInList(targetDataList, sourceItemData, quantityToMove);
+        if (targetDataList != null)
+        {
+            AddOrUpdateItemDataInList(targetDataList, sourceItemData, quantityToMove);
+        }
         RemoveItemDataFromOrigin(originSlot.slotTypeInventory, sourceItemData, quantityToMove);
 
-        // If entire quantity moved, destroy the UI item
-        if (quantityToMove == itemClassMove.quantityItem)
+        if (quantityToMove >= itemClassMove.quantityItem)
         {
             Destroy(itemClassMove.gameObject);
         }
         else
         {
-            // Decrease the quantity if partially moved
             itemClassMove.quantityItem -= quantityToMove;
-            itemClassMove.GetComponent<UIItemData>().UpdateDataUI(itemClassMove);
+            UIItemData uiItem = itemClassMove.GetComponent<UIItemData>();
+            if (uiItem != null) uiItem.UpdateDataUI(itemClassMove);
         }
-        // Refresh UI
-        inventoryItemPresent.RefreshUIBox();
-        uIInventory.RefreshUIInventory();
-        uIInventory.RefreshUIBoxCategory(uIInventory.currentNumCategory);
-    }
 
+        presenter.RefreshUIBox();
+        if (uIInventory != null)
+        {
+            uIInventory.RefreshUIInventory();
+            uIInventory.RefreshUIBoxCategory(uIInventory.currentNumCategory);
+        }
+    }
 
     private void AddOrUpdateItemDataInList(List<ItemData> list, ItemData sourceItem, int quantity)
     {
-        var existingItem = list.FirstOrDefault(i => i.idItem == sourceItem.idItem && i.itemtype == sourceItem.itemtype);
+        if (list == null || sourceItem == null) return;
+
+        ItemData existingItem = null;
+        for (int i = 0; i < list.Count; i++)
+        {
+            ItemData item = list[i];
+            if (item != null && item.idItem == sourceItem.idItem && item.itemtype == sourceItem.itemtype)
+            {
+                existingItem = item;
+                break;
+            }
+        }
+
         if (existingItem != null)
         {
-            // Update the count of the existing item
             existingItem.count += quantity;
         }
         else
         {
-            // Add a new item to the list
             ItemData newItem = new ItemData
             {
                 idItem = sourceItem.idItem,
@@ -305,18 +347,25 @@ public class InventorySlots : MonoBehaviour, IDropHandler
 
     private void RemoveItemDataFromOrigin(SlotType originSlotType, ItemData sourceItem, int quantity)
     {
+        if (sourceItem == null) return;
+
         List<ItemData> originList = null;
         TradesystemScript tradesystemScript = TradesystemScript.GetActiveTrade();
-        // Determine the appropriate source list based on the origin slot type
-        if (originSlotType == SlotType.SlotBag)
+
+        if (originSlotType == SlotType.SlotBag && uIInventory != null)
             originList = uIInventory.listItemDataInventorySlot;
-        else if (originSlotType == SlotType.SlotCar)
-            originList = ((UIInventoryEX)uIInventory).listItemDataCarInventorySlot;
+        else if (originSlotType == SlotType.SlotCar && uIInventory is UIInventoryEX exUI)
+            originList = exUI.listItemDataCarInventorySlot;
         else if (originSlotType == SlotType.SlotBoxes)
-            originList = uIInventory.inventoryItemPresent.listItemsDataBox;
-        else if (originSlotType == SlotType.SlotWeapon || originSlotType == SlotType.SlotVest ||
-                originSlotType == SlotType.SlotTool || originSlotType == SlotType.SlotBackpack || 
-                originSlotType == SlotType.SlotGrenade)
+        {
+            var presenter = (uIInventory != null && uIInventory.inventoryItemPresent != null) 
+                ? uIInventory.inventoryItemPresent 
+                : (inventoryItemPresent != null ? inventoryItemPresent : InventoryItemPresent.Instance);
+            originList = presenter?.listItemsDataBox;
+        }
+        else if (uIInventory != null && (originSlotType == SlotType.SlotWeapon || originSlotType == SlotType.SlotVest ||
+                 originSlotType == SlotType.SlotTool || originSlotType == SlotType.SlotBackpack || 
+                 originSlotType == SlotType.SlotGrenade))
             originList = uIInventory.listItemDataInventoryEquipment;
         else if (originSlotType == SlotType.SlotNpcItem)
             originList = tradesystemScript?.listInvenrotyNpcItem;
@@ -326,19 +375,22 @@ public class InventorySlots : MonoBehaviour, IDropHandler
             originList = tradesystemScript?.listNpcItemWaitforTrade;
 
         if (originList == null) return;
-        
-        // Find and update or remove the item in the source list
-        var originItem = originList.FirstOrDefault(i => i.idItem == sourceItem.idItem && i.itemtype == sourceItem.itemtype);
-        if (originItem != null)
+
+        for (int i = 0; i < originList.Count; i++)
         {
-            originItem.count -= quantity;
-            if (originItem.count <= 0)
-                originList.Remove(originItem);
+            ItemData originItem = originList[i];
+            if (originItem != null && originItem.idItem == sourceItem.idItem && originItem.itemtype == sourceItem.itemtype)
+            {
+                originItem.count -= quantity;
+                if (originItem.count <= 0)
+                {
+                    originList.RemoveAt(i);
+                }
+                break;
+            }
         }
+
         tradesystemScript?.RefreshTrade();
-        Debug.Log(originSlotType);
-        Debug.Log(quantity);
-        Debug.Log(sourceItem.nameItem);
     }
 }
 

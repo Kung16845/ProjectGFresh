@@ -1,21 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RemoveItem : MonoBehaviour
 {
     public ItemData itemData;
     public InventoryItemPresent inventoryItemPresent;
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
-        inventoryItemPresent = FindObjectOfType<InventoryItemPresent>();
+        if (inventoryItemPresent == null)
+        {
+            inventoryItemPresent = InventoryItemPresent.Instance ?? FindFirstObjectByType<InventoryItemPresent>();
+        }
     }
 
     public void TestFuctionRemoveItem()
     {   
-        Debug.Log("Remove ITem");  
-        inventoryItemPresent.RemoveItem(itemData);   
-        inventoryItemPresent.RefreshUIBox(); 
+        if (inventoryItemPresent == null)
+        {
+            inventoryItemPresent = InventoryItemPresent.Instance ?? FindFirstObjectByType<InventoryItemPresent>();
+        }
+
+        if (inventoryItemPresent != null && itemData != null)
+        {
+            inventoryItemPresent.RemoveItem(itemData);   
+            inventoryItemPresent.RefreshUIBox(); 
+        }
     }
 }

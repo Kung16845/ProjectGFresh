@@ -11,25 +11,36 @@ public class UIItemData : MonoBehaviour
     public LootingSystem originatingLootSystem;
     public TradesystemScript originatingTradesystem;
     public SlotType slotTypeParent;
-    public Image itemIconImage; // Keep this as Image because it's a UI element
+    public Image itemIconImage;
 
     public void UpdateDataUI(ItemClass itemClass)
     {
+        if (itemClass == null) return;
+
         int countItem = itemClass.quantityItem;
-        // Debug.Log("count : " + countItem);
-        if (itemIconImage != null && itemClass.IconSprite != null)
+
+        if (itemIconImage != null)
         {
-            // Assign the sprite from itemClass.IconSprite to itemIconSprite
-            itemIconImage.sprite = itemClass.IconSprite.sprite;
+            if (itemClass.IconSprite != null && itemClass.IconSprite.sprite != null)
+            {
+                itemIconImage.sprite = itemClass.IconSprite.sprite;
+            }
+            else if (itemClass.itemIcon != null)
+            {
+                itemIconImage.sprite = itemClass.itemIcon;
+            }
         }
 
-        if (slotTypeParent == SlotType.SlotBoxes)
+        if (count != null)
         {
-            count.text = countItem.ToString();
-        }
-        else
-        {
-            count.text = countItem.ToString() + "/" + itemClass.maxCountItem.ToString();
+            if (slotTypeParent == SlotType.SlotBoxes)
+            {
+                count.text = countItem.ToString();
+            }
+            else
+            {
+                count.text = $"{countItem}/{itemClass.maxCountItem}";
+            }
         }
     }
 }
