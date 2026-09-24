@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
+using UnityEngine;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -10,22 +9,21 @@ public class TutorialManager : MonoBehaviour
     public class TutorialStep
     {
         [TextArea(15, 20)]
-        public string description; // Text to display for this tutorial step
-        public GameObject highlightObject; // Object to highlight (optional)
+        public string description;
+        public GameObject highlightObject;
         public Transform panelTextPosition;
-        public Transform Buttonposition; // Transform to set the position of the paneltext (optional)
+        public Transform Buttonposition;
     }
 
     public List<TutorialStep> tutorialSteps = new List<TutorialStep>();
-    public TextMeshProUGUI tutorialText; // UI Text to show tutorial descriptions
+    public TextMeshProUGUI tutorialText;
     public GameObject paneltext;
-    public GameObject overlayPanel; // Optional: Panel to dim the background
+    public GameObject overlayPanel;
     public GameObject uIBacktoMainScene;
     public MainSpawner mainSpawner;
-    public TimeManager  timeManager;
+    public TimeManager timeManager;
     private int currentStepIndex = 0;
 
-    // New variable to control if tutorial can proceed
     public GameObject Confirmbutton;
     private CheckUsingDDA checkUsingDDA;
     public bool isturorialnight = true;
@@ -33,25 +31,44 @@ public class TutorialManager : MonoBehaviour
     private bool canProceed = false;
     public bool tutorialfinished = false;
 
-    // Timeout duration for showing the confirm button
-    public float buttonTimeout = 5f; 
-    void Awake()
+    public float buttonTimeout = 5f;
+
+    private Coroutine _confirmButtonCoroutine;
+    private WaitForSeconds _buttonWait;
+
+    private void Awake()
     {
-        timeManager = FindObjectOfType<TimeManager>();
-        checkUsingDDA = FindObjectOfType<CheckUsingDDA>();
-        if(checkUsingDDA.ActiveTutorial)
+        _buttonWait = new WaitForSeconds(buttonTimeout);
+
+        if (timeManager == null)
         {
-            timeManager.currentTickSeconedIncrease = 0;
-            timeManager.currentTimeBetweenTricks = 0;
+            timeManager = TimeManager.Instance != null ? TimeManager.Instance : FindFirstObjectByType<TimeManager>();
+        }
+
+        checkUsingDDA = FindFirstObjectByType<CheckUsingDDA>();
+        if (checkUsingDDA != null && checkUsingDDA.ActiveTutorial)
+        {
+            if (timeManager != null)
+            {
+                timeManager.currentTickSeconedIncrease = 0;
+                timeManager.currentTimeBetweenTricks = 0f;
+            }
             isturorialnight = true;
         }
         else
+        {
             isturorialnight = false;
+        }
     }
-    void Start()
-    {   
-        mainSpawner = FindObjectOfType<MainSpawner>();
-        if(isturorialnight)
+
+    private void Start()
+    {
+        if (mainSpawner == null)
+        {
+            mainSpawner = FindFirstObjectByType<MainSpawner>();
+        }
+
+        if (isturorialnight)
         {
             if (tutorialSteps.Count > 0)
             {
@@ -59,18 +76,21 @@ public class TutorialManager : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("No tutorial steps defined!");
+                Debug.LogWarning("[TutorialManager] No tutorial steps defined!");
                 EndTutorial();
             }
         }
         else
-            this.gameObject.SetActive(false);
+        {
+            gameObject.SetActive(false);
+        }
     }
 
-    void Update()
+    private void Update()
     {
-        if (canProceed) // Check if allowed to proceed
+        if (canProceed)
         {
+            canProceed = false;
             NextTutorialStep();
         }
     }
@@ -81,12 +101,11 @@ public class TutorialManager : MonoBehaviour
         {
             TutorialStep step = tutorialSteps[currentStepIndex];
 
-            if (tutorialText != null)
+            if (tutorialText != null && paneltext != null)
             {
-                paneltext.gameObject.SetActive(true);
+                paneltext.SetActive(true);
                 tutorialText.text = step.description;
 
-                // Adjust the panel position if specified
                 if (step.panelTextPosition != null)
                 {
                     paneltext.transform.position = step.panelTextPosition.position;
@@ -94,44 +113,54 @@ public class TutorialManager : MonoBehaviour
 
                 if (Confirmbutton != null)
                 {
-                    Confirmbutton.SetActive(false); // Hide the button initially
+                    Confirmbutton.SetActive(false);
                 }
 
-                if (step.Buttonposition != null)
+                if (step.Buttonposition != null && Confirmbutton != null)
                 {
                     Confirmbutton.transform.position = step.Buttonposition.position;
                 }
             }
 
             if (overlayPanel != null)
+            {
                 overlayPanel.SetActive(true);
+            }
 
-            // Highlight object if specified
             if (step.highlightObject != null)
+            {
                 step.highlightObject.SetActive(true);
+            }
 
-            // Reset canProceed for the new step
             canProceed = false;
 
-            // Start coroutine to show confirm button after a timeout
-            StartCoroutine(ShowConfirmButtonAfterTimeout());
+            if (_confirmButtonCoroutine != null)
+            {
+                StopCoroutine(_confirmButtonCoroutine);
+            }
+            _confirmButtonCoroutine = StartCoroutine(ShowConfirmButtonAfterTimeout());
         }
     }
 
     private IEnumerator ShowConfirmButtonAfterTimeout()
     {
-        yield return new WaitForSeconds(buttonTimeout);
+        yield return _buttonWait;
 
         if (Confirmbutton != null)
-            Confirmbutton.SetActive(true); // Show the button after the timeout
+        {
+            Confirmbutton.SetActive(true);
+        }
+        _confirmButtonCoroutine = null;
     }
 
     private void NextTutorialStep()
     {
-        // Stop any ongoing button timeout coroutine
-        StopCoroutine(ShowConfirmButtonAfterTimeout());
+        if (_confirmButtonCoroutine != null)
+        {
+            StopCoroutine(_confirmButtonCoroutine);
+            _confirmButtonCoroutine = null;
+        }
 
-        // Deactivate current highlight object if any
         if (currentStepIndex < tutorialSteps.Count && tutorialSteps[currentStepIndex].highlightObject != null)
         {
             tutorialSteps[currentStepIndex].highlightObject.SetActive(false);
@@ -151,25 +180,54 @@ public class TutorialManager : MonoBehaviour
 
     private void EndTutorial()
     {
-        checkUsingDDA.ActiveTutorial = false;
-        timeManager.currentTickSeconedIncrease = 1;
-        timeManager.currentTimeBetweenTricks = 0;
-        mainSpawner.StartNextDeck();
-        mainSpawner.startDelayText.gameObject.SetActive(false);
+        tutorialfinished = true;
+
+        if (checkUsingDDA != null)
+        {
+            checkUsingDDA.ActiveTutorial = false;
+        }
+
+        if (timeManager != null)
+        {
+            timeManager.currentTickSeconedIncrease = 1;
+            timeManager.currentTimeBetweenTricks = 0f;
+        }
+
+        if (mainSpawner != null)
+        {
+            mainSpawner.StartNextDeck();
+            if (mainSpawner.startDelayText != null)
+            {
+                mainSpawner.startDelayText.gameObject.SetActive(false);
+            }
+        }
+
         if (Confirmbutton != null)
+        {
             Confirmbutton.SetActive(false);
+        }
 
         if (tutorialText != null)
         {
-            paneltext.gameObject.SetActive(false);
-            tutorialText.text = ""; // Clear tutorial text
+            tutorialText.text = "";
+        }
+
+        if (paneltext != null)
+        {
+            paneltext.SetActive(false);
         }
 
         if (overlayPanel != null)
+        {
             overlayPanel.SetActive(false);
+        }
 
-        uIBacktoMainScene.gameObject.SetActive(true);
-        Debug.Log("Tutorial finished.");
+        if (uIBacktoMainScene != null)
+        {
+            uIBacktoMainScene.SetActive(true);
+        }
+
+        Debug.Log("[TutorialManager] Tutorial finished.");
     }
 
     public void SetCanproceed()
