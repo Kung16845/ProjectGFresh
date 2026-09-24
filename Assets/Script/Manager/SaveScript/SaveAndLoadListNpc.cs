@@ -1,33 +1,56 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using System;
+using System.Collections.Generic;
 using System.IO;
-using System.Linq;
+using UnityEngine;
+
 public class SaveAndLoadListNpc : MonoBehaviour
 {
     public DataCollentListNpc dataCollentListNpc;
     public NpcManager npcManager;
     [SerializeField] private string savePathDataListNpc;
-    // Start is called before the first frame update
-    void Start()
-    {
 
+    private void Start()
+    {
         savePathDataListNpc = Path.Combine(Application.dataPath, "datalistNpc.json");
-        npcManager = GameManager.Instance.npcManager;
+        EnsureDependencies();
     }
+
+    private void EnsureDependencies()
+    {
+        if (npcManager == null)
+        {
+            npcManager = GameManager.Instance != null && GameManager.Instance.npcManager != null
+                ? GameManager.Instance.npcManager
+                : FindFirstObjectByType<NpcManager>();
+        }
+    }
+
     public void SaveListNpc()
     {
+        EnsureDependencies();
         AddDataCollectListNpc();
         string json = JsonUtility.ToJson(dataCollentListNpc, true);
         File.WriteAllText(savePathDataListNpc, json);
     }
+
     public void AddDataCollectListNpc()
     {
-        dataCollentListNpc.listDataNPC = npcManager.listNpc;
+        EnsureDependencies();
+        if (dataCollentListNpc == null)
+        {
+            dataCollentListNpc = new DataCollentListNpc();
+        }
+
+        if (npcManager != null)
+        {
+            dataCollentListNpc.listDataNPC = npcManager.listNpc;
+        }
     }
+
     public void LoadDataListNpc()
     {
+        EnsureDependencies();
+
         if (File.Exists(savePathDataListNpc))
         {
             string json = File.ReadAllText(savePathDataListNpc);
@@ -39,67 +62,107 @@ public class SaveAndLoadListNpc : MonoBehaviour
         {
             dataCollentListNpc = new DataCollentListNpc();
         }
-
     }
+
     public void SetListDataNpc()
     {
-        npcManager.listNpc = dataCollentListNpc.listDataNPC;
-
+        if (npcManager != null && dataCollentListNpc != null)
+        {
+            npcManager.listNpc = dataCollentListNpc.listDataNPC ?? new List<NpcClass>();
+        }
     }
+
     public void CreateAllListNpc()
     {
-        if (npcManager.listNpc.Count != 0)
+        if (npcManager == null || npcManager.listNpc == null || npcManager.listNpc.Count == 0) return;
+
+        for (int i = 0; i < npcManager.listNpc.Count; i++)
         {
-            foreach (NpcClass npcClass in npcManager.listNpc)
+            NpcClass npcClass = npcManager.listNpc[i];
+            if (npcClass != null)
             {
                 CreatePrefabNpcFromJson(npcClass);
             }
         }
     }
+
     public void CreatePrefabNpcFromJson(NpcClass npcJson)
     {
-        NpcClass newNpc = new NpcClass();
+        if (npcJson == null || npcManager == null || npcManager.prefabNpc == null) return;
 
-        string randomFirstName = npcJson.nameNpc;
-        string randomLastName = npcJson.nameNpc;
+        NpcClass newNpc = new NpcClass
+        {
+            nameNpc = npcJson.nameNpc,
+            roleNpc = npcJson.roleNpc,
+            endurance = npcJson.endurance,
+            combat = npcJson.combat,
+            speed = npcJson.speed,
+            countInventorySlot = 6,
+            bed = 1,
+            foodPerDay = 2,
+            hp = 100f,
+            morale = 50f,
+            idnpc = npcJson.idnpc,
+            idHead = npcJson.idHead,
+            idBody = npcJson.idBody,
+            idFeed = npcJson.idFeed
+        };
 
-        newNpc.nameNpc = randomFirstName + " " + randomLastName;
-        newNpc.roleNpc = npcJson.roleNpc;
+        HeadCoutume headCoutume = FindHeadCostume(npcManager.listHeadCoutume, newNpc.idHead);
+        BodyCoutume bodyCoutume = FindBodyCostume(npcManager.listBodyCoutume, newNpc.idBody);
+        FeedCoutume feedCoutume = FindFeedCostume(npcManager.listFeedCoutume, newNpc.idFeed);
 
-        // newNpc.endurance = Random.Range(1, 3);
-        newNpc.endurance = npcJson.endurance;
-        // newNpc.combat = Random.Range(1, 3);
-        newNpc.combat = npcJson.combat;
-        // newNpc.speed = Random.Range(1, 3);
-        newNpc.speed = npcJson.speed;
-        newNpc.countInventorySlot = 6;
-        newNpc.bed = 1;
-        newNpc.foodPerDay = 2;
-        newNpc.hp = 100f;
-        newNpc.morale = 50f;
+        Transform transformSpawnNpc = null;
+        if (npcManager.listPointSpawnerNpc != null && npcManager.listPointSpawnerNpc.Count > 0)
+        {
+            int randomIndex = UnityEngine.Random.Range(0, npcManager.listPointSpawnerNpc.Count);
+            transformSpawnNpc = npcManager.listPointSpawnerNpc[randomIndex];
+        }
 
+        Transform spawnParent = transformSpawnNpc != null ? transformSpawnNpc.parent : null;
+        Vector3 spawnPosition = transformSpawnNpc != null ? transformSpawnNpc.position : Vector3.zero;
 
-        newNpc.idnpc = npcJson.idnpc;
-        newNpc.idHead = npcJson.idHead;
-        newNpc.idBody = npcJson.idBody;
-        newNpc.idFeed = npcJson.idFeed;
-
-        HeadCoutume headCoutume = npcManager.listHeadCoutume.FirstOrDefault(coutume => coutume.idHead == newNpc.idHead);
-        BodyCoutume bodyCoutume = npcManager.listBodyCoutume.FirstOrDefault(coutume => coutume.idBody == newNpc.idBody);
-        FeedCoutume feedCoutume = npcManager.listFeedCoutume.FirstOrDefault(coutume => coutume.idFeed == newNpc.idFeed);
-
-        Transform transformSpawnNpc = npcManager.listPointSpawnerNpc.ElementAt(UnityEngine.Random.Range(0, npcManager.listPointSpawnerNpc.Count));
-
-        GameObject npcOBJ = Instantiate(npcManager.prefabNpc, transformSpawnNpc.parent);
-        npcOBJ.transform.position = transformSpawnNpc.position;
+        GameObject npcOBJ = Instantiate(npcManager.prefabNpc, spawnPosition, Quaternion.identity, spawnParent);
         NpcCoutume npcCoutume = npcOBJ.GetComponent<NpcCoutume>();
-
-        npcCoutume.SetCostume(headCoutume, bodyCoutume, feedCoutume);
-
+        if (npcCoutume != null)
+        {
+            npcCoutume.SetCostume(headCoutume, bodyCoutume, feedCoutume);
+        }
     }
+
+    private HeadCoutume FindHeadCostume(List<HeadCoutume> list, int id)
+    {
+        if (list == null) return null;
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (list[i] != null && list[i].idHead == id) return list[i];
+        }
+        return null;
+    }
+
+    private BodyCoutume FindBodyCostume(List<BodyCoutume> list, int id)
+    {
+        if (list == null) return null;
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (list[i] != null && list[i].idBody == id) return list[i];
+        }
+        return null;
+    }
+
+    private FeedCoutume FindFeedCostume(List<FeedCoutume> list, int id)
+    {
+        if (list == null) return null;
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (list[i] != null && list[i].idFeed == id) return list[i];
+        }
+        return null;
+    }
+
     public void ResetDataListNpc()
     {
-        DataCollentListItemsBoxes dataCollentListItemsBoxes = new DataCollentListItemsBoxes();
+        dataCollentListNpc = new DataCollentListNpc { listDataNPC = new List<NpcClass>() };
         string json = JsonUtility.ToJson(dataCollentListNpc, true);
         File.WriteAllText(savePathDataListNpc, json);
     }
@@ -108,6 +171,5 @@ public class SaveAndLoadListNpc : MonoBehaviour
 [Serializable]
 public class DataCollentListNpc
 {
-    public List<NpcClass> listDataNPC;
+    public List<NpcClass> listDataNPC = new List<NpcClass>();
 }
-

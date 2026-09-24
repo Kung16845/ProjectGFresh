@@ -1,41 +1,86 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System.IO;
 using System;
+using System.Collections.Generic;
+using System.IO;
+using UnityEngine;
+
 public class SaveAndLoadPatint : MonoBehaviour
 {
     public PatienManger patienManger;
     public GameManager gameManager;
     public DataCollentPatint dataCollentPatint;
     [SerializeField] private string savePathDataPatint;
-    void Start()
+
+    private void Start()
     {
         savePathDataPatint = Path.Combine(Application.dataPath, "dataPatint.json");
-        gameManager = FindObjectOfType<GameManager>();
-        patienManger = gameManager.patienManger;
+        EnsureDependencies();
     }
+
+    private void EnsureDependencies()
+    {
+        if (gameManager == null)
+        {
+            gameManager = GameManager.Instance != null ? GameManager.Instance : FindFirstObjectByType<GameManager>();
+        }
+
+        if (patienManger == null && gameManager != null)
+        {
+            patienManger = gameManager.patienManger;
+        }
+
+        if (patienManger == null)
+        {
+            patienManger = FindFirstObjectByType<PatienManger>();
+        }
+    }
+
     public void SaveDataPatint()
     {
-        dataCollentPatint.listactiveHealingClinicPatient = patienManger.activeHealingClinicPatient;
-        dataCollentPatint.listactiveHealingHospitalPatient = patienManger.activeHealingHospitalPatient;
+        EnsureDependencies();
+
+        if (dataCollentPatint == null)
+        {
+            dataCollentPatint = new DataCollentPatint();
+        }
+
+        if (patienManger != null)
+        {
+            dataCollentPatint.listactiveHealingClinicPatient = patienManger.activeHealingClinicPatient;
+            dataCollentPatint.listactiveHealingHospitalPatient = patienManger.activeHealingHospitalPatient;
+        }
+
         string json = JsonUtility.ToJson(dataCollentPatint, true);
         File.WriteAllText(savePathDataPatint, json);
     }
+
     public void LoadDataPatint()
     {
+        EnsureDependencies();
+
         if (File.Exists(savePathDataPatint))
         {
             string json = File.ReadAllText(savePathDataPatint);
             dataCollentPatint = JsonUtility.FromJson<DataCollentPatint>(json);
-            patienManger.activeHealingClinicPatient = dataCollentPatint.listactiveHealingClinicPatient;
-            patienManger.activeHealingHospitalPatient =dataCollentPatint.listactiveHealingHospitalPatient;
+
+            if (dataCollentPatint != null && patienManger != null)
+            {
+                if (dataCollentPatint.listactiveHealingClinicPatient != null)
+                {
+                    patienManger.activeHealingClinicPatient = dataCollentPatint.listactiveHealingClinicPatient;
+                }
+
+                if (dataCollentPatint.listactiveHealingHospitalPatient != null)
+                {
+                    patienManger.activeHealingHospitalPatient = dataCollentPatint.listactiveHealingHospitalPatient;
+                }
+            }
         }
         else
         {
             dataCollentPatint = new DataCollentPatint();
         }
     }
+
     public void ResetDataPatint()
     {
         dataCollentPatint = new DataCollentPatint();
@@ -43,12 +88,14 @@ public class SaveAndLoadPatint : MonoBehaviour
         File.WriteAllText(savePathDataPatint, json);
     }
 }
+
 [Serializable]
 public class DataCollentPatint
 {
-    public List<CurePatient> listactiveHealingClinicPatient;
-    public List<CurePatient> listactiveHealingHospitalPatient;
+    public List<CurePatient> listactiveHealingClinicPatient = new List<CurePatient>();
+    public List<CurePatient> listactiveHealingHospitalPatient = new List<CurePatient>();
 }
+
 [Serializable]
 public class InfoCurePatient
 {
