@@ -23,17 +23,18 @@ public class Beacon : MonoBehaviour
 
     void Start()
     {
-        timeManager = FindObjectOfType<TimeManager>();
-        globalstat = FindObjectOfType<Globalstat>();
-        buildManager = FindObjectOfType<BuildManager>();
-        building = FindObjectOfType<Building>();
+        timeManager = FindFirstObjectByType<TimeManager>();
+        globalstat = FindFirstObjectByType<Globalstat>();
+        buildManager = FindFirstObjectByType<BuildManager>();
+        building = FindFirstObjectByType<Building>();
         upgradeBuilding = GetComponent<UpgradeBuilding>();
-        uImanger = FindObjectOfType<UImanger>();
+        uImanger = FindFirstObjectByType<UImanger>();
 
         dateTime = timeManager.dateTime;
         currentDay = dateTime.day;
         isApplied = false;
     }
+    
     void OnMouseDown()
     {
         if (building.isfinsih && !upgradeBuilding.isUpgradBuilding)
@@ -51,7 +52,7 @@ public class Beacon : MonoBehaviour
     }
     public void AssignUpgradeData()
     {
-        upgradeUi = FindObjectOfType<UpgradeUi>();
+        upgradeUi = FindFirstObjectByType<UpgradeUi>();
         upgradeUi.Initialize(upgradeBuilding);
     }
     void Update()
