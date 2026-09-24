@@ -4,33 +4,33 @@ using UnityEngine;
 public class UIBuildingControl : MonoBehaviour
 {
     public BuildManager buildManager;
-    public List<UIBuilding> uIBuildings;
+    public List<UIBuilding> uIBuildings = new List<UIBuilding>();
 
     // Centralized counter for active UIBuildingControl instances
     private static int activeInstances = 0;
+
     public void ShowUIBuildingSize(int indexSize)
     {
-        foreach (UIBuilding uIBuilding in uIBuildings)
+        BuildingType targetType = (BuildingType)indexSize;
+        for (int i = 0; i < uIBuildings.Count; i++)
         {
-            if (uIBuilding.building.buildingType == (BuildingType)indexSize)
+            UIBuilding uIBuilding = uIBuildings[i];
+            if (uIBuilding != null && uIBuilding.building != null)
             {
-                uIBuilding.gameObject.SetActive(true);
-            }
-            else
-            {
-                uIBuilding.gameObject.SetActive(false);
+                uIBuilding.gameObject.SetActive(uIBuilding.building.buildingType == targetType);
             }
         }
     }
-    void OnEnable()
+
+    private void OnEnable()
     {   
         ShowUIBuildingSize(0);
+
         if (buildManager == null)
         {
-            buildManager = GameManager.Instance.buildManager;
+            buildManager = GameManager.Instance != null ? GameManager.Instance.buildManager : BuildManager.Instance;
         }
 
-        // Increment the active instance counter
         activeInstances++;
 
         // Only disable colliders when this is the first active instance
@@ -40,15 +40,18 @@ public class UIBuildingControl : MonoBehaviour
         }
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
-        // Decrement the active instance counter
         activeInstances--;
 
         // If no active instances remain, enable the colliders
-        if (activeInstances == 0 && buildManager != null)
+        if (activeInstances <= 0)
         {
-            buildManager.EnableColliders();
+            activeInstances = 0;
+            if (buildManager != null)
+            {
+                buildManager.EnableColliders();
+            }
         }
     }
 }

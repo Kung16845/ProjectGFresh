@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,9 +14,8 @@ public class UIBuilding : MonoBehaviour
     public TextMeshProUGUI textNpcCost;
     public TextMeshProUGUI textDayCost;
 
-    void Awake()
+    private void Awake()
     {
-        // Initialize BuildManager
         if (buildManager == null)
         {
             buildManager = BuildManager.Instance;
@@ -27,47 +24,55 @@ public class UIBuilding : MonoBehaviour
 
     public void SetDataBuild()
     {
-        textNameBuild.text = building.nameBuild;
-        textDescriveBuild.text = building.detailBuild;
-        textPlankCost.text = building.plankCost.ToString();
-        textSteelCost.text = building.steelCost.ToString();
-        textNpcCost.text = building.npcCost.ToString();
-        textDayCost.text = building.dayCost.ToString();
-        image.sprite = building.GetComponent<SpriteRenderer>().sprite;
-        buildManager.building = building;
+        if (building == null) return;
+
+        if (textNameBuild != null) textNameBuild.text = building.nameBuild;
+        if (textDescriveBuild != null) textDescriveBuild.text = building.detailBuild;
+        if (textPlankCost != null) textPlankCost.text = building.plankCost.ToString();
+        if (textSteelCost != null) textSteelCost.text = building.steelCost.ToString();
+        if (textNpcCost != null) textNpcCost.text = building.npcCost.ToString();
+        if (textDayCost != null) textDayCost.text = building.dayCost.ToString();
+
+        if (image != null)
+        {
+            if (building.OriginalSprite != null)
+            {
+                image.sprite = building.OriginalSprite;
+            }
+            else
+            {
+                SpriteRenderer spriteRend = building.GetComponent<SpriteRenderer>();
+                if (spriteRend != null)
+                {
+                    image.sprite = spriteRend.sprite;
+                }
+            }
+        }
+
+        if (buildManager == null)
+        {
+            buildManager = BuildManager.Instance;
+        }
+
+        if (buildManager != null)
+        {
+            buildManager.building = building;
+        }
     }
-
-    // void OnEnable()
-    // {
-    //     // Disable colliders when the UI is active
-    //     DisableColliders();
-    // }
-
-    // void OnDisable()
-    // {
-    //     // Re-enable colliders when the UI is deactivated
-    //     EnableColliders();
-    // }
 
     public void DisableColliders()
     {
-        foreach (Collider2D col in buildManager.collidersToManage)
+        if (buildManager != null)
         {
-            if (col != null)
-            {
-                col.enabled = false;
-            }
+            buildManager.DisableColliders();
         }
     }
 
     public void EnableColliders()
     {
-        foreach (Collider2D col in buildManager.collidersToManage)
+        if (buildManager != null)
         {
-            if (col != null)
-            {
-                col.enabled = true;
-            }
+            buildManager.EnableColliders();
         }
     }
 }
