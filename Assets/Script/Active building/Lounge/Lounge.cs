@@ -17,107 +17,128 @@ public class Lounge : MonoBehaviour
     public int currentBedContribution = 0;
     private int previousLevel = 0;
 
-    private bool abilitiesApplied = false; // Ensure abilities apply only once
+    private bool abilitiesApplied = false;
 
-    void Start()
+    private void Start()
     {
-        timeManager = FindObjectOfType<TimeManager>();
-        globalstat = FindObjectOfType<Globalstat>();
-        buildManager = FindObjectOfType<BuildManager>();
-        building = FindObjectOfType<Building>();
+        timeManager = GameManager.Instance != null ? GameManager.Instance.timeManager : FindFirstObjectByType<TimeManager>();
+        globalstat = GameManager.Instance != null ? GameManager.Instance.globalstat : FindFirstObjectByType<Globalstat>();
+        buildManager = GameManager.Instance != null ? GameManager.Instance.buildManager : FindFirstObjectByType<BuildManager>();
+        uImanger = FindFirstObjectByType<UImanger>();
+
+        // Always get components on this GameObject
+        building = GetComponent<Building>();
         upgradeBuilding = GetComponent<UpgradeBuilding>();
-        uImanger = FindObjectOfType<UImanger>();
-        dateTime = timeManager.dateTime;
 
-        previousLevel = upgradeBuilding.currentLevel; // Sync level on start
-    }
-
-    void Update()
-    {
-        if (building.isfinsih && !abilitiesApplied)
+        if (timeManager != null)
         {
-            ApplyAbilities(); // Apply abilities once when finished
-            abilitiesApplied = true; // Mark as applied to avoid duplication
+            dateTime = timeManager.dateTime;
         }
 
-        // Detect level changes during runtime
-        if (building.isfinsih && upgradeBuilding.currentLevel != previousLevel)
+        if (upgradeBuilding != null)
         {
-            UpgradeAbilities();
             previousLevel = upgradeBuilding.currentLevel;
         }
     }
-     void OnMouseDown()
+
+    private void Update()
     {
-        if (building.isfinsih && !upgradeBuilding.isUpgradBuilding)
+        if (building != null && building.isfinsih)
         {
-            uImanger.ToggleUIPanel(UImanger.UIPanel.LoungeUI);
-            
-            if (upgradeBuilding.currentLevel == upgradeBuilding.maxLevel)
+            if (!abilitiesApplied)
             {
-                uImanger.DisableUIPanel(UImanger.UIPanel.LoungeUpgradeButton);
+                ApplyAbilities();
+                abilitiesApplied = true;
+                if (upgradeBuilding != null) previousLevel = upgradeBuilding.currentLevel;
+            }
+            else if (upgradeBuilding != null && upgradeBuilding.currentLevel != previousLevel)
+            {
+                UpgradeAbilities();
+                previousLevel = upgradeBuilding.currentLevel;
+            }
+        }
+    }
+
+    private void OnMouseDown()
+    {
+        if (building != null && building.isfinsih && upgradeBuilding != null && !upgradeBuilding.isUpgradBuilding)
+        {
+            if (uImanger != null)
+            {
+                uImanger.ToggleUIPanel(UImanger.UIPanel.LoungeUI);
+                
+                if (upgradeBuilding.currentLevel >= upgradeBuilding.maxLevel)
+                {
+                    uImanger.DisableUIPanel(UImanger.UIPanel.LoungeUpgradeButton);
+                }
             }
         }
     }
 
     public void AssignUpgradeData()
     {
-        upgradeUi = FindObjectOfType<UpgradeUi>();
-        upgradeUi.Initialize(upgradeBuilding);
+        if (upgradeUi == null)
+        {
+            upgradeUi = FindFirstObjectByType<UpgradeUi>();
+        }
+        if (upgradeUi != null && upgradeBuilding != null)
+        {
+            upgradeUi.Initialize(upgradeBuilding);
+        }
     }
-    void ApplyAbilities()
+
+    private void ApplyAbilities()
     {
-        // Get the current contributions based on the level
         currentBedContribution = GetBedValueBasedOnLevel();
         currentDiscontentContribution = GetDiscontentValueBasedOnLevel();
 
-        // Apply contributions
-        globalstat.AddBedsFromBuilding(currentBedContribution);
-        globalstat.DecreaseDiscontent(currentDiscontentContribution);
+        if (globalstat != null)
+        {
+            globalstat.AddBedsFromBuilding(currentBedContribution);
+            globalstat.DecreaseDiscontent(currentDiscontentContribution);
+        }
 
-        Debug.Log($"Applied abilities for Level {upgradeBuilding.currentLevel}");
+        int level = upgradeBuilding != null ? upgradeBuilding.currentLevel : 1;
+        Debug.Log($"Applied abilities for Level {level}");
     }
 
-    void UpgradeAbilities()
+    private void UpgradeAbilities()
     {
-        // Calculate and replace old contributions with new ones
         int newBedContribution = GetBedValueBasedOnLevel();
         float newDiscontentContribution = GetDiscontentValueBasedOnLevel();
 
-        globalstat.UpdateBuildingBedContribution(currentBedContribution, newBedContribution);
-        globalstat.UpdateDiscontentContribution(currentDiscontentContribution, newDiscontentContribution);
+        if (globalstat != null)
+        {
+            globalstat.UpdateBuildingBedContribution(currentBedContribution, newBedContribution);
+            globalstat.UpdateDiscontentContribution(currentDiscontentContribution, newDiscontentContribution);
+        }
 
         currentBedContribution = newBedContribution;
         currentDiscontentContribution = newDiscontentContribution;
 
-        Debug.Log($"Upgraded to Level {upgradeBuilding.currentLevel}");
+        int level = upgradeBuilding != null ? upgradeBuilding.currentLevel : 1;
+        Debug.Log($"Upgraded to Level {level}");
     }
 
     public int GetBedValueBasedOnLevel(int level = -1)
     {
-        int targetLevel = (level == -1) ? upgradeBuilding.currentLevel : level;
+        int targetLevel = (level == -1 && upgradeBuilding != null) ? upgradeBuilding.currentLevel : (level == -1 ? 1 : level);
         switch (targetLevel)
         {
-            case 2: return 3; // Level 2
-            case 3: return 5; // Level 3
-            default: return 1; // Level 1
+            case 2: return 3;
+            case 3: return 5;
+            default: return 1;
         }
     }
 
     public float GetDiscontentValueBasedOnLevel(int level = -1)
     {
-        int targetLevel = (level == -1) ? upgradeBuilding.currentLevel : level;
+        int targetLevel = (level == -1 && upgradeBuilding != null) ? upgradeBuilding.currentLevel : (level == -1 ? 1 : level);
         switch (targetLevel)
         {
-            case 2: return 25f; // Level 2
-            case 3: return 35f; // Level 3
-            default: return 15f; // Level 1
+            case 2: return 25f;
+            case 3: return 35f;
+            default: return 15f;
         }
     }
-
 }
-
-
-
-
-

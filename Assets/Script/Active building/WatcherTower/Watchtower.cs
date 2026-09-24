@@ -12,58 +12,58 @@ public class Watchtower : MonoBehaviour
     public UpgradeBuilding upgradeBuilding;
     public Globalstat globalstat;
     
-    private float currentRiskContribution = 0; // Track the bed contribution for this building
+    private float currentRiskContribution = 0;
     private float currentNpcchange = 0;
-    private bool isApplied = false;         // Ensure we apply once per stage
+    private bool isApplied = false;
 
-    void Start()
+    private void Start()
     {
-        timeManager = FindObjectOfType<TimeManager>();
-        globalstat = FindObjectOfType<Globalstat>();
-        buildManager = FindObjectOfType<BuildManager>();
-        building = FindObjectOfType<Building>();
+        timeManager = GameManager.Instance != null ? GameManager.Instance.timeManager : FindFirstObjectByType<TimeManager>();
+        globalstat = GameManager.Instance != null ? GameManager.Instance.globalstat : FindFirstObjectByType<Globalstat>();
+        buildManager = GameManager.Instance != null ? GameManager.Instance.buildManager : FindFirstObjectByType<BuildManager>();
+
+        // Always get components directly from this GameObject
+        building = GetComponent<Building>();
         upgradeBuilding = GetComponent<UpgradeBuilding>();
 
-        dateTime = timeManager.dateTime;
-        currentDay = dateTime.day;
+        if (timeManager != null)
+        {
+            dateTime = timeManager.dateTime;
+            if (dateTime != null) currentDay = dateTime.day;
+        }
+
         isApplied = false;
     }
 
-    void Update()
+    private void Update()
     {
-        if (!isApplied && building.isfinsih)
+        if (!isApplied && building != null && building.isfinsih)
         {
-            ApplyRiskContribution(); // Apply initial bed contribution
+            ApplyRiskContribution();
         }
     }
 
-    void ApplyRiskContribution()
+    private void ApplyRiskContribution()
     {
         currentRiskContribution = GetRiskValueBasedOnLevel();
         currentNpcchange = GetNpcchangeValueBasedOnLevel();
-        globalstat.DecreaseRiskofExipidition(currentRiskContribution);
-        globalstat.IncreaseNpcchange(currentNpcchange);
-        isApplied = true; // Ensure this runs only once after the building finishes
+
+        if (globalstat != null)
+        {
+            globalstat.DecreaseRiskofExipidition(currentRiskContribution);
+            globalstat.IncreaseNpcchange(currentNpcchange);
+        }
+
+        isApplied = true;
     }
 
-    // void UpgradeBeaconContribution()
-    // {
-    //     float NewriskContribution = GetRiskValueBasedOnLevel();
-    //     float NewNpcchangevalue = GetNpcchangeValueBasedOnLevel();
-    //     // Replace the old contribution with the new one
-    //     globalstat.UpdateRiskofExipiditionContribution(currentRiskContribution, NewriskContribution);
-    //     globalstat.UpdateNpcchangeContribution(currentNpcchange, NewNpcchangevalue);
-    //     currentRiskContribution = NewriskContribution; // Store the new contribution
-    //     currentNpcchange = NewNpcchangevalue;
-    // }
-
-    float GetRiskValueBasedOnLevel()
+    private float GetRiskValueBasedOnLevel()
     {
-        return 40; // Default to 0 if no upgrade building is found
+        return 40f;
     }
 
-    float GetNpcchangeValueBasedOnLevel()
+    private float GetNpcchangeValueBasedOnLevel()
     {
-        return 7; // Default to 0 if no upgrade building is found
+        return 7f;
     }
 }

@@ -14,70 +14,102 @@ public class MediumBed : MonoBehaviour
     public UImanger uImanger;
     public UpgradeUi upgradeUi;
     
-    
-    public int currentBedContribution = 0; // Track the bed contribution for this building
-    private bool isApplied = false;         // Ensure we apply once per stage
+    public int currentBedContribution = 0;
+    private bool isApplied = false;
+    private int previousLevel = 1;
 
-    void Start()
+    private void Start()
     {
-        timeManager = FindObjectOfType<TimeManager>();
-        globalstat = FindObjectOfType<Globalstat>();
-        buildManager = FindObjectOfType<BuildManager>();
-        building = FindObjectOfType<Building>();
-        upgradeBuilding = GetComponent<UpgradeBuilding>();
-        uImanger = FindObjectOfType<UImanger>();
+        timeManager = GameManager.Instance != null ? GameManager.Instance.timeManager : FindFirstObjectByType<TimeManager>();
+        globalstat = GameManager.Instance != null ? GameManager.Instance.globalstat : FindFirstObjectByType<Globalstat>();
+        buildManager = GameManager.Instance != null ? GameManager.Instance.buildManager : FindFirstObjectByType<BuildManager>();
+        uImanger = FindFirstObjectByType<UImanger>();
 
-        dateTime = timeManager.dateTime;
-        currentDay = dateTime.day;
+        // Always get components directly from this GameObject to prevent cross-talk
+        building = GetComponent<Building>();
+        upgradeBuilding = GetComponent<UpgradeBuilding>();
+
+        if (timeManager != null)
+        {
+            dateTime = timeManager.dateTime;
+            if (dateTime != null) currentDay = dateTime.day;
+        }
+
+        if (upgradeBuilding != null)
+        {
+            previousLevel = upgradeBuilding.currentLevel;
+        }
+
         isApplied = false;
     }
 
-    void Update()
+    private void Update()
     {
-        if (!isApplied && building.isfinsih)
+        if (building != null && building.isfinsih)
         {
-            ApplyBedContribution(); // Apply initial bed contribution
-        }
-
-        if (upgradeBuilding.currentLevel == upgradeBuilding.maxLevel) 
-        {
-            UpgradeBedContribution(); // Handle upgrade contribution
-        }
-    }
-
-    void ApplyBedContribution()
-    {
-        currentBedContribution = GetBedValueBasedOnLevel();
-        globalstat.AddBedsFromBuilding(currentBedContribution);
-        isApplied = true; // Ensure this runs only once after the building finishes
-    }
-    void OnMouseDown()
-    {
-        if (building.isfinsih && !upgradeBuilding.isUpgradBuilding)
-        {
-            uImanger.ToggleUIPanel(UImanger.UIPanel.MediumBedUI);
-            if (upgradeBuilding.currentLevel == upgradeBuilding.maxLevel)
+            if (!isApplied)
             {
-                uImanger.DisableUIPanel(UImanger.UIPanel.MediumBedUpgradeUI);
+                ApplyBedContribution();
+                if (upgradeBuilding != null) previousLevel = upgradeBuilding.currentLevel;
+            }
+            else if (upgradeBuilding != null && upgradeBuilding.currentLevel != previousLevel)
+            {
+                UpgradeBedContribution();
+                previousLevel = upgradeBuilding.currentLevel;
             }
         }
     }
+
+    private void ApplyBedContribution()
+    {
+        currentBedContribution = GetBedValueBasedOnLevel();
+        if (globalstat != null)
+        {
+            globalstat.AddBedsFromBuilding(currentBedContribution);
+        }
+        isApplied = true;
+    }
+
+    private void OnMouseDown()
+    {
+        if (building != null && building.isfinsih && upgradeBuilding != null && !upgradeBuilding.isUpgradBuilding)
+        {
+            if (uImanger != null)
+            {
+                uImanger.ToggleUIPanel(UImanger.UIPanel.MediumBedUI);
+                if (upgradeBuilding.currentLevel >= upgradeBuilding.maxLevel)
+                {
+                    uImanger.DisableUIPanel(UImanger.UIPanel.MediumBedUpgradeUI);
+                }
+            }
+        }
+    }
+
     public void AssignUpgradeData()
     {
-        upgradeUi = FindObjectOfType<UpgradeUi>();
-        upgradeUi.Initialize(upgradeBuilding);
+        if (upgradeUi == null)
+        {
+            upgradeUi = FindFirstObjectByType<UpgradeUi>();
+        }
+        if (upgradeUi != null && upgradeBuilding != null)
+        {
+            upgradeUi.Initialize(upgradeBuilding);
+        }
     }
-    void UpgradeBedContribution()
+
+    private void UpgradeBedContribution()
     {
         int newBedContribution = GetBedValueBasedOnLevel();
 
-        // Replace the old contribution with the new one
-        globalstat.UpdateBuildingBedContribution(currentBedContribution, newBedContribution);
+        if (globalstat != null)
+        {
+            globalstat.UpdateBuildingBedContribution(currentBedContribution, newBedContribution);
+        }
 
-        currentBedContribution = newBedContribution; // Store the new contribution
+        currentBedContribution = newBedContribution;
     }
 
-    int GetBedValueBasedOnLevel()
+    public int GetBedValueBasedOnLevel()
     {
         if (upgradeBuilding != null)
         {
@@ -89,6 +121,6 @@ public class MediumBed : MonoBehaviour
                     return 4; // Level 1 contribution
             }
         }
-        return 0; // Default to 0 if no upgrade building is found
+        return 4;
     }
 }

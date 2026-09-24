@@ -13,66 +13,98 @@ public class Solar : MonoBehaviour
     public UpgradeUi upgradeUi;
     public int currentday;
     public int steelCost;
-    void Start()
+
+    private void Start()
     {
-        uImanger = FindObjectOfType<UImanger>();
-        timeManager = FindObjectOfType<TimeManager>();
-        buildManager = FindObjectOfType<BuildManager>();
-        upgradeBuilding = FindObjectOfType<UpgradeBuilding>();
+        uImanger = FindFirstObjectByType<UImanger>();
+        timeManager = GameManager.Instance != null ? GameManager.Instance.timeManager : FindFirstObjectByType<TimeManager>();
+        buildManager = GameManager.Instance != null ? GameManager.Instance.buildManager : FindFirstObjectByType<BuildManager>();
+
+        // Always get components on this GameObject to prevent cross-talk
         building = GetComponent<Building>();
-        dateTime = timeManager.dateTime;
-        currentday = dateTime.day;
-    }
-    void Update()
-    {
-        if(currentday != dateTime.day)
+        upgradeBuilding = GetComponent<UpgradeBuilding>();
+
+        if (timeManager != null)
         {
-            if(upgradeBuilding.currentLevel == 1)
+            dateTime = timeManager.dateTime;
+            if (dateTime != null) currentday = dateTime.day;
+        }
+    }
+
+    private void Update()
+    {
+        if (dateTime == null && timeManager != null)
+        {
+            dateTime = timeManager.dateTime;
+        }
+
+        if (dateTime != null && currentday != dateTime.day)
+        {
+            if (upgradeBuilding != null && buildManager != null)
             {
-                if(buildManager.steel >= steelCost)
+                if (upgradeBuilding.currentLevel == 1)
                 {
-                    buildManager.steel -= steelCost;
+                    if (buildManager.steel >= steelCost)
+                    {
+                        buildManager.steel -= steelCost;
+                        ActiveElecticities();
+                    }
+                    else
+                    {
+                        DeactiveElecticities();
+                    }
+                }
+                else if (upgradeBuilding.currentLevel >= upgradeBuilding.maxLevel)
+                {
                     ActiveElecticities();
                 }
-                else if(buildManager.steel < steelCost)
-                {
-                    DeactiveElecticities();
-                }
             }
-            else if(upgradeBuilding.currentLevel == upgradeBuilding.maxLevel)
-            {
-                ActiveElecticities();
-            }
+
             currentday = dateTime.day;  
         }
     }
-    void OnMouseDown()
+
+    private void OnMouseDown()
     {
-        if (building.isfinsih && !upgradeBuilding.isUpgradBuilding)
+        if (building != null && building.isfinsih && upgradeBuilding != null && !upgradeBuilding.isUpgradBuilding)
         {
-            uImanger.ToggleUIPanel(UImanger.UIPanel.SolarUI);
-            
-            if (upgradeBuilding.currentLevel == upgradeBuilding.maxLevel)
+            if (uImanger != null)
             {
-                steelCost = 0;
-                uImanger.DisableUIPanel(UImanger.UIPanel.SolarUpgradeUI);
+                uImanger.ToggleUIPanel(UImanger.UIPanel.SolarUI);
+                if (upgradeBuilding.currentLevel >= upgradeBuilding.maxLevel)
+                {
+                    steelCost = 0;
+                    uImanger.DisableUIPanel(UImanger.UIPanel.SolarUpgradeUI);
+                }
             }
         }
     }
+
     public void AssignUpgradeData()
     {
-        upgradeUi = FindObjectOfType<UpgradeUi>();
-        upgradeUi.Initialize(upgradeBuilding);
+        if (upgradeUi == null)
+        {
+            upgradeUi = FindFirstObjectByType<UpgradeUi>();
+        }
+        if (upgradeUi != null && upgradeBuilding != null)
+        {
+            upgradeUi.Initialize(upgradeBuilding);
+        }
     }
-    void ActiveElecticities()
+
+    private void ActiveElecticities()
     {
-        if(building.isfinsih)
+        if (building != null && building.isfinsih && buildManager != null)
         {
             buildManager.iselecticitiesactive = true;
         }
     }
-    void DeactiveElecticities()
+
+    private void DeactiveElecticities()
     {
-        buildManager.iselecticitiesactive = false;
+        if (buildManager != null)
+        {
+            buildManager.iselecticitiesactive = false;
+        }
     }
 }
